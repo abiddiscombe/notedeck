@@ -6,6 +6,7 @@ export const noteService = {
     create: _create,
     modify: _modify,
     delete: _delete,
+    deleteAll: _deleteAll,
     getTopZIndex: _getTopZIndex,
 };
 
@@ -46,4 +47,12 @@ async function _modify(noteId: IndexableType, content: NoteModifyableFields) {
 
 async function _delete(noteId: IndexableType) {
     await database.table(TABLE_NAME).where("id").equals(noteId).delete();
+}
+
+async function _deleteAll(deletePriorityNotes: boolean) {
+    const notes = await database.table(TABLE_NAME).toArray();
+    notes.forEach(async (note) => {
+        if (!deletePriorityNotes && note.isPriority) return;
+        await database.table(TABLE_NAME).where("id").equals(note.id).delete();
+    });
 }

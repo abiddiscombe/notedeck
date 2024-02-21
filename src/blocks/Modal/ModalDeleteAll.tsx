@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { Modal } from "../../components/Modal";
 import { Button } from "../../components/Button";
+import { Checkbox } from "../../components/Checkbox";
 import { Typography } from "../../components/Typography";
 import { noteService } from "../../database/noteService";
 
@@ -9,11 +11,16 @@ type ModalDeleteAllProps = {
 };
 
 export function ModalDeleteAll(p: ModalDeleteAllProps) {
+    const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);
+
+    // Revert the "Retain Priority Notes" checkbox to
+    // "checked" when the modal is re-opened.
+    useEffect(() => {
+        p.isOpen && setRetainPriorityNotes(true)
+    }, [p.isOpen]);
+
     async function handleDeleteEverything() {
-        const noteList = await noteService.list();
-        noteList.forEach((note) => {
-            noteService.delete(note.id);
-        });
+        await noteService.deleteAll(!retainPriorityNotes);
         p.setIsOpen(false);
     }
 
@@ -31,6 +38,17 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
                 You won't be able to recover notes after they have been deleted
                 from your device.
             </Typography>
+            <div className="mt-6">
+                <Checkbox
+                    state={retainPriorityNotes}
+                    setState={setRetainPriorityNotes}
+                    label={
+                        <Typography variant="bodyNoMargin">
+                            Retain notes marked as priority?
+                        </Typography>
+                    }
+                />
+            </div>
             <div className="mt-8 flex items-center gap-4">
                 <Button
                     variant="destructive"

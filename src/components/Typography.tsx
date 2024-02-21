@@ -1,5 +1,5 @@
 type TypographyProps = {
-    variant: "h1" | "h2" | "body" | "small";
+    variant: "h1" | "h2" | "body" | "bodyNoMargin" | "small";
     children: React.ReactNode;
 };
 
@@ -20,6 +20,8 @@ export function Typography(p: TypographyProps) {
             );
         case "body":
             return <p className="leading-2 mb-2 text-gray-600">{p.children}</p>;
+        case "bodyNoMargin":
+            return <p className="leading-2 text-gray-600">{p.children}</p>;
         case "small":
             return (
                 <small className="mb-2 text-sm text-gray-600">
