@@ -16,7 +16,7 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
     // Revert the "Retain Priority Notes" checkbox to
     // "checked" when the modal is re-opened.
     useEffect(() => {
-        p.isOpen && setRetainPriorityNotes(true)
+        p.isOpen && setRetainPriorityNotes(true);
     }, [p.isOpen]);
 
     async function handleDeleteEverything() {

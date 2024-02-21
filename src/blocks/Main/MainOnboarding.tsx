@@ -17,9 +17,8 @@ export function MainOnboarding() {
                 <div className="max-w-sm">
                     <Typography variant="h2">Welcome to {appName}!</Typography>
                     <Typography variant="body">
-                        Thank you for trying {appName}, a virtual sticky notes
-                        board for tracking your thoughts locally in your web
-                        browser.
+                        Thanks for trying {appName}, a sticky notes board for
+                        tracking your thoughts locally in your web browser.
                     </Typography>
                     <div className="mt-8 flex items-center gap-4">
                         <HeaderAddNote />
