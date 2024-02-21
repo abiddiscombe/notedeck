@@ -99,7 +99,7 @@ export function Note(p: NoteProps) {
                                 content: textareaRef.current?.value,
                             })
                         }
-                        placeholder="Click here to start editing this note."
+                        placeholder="Click here to edit this note."
                         defaultValue={p.noteData.content}
                         className={clsx(
                             "grow resize-none rounded-b bg-white/0 p-2",

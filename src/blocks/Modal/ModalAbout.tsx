@@ -1,4 +1,4 @@
-import { appName } from "../../utilities/constants";
+import { appName, appSource } from "../../utilities/constants";
 import { Modal } from "../../components/Modal";
 import { Notice } from "../../components/Notice";
 import { Button } from "../../components/Button";
@@ -32,15 +32,15 @@ export function ModalAbout(p: ModalAboutProps) {
                 storage, and does not require a user account.
             </Typography>
             <Typography variant="body">
-                Because your user data is persisted locally to your device (and
-                not synced to the cloud) you must take care to avoid clearing
-                your browser's site settings for {appName}.
+                Because user data is persisted locally on your device (and not
+                synced to the cloud) you must take care to avoid clearing your
+                browser's site settings for {appName}.
             </Typography>
             <Notice>
                 <Typography variant="body">
-                    Backup and restore functionality is planned for future
-                    development and will permit users to download an archive of
-                    their notes at regular intervals.
+                    "Backup & Restore" functionality is planned as part of
+                    future development. This will permit users to download an
+                    archived version of their notes at regular intervals.
                 </Typography>
             </Notice>
             <Typography variant="small">
@@ -48,11 +48,14 @@ export function ModalAbout(p: ModalAboutProps) {
                 <ExternalLink href="https://github.com/abiddiscombe">
                     Archie Biddiscombe
                 </ExternalLink>{" "}
-                2024 | MIT Licensed
+                2024 -{" "}
+                <ExternalLink href={`${appSource}?tab=MIT-1-ov-file`}>
+                    MIT License
+                </ExternalLink>
             </Typography>
             <div className="mt-8 flex items-center justify-between gap-4">
                 <Button variant="filled" onClick={() => p.setIsOpen(false)}>
-                    Dismiss
+                    Close
                 </Button>
                 <VersionTag />
             </div>

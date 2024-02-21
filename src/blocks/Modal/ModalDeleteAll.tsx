@@ -19,17 +19,17 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
 
     return (
         <Modal
-            title={<Typography variant="h2">Confirm Note Deletion</Typography>}
+            title={<Typography variant="h2">Confirm Notes Deletion</Typography>}
             isOpen={p.isOpen}
             setIsOpen={p.setIsOpen}
         >
             <Typography variant="body">
-                Are you sure you wish to delete <strong>all</strong> saved
-                notes?
+                Are you sure you want to delete{" "}
+                <strong>all stored notes</strong>?
             </Typography>
             <Typography variant="body">
-                You won't be able to recover your notes after they have been
-                deleted from your device.
+                You won't be able to recover notes after they have been deleted
+                from your device.
             </Typography>
             <div className="mt-8 flex items-center gap-4">
                 <Button
