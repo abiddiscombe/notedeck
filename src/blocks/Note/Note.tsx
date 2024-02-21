@@ -94,10 +94,7 @@ export function Note(p: NoteProps) {
                     onMouseDown={() => handleBringForwards()}
                     className={clsx("flex p-1")}
                 >
-                    <label
-                        className="hidden"
-                        htmlFor={textareaId}
-                    >
+                    <label className="hidden" htmlFor={textareaId}>
                         Note Content
                     </label>
                     <textarea
