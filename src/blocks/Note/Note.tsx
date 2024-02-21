@@ -13,6 +13,7 @@ type NoteProps = {
 
 export function Note(p: NoteProps) {
     const id = useId();
+    const textareaId = useId();
     const nodeRef = useRef<HTMLElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [deltaPos, setDeltaPos] = useState({
@@ -93,8 +94,15 @@ export function Note(p: NoteProps) {
                     onMouseDown={() => handleBringForwards()}
                     className={clsx("flex p-1")}
                 >
+                    <label
+                        className="hidden"
+                        htmlFor={textareaId}
+                    >
+                        Note Content
+                    </label>
                     <textarea
-                        rows={8}
+                        id={textareaId}
+                        rows={p.noteData.isMonospace ? 10 : 8}
                         ref={textareaRef}
                         onChange={() =>
                             handleNoteModify({
