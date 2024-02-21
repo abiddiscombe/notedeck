@@ -72,7 +72,9 @@ export function Note(p: NoteProps) {
                 className={clsx(
                     "absolute w-[26rem] overflow-hidden rounded shadow-sm hover:shadow",
                     theme.note,
-                    !p.noteData.content && "[&:not(:hover)]:animate-pulse",
+                    !p.noteData.content &&
+                        !p.noteData.isPriority &&
+                        "[&:not(:hover)]:animate-pulse",
                 )}
                 style={{ zIndex: `${p.noteData.positionZ}` }}
             >
