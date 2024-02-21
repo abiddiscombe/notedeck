@@ -82,7 +82,10 @@ export function Note(p: NoteProps) {
                         className="handle | grow cursor-grab px-2"
                     />
                     {p.noteData.isPriority && <NotePriority />}
-                    <NoteMenu noteData={p.noteData} />
+                    <NoteMenu
+                        handleBringForwards={handleBringForwards}
+                        noteData={p.noteData}
+                    />
                 </div>
                 <section
                     onMouseDown={() => handleBringForwards()}

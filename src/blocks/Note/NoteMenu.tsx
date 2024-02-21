@@ -15,6 +15,7 @@ import {
 
 type NoteMenuProps = {
     noteData: NoteItem;
+    handleBringForwards: VoidFunction;
 };
 
 export function NoteMenu(p: NoteMenuProps) {
@@ -42,7 +43,10 @@ export function NoteMenu(p: NoteMenuProps) {
 
     return (
         <Menu as="div" className="relative inline-block text-left">
-            <Menu.Button className="px-4 py-2.5 hover:bg-gray-600/20 active:bg-gray-600/40">
+            <Menu.Button
+                onClick={p.handleBringForwards}
+                className="px-4 py-2.5 hover:bg-gray-600/20 active:bg-gray-600/40"
+            >
                 <EllipsisHorizontalIcon className="h-4" />
             </Menu.Button>
             <Transition
