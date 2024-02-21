@@ -60,7 +60,10 @@ export function HeaderMenu(p: HeaderMenuProps) {
                 setIsOpen={setShowDeleteModal}
             />
             <Menu as="div" className="relative inline-block">
-                <Menu.Button className="rounded border border-white px-3 py-2 hover:border-gray-200 hover:bg-gray-100 active:border-gray-300 active:bg-gray-200">
+                <Menu.Button
+                    aria-label="Menu"
+                    className="rounded border border-white px-3 py-2 hover:border-gray-200 hover:bg-gray-100 active:border-gray-300 active:bg-gray-200"
+                >
                     <Bars3Icon className="h-4" />
                 </Menu.Button>
                 <Transition

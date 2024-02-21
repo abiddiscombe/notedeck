@@ -44,6 +44,7 @@ export function NoteMenu(p: NoteMenuProps) {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <Menu.Button
+                aria-label="Menu"
                 onClick={p.handleBringForwards}
                 className="px-4 py-2.5 hover:bg-gray-600/20 active:bg-gray-600/40"
             >
