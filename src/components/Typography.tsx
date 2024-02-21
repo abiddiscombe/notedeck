@@ -8,7 +8,7 @@ export function Typography(p: TypographyProps) {
         case "h1":
             // Reserved for logo.
             return (
-                <h1 className="select-none font-semibold tracking-wide text-gray-800">
+                <h1 className="select-none px-2 font-semibold tracking-tight text-gray-800">
                     {p.children}
                 </h1>
             );
