@@ -1,7 +1,7 @@
 {
     "name": "NoteDeck",
-    "short_name": "NoteDeck",
     "start_url": "/",
+    "short_name": "NoteDeck",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -12,9 +12,15 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "/favicon-masked.png",
+            "sizes": "any",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
+    "display": "minimal-ui",
     "theme_color": "#ffffff",
-    "background_color": "#f9fafb",
-    "display": "minimal-ui"
+    "background_color": "#f9fafb"
 }
