@@ -1,9 +1,11 @@
+import { isMobile } from "react-device-detect";
+import { Mobile } from "./blocks/Mobile/Mobile";
 import { Header } from "./blocks/Header/Header";
 import { Main } from "./blocks/Main/Main";
-import { Mobile } from "./blocks/Mobile/Mobile";
 
-export default function App() {
-    const isMobile = window.innerWidth < 600;
+export function App() {
+    // We must hide the application UI
+    // for mobile device users.
 
     if (isMobile) {
         return <Mobile />;
