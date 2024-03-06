@@ -18,15 +18,17 @@ async function _list() {
 }
 
 async function _getTopZIndex() {
-    const result = await database.table(TABLE_NAME).orderBy("positionZ").last();
-    return result?.positionZ || 0;
+    const result = await database.table(TABLE_NAME).orderBy("posZ").last();
+    return result?.posZ || 0;
 }
 
 type createArgs = {
     theme?: string;
     content?: string;
-    positionX?: number;
-    positionY?: number;
+    posX?: number;
+    posY?: number;
+    posH?: number;
+    posW?: number;
     isPriority?: boolean;
     isMonospace?: boolean;
 };
@@ -35,9 +37,11 @@ async function _create(args: createArgs) {
     const lastIndex = await _getTopZIndex();
     await database.table(TABLE_NAME).add({
         ...args,
-        positionX: args.positionX || 10,
-        positionY: args.positionY || 10,
-        positionZ: lastIndex + 1,
+        posX: args.posX || 10,
+        posY: args.posY || 10,
+        posH: args.posH || 200,
+        posW: args.posW || 400,
+        posZ: lastIndex + 1,
     });
 }
 

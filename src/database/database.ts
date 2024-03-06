@@ -1,22 +1,26 @@
 import Dexie, { IndexableType, Table } from "dexie";
 
 export type NoteModifyableFields = {
+    posX?: number;
+    posY?: number;
+    posZ?: number;
+    posH?: number;
+    posW?: number;
     theme?: string;
     content?: string;
     isPriority?: boolean;
     isMonospace?: boolean;
-    positionX?: number;
-    positionY?: number;
-    positionZ?: number;
 };
 
 export type NoteItem = {
     id: IndexableType;
+    posX: number;
+    posY: number;
+    posZ: number;
+    posH: number;
+    posW: number;
     theme: string;
     content: string;
-    positionX: number;
-    positionY: number;
-    positionZ: number;
     isPriority: boolean;
     isMonospace: boolean;
 };
@@ -27,9 +31,27 @@ export class MySubClassedDexie extends Dexie {
     constructor() {
         super("notedeck-db");
         this.version(1).stores({
-            // Primary key and indexed props
             notes: "++id, theme, content, positionX, positionY, positionZ, isPriority, isMonospace",
         });
+        this.version(2)
+            .stores({
+                notes: "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
+            })
+            .upgrade((transaction) => {
+                return transaction
+                    .table("notes")
+                    .toCollection()
+                    .modify((note) => {
+                        note.posX = note.positionX;
+                        note.posY = note.positionY;
+                        note.posZ = note.positionZ;
+                        note.posH = 200;
+                        note.posW = 400;
+                        delete note.positionX;
+                        delete note.positionY;
+                        delete note.positionZ;
+                    });
+            });
     }
 }
 
