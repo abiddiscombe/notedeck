@@ -83,7 +83,7 @@ export function NoteMenu(p: NoteMenuProps) {
             <Menu.Button
                 aria-label="Menu"
                 onClick={p.handleBringForwards}
-                className="px-4 py-2.5 hover:bg-gray-600/20 active:bg-gray-600/40 aria-expanded:bg-gray-600/20"
+                className="rounded-tr px-4 py-2.5 hover:bg-gray-600/20 active:bg-gray-600/40 aria-expanded:bg-gray-600/20"
             >
                 <EllipsisHorizontalIcon className="h-4" />
             </Menu.Button>
@@ -112,7 +112,7 @@ export function NoteMenu(p: NoteMenuProps) {
                                 />
                             ))}
                         </Menu.Item>
-                        <hr className="mb-1 border-gray-200"/>
+                        <hr className="mb-1 border-gray-200" />
                         {menuOptions.map((menuOption) => (
                             <Menu.Item key={menuOption.label}>
                                 <MenuButton
