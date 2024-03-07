@@ -32,6 +32,8 @@ export function NoteMenu(p: NoteMenuProps) {
 
     function handleNoteDuplicate() {
         noteService.create({
+            posW: p.noteData.posW,
+            posH: p.noteData.posH,
             theme: p.noteData.theme,
             content: p.noteData.content,
             isPriority: p.noteData.isPriority,
