@@ -27,7 +27,7 @@ export function Note(p: NoteProps) {
 
     useEffect(() => {
         noteService.modify(p.noteData.id, notePosition);
-    }, [notePosition]);
+    }, [notePosition, p.noteData.id]);
 
     function handleDragEvent(_: DraggableEvent, data: DraggableData) {
         setNotePosition((prevState) => ({
