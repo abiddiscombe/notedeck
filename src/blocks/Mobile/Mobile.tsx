@@ -1,7 +1,7 @@
+import { appInfo } from "../../utilities/constants";
 import { Logo } from "../../components/Logo";
 import { Typography } from "../../components/Typography";
 import { ExternalLink } from "../../components/ExternalLink";
-import { appName, appSource } from "../../utilities/constants";
 
 export function Mobile() {
     return (
@@ -15,10 +15,10 @@ export function Mobile() {
                         Sorry, mobile devices are not supported :/
                     </Typography>
                     <Typography variant="body">
-                        To explore {appName}, open this page on your desktop or
-                        laptop. More information about {appName} is available in
-                        the{" "}
-                        <ExternalLink href={appSource}>
+                        To explore {appInfo.name}, open this page on your
+                        desktop or laptop. More information about {appInfo.name}{" "}
+                        is available in the{" "}
+                        <ExternalLink href={appInfo.source}>
                             project documentation
                         </ExternalLink>{" "}
                         on GitHub.

@@ -1,10 +1,10 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { noteService } from "../../database/noteService";
+import { serviceNote } from "../../database/serviceNote";
 import { MainOnboarding } from "./MainOnboarding";
 import { Note } from "../Note/Note";
 
 export function Main() {
-    const notes = useLiveQuery(() => noteService.list());
+    const notes = useLiveQuery(() => serviceNote.list());
 
     if (notes && !notes.length) {
         return <MainOnboarding />;

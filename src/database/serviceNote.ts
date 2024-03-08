@@ -1,7 +1,7 @@
+import { db, TABLE_NOTES } from "./db";
 import { IndexableType } from "dexie";
-import { NoteModifyableFields, database } from "./database";
 
-export const noteService = {
+export const serviceNote = {
     list: _list,
     create: _create,
     modify: _modify,
@@ -10,15 +10,12 @@ export const noteService = {
     getTopZIndex: _getTopZIndex,
 };
 
-const TABLE_NAME = "notes";
-
 async function _list() {
-    const results = await database.table(TABLE_NAME).toArray();
-    return results;
+    return await db.table(TABLE_NOTES).toArray();
 }
 
 async function _getTopZIndex() {
-    const result = await database.table(TABLE_NAME).orderBy("posZ").last();
+    const result = await db.table(TABLE_NOTES).orderBy("posZ").last();
     return result?.posZ || 0;
 }
 
@@ -35,7 +32,7 @@ type createArgs = {
 
 async function _create(args: createArgs) {
     const lastIndex = await _getTopZIndex();
-    await database.table(TABLE_NAME).add({
+    await db.table(TABLE_NOTES).add({
         ...args,
         posX: args.posX || 10,
         posY: args.posY || 10,
@@ -45,18 +42,30 @@ async function _create(args: createArgs) {
     });
 }
 
+export type NoteModifyableFields = {
+    posX?: number;
+    posY?: number;
+    posZ?: number;
+    posH?: number;
+    posW?: number;
+    theme?: string;
+    content?: string;
+    isPriority?: boolean;
+    isMonospace?: boolean;
+};
+
 async function _modify(noteId: IndexableType, content: NoteModifyableFields) {
-    await database.table(TABLE_NAME).update(noteId, content);
+    await db.table(TABLE_NOTES).update(noteId, content);
 }
 
 async function _delete(noteId: IndexableType) {
-    await database.table(TABLE_NAME).where("id").equals(noteId).delete();
+    await db.table(TABLE_NOTES).where("id").equals(noteId).delete();
 }
 
 async function _deleteAll(deletePriorityNotes: boolean) {
-    const notes = await database.table(TABLE_NAME).toArray();
+    const notes = await db.table(TABLE_NOTES).toArray();
     notes.forEach(async (note) => {
         if (!deletePriorityNotes && note.isPriority) return;
-        await database.table(TABLE_NAME).where("id").equals(note.id).delete();
+        await db.table(TABLE_NOTES).where("id").equals(note.id).delete();
     });
 }

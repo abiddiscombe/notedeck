@@ -1,10 +1,10 @@
 import { Button } from "../../components/Button";
 import { PlusIcon } from "@heroicons/react/16/solid";
-import { noteService } from "../../database/noteService";
+import { serviceNote } from "../../database/serviceNote";
 
 export function HeaderAddNote() {
     function handleCreateNote() {
-        noteService.create({
+        serviceNote.create({
             theme: "yellow",
             content: "",
             isPriority: false,
