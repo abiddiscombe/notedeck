@@ -1,4 +1,4 @@
-import { appName, appSource } from "../../utilities/constants";
+import { appInfo } from "../../utilities/constants";
 import { Modal } from "../../components/Modal";
 import { Notice } from "../../components/Notice";
 import { Button } from "../../components/Button";
@@ -14,14 +14,14 @@ type ModalAboutProps = {
 export function ModalAbout(p: ModalAboutProps) {
     return (
         <Modal
-            title={<Typography variant="h2">About {appName}</Typography>}
+            title={<Typography variant="h2">About {appInfo.name}</Typography>}
             isOpen={p.isOpen}
             setIsOpen={p.setIsOpen}
         >
             <Typography variant="body">
-                {appName} is a browser app for tracking your thoughts on virtual
-                sticky notes, it's great for jotting down quick notes, tasks, or
-                code snippets.
+                {appInfo.name} is a browser app for tracking your thoughts on
+                virtual sticky notes, it's great for jotting down quick notes,
+                tasks, or code snippets.
             </Typography>
             <Typography variant="body">
                 It uses{" "}
@@ -34,7 +34,7 @@ export function ModalAbout(p: ModalAboutProps) {
             <Typography variant="body">
                 Because user data is persisted locally on your device (and not
                 synced to the cloud) you must take care to avoid clearing your
-                browser's site settings for {appName}.
+                browser's site settings for {appInfo.name}.
             </Typography>
             <Notice>
                 <Typography variant="body">
@@ -49,7 +49,7 @@ export function ModalAbout(p: ModalAboutProps) {
                     Archie Biddiscombe
                 </ExternalLink>{" "}
                 2024 -{" "}
-                <ExternalLink href={`${appSource}?tab=MIT-1-ov-file`}>
+                <ExternalLink href={`${appInfo.source}?tab=MIT-1-ov-file`}>
                     MIT License
                 </ExternalLink>
             </Typography>

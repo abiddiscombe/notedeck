@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { appName } from "../utilities/constants";
+import { appInfo } from "../utilities/constants";
 
 type LogoProps = {
     large?: boolean;
@@ -17,7 +17,7 @@ export function Logo(p: LogoProps) {
                 p.large ? "text-2xl font-light" : "font-semibold",
             )}
         >
-            {appName}
+            {appInfo.name}
         </h1>
     );
 }

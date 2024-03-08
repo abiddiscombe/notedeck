@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { noteService } from "../../database/noteService";
+import { serviceNote, NoteModifyableFields } from "../../database/serviceNote";
 import { MenuButton } from "../../components/MenuButton";
-import { NoteItem, NoteModifyableFields } from "../../database/database";
+import { NoteItem } from "../../database/db";
 import { noteThemes } from "../../utilities/noteThemes";
 import { NoteMenuTheme } from "./NoteMenuTheme";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
@@ -20,18 +20,18 @@ type NoteMenuProps = {
 
 export function NoteMenu(p: NoteMenuProps) {
     function handleNoteDelete() {
-        noteService.delete(p.noteData.id);
+        serviceNote.delete(p.noteData.id);
     }
 
     function handleNoteModify(updates: NoteModifyableFields) {
-        noteService.modify(p.noteData.id, {
+        serviceNote.modify(p.noteData.id, {
             ...p.noteData,
             ...updates,
         });
     }
 
     function handleNoteDuplicate() {
-        noteService.create({
+        serviceNote.create({
             posW: p.noteData.posW,
             posH: p.noteData.posH,
             theme: p.noteData.theme,

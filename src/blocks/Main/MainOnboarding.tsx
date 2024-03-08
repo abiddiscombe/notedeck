@@ -1,12 +1,12 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
-import { appName, appSource } from "../../utilities/constants";
+import { appInfo } from "../../utilities/constants";
 import { Typography } from "../../components/Typography";
 import { Button } from "../../components/Button";
 import { HeaderAddNote } from "../Header/HeaderAddNote";
 
 export function MainOnboarding() {
     function openSourceNewTab() {
-        const win = window.open(appSource, "_blank");
+        const win = window.open(appInfo.source, "_blank");
         win?.focus();
     }
 
@@ -15,10 +15,12 @@ export function MainOnboarding() {
             <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
                 <Illustration />
                 <div className="max-w-sm">
-                    <Typography variant="h2">Welcome to {appName}!</Typography>
+                    <Typography variant="h2">
+                        Welcome to {appInfo.name}!
+                    </Typography>
                     <Typography variant="body">
-                        Thanks for trying {appName}, a sticky notes board for
-                        tracking your thoughts locally in your web browser.
+                        Thanks for trying {appInfo.name}, a sticky notes board
+                        for tracking your thoughts locally in your web browser.
                     </Typography>
                     <div className="mt-8 flex items-center gap-4">
                         <HeaderAddNote />

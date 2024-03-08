@@ -1,11 +1,13 @@
 import { useEffect, useId, useRef, useState } from "react";
 import clsx from "clsx";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import { noteService } from "../../database/noteService";
-import { NoteItem } from "../../database/database";
+import { serviceNote } from "../../database/serviceNote";
+import { serviceSettings } from "../../database/serviceSettings";
+import { NoteItem } from "../../database/db";
 import { NoteMenu } from "./NoteMenu";
 import { noteThemes } from "../../utilities/noteThemes";
 import { NotePriority } from "./NotePriority";
+import { useLiveQuery } from "dexie-react-hooks";
 
 type NoteProps = {
     noteData: NoteItem;
@@ -13,6 +15,7 @@ type NoteProps = {
 
 export function Note(p: NoteProps) {
     const id = useId();
+    const settings = useLiveQuery(() => serviceSettings.read());
     const textareaId = useId();
     const nodeRef = useRef<HTMLElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -26,8 +29,12 @@ export function Note(p: NoteProps) {
     });
 
     useEffect(() => {
-        noteService.modify(p.noteData.id, notePosition);
+        serviceNote.modify(p.noteData.id, notePosition);
     }, [notePosition, p.noteData.id]);
+
+    if (!settings || !p.noteData) {
+        return null;
+    }
 
     function handleDragEvent(_: DraggableEvent, data: DraggableData) {
         setNotePosition((prevState) => ({
@@ -49,7 +56,7 @@ export function Note(p: NoteProps) {
     }
 
     async function handleBringForwards() {
-        const highestId = await noteService.getTopZIndex();
+        const highestId = await serviceNote.getTopZIndex();
         if (highestId !== notePosition.posZ) {
             setNotePosition((prevState) => ({
                 ...prevState,
@@ -57,6 +64,8 @@ export function Note(p: NoteProps) {
             }));
         }
     }
+
+    const theme = noteThemes[p.noteData.theme || "yellow"];
 
     return (
         <Draggable
@@ -74,7 +83,7 @@ export function Note(p: NoteProps) {
                 ref={nodeRef}
                 className={clsx(
                     "absolute rounded shadow-sm hover:shadow",
-                    noteThemes[p.noteData.theme || "yellow"].note,
+                    settings.useOpaqueNotes ? theme.noteOpaque : theme.note,
                     !p.noteData.content &&
                         !p.noteData.isPriority &&
                         "[&:not(:hover)]:animate-pulse",
@@ -99,7 +108,7 @@ export function Note(p: NoteProps) {
                     id={textareaId}
                     ref={textareaRef}
                     onChange={() =>
-                        noteService.modify(p.noteData.id, {
+                        serviceNote.modify(p.noteData.id, {
                             content: textareaRef.current?.value,
                         })
                     }

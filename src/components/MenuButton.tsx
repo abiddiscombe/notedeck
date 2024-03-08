@@ -31,6 +31,10 @@ export function MenuButton(p: MenuButtonProps) {
             p.isDisabled ? "text-gray-400" : "text-gray-800",
             !p.isDisabled && p.isDestructive && "group-hover:text-white",
         ),
+        buttonActiveIcon: clsx(
+            "ml-auto h-5",
+            p.isDisabled ? "fill-emerald-200" : "fill-green-600",
+        ),
     };
 
     return (
@@ -41,7 +45,7 @@ export function MenuButton(p: MenuButtonProps) {
         >
             <span className={styles.buttonIcon}>{p.icon}</span>
             <span className={styles.buttonLabel}>{p.label}</span>
-            {p.isActive && <CheckIcon className="ml-auto h-5 fill-green-600" />}
+            {p.isActive && <CheckIcon className={styles.buttonActiveIcon} />}
         </button>
     );
 }
