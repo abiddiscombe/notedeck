@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { noteService } from "../database/noteService";
+import { serviceNote } from "../database/serviceNote";
 
 type ModalProps = {
     title: React.ReactNode;
@@ -11,7 +11,7 @@ type ModalProps = {
 };
 
 export function Modal(p: ModalProps) {
-    const highestZIndex = useLiveQuery(() => noteService.getTopZIndex());
+    const highestZIndex = useLiveQuery(() => serviceNote.getTopZIndex());
 
     return (
         <Transition appear show={p.isOpen} as={Fragment}>

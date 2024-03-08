@@ -19,8 +19,8 @@ export function NoteMenuTheme(p: NoteMenuThemeProps) {
             onClick={p.onClick}
             disabled={p.themeIsActive}
             className={clsx(
-                "rounded-full border p-3",
                 theme.selectionButton,
+                "rounded-full border p-3",
                 p.themeIsActive && "ring-1 ring-gray-800",
             )}
         />

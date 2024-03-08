@@ -1,17 +1,12 @@
 type TypographyProps = {
-    variant: "h1" | "h2" | "body" | "bodyNoMargin" | "small";
+    variant: "h2" | "body" | "bodyNoMargin" | "small";
     children: React.ReactNode;
 };
 
 export function Typography(p: TypographyProps) {
     switch (p.variant) {
-        case "h1":
-            // Reserved for logo.
-            return (
-                <h1 className="select-none px-2 font-semibold tracking-tight text-gray-800">
-                    {p.children}
-                </h1>
-            );
+        // h1 reserved for <Logo />
+
         case "h2":
             return (
                 <h2 className="mb-4 text-lg font-semibold text-gray-800">

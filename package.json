@@ -1,14 +1,14 @@
 {
     "name": "notedeck",
     "private": true,
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
-        "tidy": "npx prettier --write ."
+        "tidy": "npx prettier --write ./src"
     },
     "dependencies": {
         "@headlessui/react": "^1.7.18",
@@ -17,6 +17,7 @@
         "dexie": "^3.2.4",
         "dexie-react-hooks": "^1.1.7",
         "react": "^18.2.0",
+        "react-device-detect": "^2.2.3",
         "react-dom": "^18.2.0",
         "react-draggable": "^4.4.6"
     },

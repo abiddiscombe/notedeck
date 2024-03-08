@@ -3,7 +3,7 @@ import { Modal } from "../../components/Modal";
 import { Button } from "../../components/Button";
 import { Checkbox } from "../../components/Checkbox";
 import { Typography } from "../../components/Typography";
-import { noteService } from "../../database/noteService";
+import { serviceNote } from "../../database/serviceNote";
 
 type ModalDeleteAllProps = {
     isOpen: boolean;
@@ -20,7 +20,7 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
     }, [p.isOpen]);
 
     async function handleDeleteEverything() {
-        await noteService.deleteAll(!retainPriorityNotes);
+        await serviceNote.deleteAll(!retainPriorityNotes);
         p.setIsOpen(false);
     }
 
