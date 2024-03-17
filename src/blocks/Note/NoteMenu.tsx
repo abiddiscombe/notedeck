@@ -31,7 +31,7 @@ export function NoteMenu(p: NoteMenuProps) {
     }
 
     function handleNoteDuplicate() {
-        // (Magic) Add X-20 and Y-100 pixels.
+        // (Magic) Add X-20 and Y-120 pixels.
         const maxX = p.noteData.posX + p.noteData.posW + 20;
         const maxY = p.noteData.posY + p.noteData.posH + 120;
         const tooWide = window.innerWidth < maxX;
