@@ -140,7 +140,7 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
                         <strong className="block py-2 font-medium text-gray-800">
                             Are you sure you wish to erase all existing notes
                             and settings
-                            {!!parsedBackup?.content.notes.length
+                            {parsedBackup?.content.notes.length
                                 ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
                                 : "? This backup does not contain any notes."}
                         </strong>

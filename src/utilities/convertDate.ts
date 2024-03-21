@@ -2,11 +2,11 @@
 
 export function convertDate(ts?: number) {
     const date = ts ? new Date(ts) : new Date();
-    let YYYY = date.getFullYear();
-    let MM = ("0" + (date.getMonth() + 1)).slice(-2);
-    let DD = ("0" + date.getDate()).slice(-2);
-    let hh = ("0" + date.getHours()).slice(-2);
-    let mm = ("0" + date.getMinutes()).slice(-2);
+    const YYYY = date.getFullYear();
+    const MM = ("0" + (date.getMonth() + 1)).slice(-2);
+    const DD = ("0" + date.getDate()).slice(-2);
+    const hh = ("0" + date.getHours()).slice(-2);
+    const mm = ("0" + date.getMinutes()).slice(-2);
 
     return {
         hh: hh,
