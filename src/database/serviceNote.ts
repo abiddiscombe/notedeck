@@ -24,6 +24,7 @@ type createArgs = {
     content?: string;
     posX?: number;
     posY?: number;
+    posZ?: number;
     posH?: number;
     posW?: number;
     isPriority?: boolean;
@@ -38,7 +39,7 @@ async function _create(args: createArgs) {
         posY: args.posY || 10,
         posH: args.posH || 200,
         posW: args.posW || 400,
-        posZ: lastIndex + 1,
+        posZ: args.posZ || lastIndex + 1,
     });
 }
 
