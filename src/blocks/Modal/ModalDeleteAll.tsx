@@ -43,7 +43,7 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
                     state={retainPriorityNotes}
                     setState={setRetainPriorityNotes}
                     label={
-                        <Typography variant="bodyNoMargin">
+                        <Typography variant="body" noMargin>
                             Retain notes marked as priority?
                         </Typography>
                     }
