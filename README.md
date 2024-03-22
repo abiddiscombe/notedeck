@@ -8,7 +8,7 @@ NoteDeck is a React-based browser app for tracking thoughts on virtual draggable
 
 The app uses [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store a user's notes and settings locally to their browser storage, and does not require a user account to use. It is also installable as a Progressive Web App (PWA).
 
-NoteDeck is built using:
+Core libraries used in NoteDeck include:
 
 -   [React](https://react.dev) & [Vite](https://vitejs.dev)
 -   [React-Draggable](https://www.npmjs.com/package/react-draggable)
