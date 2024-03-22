@@ -1,7 +1,7 @@
 {
     "name": "notedeck",
     "private": true,
-    "version": "1.1.0",
+    "version": "1.2.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -16,12 +16,15 @@
         "clsx": "^2.1.0",
         "dexie": "^3.2.4",
         "dexie-react-hooks": "^1.1.7",
+        "file-saver": "^2.0.5",
         "react": "^18.2.0",
         "react-device-detect": "^2.2.3",
         "react-dom": "^18.2.0",
-        "react-draggable": "^4.4.6"
+        "react-draggable": "^4.4.6",
+        "use-file-picker": "^2.1.1"
     },
     "devDependencies": {
+        "@types/file-saver": "^2.0.7",
         "@types/node": "^20.11.19",
         "@types/react": "^18.2.43",
         "@types/react-dom": "^18.2.17",

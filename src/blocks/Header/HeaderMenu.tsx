@@ -7,12 +7,14 @@ import { appInfo } from "../../utilities/constants";
 import { Menu, Transition } from "@headlessui/react";
 import { ModalAbout } from "../Modal/ModalAbout";
 import { ModalDeleteAll } from "../Modal/ModalDeleteAll";
+import { ModalBackupRestore } from "../Modal/ModalBackupRestore";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import {
     TrashIcon,
     InformationCircleIcon,
     ArrowTopRightOnSquareIcon,
     EyeSlashIcon,
+    ArrowsUpDownIcon,
 } from "@heroicons/react/16/solid";
 
 type HeaderMenuProps = {
@@ -24,6 +26,7 @@ export function HeaderMenu(p: HeaderMenuProps) {
     const highestZIndex = useLiveQuery(() => serviceNote.getTopZIndex());
     const [showAboutModal, setShowAboutModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showBackupRestoreModal, setShowBackupRestoreModal] = useState(false);
 
     function openSourceNewTab() {
         const win = window.open(appInfo.source, "_blank");
@@ -41,6 +44,13 @@ export function HeaderMenu(p: HeaderMenuProps) {
             icon: <InformationCircleIcon />,
             label: "About " + appInfo.name,
             action: () => setShowAboutModal(true),
+            isDisabled: false,
+            isDestructive: false,
+        },
+        {
+            icon: <ArrowsUpDownIcon />,
+            label: "Backup & Restore",
+            action: () => setShowBackupRestoreModal(true),
             isDisabled: false,
             isDestructive: false,
         },
@@ -74,6 +84,10 @@ export function HeaderMenu(p: HeaderMenuProps) {
             <ModalDeleteAll
                 isOpen={showDeleteModal}
                 setIsOpen={setShowDeleteModal}
+            />
+            <ModalBackupRestore
+                isOpen={showBackupRestoreModal}
+                setIsOpen={setShowBackupRestoreModal}
             />
             <Menu as="div" className="relative inline-block">
                 <Menu.Button
