@@ -121,7 +121,7 @@ export function Note(p: NoteProps) {
                         height: notePosition.posH,
                     }}
                     className={clsx(
-                        "min-h-[14.5em] min-w-[17em] resize rounded-b bg-white/0 p-2",
+                        "min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2",
                         p.noteData.isMonospace && "font-mono text-sm",
                     )}
                 />
