@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { serviceNote, NoteModifyableFields } from "../../database/serviceNote";
 import { NoteItem } from "../../database/db";
-import { noteThemes } from "../../utilities/noteThemes";
+import { themes } from "./themes";
 import { NoteMenuTheme } from "./NoteMenuTheme";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import {
@@ -50,7 +50,7 @@ export function NoteMenu(p: NoteMenuProps) {
         });
     }
 
-    const menuThemes = Object.keys(noteThemes);
+    const menuThemes = Object.keys(themes);
 
     const menuItems = [
         {

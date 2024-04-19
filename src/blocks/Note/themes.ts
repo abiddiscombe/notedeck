@@ -1,7 +1,7 @@
 // A series of preconfigured utility classes
 // which match different note themes.
 
-type noteThemesType = {
+type themesType = {
     [key: string]: {
         note: string;
         noteOpaque: string;
@@ -9,7 +9,7 @@ type noteThemesType = {
     };
 };
 
-export const noteThemes: noteThemesType = {
+export const themes: themesType = {
     blue: {
         note: "backdrop-blur-md bg-sky-200/50 dark:bg-sky-600/20 [&>div]:bg-sky-400/20 dark:[&>div]:bg-sky-600/40",
         noteOpaque:

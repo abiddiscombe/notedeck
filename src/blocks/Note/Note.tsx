@@ -5,7 +5,7 @@ import { serviceNote } from "../../database/serviceNote";
 import { serviceSettings } from "../../database/serviceSettings";
 import { NoteItem } from "../../database/db";
 import { NoteMenu } from "./NoteMenu";
-import { noteThemes } from "../../utilities/noteThemes";
+import { themes } from "./themes";
 import { NotePriority } from "./NotePriority";
 import { useLiveQuery } from "dexie-react-hooks";
 
@@ -65,7 +65,7 @@ export function Note(p: NoteProps) {
         }
     }
 
-    const theme = noteThemes[p.noteData.theme || "yellow"];
+    const theme = themes[p.noteData.theme || "yellow"];
 
     return (
         <Draggable

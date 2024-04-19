@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { noteThemes } from "../../utilities/noteThemes";
+import { themes } from "./themes";
 
 type NoteMenuThemeProps = {
     onClick: VoidFunction;
@@ -8,7 +8,7 @@ type NoteMenuThemeProps = {
 };
 
 export function NoteMenuTheme(p: NoteMenuThemeProps) {
-    const theme = noteThemes[p.themeId];
+    const theme = themes[p.themeId];
     const ariaLabel = p.themeIsActive
         ? `Use a ${p.themeId} theme for this note.`
         : `This note is currently using the  ${p.themeId} theme.`;
