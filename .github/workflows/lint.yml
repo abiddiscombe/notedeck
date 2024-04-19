@@ -5,12 +5,10 @@ name: Lint
     branches:
       - dev
       - main
-      - 26-add-linting-and-prettier-github-actions
   pull_request:
     branches:
       - dev
       - main
-      - 26-add-linting-and-prettier-github-actions
 
 jobs:
   run-linters:
