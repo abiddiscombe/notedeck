@@ -6,7 +6,3 @@ export const appInfo = {
     semVer: APP_VERSION,
     source: "https://github.com/abiddiscombe/notedeck",
 };
-
-export type appSettings = {
-    useOpaqueNotes?: boolean;
-};

@@ -1,5 +1,4 @@
 import Dexie, { IndexableType, Table } from "dexie";
-import { appSettings } from "../utilities/constants";
 
 export type NoteItem = {
     id: IndexableType;
@@ -16,7 +15,9 @@ export type NoteItem = {
 
 export type SettingItem = {
     id?: IndexableType;
-    content: appSettings;
+    content: {
+        useOpaqueNotes?: boolean;
+    };
 };
 
 export const TABLE_NOTES = "notes";
