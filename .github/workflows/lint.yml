@@ -1,0 +1,36 @@
+name: Lint
+
+'on':
+  push:
+    branches:
+      - dev
+      - main
+      - 26-add-linting-and-prettier-github-actions
+  pull_request:
+    branches:
+      - dev
+      - main
+      - 26-add-linting-and-prettier-github-actions
+
+jobs:
+  run-linters:
+    name: Run Linter and Formatter
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+        
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Run Linter and Formatter
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
