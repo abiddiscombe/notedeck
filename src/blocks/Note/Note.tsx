@@ -101,7 +101,10 @@ export function Note(p: NoteProps) {
                         noteData={p.noteData}
                     />
                 </div>
-                <label className="hidden" htmlFor={textareaId}>
+                <label
+                    className="hidden"
+                    htmlFor={textareaId}
+                >
                     Note Content
                 </label>
                 <textarea
@@ -121,7 +124,7 @@ export function Note(p: NoteProps) {
                         height: notePosition.posH,
                     }}
                     className={clsx(
-                        "min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2",
+                        "min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800 dark:text-primary-100",
                         p.noteData.isMonospace && "font-mono text-sm",
                     )}
                 />

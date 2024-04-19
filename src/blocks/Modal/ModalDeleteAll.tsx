@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Modal } from "../../components/Modal";
-import { Button } from "../../components/Button";
-import { Checkbox } from "../../components/Checkbox";
-import { Typography } from "../../components/Typography";
+import { Button } from "../../components/elements/Button";
+import { Checkbox } from "../../components/elements/Checkbox";
+import { Typography } from "../../components/elements/Typography";
 import { serviceNote } from "../../database/serviceNote";
+import { TrashIcon } from "@heroicons/react/16/solid";
 
 type ModalDeleteAllProps = {
     isOpen: boolean;
@@ -26,26 +27,26 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
 
     return (
         <Modal
-            title={<Typography variant="h2">Confirm Notes Deletion</Typography>}
+            title="Confirm Notes Deletion"
             isOpen={p.isOpen}
             setIsOpen={p.setIsOpen}
         >
-            <Typography variant="body">
+            <Typography.Body>
                 Are you sure you want to delete{" "}
                 <strong>all stored notes</strong>?
-            </Typography>
-            <Typography variant="body">
+            </Typography.Body>
+            <Typography.Body>
                 You won't be able to recover notes after they have been deleted
                 from your device.
-            </Typography>
+            </Typography.Body>
             <div className="mt-6">
                 <Checkbox
                     state={retainPriorityNotes}
                     setState={setRetainPriorityNotes}
                     label={
-                        <Typography variant="body" noMargin>
-                            Retain notes marked as priority?
-                        </Typography>
+                        <Typography.Body noMargin={true}>
+                            Retain notes marked as priority.
+                        </Typography.Body>
                     }
                 />
             </div>
@@ -54,10 +55,10 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
                     variant="destructive"
                     onClick={() => handleDeleteEverything()}
                 >
-                    Delete Notes
-                </Button>
-                <Button variant="outlined" onClick={() => p.setIsOpen(false)}>
-                    Cancel
+                    <>
+                        <TrashIcon />
+                        {`Delete ${!retainPriorityNotes ? "all " : ""}notes`}
+                    </>
                 </Button>
             </div>
         </Modal>

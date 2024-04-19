@@ -10,7 +10,7 @@ export function ExternalLink(p: ExternalLinkProps) {
             href={p.href}
             target="_blank"
             aria-label={ariaLabel}
-            className="underline visited:text-inherit hover:text-black hover:decoration-2"
+            className="underline visited:text-inherit hover:decoration-2"
         >
             {p.children}
         </a>

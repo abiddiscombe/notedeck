@@ -9,7 +9,7 @@ export function Checkbox(p: CheckboxProps) {
             <div className="relative flex items-center">
                 <input
                     type="checkbox"
-                    className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-200 transition-all checked:border-gray-800 checked:bg-gray-800 hover:bg-gray-100 checked:hover:bg-gray-700"
+                    className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-primary-200 transition-all checked:border-primary-800 checked:bg-primary-800 hover:bg-primary-100 checked:hover:bg-primary-700 dark:border-primary-700 dark:checked:border-primary-500 dark:checked:bg-primary-600 dark:hover:bg-primary-500 dark:checked:hover:bg-primary-500"
                     id="checkbox"
                     checked={p.state}
                     onChange={() => p.setState(!p.state)}
