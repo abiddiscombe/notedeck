@@ -5,10 +5,10 @@ import { Tag } from "../../components/elements/Tag";
 import { ExternalLink } from "../../components/ExternalLink";
 import { Notice } from "../../components/elements/Notice";
 
-type ModalAboutProps = {
+interface ModalAboutProps {
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
-};
+}
 
 export function ModalAbout(p: ModalAboutProps) {
     return (

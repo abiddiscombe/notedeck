@@ -5,12 +5,12 @@ import { serviceNote } from "../database/serviceNote";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import { Typography } from "./elements/Typography";
 
-type ModalProps = {
+interface ModalProps {
     title: string;
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
     children: React.ReactNode;
-};
+}
 
 export function Modal(p: ModalProps) {
     const highestZIndex = useLiveQuery(() => serviceNote.getTopZIndex());

@@ -16,10 +16,10 @@ import {
 import { convertDate } from "../../utilities/convertDate";
 import { appInfo } from "../../utilities/constants";
 
-type ModalBackupRestoreProps = {
+interface ModalBackupRestoreProps {
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
-};
+}
 
 export function ModalBackupRestore(p: ModalBackupRestoreProps) {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();

@@ -17,9 +17,9 @@ import {
 } from "@heroicons/react/16/solid";
 import { Button } from "../../components/elements/Button";
 
-type HeaderMenuProps = {
+interface HeaderMenuProps {
     hasNotes: boolean;
-};
+}
 
 export function HeaderMenu(p: HeaderMenuProps) {
     const settings = useLiveQuery(() => serviceSettings.read());

@@ -6,10 +6,10 @@ import { Typography } from "../../components/elements/Typography";
 import { serviceNote } from "../../database/serviceNote";
 import { TrashIcon } from "@heroicons/react/16/solid";
 
-type ModalDeleteAllProps = {
+interface ModalDeleteAllProps {
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
-};
+}
 
 export function ModalDeleteAll(p: ModalDeleteAllProps) {
     const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);

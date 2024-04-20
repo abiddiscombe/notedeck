@@ -14,10 +14,10 @@ import {
 } from "@heroicons/react/16/solid";
 import { Button } from "../../components/elements/Button";
 
-type NoteMenuProps = {
+interface NoteMenuProps {
     noteData: NoteItem;
     handleBringForwards: VoidFunction;
-};
+}
 
 export function NoteMenu(p: NoteMenuProps) {
     function handleNoteDelete() {

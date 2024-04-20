@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { serviceNote } from "../../database/serviceNote";
 import { serviceSettings } from "../../database/serviceSettings";
@@ -9,9 +9,9 @@ import { themes } from "./themes";
 import { NotePriority } from "./NotePriority";
 import { useLiveQuery } from "dexie-react-hooks";
 
-type NoteProps = {
+interface NoteProps {
     noteData: NoteItem;
-};
+}
 
 export function Note(p: NoteProps) {
     const id = useId();
@@ -81,7 +81,7 @@ export function Note(p: NoteProps) {
             <article
                 id={id}
                 ref={nodeRef}
-                className={clsx(
+                className={twMerge(
                     "absolute rounded shadow-sm hover:shadow",
                     settings.useOpaqueNotes ? theme.noteOpaque : theme.note,
                     !p.noteData.content &&
@@ -90,7 +90,7 @@ export function Note(p: NoteProps) {
                 )}
                 style={{ zIndex: notePosition.posZ }}
             >
-                <div className={clsx("flex items-stretch rounded-t")}>
+                <div className="flex items-stretch rounded-t">
                     <div
                         onMouseDown={() => handleBringForwards()}
                         className="handle | grow cursor-grab px-2"
@@ -123,7 +123,7 @@ export function Note(p: NoteProps) {
                         width: notePosition.posW,
                         height: notePosition.posH,
                     }}
-                    className={clsx(
+                    className={twMerge(
                         "min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800 dark:text-primary-100",
                         p.noteData.isMonospace && "font-mono text-sm",
                     )}

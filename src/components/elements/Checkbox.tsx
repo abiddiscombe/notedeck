@@ -1,8 +1,9 @@
-type CheckboxProps = {
+interface CheckboxProps {
     label: React.ReactNode;
     state: boolean;
     setState: (newState: boolean) => void;
-};
+}
+
 export function Checkbox(p: CheckboxProps) {
     return (
         <div className="flex items-center gap-4">

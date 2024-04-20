@@ -1,13 +1,13 @@
 // A series of preconfigured utility classes
 // which match different note themes.
 
-type themesType = {
+interface themesType {
     [key: string]: {
         note: string;
         noteOpaque: string;
         selectionButton: string;
     };
-};
+}
 
 export const themes: themesType = {
     blue: {
