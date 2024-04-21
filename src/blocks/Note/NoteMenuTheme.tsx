@@ -1,28 +1,30 @@
-import clsx from "clsx";
-import { noteThemes } from "../../utilities/noteThemes";
+import { twMerge } from "tailwind-merge";
+import { themes } from "./themes";
 
-type NoteMenuThemeProps = {
+interface NoteMenuThemeProps {
     onClick: VoidFunction;
     themeId: string;
     themeIsActive: boolean;
-};
+}
 
 export function NoteMenuTheme(p: NoteMenuThemeProps) {
-    const theme = noteThemes[p.themeId];
+    const theme = themes[p.themeId];
     const ariaLabel = p.themeIsActive
         ? `Use a ${p.themeId} theme for this note.`
         : `This note is currently using the  ${p.themeId} theme.`;
 
+    const styles = twMerge(
+        "rounded-full border p-3",
+        theme.selectionButton,
+        p.themeIsActive && "ring-1 ring-primary-800 dark:ring-primary-100",
+    );
+
     return (
         <button
-            aria-label={ariaLabel}
+            className={styles}
             onClick={p.onClick}
             disabled={p.themeIsActive}
-            className={clsx(
-                theme.selectionButton,
-                "rounded-full border p-3",
-                p.themeIsActive && "ring-1 ring-gray-800",
-            )}
+            aria-label={ariaLabel}
         />
     );
 }

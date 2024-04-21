@@ -1,56 +1,58 @@
 import { appInfo } from "../../utilities/constants";
 import { Modal } from "../../components/Modal";
-import { Button } from "../../components/Button";
-import { Typography } from "../../components/Typography";
-import { VersionTag } from "../../components/VersionTag";
+import { Typography } from "../../components/elements/Typography";
+import { Tag } from "../../components/elements/Tag";
 import { ExternalLink } from "../../components/ExternalLink";
-import { Notice } from "../../components/Notice";
+import { Notice } from "../../components/elements/Notice";
 
-type ModalAboutProps = {
+interface ModalAboutProps {
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
-};
+}
 
 export function ModalAbout(p: ModalAboutProps) {
     return (
         <Modal
-            title={<Typography variant="h2">About {appInfo.name}</Typography>}
+            title={`About ${appInfo.name}`}
             isOpen={p.isOpen}
             setIsOpen={p.setIsOpen}
         >
-            <Typography variant="body">
-                {appInfo.name} is a browser app for tracking your thoughts on
-                virtual sticky notes, it's great for jotting down quick notes,
-                tasks, or code snippets.
-            </Typography>
-            <Notice variant="info">
-                <Typography variant="body" noMargin>
-                    {appInfo.name} uses{" "}
+            <Typography.Body>
+                {appInfo.name} is a browser app for recording your thoughts,
+                meeting notes, or code snippets using virtual sticky notes. It
+                is open source and respects your privacy. Your data never leaves
+                your device and is persisted in your web browser.
+            </Typography.Body>
+            <Notice variant="warning">
+                <Typography.Body noMargin={true}>
+                    {appInfo.name} uses the{" "}
                     <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">
                         IndexedDB
                     </ExternalLink>{" "}
-                    to store notes and settings locally to your device. Please
-                    take care to make regular backups, and avoid clearing your
-                    browser's site settings.
-                </Typography>
+                    API to store data locally on your device. Please make
+                    regular backups and avoid clearing your browser's site
+                    settings.
+                </Typography.Body>
             </Notice>
-            <Typography variant="body">
-                <small>
-                    &copy;{" "}
-                    <ExternalLink href="https://github.com/abiddiscombe">
-                        Archie Biddiscombe
-                    </ExternalLink>{" "}
-                    2024 -{" "}
-                    <ExternalLink href={`${appInfo.source}?tab=MIT-1-ov-file`}>
-                        MIT License
-                    </ExternalLink>
-                </small>
-            </Typography>
             <div className="mt-8 flex items-center justify-between gap-4">
-                <Button variant="filled" onClick={() => p.setIsOpen(false)}>
-                    Close
-                </Button>
-                <VersionTag />
+                <Typography.Body>
+                    <small>
+                        &copy;{" "}
+                        <ExternalLink href="https://github.com/abiddiscombe">
+                            Archie Biddiscombe
+                        </ExternalLink>{" "}
+                        2024 -{" "}
+                        <ExternalLink href={appInfo.source}>
+                            View Source
+                        </ExternalLink>
+                    </small>
+                </Typography.Body>
+                <Tag
+                    variant="minimal"
+                    monospace={true}
+                >
+                    v{appInfo.semVer}
+                </Tag>
             </div>
         </Modal>
     );

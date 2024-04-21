@@ -12,7 +12,12 @@ export function Main() {
 
     return (
         <main className="relative overflow-auto p-2">
-            {notes?.map((note) => <Note key={note.id} noteData={note} />)}
+            {notes?.map((note) => (
+                <Note
+                    key={note.id}
+                    noteData={note}
+                />
+            ))}
         </main>
     );
 }
