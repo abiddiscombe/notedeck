@@ -1,24 +1,25 @@
 import { Modal } from "../../components/Modal";
-import { Button } from "../../components/Button";
-import { Typography } from "../../components/Typography";
+import { Button } from "../../components/elements/Button";
+import { Typography } from "../../components/elements/Typography";
 import { useFilePicker } from "use-file-picker";
 import { BackupObject, backup } from "../../utilities/backup";
 import { saveAs } from "file-saver";
 import { FileSizeValidator } from "use-file-picker/validators";
-import { Notice } from "../../components/Notice";
+import { Notice } from "../../components/elements/Notice";
 import { useEffect, useState } from "react";
 import {
     ArrowDownTrayIcon,
     ArrowUpTrayIcon,
     CheckIcon,
+    DocumentCheckIcon,
 } from "@heroicons/react/16/solid";
 import { convertDate } from "../../utilities/convertDate";
 import { appInfo } from "../../utilities/constants";
 
-type ModalBackupRestoreProps = {
+interface ModalBackupRestoreProps {
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
-};
+}
 
 export function ModalBackupRestore(p: ModalBackupRestoreProps) {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();
@@ -80,43 +81,43 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
 
     return (
         <Modal
-            title={<Typography variant="h2">Backup & Restore</Typography>}
+            title="Backup & Restore"
             isOpen={p.isOpen}
-            setIsOpen={p.setIsOpen}
+            setIsOpen={handleCloseModal}
         >
-            <Typography variant="body">
+            <Typography.Body>
                 Backup or transfer your notes to a new device, or restore this
                 instance of {appInfo.name} to a previous state.
-            </Typography>
+            </Typography.Body>
 
-            <Typography variant="h3">Create Backup</Typography>
-            <Typography variant="body">
-                Download a snapshot of your notes and settings to restore later.
-                Please store your backups somewhere safe.
-            </Typography>
-            <Button variant="filled" onClick={() => createAndDownloadBackup()}>
+            <Typography.H3>Create Backup</Typography.H3>
+            <Typography.Body>
+                Download a snapshot of your notes and settings to restore from
+                later. Please store your backups somewhere safe.
+            </Typography.Body>
+            <Button onClick={() => createAndDownloadBackup()}>
                 <>
-                    {downloadCompleted ? (
-                        <CheckIcon className="h-4" />
-                    ) : (
-                        <ArrowDownTrayIcon className="h-4" />
-                    )}
+                    {downloadCompleted ? <CheckIcon /> : <ArrowDownTrayIcon />}
                     Download Backup
                 </>
             </Button>
 
-            <Typography variant="h3">Restore from Backup</Typography>
-            <Typography variant="body">
-                Restore your notes and settings from a previous backup file.
-            </Typography>
-            <div className="flex items-center gap-4 rounded bg-gray-100">
-                <Button variant="filled" onClick={() => openFilePicker()}>
+            <Typography.H3>Restore from Backup</Typography.H3>
+            <Typography.Body>
+                Restore your notes and settings from a backup file.
+            </Typography.Body>
+            <div className="flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
+                <Button
+                    variant="solid"
+                    onClick={() => openFilePicker()}
+                    className="rounded-r-none pr-4"
+                >
                     <>
-                        <ArrowUpTrayIcon className="h-4" />
+                        <ArrowUpTrayIcon />
                         Choose File
                     </>
                 </Button>
-                <code className="text-sm text-gray-600">
+                <code className="text-sm text-primary-600 dark:text-primary-400">
                     {filesContent.length
                         ? filesContent[0].name
                         : "No file selected."}
@@ -133,32 +134,29 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
 
             {!showErrorMessage && !!filesContent.length && parsedBackup && (
                 <Notice variant="warning">
-                    <Typography variant="body">
+                    <Typography.Body>
                         This backup was created on {parsedBackupDate?.date} at{" "}
                         {parsedBackupDate?.hh}:{parsedBackupDate?.mm}.
                         <br />
-                        <strong className="block py-2 font-medium text-gray-800">
+                        <strong className="block py-2 font-medium">
                             Are you sure you wish to erase all existing notes
                             and settings
                             {parsedBackup?.content.notes.length
                                 ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
                                 : "? This backup does not contain any notes."}
                         </strong>
-                    </Typography>
+                    </Typography.Body>
                     <Button
                         variant="destructive"
                         onClick={() => restoreContentFromBackup()}
                     >
-                        Restore Backup
+                        <>
+                            <DocumentCheckIcon />
+                            Restore Backup
+                        </>
                     </Button>
                 </Notice>
             )}
-
-            <br />
-
-            <Button variant="outlined" onClick={() => handleCloseModal()}>
-                Cancel
-            </Button>
         </Modal>
     );
 }

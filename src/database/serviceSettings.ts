@@ -1,5 +1,4 @@
-import { db, TABLE_SETTINGS } from "./db";
-import { appSettings } from "../utilities/constants";
+import { db, TABLE_SETTINGS, SettingItem } from "./db";
 
 export const serviceSettings = {
     read: _read,
@@ -12,8 +11,9 @@ async function _read() {
     return results[0]?.content;
 }
 
-async function _write(kvp: appSettings) {
+async function _write(kvp: SettingItem["content"]) {
     const results = await db.table(TABLE_SETTINGS).toArray();
+
     await db.table(TABLE_SETTINGS).update(results[0].id, {
         content: {
             ...results[0].content,
@@ -23,7 +23,7 @@ async function _write(kvp: appSettings) {
 }
 
 async function _instantiate() {
-    const defaultSettings: appSettings = {
+    const defaultSettings: SettingItem["content"] = {
         useOpaqueNotes: false,
     };
 

@@ -1,42 +1,64 @@
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
+import { useState } from "react";
+import { InformationCircleIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/Typography";
-import { Button } from "../../components/Button";
-import { HeaderAddNote } from "../Header/HeaderAddNote";
+import { Typography } from "../../components/elements/Typography";
+import { Button } from "../../components/elements/Button";
+import { serviceNote } from "../../database/serviceNote";
+import { ModalAbout } from "../Modal/ModalAbout";
 
 export function MainOnboarding() {
-    function openSourceNewTab() {
-        const win = window.open(appInfo.source, "_blank");
-        win?.focus();
+    const [showAboutModal, setShowAboutModal] = useState(false);
+
+    function handleCreateNote() {
+        serviceNote.create({
+            theme: "yellow",
+            content: "This is your first note! Click here to edit.",
+            isPriority: false,
+            isMonospace: false,
+        });
     }
 
     return (
-        <main className="grid place-items-center p-6">
-            <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
-                <Illustration />
-                <div className="max-w-sm">
-                    <Typography variant="h2">
-                        Welcome to {appInfo.name}!
-                    </Typography>
-                    <Typography variant="body">
-                        Thanks for trying {appInfo.name}, a sticky notes board
-                        for tracking your thoughts locally in your web browser.
-                    </Typography>
-                    <div className="mt-8 flex items-center gap-4">
-                        <HeaderAddNote />
-                        <Button
-                            variant="outlined"
-                            onClick={() => openSourceNewTab()}
-                        >
-                            <>
-                                <ArrowTopRightOnSquareIcon className="w-3.5" />
-                                View Source
-                            </>
-                        </Button>
+        <>
+            <ModalAbout
+                isOpen={showAboutModal}
+                setIsOpen={() => setShowAboutModal(false)}
+            />
+            <main className="grid place-items-center p-6">
+                <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
+                    <Illustration />
+                    <div className="max-w-sm">
+                        <Typography.H2>Welcome to {appInfo.name}</Typography.H2>
+                        <Typography.Body>
+                            Free yourself of paper notes with an open-source
+                            offline alternative that respects your privacy.
+                        </Typography.Body>
+                        <div className="mt-8 flex items-center gap-4">
+                            <Button
+                                size="lg"
+                                variant="solid"
+                                onClick={() => handleCreateNote()}
+                            >
+                                <>
+                                    <PlusIcon />
+                                    Get Started
+                                </>
+                            </Button>
+                            <Button
+                                size="lg"
+                                variant="ghost"
+                                onClick={() => setShowAboutModal(true)}
+                            >
+                                <>
+                                    <InformationCircleIcon />
+                                    Learn More
+                                </>
+                            </Button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </>
     );
 }
 
@@ -50,7 +72,7 @@ function Illustration() {
             width="737.38976"
             height="544"
             viewBox="0 0 737.38976 544"
-            className="mr-0 h-56 w-56 shrink-0 sm:mr-14"
+            className="mr-0 h-56 w-56 shrink-0 sm:mr-14 dark:invert-[.25]"
         >
             <path
                 d="M504.621,513.18165,351.97511,545.35672a17.01916,17.01916,0,0,1-20.14075-13.12822L305.64055,407.95909a17.01916,17.01916,0,0,1,13.12823-20.14074l152.64588-32.17507A17.01915,17.01915,0,0,1,491.5554,368.7715l26.19381,124.26941A17.01916,17.01916,0,0,1,504.621,513.18165Zm-185.4397-123.4063a15.017,15.017,0,0,0-11.58373,17.77124L333.79136,531.816a15.017,15.017,0,0,0,17.77124,11.58373l152.64588-32.17508a15.017,15.017,0,0,0,11.58374-17.77124L489.59841,369.184a15.017,15.017,0,0,0-17.77125-11.58373Z"
@@ -151,7 +173,12 @@ function Illustration() {
                 transform="translate(-231.30512 -178)"
                 fill="#2f2e41"
             />
-            <circle cx="163.765" cy="183.32358" r="24.56103" fill="#ffb8b8" />
+            <circle
+                cx="163.765"
+                cy="183.32358"
+                r="24.56103"
+                fill="#ffb8b8"
+            />
             <path
                 d="M386.83448,545.65127c-11.7063,0-23.73022-3.07715-33.698-12.17481a4.55187,4.55187,0,0,1-1.46949-3.84961c1.0669-9.58594,6.24219-59.081,3.32764-92.14355a40.01955,40.01955,0,0,1,12.95557-33.30469,39.59814,39.59814,0,0,1,33.96215-9.834h.00025c.30591.05468.61157.1123.91772.17089,19.66358,3.80567,33.32593,22.00391,31.78,42.33106-2.25586,29.66016-4.27807,69.7793-1.10278,92.46777a4.49262,4.49262,0,0,1-2.4148,4.63672C423.86793,537.60146,405.76661,545.65127,386.83448,545.65127Z"
                 transform="translate(-231.30512 -178)"
@@ -311,42 +338,222 @@ function Illustration() {
                 transform="translate(-231.30512 -178)"
                 fill="#3f3d56"
             />
-            <circle cx="96.76378" cy="23.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="96.76378" cy="49.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="96.76378" cy="74.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="96.76378" cy="100.6442" r="6.46689" fill="#f2f2f2" />
-            <circle cx="123.76378" cy="23.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="123.76378" cy="49.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="123.76378" cy="74.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="123.76378" cy="100.6442" r="6.46689" fill="#f2f2f2" />
-            <circle cx="150.76378" cy="23.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="150.76378" cy="49.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="150.76378" cy="74.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="150.76378" cy="100.6442" r="6.46689" fill="#f2f2f2" />
-            <circle cx="177.76378" cy="23.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="177.76378" cy="49.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="177.76378" cy="74.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="177.76378" cy="100.6442" r="6.46689" fill="#f2f2f2" />
-            <circle cx="204.76378" cy="23.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="204.76378" cy="49.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="204.76378" cy="74.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="204.76378" cy="100.6442" r="6.46689" fill="#f2f2f2" />
-            <circle cx="231.76378" cy="23.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="231.76378" cy="49.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="231.76378" cy="74.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="231.76378" cy="100.6442" r="6.46689" fill="#f2f2f2" />
-            <circle cx="601.76378" cy="381.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="601.76378" cy="407.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="601.76378" cy="432.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="628.76378" cy="381.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="628.76378" cy="407.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="628.76378" cy="432.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="655.76378" cy="381.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="655.76378" cy="407.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="655.76378" cy="432.8709" r="6.46689" fill="#f2f2f2" />
-            <circle cx="682.76378" cy="381.3243" r="6.46689" fill="#f2f2f2" />
-            <circle cx="682.76378" cy="407.0976" r="6.46689" fill="#f2f2f2" />
-            <circle cx="682.76378" cy="432.8709" r="6.46689" fill="#f2f2f2" />
+            <circle
+                cx="96.76378"
+                cy="23.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="96.76378"
+                cy="49.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="96.76378"
+                cy="74.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="96.76378"
+                cy="100.6442"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="123.76378"
+                cy="23.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="123.76378"
+                cy="49.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="123.76378"
+                cy="74.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="123.76378"
+                cy="100.6442"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="150.76378"
+                cy="23.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="150.76378"
+                cy="49.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="150.76378"
+                cy="74.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="150.76378"
+                cy="100.6442"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="177.76378"
+                cy="23.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="177.76378"
+                cy="49.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="177.76378"
+                cy="74.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="177.76378"
+                cy="100.6442"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="204.76378"
+                cy="23.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="204.76378"
+                cy="49.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="204.76378"
+                cy="74.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="204.76378"
+                cy="100.6442"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="231.76378"
+                cy="23.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="231.76378"
+                cy="49.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="231.76378"
+                cy="74.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="231.76378"
+                cy="100.6442"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="601.76378"
+                cy="381.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="601.76378"
+                cy="407.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="601.76378"
+                cy="432.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="628.76378"
+                cy="381.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="628.76378"
+                cy="407.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="628.76378"
+                cy="432.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="655.76378"
+                cy="381.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="655.76378"
+                cy="407.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="655.76378"
+                cy="432.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="682.76378"
+                cy="381.3243"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="682.76378"
+                cy="407.0976"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
+            <circle
+                cx="682.76378"
+                cy="432.8709"
+                r="6.46689"
+                fill="#f2f2f2"
+            />
         </svg>
     );
 }
