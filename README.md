@@ -11,7 +11,7 @@
 
 NoteDeck is a React-based browser app for tracking thoughts on virtual draggable "sticky notes", it's designed for jotting down quick notes or code snippets. Designed with privacy in mind, your notes are persisted locally to your device as part of your browser's site storage using the [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Help improve NoteDeck! Use GitHub Issues to record bugs or suggest new features.
+Help improve NoteDeck! Use [GitHub Issues](https://github.com/abiddiscombe/notedeck/issues) to record bugs or suggest new features.
 
 
 ## Key Features
