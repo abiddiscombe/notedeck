@@ -92,8 +92,8 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
 
             <Typography.H3>Create Backup</Typography.H3>
             <Typography.Body>
-                Download a snapshot of your notes and settings to restore later.
-                Please store your backups somewhere safe.
+                Download a snapshot of your notes and settings to restore from
+                later. Please store your backups somewhere safe.
             </Typography.Body>
             <Button onClick={() => createAndDownloadBackup()}>
                 <>
@@ -104,7 +104,7 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
 
             <Typography.H3>Restore from Backup</Typography.H3>
             <Typography.Body>
-                Restore your notes and settings from a previous backup file.
+                Restore your notes and settings from a backup file.
             </Typography.Body>
             <div className="flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
                 <Button

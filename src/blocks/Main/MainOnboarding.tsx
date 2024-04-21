@@ -24,10 +24,10 @@ export function MainOnboarding() {
             <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
                 <Illustration />
                 <div className="max-w-sm">
-                    <Typography.H2>Welcome to {appInfo.name}!</Typography.H2>
+                    <Typography.H2>Welcome to {appInfo.name}</Typography.H2>
                     <Typography.Body>
-                        Thanks for trying {appInfo.name}, a sticky notes board
-                        for tracking your thoughts locally in your web browser.
+                        Free yourself of paper notes with an open-source offline
+                        alternative that respects your privacy.
                     </Typography.Body>
                     <div className="mt-8 flex items-center gap-4">
                         <Button
@@ -67,7 +67,7 @@ function Illustration() {
             width="737.38976"
             height="544"
             viewBox="0 0 737.38976 544"
-            className="mr-0 h-56 w-56 shrink-0 sm:mr-14"
+            className="mr-0 h-56 w-56 shrink-0 sm:mr-14 dark:invert-[.25]"
         >
             <path
                 d="M504.621,513.18165,351.97511,545.35672a17.01916,17.01916,0,0,1-20.14075-13.12822L305.64055,407.95909a17.01916,17.01916,0,0,1,13.12823-20.14074l152.64588-32.17507A17.01915,17.01915,0,0,1,491.5554,368.7715l26.19381,124.26941A17.01916,17.01916,0,0,1,504.621,513.18165Zm-185.4397-123.4063a15.017,15.017,0,0,0-11.58373,17.77124L333.79136,531.816a15.017,15.017,0,0,0,17.77124,11.58373l152.64588-32.17508a15.017,15.017,0,0,0,11.58374-17.77124L489.59841,369.184a15.017,15.017,0,0,0-17.77125-11.58373Z"
