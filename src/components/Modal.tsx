@@ -50,7 +50,7 @@ export function Modal(p: ModalProps) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-6 text-left align-middle shadow transition-all dark:border dark:border-primary-800 dark:bg-primary-900">
+                            <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow transition-all dark:border dark:border-primary-800 dark:bg-primary-900">
                                 <div className="flex items-center justify-between pb-4">
                                     <Dialog.Title as={Fragment}>
                                         <Typography.H2 noMargin={true}>
