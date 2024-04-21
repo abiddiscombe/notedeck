@@ -8,7 +8,7 @@ export function Notice(p: NoticeProps) {
     const variant = p.variant ?? "info";
 
     const styles = twMerge(
-        "my-4 p-4 rounded-md border border-l-4 text-primary-800 dark:text-primary-200",
+        "my-4 p-4 rounded border border-l-4 text-primary-800 dark:text-primary-200",
         variant === "info" && [
             "border-sky-400 bg-sky-50",
             "dark:border-sky-600 dark:bg-sky-900/40",
