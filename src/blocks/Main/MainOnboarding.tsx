@@ -30,8 +30,8 @@ export function MainOnboarding() {
                     <div className="max-w-sm">
                         <Typography.H2>Welcome to {appInfo.name}</Typography.H2>
                         <Typography.Body>
-                            Free yourself of paper notes with an open-source
-                            offline alternative that respects your privacy.
+                            Free yourself from paper notes with an open-source
+                            and offline alternative that respects your privacy.
                         </Typography.Body>
                         <div className="mt-8 flex items-center gap-4">
                             <Button
