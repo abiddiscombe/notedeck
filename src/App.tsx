@@ -24,7 +24,7 @@ export function App() {
 
     return (
         loaded && (
-            <div className="grid h-screen grid-rows-[auto,_1fr]">
+            <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
                 <Header />
                 <Main />
             </div>
