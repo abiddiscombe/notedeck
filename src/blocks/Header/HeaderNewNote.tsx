@@ -17,7 +17,6 @@ export function HeaderNewNote() {
             size="sm"
             variant="solid"
             onClick={() => handleCreateNote()}
-            className="mr-2"
         >
             <>
                 <PlusIcon />

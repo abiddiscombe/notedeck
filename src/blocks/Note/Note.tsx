@@ -124,7 +124,8 @@ export function Note(p: NoteProps) {
                         height: notePosition.posH,
                     }}
                     className={twMerge(
-                        "min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800 dark:text-primary-100",
+                        `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800
+                        dark:text-primary-100`,
                         p.noteData.isMonospace && "font-mono text-sm",
                     )}
                 />

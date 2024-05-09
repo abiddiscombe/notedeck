@@ -1,12 +1,15 @@
+import { twMerge } from "tailwind-merge";
+
 interface CheckboxProps {
     label: React.ReactNode;
     state: boolean;
     setState: (newState: boolean) => void;
+    className?: string;
 }
 
 export function Checkbox(p: CheckboxProps) {
     return (
-        <div className="flex items-center gap-4">
+        <div className={twMerge("flex items-center gap-4", p.className)}>
             <div className="relative flex items-center">
                 <input
                     type="checkbox"
@@ -32,7 +35,12 @@ export function Checkbox(p: CheckboxProps) {
                     </svg>
                 </span>
             </div>
-            <label htmlFor="checkbox">{p.label}</label>
+            <label
+                htmlFor="checkbox"
+                className="text-primary-700 dark:text-primary-200"
+            >
+                {p.label}
+            </label>
         </div>
     );
 }

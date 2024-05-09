@@ -5,20 +5,17 @@ interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export function Tooltip(p: TooltipProps) {
-    const styles = {
-        container: "relative group flex flex-col items-center",
-        tooltipElement: twMerge(
-            "absolute top-10 min-w-28 px-2 py-1 z-50 text-center text-xs border rounded hidden group-hover:block",
-            "bg-white text-primary-600 border-primary-200 shadow-sm",
-            "dark:text-primary-200 dark:bg-primary-800 dark:border-primary-700",
-            p.className,
-        ),
-    };
-
     return (
-        <div className={styles.container}>
+        <div className="group relative flex flex-col items-center">
             {p.children}
-            <span className={styles.tooltipElement}>{p.label}</span>
+            <span
+                className={twMerge(
+                    "absolute top-10 z-50 hidden w-max rounded border border-primary-200 bg-white px-2 py-1 text-center text-xs text-primary-600 shadow-sm group-hover:block dark:border-primary-700 dark:bg-primary-800 dark:text-primary-200",
+                    p.className,
+                )}
+            >
+                {p.label}
+            </span>
         </div>
     );
 }
