@@ -28,9 +28,12 @@ export function TabGroup(p: TabGroupProps) {
                     </Tab>
                 ))}
             </TabList>
-            <TabPanels>
+            <TabPanels
+                as="div"
+                className="pt-4"
+            >
                 {p.items.map((item) => (
-                    <TabPanel key={item.label} className="pt-4">{item.content}</TabPanel>
+                    <TabPanel key={item.label}>{item.content}</TabPanel>
                 ))}
             </TabPanels>
         </HTabGroup>

@@ -33,9 +33,10 @@ export function Settings(p: SettingsProps) {
             setIsOpen={p.setIsOpen}
             title={`${appInfo.name} Settings`}
         >
-            <div className="h-[28em] overflow-y-scroll">
-                <TabGroup items={tabs} />
-            </div>
+            <TabGroup
+                items={tabs}
+                className="[&>*:nth-child(2)]:h-[26em] [&>*:nth-child(2)]:overflow-y-scroll"
+            />
         </Dialog>
     );
 }
