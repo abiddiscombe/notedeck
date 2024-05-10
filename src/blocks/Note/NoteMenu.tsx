@@ -18,7 +18,7 @@ import {
     DocumentDuplicateIcon,
     CheckIcon,
 } from "@heroicons/react/16/solid";
-import { Button } from "../../components/elements/Button";
+import { Button } from "../../components/Button";
 
 interface NoteMenuProps {
     noteData: NoteItem;

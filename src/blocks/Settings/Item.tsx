@@ -1,20 +1,21 @@
-import { twMerge } from "tailwind-merge";
 import { Field, Label, Description } from "@headlessui/react";
+import { twMerge } from "tailwind-merge";
 
-interface ControlLabelProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ItemProps extends React.HTMLAttributes<HTMLDivElement> {
     label: string;
     summary?: string;
 }
 
-export function ControlLabel(p: ControlLabelProps) {
+export function Item(p: ItemProps) {
     return (
         <Field
             className={twMerge(
-                "mb-4 mt-2 flex items-start justify-between gap-4",
-                p.className,
+                "mb-4 mt-2 flex gap-6",
+                p.summary ? "items-start [&>span]:mt-0.5" : "items-center",
             )}
         >
-            <div className="max-w-xs">
+            {p.children}
+            <div>
                 <Label
                     passive
                     className="text-primary-800 dark:text-primary-200"
@@ -22,12 +23,11 @@ export function ControlLabel(p: ControlLabelProps) {
                     {p.label}
                 </Label>
                 {p.summary && (
-                    <Description className="text-xs text-primary-500 dark:text-primary-400">
+                    <Description className="text-pretty text-xs text-primary-500 dark:text-primary-400">
                         {p.summary}
                     </Description>
                 )}
             </div>
-            {p.children}
         </Field>
     );
 }

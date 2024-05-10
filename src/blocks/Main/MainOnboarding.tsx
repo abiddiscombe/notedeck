@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { InformationCircleIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/elements/Typography";
-import { Button } from "../../components/elements/Button";
+import { Typography } from "../../components/Typography";
+import { Button } from "../../components/Button";
 import { serviceNote } from "../../database/serviceNote";
 import { Settings } from "../Settings/Settings";
 

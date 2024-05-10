@@ -1,7 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { serviceSettings } from "../../database/serviceSettings";
-import { Switch } from "../../components/elements/Switch";
-import { ControlLabel } from "../../components/elements/ControlLabel";
+import { Item } from "./Item";
+import { Checkbox } from "../../components/Checkbox";
 
 export function SettingsApperance() {
     const settings = useLiveQuery(() => serviceSettings.read());
@@ -14,15 +14,15 @@ export function SettingsApperance() {
 
     return (
         <>
-            <ControlLabel
-                label="Use translucent note backgrounds."
-                summary="Show notes with a translucent background in order to spot hidden overlapping notes."
+            <Item
+                label="Use translucent note backgrounds"
+                summary="Translucency effects make it easier to spot overlapping notes."
             >
-                <Switch
+                <Checkbox
                     state={!settings?.useOpaqueNotes}
                     setState={() => toggleNoteTransparency()}
                 />
-            </ControlLabel>
+            </Item>
         </>
     );
 }

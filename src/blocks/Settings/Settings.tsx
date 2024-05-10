@@ -1,6 +1,6 @@
 import { appInfo } from "../../utilities/constants";
-import { Modal } from "../../components/Modal";
-import { TabGroup } from "../../components/elements/TabGroup";
+import { Dialog } from "../../components/Dialog";
+import { TabGroup } from "../../components/TabGroup";
 import { SettingsAbout } from "./SettingsAbout";
 import { SettingsApperance } from "./SettingsAppearance";
 import { SettingsBackupRestore } from "./SettingsBackupRestore";
@@ -27,7 +27,7 @@ export function Settings(p: SettingsProps) {
     ];
 
     return (
-        <Modal
+        <Dialog
             size="lg"
             isOpen={p.isOpen}
             setIsOpen={p.setIsOpen}
@@ -36,6 +36,6 @@ export function Settings(p: SettingsProps) {
             <div className="h-[28em] overflow-y-scroll">
                 <TabGroup items={tabs} />
             </div>
-        </Modal>
+        </Dialog>
     );
 }

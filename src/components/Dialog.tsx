@@ -1,7 +1,8 @@
+import { twMerge } from "tailwind-merge";
 import { Fragment } from "react";
 import {
     CloseButton,
-    Dialog,
+    Dialog as HDialog,
     DialogPanel,
     DialogTitle,
     Transition,
@@ -10,10 +11,9 @@ import {
 import { useLiveQuery } from "dexie-react-hooks";
 import { serviceNote } from "../database/serviceNote";
 import { XMarkIcon } from "@heroicons/react/16/solid";
-import { Typography } from "./elements/Typography";
-import { twMerge } from "tailwind-merge";
+import { Typography } from "./Typography";
 
-interface ModalProps {
+interface DialogProps {
     size?: "sm" | "md" | "lg";
     title: string;
     isOpen: boolean;
@@ -21,7 +21,7 @@ interface ModalProps {
     children: React.ReactNode;
 }
 
-export function Modal(p: ModalProps) {
+export function Dialog(p: DialogProps) {
     const highestZIndex = useLiveQuery(() => serviceNote.getTopZIndex());
 
     const size = p.size || "md";
@@ -31,7 +31,7 @@ export function Modal(p: ModalProps) {
             appear
             show={p.isOpen}
         >
-            <Dialog
+            <HDialog
                 as="div"
                 style={{ zIndex: highestZIndex + 1 }}
                 className="relative"
@@ -81,7 +81,7 @@ export function Modal(p: ModalProps) {
                         </TransitionChild>
                     </div>
                 </div>
-            </Dialog>
+            </HDialog>
         </Transition>
     );
 }

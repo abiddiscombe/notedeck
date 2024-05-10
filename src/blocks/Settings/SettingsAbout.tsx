@@ -1,8 +1,8 @@
 import { appInfo } from "../../utilities/constants";
-import { Tag } from "../../components/elements/Tag";
-import { Notice } from "../../components/elements/Notice";
+import { Tag } from "../../components/Tag";
+import { Notice } from "../../components/Notice";
 import { ExternalLink } from "../../components/ExternalLink";
-import { Typography } from "../../components/elements/Typography";
+import { Typography } from "../../components/Typography";
 
 export function SettingsAbout() {
     return (
