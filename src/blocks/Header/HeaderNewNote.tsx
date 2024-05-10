@@ -1,5 +1,5 @@
 import { serviceNote } from "../../database/serviceNote";
-import { Button } from "../../components/elements/Button";
+import { Button } from "../../components/Button";
 import { PlusIcon } from "@heroicons/react/16/solid";
 
 export function HeaderNewNote() {
@@ -17,7 +17,6 @@ export function HeaderNewNote() {
             size="sm"
             variant="solid"
             onClick={() => handleCreateNote()}
-            className="mr-2"
         >
             <>
                 <PlusIcon />

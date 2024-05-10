@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Modal } from "../../components/Modal";
-import { Button } from "../../components/elements/Button";
-import { Checkbox } from "../../components/elements/Checkbox";
-import { Typography } from "../../components/elements/Typography";
+import { Dialog } from "../../components/Dialog";
+import { Button } from "../../components/Button";
+import { Checkbox } from "../../components/Checkbox";
+import { Typography } from "../../components/Typography";
 import { serviceNote } from "../../database/serviceNote";
 import { TrashIcon } from "@heroicons/react/16/solid";
+import { Item } from "../Settings/Item";
 
 interface ModalDeleteAllProps {
     isOpen: boolean;
@@ -26,7 +27,7 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
     }
 
     return (
-        <Modal
+        <Dialog
             title="Confirm Notes Deletion"
             isOpen={p.isOpen}
             setIsOpen={p.setIsOpen}
@@ -35,21 +36,18 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
                 Are you sure you want to delete{" "}
                 <strong>all stored notes</strong>?
             </Typography.Body>
-            <Typography.Body>
+            <Typography.Body className="mb-6">
                 You won't be able to recover notes after they have been deleted
                 from your device.
             </Typography.Body>
-            <div className="mt-6">
+            <Item label="Retain notes marked as priority">
                 <Checkbox
                     state={retainPriorityNotes}
-                    setState={setRetainPriorityNotes}
-                    label={
-                        <Typography.Body noMargin={true}>
-                            Retain notes marked as priority.
-                        </Typography.Body>
+                    setState={() =>
+                        setRetainPriorityNotes(!retainPriorityNotes)
                     }
                 />
-            </div>
+            </Item>
             <div className="mt-8 flex items-center gap-4">
                 <Button
                     variant="destructive"
@@ -61,6 +59,6 @@ export function ModalDeleteAll(p: ModalDeleteAllProps) {
                     </>
                 </Button>
             </div>
-        </Modal>
+        </Dialog>
     );
 }

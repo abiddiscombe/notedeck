@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { InformationCircleIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/elements/Typography";
-import { Button } from "../../components/elements/Button";
+import { Typography } from "../../components/Typography";
+import { Button } from "../../components/Button";
 import { serviceNote } from "../../database/serviceNote";
-import { ModalAbout } from "../Modal/ModalAbout";
+import { Settings } from "../Settings/Settings";
 
 export function MainOnboarding() {
-    const [showAboutModal, setShowAboutModal] = useState(false);
+    const [showSettings, setShowSettings] = useState(false);
 
     function handleCreateNote() {
         serviceNote.create({
@@ -20,9 +20,9 @@ export function MainOnboarding() {
 
     return (
         <>
-            <ModalAbout
-                isOpen={showAboutModal}
-                setIsOpen={() => setShowAboutModal(false)}
+            <Settings
+                isOpen={showSettings}
+                setIsOpen={() => setShowSettings(false)}
             />
             <main className="grid place-items-center p-6">
                 <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
@@ -47,7 +47,7 @@ export function MainOnboarding() {
                             <Button
                                 size="lg"
                                 variant="ghost"
-                                onClick={() => setShowAboutModal(true)}
+                                onClick={() => setShowSettings(true)}
                             >
                                 <>
                                     <InformationCircleIcon />

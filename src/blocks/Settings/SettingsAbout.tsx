@@ -1,22 +1,12 @@
 import { appInfo } from "../../utilities/constants";
-import { Modal } from "../../components/Modal";
-import { Typography } from "../../components/elements/Typography";
-import { Tag } from "../../components/elements/Tag";
+import { Tag } from "../../components/Tag";
+import { Notice } from "../../components/Notice";
 import { ExternalLink } from "../../components/ExternalLink";
-import { Notice } from "../../components/elements/Notice";
+import { Typography } from "../../components/Typography";
 
-interface ModalAboutProps {
-    isOpen: boolean;
-    setIsOpen: (newIsOpen: boolean) => void;
-}
-
-export function ModalAbout(p: ModalAboutProps) {
+export function SettingsAbout() {
     return (
-        <Modal
-            title={`About ${appInfo.name}`}
-            isOpen={p.isOpen}
-            setIsOpen={p.setIsOpen}
-        >
+        <>
             <Typography.Body>
                 {appInfo.name} is a browser app for recording your thoughts,
                 meeting notes, or code snippets using virtual sticky notes. It
@@ -54,6 +44,6 @@ export function ModalAbout(p: ModalAboutProps) {
                     v{appInfo.semVer}
                 </Tag>
             </div>
-        </Modal>
+        </>
     );
 }

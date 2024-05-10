@@ -1,5 +1,5 @@
 import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/elements/Typography";
+import { Typography } from "../../components/Typography";
 import { ExternalLink } from "../../components/ExternalLink";
 
 export function Mobile() {
