@@ -15,9 +15,8 @@ export type NoteItem = {
 
 export type SettingItem = {
     id?: IndexableType;
-    content: {
-        useOpaqueNotes?: boolean;
-    };
+    key: string;
+    value: boolean;
 };
 
 export const TABLE_NOTES = "notes";
@@ -54,6 +53,11 @@ export class MySubClassedDexie extends Dexie {
                         delete note.positionZ;
                     });
             });
+
+        this.version(3).stores({
+            notes: "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
+            settings: "++id, &key, value",
+        });
     }
 }
 

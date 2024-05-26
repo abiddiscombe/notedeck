@@ -8,22 +8,16 @@ import { appInfo } from "../../utilities/constants";
 import { saveAs } from "file-saver";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
-import {
-    ArrowDownTrayIcon,
-    ArrowUpTrayIcon,
-    CheckIcon,
-    DocumentCheckIcon,
-} from "@heroicons/react/16/solid";
+import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
 
-export function SettingsBackupRestore() {
+export function SettingsRestore() {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();
+    const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
     const [parsedBackupDate, setParsedBackupDate] = useState({
         date: "",
         hh: "",
         mm: "",
     });
-    const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
-    const [downloadCompleted, setDownloadCompleted] = useState<boolean>(false);
 
     const { openFilePicker, filesContent } = useFilePicker({
         multiple: false,
@@ -46,18 +40,6 @@ export function SettingsBackupRestore() {
         }
     }, [filesContent]);
 
-    async function createAndDownloadBackup() {
-        const parsedDate = convertDate();
-        const content = await backup.create();
-        const fileName = `notedeck--${parsedDate.date}-${parsedDate.hh}-${parsedDate.mm}.json`;
-        saveAs(content, fileName);
-
-        // Show and then hide the <Check /> with
-        // artificial delays.
-        setTimeout(() => setDownloadCompleted(true), 500);
-        setTimeout(() => setDownloadCompleted(false), 10500);
-    }
-
     async function restoreContentFromBackup() {
         if (parsedBackup) {
             await backup.restore(parsedBackup);
@@ -66,21 +48,9 @@ export function SettingsBackupRestore() {
 
     return (
         <>
-            <Typography.H3 className="mt-0">Create Backup</Typography.H3>
-            <Typography.Body>
-                Download a snapshot of your notes and settings to restore from
-                later. Please store your backups somewhere safe.
-            </Typography.Body>
-            <Button
-                variant="solid"
-                onClick={() => createAndDownloadBackup()}
-            >
-                {downloadCompleted ? <CheckIcon /> : <ArrowDownTrayIcon />}
-                Download Backup
-            </Button>
             <Typography.H3>Restore from Backup</Typography.H3>
             <Typography.Body>
-                Restore your notes and settings from a backup file.
+                Restore your notes and settings to a previous state.
             </Typography.Body>
             <div className="flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
                 <Button
@@ -90,14 +60,18 @@ export function SettingsBackupRestore() {
                 >
                     <>
                         <ArrowUpTrayIcon />
-                        Choose File
+                        Select File
                     </>
                 </Button>
-                <code className="text-sm text-primary-600 dark:text-primary-400">
-                    {filesContent.length
-                        ? filesContent[0].name
-                        : "No file selected."}
-                </code>
+                <div className="text-xs text-primary-600 dark:text-primary-400">
+                    {filesContent.length ? (
+                        <span className="font-mono">
+                            {filesContent[0].name}
+                        </span>
+                    ) : (
+                        <span>No file selected.</span>
+                    )}
+                </div>
             </div>
 
             {showErrorMessage && (

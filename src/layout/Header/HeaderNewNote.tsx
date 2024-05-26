@@ -1,6 +1,6 @@
 import { serviceNote } from "../../database/serviceNote";
-import { Button } from "../../components/Button";
 import { PlusIcon } from "@heroicons/react/16/solid";
+import { Button } from "../../components/Button";
 
 export function HeaderNewNote() {
     function handleCreateNote() {

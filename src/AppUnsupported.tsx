@@ -1,8 +1,8 @@
-import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/Typography";
-import { ExternalLink } from "../../components/ExternalLink";
+import { appInfo } from "./utilities/constants";
+import { Typography } from "./components/Typography";
+import { ExternalLink } from "./components/ExternalLink";
 
-export function Mobile() {
+export function AppUnsupported() {
     return (
         <>
             <div className="grid h-screen grid-rows-[auto,_1fr]">
@@ -17,7 +17,7 @@ export function Mobile() {
                         To explore {appInfo.name}, open this page on your
                         desktop or laptop. More information about {appInfo.name}{" "}
                         is available in the{" "}
-                        <ExternalLink href={appInfo.source}>
+                        <ExternalLink href={appInfo.sourceUrl}>
                             project documentation
                         </ExternalLink>{" "}
                         on GitHub.

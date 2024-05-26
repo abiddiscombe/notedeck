@@ -14,7 +14,6 @@ import { XMarkIcon } from "@heroicons/react/16/solid";
 import { Typography } from "./Typography";
 
 interface DialogProps {
-    size?: "sm" | "md" | "lg";
     title: string;
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
@@ -23,8 +22,6 @@ interface DialogProps {
 
 export function Dialog(p: DialogProps) {
     const highestZIndex = useLiveQuery(() => serviceNote.getTopZIndex());
-
-    const size = p.size || "md";
 
     return (
         <Transition
@@ -58,14 +55,7 @@ export function Dialog(p: DialogProps) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <DialogPanel
-                                className={twMerge(
-                                    "w-full transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow-xl transition-all dark:border dark:border-primary-800 dark:bg-primary-900",
-                                    size === "sm" && "max-w-sm",
-                                    size === "md" && "max-w-lg",
-                                    size === "lg" && "max-w-xl",
-                                )}
-                            >
+                            <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow-xl transition-all dark:border dark:border-primary-800 dark:bg-primary-900">
                                 <div className="flex items-center justify-between pb-4">
                                     <DialogTitle as={Fragment}>
                                         <Typography.H2 noMargin={true}>
