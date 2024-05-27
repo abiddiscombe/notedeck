@@ -1,14 +1,10 @@
-import { useState } from "react";
 import { InformationCircleIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { appInfo } from "../../utilities/constants";
 import { Typography } from "../../components/Typography";
 import { Button } from "../../components/Button";
 import { serviceNote } from "../../database/serviceNote";
-import { Settings } from "../Settings/Settings";
 
 export function MainOnboarding() {
-    const [showSettings, setShowSettings] = useState(false);
-
     function handleCreateNote() {
         serviceNote.create({
             theme: "yellow",
@@ -20,10 +16,6 @@ export function MainOnboarding() {
 
     return (
         <>
-            <Settings
-                isOpen={showSettings}
-                setIsOpen={() => setShowSettings(false)}
-            />
             <main className="grid place-items-center p-6">
                 <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
                     <Illustration />
@@ -47,7 +39,6 @@ export function MainOnboarding() {
                             <Button
                                 size="lg"
                                 variant="ghost"
-                                onClick={() => setShowSettings(true)}
                             >
                                 <>
                                     <InformationCircleIcon />

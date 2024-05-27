@@ -6,8 +6,11 @@ import {
     MenuItems,
     Transition,
 } from "@headlessui/react";
-import { serviceNote, NoteModifyableFields } from "../../database/serviceNote";
-import { NoteItem } from "../../database/db";
+import {
+    serviceNote,
+    NoteModifyableFields,
+} from "../../../database/serviceNote";
+import { NoteItem } from "../../../database/db";
 import { themes } from "./themes";
 import { NoteMenuTheme } from "./NoteMenuTheme";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
@@ -18,7 +21,7 @@ import {
     DocumentDuplicateIcon,
     CheckIcon,
 } from "@heroicons/react/16/solid";
-import { Button } from "../../components/Button";
+import { Button } from "../../../components/Button";
 
 interface NoteMenuProps {
     noteData: NoteItem;
@@ -27,7 +30,7 @@ interface NoteMenuProps {
 
 export function NoteMenu(p: NoteMenuProps) {
     function handleNoteDelete() {
-        serviceNote.delete(p.noteData.id);
+        serviceNote.remove(p.noteData.id);
     }
 
     function handleNoteModify(updates: NoteModifyableFields) {
