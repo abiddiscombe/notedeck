@@ -23,8 +23,12 @@ export function Settings(p: SettingsProps) {
                     open source
                 </ExternalLink>{" "}
                 app for recording your thoughts on virtual sticky notes. Your
-                data never leaves your device and is persisted locally in your
-                web browser.
+                data never leaves your device and is persisted in your browser
+                using{" "}
+                <ExternalLink href="https://javascript.info/indexeddb">
+                    IndexedDB
+                </ExternalLink>
+                .
             </Typography.Body>
             <hr className="my-6 dark:border-primary-600" />
             <SettingsItems />
