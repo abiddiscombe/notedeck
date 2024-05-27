@@ -5,7 +5,6 @@ import { Button } from "../../components/Button";
 import { Notice } from "../../components/Notice";
 import { Typography } from "../../components/Typography";
 import { appInfo } from "../../utilities/constants";
-import { saveAs } from "file-saver";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";

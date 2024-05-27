@@ -61,9 +61,11 @@ async function instantiate() {
     for (const defaultValue of defaultValues) {
         try {
             await db.settings.add(defaultValue);
-        } catch (error: any) {
-            if (error.name !== "ConstraintError") {
-                throw error;
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                if (error.name !== "ConstraintError") {
+                    throw error;
+                }
             }
         }
     }
