@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { twJoin } from "tailwind-merge";
-import { Button } from "../../components/elements/Button";
-import { Tooltip } from "../../components/elements/Tooltip";
 import {
     ComputerDesktopIcon,
     MoonIcon,
     SunIcon,
 } from "@heroicons/react/16/solid";
+import { Button } from "../../components/Button";
+import { Tooltip } from "../../components/Tooltip";
 
 type themeList = "auto" | "dark" | "light";
 const THEME_AUTO = "auto";
@@ -41,7 +41,7 @@ export function HeaderThemeSwitch() {
                     className={twJoin(
                         "rounded-r-none",
                         theme !== THEME_AUTO
-                            ? "text-primary-400 dark:text-primary-500 bg-primary-50 dark:bg-primary-800"
+                            ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
                             : "bg-primary-100 dark:bg-primary-700",
                     )}
                 >
@@ -59,7 +59,7 @@ export function HeaderThemeSwitch() {
                     className={twJoin(
                         "rounded-none",
                         theme !== THEME_DARK
-                            ? "text-primary-400 dark:text-primary-500 bg-primary-50 dark:bg-primary-800"
+                            ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
                             : "bg-primary-100 dark:bg-primary-700",
                     )}
                 >
@@ -77,7 +77,7 @@ export function HeaderThemeSwitch() {
                     className={twJoin(
                         "rounded-l-none",
                         theme !== THEME_LIGHT
-                            ? "text-primary-400 dark:text-primary-500 bg-primary-50 dark:bg-primary-800"
+                            ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
                             : "bg-primary-100 dark:bg-primary-700",
                     )}
                 >

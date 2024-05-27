@@ -1,7 +1,16 @@
 import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { serviceNote, NoteModifyableFields } from "../../database/serviceNote";
-import { NoteItem } from "../../database/db";
+import {
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    Transition,
+} from "@headlessui/react";
+import {
+    serviceNote,
+    NoteModifyableFields,
+} from "../../../database/serviceNote";
+import { NoteItem } from "../../../database/db";
 import { themes } from "./themes";
 import { NoteMenuTheme } from "./NoteMenuTheme";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
@@ -12,7 +21,7 @@ import {
     DocumentDuplicateIcon,
     CheckIcon,
 } from "@heroicons/react/16/solid";
-import { Button } from "../../components/elements/Button";
+import { Button } from "../../../components/Button";
 
 interface NoteMenuProps {
     noteData: NoteItem;
@@ -21,7 +30,7 @@ interface NoteMenuProps {
 
 export function NoteMenu(p: NoteMenuProps) {
     function handleNoteDelete() {
-        serviceNote.delete(p.noteData.id);
+        serviceNote.remove(p.noteData.id);
     }
 
     function handleNoteModify(updates: NoteModifyableFields) {
@@ -94,13 +103,15 @@ export function NoteMenu(p: NoteMenuProps) {
             as="div"
             className="relative inline-block text-left"
         >
-            <Menu.Button
+            <MenuButton
                 aria-label="Menu"
                 onClick={p.handleBringForwards}
-                className="rounded-tr px-4 py-2.5 hover:bg-primary-600/20 active:bg-primary-600/40 aria-expanded:bg-primary-600/20 dark:hover:bg-primary-800/40 dark:active:bg-primary-900/40 dark:aria-expanded:bg-primary-800/40"
+                className="rounded-tr px-4 py-2.5 hover:bg-primary-600/20 active:bg-primary-600/40
+                    aria-expanded:bg-primary-600/20 dark:hover:bg-primary-800/40
+                    dark:active:bg-primary-900/40 dark:aria-expanded:bg-primary-800/40"
             >
                 <EllipsisHorizontalIcon className="h-4 text-primary-900 dark:text-primary-100" />
-            </Menu.Button>
+            </MenuButton>
             <Transition
                 as={Fragment}
                 enter="transition ease-out duration-75"
@@ -110,9 +121,9 @@ export function NoteMenu(p: NoteMenuProps) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute right-0 mr-2 mt-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-primary-200 focus:outline-none dark:bg-primary-900 dark:ring-primary-800">
+                <MenuItems className="absolute right-0 mr-2 mt-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-primary-200 focus:outline-none dark:bg-primary-900 dark:ring-primary-800">
                     <div className="flex flex-col p-1">
-                        <Menu.Item
+                        <MenuItem
                             as="div"
                             className="flex gap-2 p-1 pb-2"
                         >
@@ -128,10 +139,10 @@ export function NoteMenu(p: NoteMenuProps) {
                                     }
                                 />
                             ))}
-                        </Menu.Item>
+                        </MenuItem>
                         <hr className="mb-1 border-primary-200 dark:border-primary-500" />
                         {menuItems.map((menuItem) => (
-                            <Menu.Item key={menuItem.label}>
+                            <MenuItem key={menuItem.label}>
                                 <Button
                                     size="sm"
                                     variant="ghost"
@@ -152,10 +163,10 @@ export function NoteMenu(p: NoteMenuProps) {
                                         )}
                                     </>
                                 </Button>
-                            </Menu.Item>
+                            </MenuItem>
                         ))}
                     </div>
-                </Menu.Items>
+                </MenuItems>
             </Transition>
         </Menu>
     );

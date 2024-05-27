@@ -1,14 +1,10 @@
-import { useState } from "react";
-import { InformationCircleIcon, PlusIcon } from "@heroicons/react/16/solid";
+import { PlusIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/elements/Typography";
-import { Button } from "../../components/elements/Button";
+import { Typography } from "../../components/Typography";
+import { Button } from "../../components/Button";
 import { serviceNote } from "../../database/serviceNote";
-import { ModalAbout } from "../Modal/ModalAbout";
 
 export function MainOnboarding() {
-    const [showAboutModal, setShowAboutModal] = useState(false);
-
     function handleCreateNote() {
         serviceNote.create({
             theme: "yellow",
@@ -20,18 +16,14 @@ export function MainOnboarding() {
 
     return (
         <>
-            <ModalAbout
-                isOpen={showAboutModal}
-                setIsOpen={() => setShowAboutModal(false)}
-            />
             <main className="grid place-items-center p-6">
                 <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
                     <Illustration />
                     <div className="max-w-sm">
                         <Typography.H2>Welcome to {appInfo.name}</Typography.H2>
                         <Typography.Body>
-                            Free yourself from paper notes with an open-source
-                            and offline alternative that respects your privacy.
+                            A free and open-source alternative to paper notes
+                            that respects your privacy and works offline.
                         </Typography.Body>
                         <div className="mt-8 flex items-center gap-4">
                             <Button
@@ -44,16 +36,16 @@ export function MainOnboarding() {
                                     Get Started
                                 </>
                             </Button>
-                            <Button
-                                size="lg"
-                                variant="ghost"
-                                onClick={() => setShowAboutModal(true)}
+                            <a
+                                href={appInfo.sourceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`${appInfo.name} on GitHub (Opens in a New Tab)`}
+                                className="text-md flex h-10 items-center gap-3 rounded border border-white/0 px-4 text-primary-800 hover:border-primary-100 hover:bg-primary-100 hover:active:border-primary-200 hover:active:bg-primary-200 dark:text-primary-200 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:hover:active:border-primary-600 dark:hover:active:bg-primary-600 [&>svg]:h-3.5"
                             >
-                                <>
-                                    <InformationCircleIcon />
-                                    Learn More
-                                </>
-                            </Button>
+                                <ArrowTopRightOnSquareIcon />
+                                Learn More
+                            </a>
                         </div>
                     </div>
                 </div>

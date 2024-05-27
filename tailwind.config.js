@@ -27,6 +27,6 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require("@headlessui/tailwindcss")],
     darkMode: "selector",
 };

@@ -1,9 +1,9 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import { serviceNote } from "../../database/serviceNote";
-import { serviceSettings } from "../../database/serviceSettings";
-import { NoteItem } from "../../database/db";
+import { serviceNote } from "../../../database/serviceNote";
+import { serviceSettings } from "../../../database/serviceSettings";
+import { NoteItem } from "../../../database/db";
 import { NoteMenu } from "./NoteMenu";
 import { themes } from "./themes";
 import { NotePriority } from "./NotePriority";
@@ -15,7 +15,9 @@ interface NoteProps {
 
 export function Note(p: NoteProps) {
     const id = useId();
-    const settings = useLiveQuery(() => serviceSettings.read());
+    const useOpaqueNotes = useLiveQuery(() =>
+        serviceSettings.read("useOpaqueNotes"),
+    );
     const textareaId = useId();
     const nodeRef = useRef<HTMLElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -32,7 +34,7 @@ export function Note(p: NoteProps) {
         serviceNote.modify(p.noteData.id, notePosition);
     }, [notePosition, p.noteData.id]);
 
-    if (!settings || !p.noteData) {
+    if (useOpaqueNotes === undefined || !p.noteData) {
         return null;
     }
 
@@ -83,7 +85,7 @@ export function Note(p: NoteProps) {
                 ref={nodeRef}
                 className={twMerge(
                     "absolute rounded shadow-sm hover:shadow",
-                    settings.useOpaqueNotes ? theme.noteOpaque : theme.note,
+                    useOpaqueNotes ? theme.noteOpaque : theme.note,
                     !p.noteData.content &&
                         !p.noteData.isPriority &&
                         "[&:not(:hover)]:animate-pulse",
@@ -124,7 +126,8 @@ export function Note(p: NoteProps) {
                         height: notePosition.posH,
                     }}
                     className={twMerge(
-                        "min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800 dark:text-primary-100",
+                        `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800
+                        dark:text-primary-100`,
                         p.noteData.isMonospace && "font-mono text-sm",
                     )}
                 />

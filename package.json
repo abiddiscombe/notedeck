@@ -1,7 +1,7 @@
 {
     "name": "notedeck",
     "private": true,
-    "version": "1.4.1",
+    "version": "1.5.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -11,7 +11,8 @@
         "tidy": "npx prettier --write ./src"
     },
     "dependencies": {
-        "@headlessui/react": "^1.7.18",
+        "@headlessui/react": "^2.0.1",
+        "@headlessui/tailwindcss": "^0.2.0",
         "@heroicons/react": "^2.1.1",
         "dexie": "^3.2.4",
         "dexie-react-hooks": "^1.1.7",
@@ -36,7 +37,8 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.5",
         "postcss": "^8.4.32",
-        "prettier": "^3.1.1",
+        "prettier": "^3.2.5",
+        "prettier-plugin-tailwindcss": "^0.5.14",
         "tailwindcss": "^3.3.6",
         "typescript": "^5.2.2",
         "vite": "^5.0.8",

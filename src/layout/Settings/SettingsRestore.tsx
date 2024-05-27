@@ -1,37 +1,24 @@
-import { Modal } from "../../components/Modal";
-import { Button } from "../../components/elements/Button";
-import { Typography } from "../../components/elements/Typography";
-import { useFilePicker } from "use-file-picker";
-import { BackupObject, backup } from "../../utilities/backup";
-import { saveAs } from "file-saver";
-import { FileSizeValidator } from "use-file-picker/validators";
-import { Notice } from "../../components/elements/Notice";
 import { useEffect, useState } from "react";
-import {
-    ArrowDownTrayIcon,
-    ArrowUpTrayIcon,
-    CheckIcon,
-    DocumentCheckIcon,
-} from "@heroicons/react/16/solid";
 import { convertDate } from "../../utilities/convertDate";
+import { BackupObject, backup } from "../../utilities/backup";
+import { Button } from "../../components/Button";
+import { Notice } from "../../components/Notice";
+import { Typography } from "../../components/Typography";
 import { appInfo } from "../../utilities/constants";
+import { useFilePicker } from "use-file-picker";
+import { FileSizeValidator } from "use-file-picker/validators";
+import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
 
-interface ModalBackupRestoreProps {
-    isOpen: boolean;
-    setIsOpen: (newIsOpen: boolean) => void;
-}
-
-export function ModalBackupRestore(p: ModalBackupRestoreProps) {
+export function SettingsRestore() {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();
+    const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
     const [parsedBackupDate, setParsedBackupDate] = useState({
         date: "",
         hh: "",
         mm: "",
     });
-    const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
-    const [downloadCompleted, setDownloadCompleted] = useState<boolean>(false);
 
-    const { openFilePicker, filesContent, clear } = useFilePicker({
+    const { openFilePicker, filesContent } = useFilePicker({
         multiple: false,
         accept: ".json",
         validators: [new FileSizeValidator({ maxFileSize: 5000000 })],
@@ -52,83 +39,45 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
         }
     }, [filesContent]);
 
-    async function createAndDownloadBackup() {
-        const parsedDate = convertDate();
-        const content = await backup.create();
-        const fileName = `notedeck--${parsedDate.date}-${parsedDate.hh}-${parsedDate.mm}.json`;
-        saveAs(content, fileName);
-
-        // Show and then hide the <Check /> with
-        // artificial delays.
-        setTimeout(() => setDownloadCompleted(true), 500);
-        setTimeout(() => setDownloadCompleted(false), 10500);
-    }
-
     async function restoreContentFromBackup() {
         if (parsedBackup) {
             await backup.restore(parsedBackup);
-            handleCloseModal();
         }
     }
 
-    function handleCloseModal() {
-        clear();
-        setParsedBackup(undefined);
-
-        // Close the modal.
-        p.setIsOpen(false);
-    }
-
     return (
-        <Modal
-            title="Backup & Restore"
-            isOpen={p.isOpen}
-            setIsOpen={handleCloseModal}
-        >
-            <Typography.Body>
-                Backup or transfer your notes to a new device, or restore this
-                instance of {appInfo.name} to a previous state.
-            </Typography.Body>
-
-            <Typography.H3>Create Backup</Typography.H3>
-            <Typography.Body>
-                Download a snapshot of your notes and settings to restore from
-                later. Please store your backups somewhere safe.
-            </Typography.Body>
-            <Button onClick={() => createAndDownloadBackup()}>
-                <>
-                    {downloadCompleted ? <CheckIcon /> : <ArrowDownTrayIcon />}
-                    Download Backup
-                </>
-            </Button>
-
+        <>
             <Typography.H3>Restore from Backup</Typography.H3>
             <Typography.Body>
-                Restore your notes and settings from a backup file.
+                Restore your notes and settings to a previous state.
             </Typography.Body>
             <div className="flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
                 <Button
                     variant="solid"
                     onClick={() => openFilePicker()}
-                    className="rounded-r-none pr-4"
+                    className="shrink-0 rounded-r-none pr-4"
                 >
                     <>
                         <ArrowUpTrayIcon />
-                        Choose File
+                        Select File
                     </>
                 </Button>
-                <code className="text-sm text-primary-600 dark:text-primary-400">
-                    {filesContent.length
-                        ? filesContent[0].name
-                        : "No file selected."}
-                </code>
+                <div className="overflow-hidden text-ellipsis pr-4 text-xs text-primary-600 dark:text-primary-400">
+                    {filesContent.length ? (
+                        <span className="font-mono">
+                            {filesContent[0].name}
+                        </span>
+                    ) : (
+                        <span>No file selected.</span>
+                    )}
+                </div>
             </div>
 
             {showErrorMessage && (
                 <Notice variant="error">
                     Something went wrong whilst reading the backup file.
                     <br />
-                    It may be corrupted or incompatible with NoteDeck.
+                    It may be corrupted or incompatible with {appInfo.name}.
                 </Notice>
             )}
 
@@ -157,6 +106,6 @@ export function ModalBackupRestore(p: ModalBackupRestoreProps) {
                     </Button>
                 </Notice>
             )}
-        </Modal>
+        </>
     );
 }

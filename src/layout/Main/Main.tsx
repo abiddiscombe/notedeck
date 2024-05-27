@@ -1,7 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { serviceNote } from "../../database/serviceNote";
 import { MainOnboarding } from "./MainOnboarding";
-import { Note } from "../Note/Note";
+import { Note } from "./Note/Note";
 
 export function Main() {
     const notes = useLiveQuery(() => serviceNote.list());

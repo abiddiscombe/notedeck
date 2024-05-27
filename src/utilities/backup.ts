@@ -1,6 +1,5 @@
-import { NoteItem, SettingItem } from "../database/db";
+import { NoteItem } from "../database/db";
 import { serviceNote } from "../database/serviceNote";
-import { serviceSettings } from "../database/serviceSettings";
 
 export const backup = {
     create: _create,
@@ -14,22 +13,19 @@ export type BackupObject = {
     timestamp: number;
     content: {
         notes: NoteItem[];
-        settings: SettingItem["content"];
     };
 };
 
 async function _create() {
     const notes = await serviceNote.list();
-    const settings = await serviceSettings.read();
 
-    // Represent the user's data as object.
+    // Represent the user's notes.
     const backupContent: BackupObject = {
         id: "notedeck",
         version: APP_VERSION,
         timestamp: Date.now(),
         content: {
             notes: notes,
-            settings: settings,
         },
     };
 
@@ -51,15 +47,11 @@ function _unpack(content: string) {
 }
 
 async function _restore(parsedBackup: BackupObject) {
-    await serviceNote.deleteAll(true);
+    await serviceNote.removeAll(true);
 
     if (parsedBackup.content.notes) {
         parsedBackup.content.notes.forEach(async (note: NoteItem) => {
             await serviceNote.create(note);
         });
-    }
-
-    if (parsedBackup.content.settings) {
-        await serviceSettings.write(parsedBackup.content.settings);
     }
 }
