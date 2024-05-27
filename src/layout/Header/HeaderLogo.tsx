@@ -7,7 +7,7 @@ export function HeaderLogo() {
             <Typography.H1 noMargin={true}>{appInfo.name}</Typography.H1>
             <Typography.Body
                 noMargin={true}
-                className="text-[0.7rem] text-primary-400 dark:text-primary-500"
+                className="hidden text-[0.7rem] text-primary-400 sm:block dark:text-primary-500"
             >
                 v{appInfo.semVer}
             </Typography.Body>

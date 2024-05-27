@@ -1,6 +1,7 @@
 import { serviceNote } from "../../database/serviceNote";
 import { PlusIcon } from "@heroicons/react/16/solid";
 import { Button } from "../../components/Button";
+import { Tooltip } from "../../components/Tooltip";
 
 export function HeaderNewNote() {
     function handleCreateNote() {
@@ -12,16 +13,21 @@ export function HeaderNewNote() {
         });
     }
 
+    const label = "New Note";
+
     return (
-        <Button
-            size="sm"
-            variant="solid"
-            onClick={() => handleCreateNote()}
+        <Tooltip
+            label={label}
+            className="sm:invisible"
         >
-            <>
+            <Button
+                size="sm"
+                variant="solid"
+                onClick={() => handleCreateNote()}
+            >
                 <PlusIcon />
-                New Note
-            </>
-        </Button>
+                <span className="hidden sm:block">{label}</span>
+            </Button>
+        </Tooltip>
     );
 }
