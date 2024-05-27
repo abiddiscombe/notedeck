@@ -12,6 +12,7 @@ export function ExternalLink(p: ExternalLinkProps) {
             {...p}
             href={p.href}
             target="_blank"
+            rel="noopener noreferrer"
             aria-label={ariaLabel}
             className={twMerge(
                 "underline visited:text-inherit hover:decoration-2",
