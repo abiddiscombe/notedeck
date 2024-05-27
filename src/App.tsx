@@ -36,10 +36,16 @@ export function App() {
             }
         }
 
-        setContext((prevState) => ({
-            ...prevState,
-            loaded: true,
-        }));
+        setTimeout(() => {
+            // Experimental! Increases the visible time
+            // of the Splash Screen by 250 ms in order to
+            // reduce "flicker" on app load.
+
+            setContext((prevState) => ({
+                ...prevState,
+                loaded: true,
+            }));
+        }, 250);
     }
 
     useEffect(() => {
