@@ -5,7 +5,7 @@ import { ExternalLink } from "./components/ExternalLink";
 export function AppUnsupported() {
     return (
         <>
-            <div className="grid h-screen grid-rows-[auto,_1fr]">
+            <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
                 <header className="p-6">
                     <Typography.H1>{appInfo.name}</Typography.H1>
                 </header>
