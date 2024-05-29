@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ArrowUpCircleIcon } from "@heroicons/react/16/solid";
-import { AppContext } from "../../App";
+import { AppContext } from "../../AppRoot";
 import { Button } from "../../components/Button";
 
 export function HeaderUpdateNotification() {
@@ -18,9 +18,9 @@ export function HeaderUpdateNotification() {
 
     return (
         <Button
+            size="sm"
             variant="ghost"
             className="bg-primary-50 dark:bg-primary-800"
-            size="sm"
             onClick={() => handleHardReload()}
         >
             <ArrowUpCircleIcon className="text-green-600" />

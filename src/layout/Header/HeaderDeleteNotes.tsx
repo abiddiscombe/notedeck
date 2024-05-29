@@ -11,6 +11,7 @@ import { Typography } from "../../components/Typography";
 export function HeaderDeleteNotes() {
     const [showModal, setShowModal] = useState(false);
     const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);
+    const label = "Delete All Notes";
 
     // // Revert the "Retain Priority Notes" checkbox to
     // // "checked" when the modal is re-opened.
@@ -60,10 +61,11 @@ export function HeaderDeleteNotes() {
                     </>
                 </Button>
             </Dialog>
-            <Tooltip label="Delete All Notes">
+            <Tooltip label={label}>
                 <Button
                     size="sm"
                     variant="ghost"
+                    aria-label={label}
                     onClick={() => setShowModal(true)}
                     className="bg-primary-50 dark:bg-primary-800"
                 >

@@ -4,6 +4,8 @@ import { Button } from "../../components/Button";
 import { Tooltip } from "../../components/Tooltip";
 
 export function HeaderNewNote() {
+    const label = "New Note";
+
     function handleCreateNote() {
         serviceNote.create({
             theme: "yellow",
@@ -13,8 +15,6 @@ export function HeaderNewNote() {
         });
     }
 
-    const label = "New Note";
-
     return (
         <Tooltip
             label={label}
@@ -23,6 +23,7 @@ export function HeaderNewNote() {
             <Button
                 size="sm"
                 variant="solid"
+                aria-label={label}
                 onClick={() => handleCreateNote()}
             >
                 <PlusIcon />

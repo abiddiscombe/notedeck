@@ -57,12 +57,10 @@ export function SettingsRestore() {
                     onClick={() => openFilePicker()}
                     className="shrink-0 rounded-r-none pr-4"
                 >
-                    <>
-                        <ArrowUpTrayIcon />
-                        Select File
-                    </>
+                    <ArrowUpTrayIcon />
+                    Select File
                 </Button>
-                <div className="overflow-hidden text-ellipsis pr-4 text-xs text-primary-600 dark:text-primary-400">
+                <div className="overflow-hidden text-ellipsis pr-4 text-xs text-primary-700 dark:text-primary-200">
                     {filesContent.length ? (
                         <span className="font-mono">
                             {filesContent[0].name}
