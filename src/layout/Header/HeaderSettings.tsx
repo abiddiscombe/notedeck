@@ -1,0 +1,33 @@
+import { useState } from "react";
+import { Cog6ToothIcon } from "@heroicons/react/16/solid";
+import { Settings } from "../Settings/Settings";
+import { Button } from "../../components/Button";
+import { Tooltip } from "../../components/Tooltip";
+
+export function HeaderSettings() {
+    const [showSettings, setShowSettings] = useState(false);
+    const label = "Settings";
+
+    return (
+        <>
+            <Settings
+                isOpen={showSettings}
+                setIsOpen={setShowSettings}
+            />
+            <Tooltip
+                label={label}
+                className="right-0"
+            >
+                <Button
+                    size="sm"
+                    variant="ghost"
+                    aria-label={label}
+                    onClick={() => setShowSettings(true)}
+                    className="bg-primary-50 dark:bg-primary-800"
+                >
+                    <Cog6ToothIcon />
+                </Button>
+            </Tooltip>
+        </>
+    );
+}

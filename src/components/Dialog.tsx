@@ -61,7 +61,10 @@ export function Dialog(p: DialogProps) {
                                             {p.title}
                                         </Typography.H2>
                                     </DialogTitle>
-                                    <CloseButton className="rounded-full outline outline-8 outline-white/0 hover:bg-primary-50 hover:outline-primary-50 active:bg-primary-100 active:outline-primary-100 dark:hover:bg-primary-700 dark:hover:outline-primary-700 dark:active:bg-primary-600 dark:active:outline-primary-600">
+                                    <CloseButton
+                                        aria-label="Close Dialog"
+                                        className="rounded-full outline outline-8 outline-white/0 hover:bg-primary-50 hover:outline-primary-50 active:bg-primary-100 active:outline-primary-100 dark:hover:bg-primary-700 dark:hover:outline-primary-700 dark:active:bg-primary-600 dark:active:outline-primary-600"
+                                    >
                                         <XMarkIcon className="h-6 text-primary-600 dark:text-primary-200" />
                                     </CloseButton>
                                 </div>

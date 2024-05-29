@@ -11,6 +11,7 @@ import { Tooltip } from "../../components/Tooltip";
 
 export function HeaderBackup() {
     const [backupDone, setBackupDone] = useState(false);
+    const label = "Download Backup";
 
     async function handleDownloadBackup() {
         const parsedDate = convertDate();
@@ -22,10 +23,11 @@ export function HeaderBackup() {
     }
 
     return (
-        <Tooltip label="Download Backup">
+        <Tooltip label={label}>
             <Button
                 size="sm"
                 variant="ghost"
+                aria-label={label}
                 className="bg-primary-50 dark:bg-primary-800"
                 onClick={() => handleDownloadBackup()}
             >

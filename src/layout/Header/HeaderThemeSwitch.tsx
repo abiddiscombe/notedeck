@@ -17,6 +17,9 @@ export function HeaderThemeSwitch() {
     const [theme, setTheme] = useState<themeList>(
         localStorage.theme || THEME_AUTO,
     );
+    const labelAuto = "Follow System Theme";
+    const labelDark = "Use Dark Theme";
+    const labelLight = "Use Light Theme";
 
     function handleThemeChange(newTheme: themeList) {
         setTheme(newTheme);
@@ -32,11 +35,12 @@ export function HeaderThemeSwitch() {
         <div className="box-content flex items-center rounded">
             <Tooltip
                 aria-hidden
-                label="System Theme"
+                label={labelAuto}
             >
                 <Button
                     size="sm"
                     variant="ghost"
+                    aria-label={labelAuto}
                     onClick={() => handleThemeChange(THEME_AUTO)}
                     className={twJoin(
                         "rounded-r-none",
@@ -45,16 +49,17 @@ export function HeaderThemeSwitch() {
                             : "bg-primary-100 dark:bg-primary-700",
                     )}
                 >
-                    <ComputerDesktopIcon aria-label="Use System Theme" />
+                    <ComputerDesktopIcon aria-label={labelAuto} />
                 </Button>
             </Tooltip>
             <Tooltip
                 aria-hidden
-                label="Dark Mode"
+                label={labelDark}
             >
                 <Button
                     size="sm"
                     variant="ghost"
+                    aria-label={labelDark}
                     onClick={() => handleThemeChange(THEME_DARK)}
                     className={twJoin(
                         "rounded-none",
@@ -63,16 +68,17 @@ export function HeaderThemeSwitch() {
                             : "bg-primary-100 dark:bg-primary-700",
                     )}
                 >
-                    <MoonIcon aria-label="Use Dark Mode" />
+                    <MoonIcon aria-label={labelDark} />
                 </Button>
             </Tooltip>
             <Tooltip
                 aria-hidden
-                label="Light Mode"
+                label={labelLight}
             >
                 <Button
                     size="sm"
                     variant="ghost"
+                    aria-label={labelLight}
                     onClick={() => handleThemeChange(THEME_LIGHT)}
                     className={twJoin(
                         "rounded-l-none",
@@ -81,7 +87,7 @@ export function HeaderThemeSwitch() {
                             : "bg-primary-100 dark:bg-primary-700",
                     )}
                 >
-                    <SunIcon aria-label="Use Light Mode" />
+                    <SunIcon aria-label={labelLight} />
                 </Button>
             </Tooltip>
         </div>

@@ -1,71 +1,36 @@
-import { createContext, useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
-import { serviceSettings } from "./database/serviceSettings";
-import { AppUnsupported } from "./AppUnsupported";
-import { Main } from "./layout/Main/Main";
-import { AppSplash } from "./AppSplash";
-import { Header } from "./layout/Header/Header";
-import { update } from "./utilities/update";
-
-interface AppContextType {
-    loaded: boolean;
-    updateAvailable: boolean;
-    updateTargetVersion: string;
-}
-
-export const AppContext = createContext<AppContextType | null>(null);
+import { AppRoot } from "./AppRoot";
+import { appInfo } from "./utilities/constants";
+import { Typography } from "./components/Typography";
+import { ExternalLink } from "./components/ExternalLink";
 
 export function App() {
-    const [context, setContext] = useState<AppContextType>({
-        loaded: false,
-        updateAvailable: false,
-        updateTargetVersion: "",
-    });
-
-    async function init() {
-        await serviceSettings.instantiate();
-
-        const autoUpdateCheck = await serviceSettings.read("autoUpdateCheck");
-        if (autoUpdateCheck) {
-            const updateCheckEvent = await update.check();
-            if (updateCheckEvent?.updateAvailable) {
-                setContext((prevState) => ({
-                    ...prevState,
-                    ...updateCheckEvent,
-                }));
-            }
-        }
-
-        setTimeout(() => {
-            // Experimental! Increases the visible time
-            // of the Splash Screen by 250 ms in order to
-            // reduce "flicker" on app load.
-
-            setContext((prevState) => ({
-                ...prevState,
-                loaded: true,
-            }));
-        }, 250);
-    }
-
-    useEffect(() => {
-        init();
-    }, []);
-
-    if (!context.loaded) {
-        return <AppSplash />;
-    }
+    // If the app is loaded on a mobile device, bypass
+    // initialization and data loading to improve performance.
 
     if (isMobile) {
-        return <AppUnsupported />;
+        return (
+            <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
+                <header className="p-10">
+                    <Typography.H1>{appInfo.name}</Typography.H1>
+                </header>
+                <main className="m-auto max-w-sm p-10 pb-20">
+                    <Typography.H2>
+                        Sorry, mobile devices are not supported :/
+                    </Typography.H2>
+                    <Typography.Body>
+                        To explore {appInfo.name}, open this page on your
+                        desktop or laptop. More information about {appInfo.name}{" "}
+                        is available in the{" "}
+                        <ExternalLink href={appInfo.sourceUrl}>
+                            project documentation
+                        </ExternalLink>{" "}
+                        on GitHub.
+                    </Typography.Body>
+                </main>
+            </div>
+        );
     }
 
-    return (
-        <AppContext.Provider value={context}>
-            <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
-                <Header />
-                <Main />
-            </div>
-        </AppContext.Provider>
-    );
+    return <AppRoot />;
 }
