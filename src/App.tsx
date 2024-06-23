@@ -10,7 +10,7 @@ export function App() {
 
     if (isMobile) {
         return (
-            <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
+            <div className="grid h-dvh grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
                 <header className="p-10">
                     <Typography.H1>{appInfo.name}</Typography.H1>
                 </header>
