@@ -10,7 +10,7 @@ export function App() {
 
     if (isMobile) {
         return (
-            <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
+            <div className="grid h-dvh grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
                 <header className="p-10">
                     <Typography.H1>{appInfo.name}</Typography.H1>
                 </header>
@@ -20,12 +20,12 @@ export function App() {
                     </Typography.H2>
                     <Typography.Body>
                         To explore {appInfo.name}, open this page on your
-                        desktop or laptop. More information about {appInfo.name}{" "}
-                        is available in the{" "}
-                        <ExternalLink href={appInfo.sourceUrl}>
-                            project documentation
-                        </ExternalLink>{" "}
-                        on GitHub.
+                        desktop or laptop.
+                    </Typography.Body>
+                    <Typography.Body className="mt-6">
+                        <ExternalLink href={appInfo.infoUrl}>
+                            Learn more about NoteDeck.
+                        </ExternalLink>
                     </Typography.Body>
                 </main>
             </div>
