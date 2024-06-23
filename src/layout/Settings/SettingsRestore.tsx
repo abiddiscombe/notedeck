@@ -51,7 +51,7 @@ export function SettingsRestore() {
             <Typography.Body>
                 Restore your notes and settings to a previous state.
             </Typography.Body>
-            <div className="flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
+            <div className="mt-4 flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
                 <Button
                     variant="solid"
                     onClick={() => openFilePicker()}

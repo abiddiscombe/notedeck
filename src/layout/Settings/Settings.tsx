@@ -18,15 +18,15 @@ export function Settings(p: SettingsProps) {
             title={`${appInfo.name} Settings`}
         >
             <Typography.Body>
-                {appInfo.name} is a free and{" "}
-                <ExternalLink href={appInfo.sourceUrl}>
-                    open source
+                {appInfo.name} is a free and private space for your temporary
+                sticky notes. Your data never leaves your device.
+                <br className="mb-2" />
+                <ExternalLink href={appInfo.infoUrl}>
+                    More Information
                 </ExternalLink>{" "}
-                app for recording your thoughts on virtual sticky notes. Your
-                data never leaves your device and is persisted in your browser
-                using{" "}
-                <ExternalLink href="https://javascript.info/indexeddb">
-                    IndexedDB
+                -{" "}
+                <ExternalLink href={appInfo.sourceUrl}>
+                    View Source
                 </ExternalLink>
                 .
             </Typography.Body>
