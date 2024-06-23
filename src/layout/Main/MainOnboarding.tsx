@@ -34,14 +34,14 @@ export function MainOnboarding() {
                             Get Started
                         </Button>
                         <a
-                            href={appInfo.sourceUrl}
+                            href={appInfo.infoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={`${appInfo.name} on GitHub (Opens in a New Tab)`}
+                            aria-label={`More information about ${appInfo.name} (Opens in a New Tab)`}
                             className="text-md flex h-10 items-center gap-3 rounded border border-white/0 px-4 text-primary-800 hover:border-primary-100 hover:bg-primary-100 hover:active:border-primary-200 hover:active:bg-primary-200 dark:text-primary-200 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:hover:active:border-primary-600 dark:hover:active:bg-primary-600 [&>svg]:h-3.5"
                         >
                             <ArrowTopRightOnSquareIcon />
-                            View on GitHub
+                            Learn More
                         </a>
                     </div>
                 </div>
