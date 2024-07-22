@@ -143,26 +143,28 @@ export function NoteMenu(p: NoteMenuProps) {
                         <hr className="mb-1 border-primary-200 dark:border-primary-500" />
                         {menuItems.map((menuItem) => (
                             <MenuItem key={menuItem.label}>
-                                <Button
-                                    size="sm"
-                                    variant="ghost"
-                                    onClick={menuItem.action}
-                                    className={
-                                        menuItem.isDestructive
-                                            ? "text-red-600 dark:text-red-500"
-                                            : ""
-                                    }
-                                >
-                                    <>
-                                        {menuItem.icon}
-                                        <span className="mr-auto">
-                                            {menuItem.label}
-                                        </span>
-                                        {menuItem.isActive && (
-                                            <CheckIcon className="fill-green-600 dark:fill-green-500" />
-                                        )}
-                                    </>
-                                </Button>
+                                <div>
+                                    <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={menuItem.action}
+                                        className={
+                                            menuItem.isDestructive
+                                                ? "w-full text-red-600 dark:text-red-500"
+                                                : "w-full"
+                                        }
+                                    >
+                                        <>
+                                            {menuItem.icon}
+                                            <span className="mr-auto">
+                                                {menuItem.label}
+                                            </span>
+                                            {menuItem.isActive && (
+                                                <CheckIcon className="fill-green-600 dark:fill-green-500" />
+                                            )}
+                                        </>
+                                    </Button>
+                                </div>
                             </MenuItem>
                         ))}
                     </div>
