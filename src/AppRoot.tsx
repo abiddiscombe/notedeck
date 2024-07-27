@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from "react";
-import { serviceSettings } from "./database/serviceSettings";
+import { settingsService } from "./database/settings.service";
 import { update } from "./utilities/update";
-import { AppSplash } from "./AppSplash";
-import { Main } from "./layout/Main/Main";
-import { Header } from "./layout/Header/Header";
+import AppSplash from "./AppSplash";
+import Main from "./layout/Main/Main";
+import Header from "./layout/Header/Header";
+import { SETTINGS_KEYS } from "./utilities/constants";
 
 interface AppContextType {
     loaded: boolean;
@@ -13,7 +14,7 @@ interface AppContextType {
 
 export const AppContext = createContext<AppContextType | null>(null);
 
-export function AppRoot() {
+export default () => {
     const [context, setContext] = useState<AppContextType>({
         loaded: false,
         updateAvailable: false,
@@ -21,9 +22,11 @@ export function AppRoot() {
     });
 
     async function init() {
-        await serviceSettings.instantiate();
+        await settingsService.instantiate();
+        const autoUpdateCheck = await settingsService.read(
+            SETTINGS_KEYS.AutoUpdateCheck,
+        );
 
-        const autoUpdateCheck = await serviceSettings.read("autoUpdateCheck");
         if (autoUpdateCheck) {
             const updateCheckEvent = await update.check();
             if (updateCheckEvent?.updateAvailable) {
@@ -35,10 +38,6 @@ export function AppRoot() {
         }
 
         setTimeout(() => {
-            // Experimental! Increases the visible time
-            // of the Splash Screen by 250 ms in order to
-            // reduce "flicker" on app load.
-
             setContext((prevState) => ({
                 ...prevState,
                 loaded: true,
@@ -62,4 +61,4 @@ export function AppRoot() {
             </div>
         </AppContext.Provider>
     );
-}
+};

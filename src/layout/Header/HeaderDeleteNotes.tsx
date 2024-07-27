@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
-import { serviceNote } from "../../database/serviceNote";
-import { Dialog } from "../../components/Dialog";
-import { Button } from "../../components/Button";
-import { Tooltip } from "../../components/Tooltip";
-import { Checkbox } from "../../components/Checkbox";
-import { Typography } from "../../components/Typography";
+import { notesService } from "../../database/notes.service";
+import Dialog from "../../components/Dialog";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
+import Checkbox from "../../components/Checkbox";
+import Typography from "../../components/Typography";
 
-export function HeaderDeleteNotes() {
+export default () => {
     const [showModal, setShowModal] = useState(false);
     const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);
     const label = "Delete All Notes";
@@ -20,7 +20,7 @@ export function HeaderDeleteNotes() {
     }, [showModal]);
 
     async function handleDeleteEverything() {
-        await serviceNote.removeAll(!retainPriorityNotes);
+        await notesService.removeAll(!retainPriorityNotes);
         setShowModal(false);
     }
 
@@ -31,14 +31,17 @@ export function HeaderDeleteNotes() {
                 isOpen={showModal}
                 setIsOpen={() => setShowModal(false)}
             >
-                <Typography.Body>
+                <Typography variant="body">
                     Are you sure you want to delete{" "}
                     <strong>all stored notes</strong>?
-                </Typography.Body>
-                <Typography.Body className="mb-6">
+                </Typography>
+                <Typography
+                    variant="body"
+                    className="mb-6"
+                >
                     You won't be able to recover notes after they have been
                     deleted from your device.
-                </Typography.Body>
+                </Typography>
                 <Field className="mb-4 mt-2 flex items-center gap-4">
                     <Checkbox
                         state={retainPriorityNotes}
@@ -74,4 +77,4 @@ export function HeaderDeleteNotes() {
             </Tooltip>
         </>
     );
-}
+};

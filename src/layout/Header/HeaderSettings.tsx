@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Cog6ToothIcon } from "@heroicons/react/16/solid";
-import { Settings } from "../Settings/Settings";
-import { Button } from "../../components/Button";
-import { Tooltip } from "../../components/Tooltip";
+import Settings from "../Settings/Settings";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
 
-export function HeaderSettings() {
+export default () => {
     const [showSettings, setShowSettings] = useState(false);
     const label = "Settings";
 
@@ -30,4 +30,4 @@ export function HeaderSettings() {
             </Tooltip>
         </>
     );
-}
+};

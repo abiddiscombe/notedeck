@@ -1,13 +1,11 @@
 import { twMerge } from "tailwind-merge";
-import { themes } from "./themes";
+import { themes } from "../../../utilities/themes";
 
-interface NoteMenuThemeProps {
+export default (p: {
     onClick: VoidFunction;
     themeId: string;
     themeIsActive: boolean;
-}
-
-export function NoteMenuTheme(p: NoteMenuThemeProps) {
+}) => {
     const theme = themes[p.themeId];
     const ariaLabel = p.themeIsActive
         ? `Use a ${p.themeId} theme for this note.`
@@ -27,4 +25,4 @@ export function NoteMenuTheme(p: NoteMenuThemeProps) {
             aria-label={ariaLabel}
         />
     );
-}
+};

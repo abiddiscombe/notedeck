@@ -7,12 +7,12 @@ import {
     Transition,
 } from "@headlessui/react";
 import {
-    serviceNote,
+    notesService,
     NoteModifyableFields,
-} from "../../../database/serviceNote";
+} from "../../../database/notes.service";
 import { NoteItem } from "../../../database/db";
-import { themes } from "./themes";
-import { NoteMenuTheme } from "./NoteMenuTheme";
+import { themes } from "../../../utilities/themes";
+import NoteMenuTheme from "./NoteMenuTheme";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import {
     FlagIcon,
@@ -21,20 +21,20 @@ import {
     DocumentDuplicateIcon,
     CheckIcon,
 } from "@heroicons/react/16/solid";
-import { Button } from "../../../components/Button";
+import Button from "../../../components/Button";
 
-interface NoteMenuProps {
-    noteData: NoteItem;
-    handleBringForwards: VoidFunction;
-}
-
-export function NoteMenu(p: NoteMenuProps) {
+export default (
+    p: React.HTMLAttributes<HTMLDivElement> & {
+        noteData: NoteItem;
+        handleBringForwards: VoidFunction;
+    },
+) => {
     function handleNoteDelete() {
-        serviceNote.remove(p.noteData.id);
+        notesService.remove(p.noteData.id);
     }
 
     function handleNoteModify(updates: NoteModifyableFields) {
-        serviceNote.modify(p.noteData.id, {
+        notesService.modify(p.noteData.id, {
             ...p.noteData,
             ...updates,
         });
@@ -47,7 +47,7 @@ export function NoteMenu(p: NoteMenuProps) {
         const tooWide = window.innerWidth < maxX;
         const tooTall = window.innerHeight < maxY;
 
-        serviceNote.create({
+        notesService.create({
             posX: p.noteData.posX + (tooWide ? -20 : 20),
             posY: p.noteData.posY + (tooTall ? -20 : 20),
             posW: p.noteData.posW,
@@ -172,4 +172,4 @@ export function NoteMenu(p: NoteMenuProps) {
             </Transition>
         </Menu>
     );
-}
+};

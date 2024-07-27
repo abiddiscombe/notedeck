@@ -1,6 +1,7 @@
 import Dexie, { IndexableType, Table } from "dexie";
+import { TABLE_NAMES } from "../utilities/constants";
 
-export type NoteItem = {
+export interface NoteItem {
     id: IndexableType;
     posX: number;
     posY: number;
@@ -11,16 +12,13 @@ export type NoteItem = {
     content: string;
     isPriority: boolean;
     isMonospace: boolean;
-};
+}
 
-export type SettingItem = {
+export interface SettingItem {
     id?: IndexableType;
     key: string;
     value: boolean;
-};
-
-export const TABLE_NOTES = "notes";
-export const TABLE_SETTINGS = "settings";
+}
 
 export class MySubClassedDexie extends Dexie {
     notes!: Table<NoteItem>;
@@ -40,7 +38,7 @@ export class MySubClassedDexie extends Dexie {
             })
             .upgrade((transaction) => {
                 return transaction
-                    .table("notes")
+                    .table(TABLE_NAMES.Notes)
                     .toCollection()
                     .modify((note) => {
                         note.posX = note.positionX;

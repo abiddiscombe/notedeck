@@ -1,10 +1,10 @@
 import { twMerge } from "tailwind-merge";
 
-interface NoticeProps extends React.HTMLAttributes<HTMLDivElement> {
-    variant?: "info" | "error" | "warning";
-}
-
-export function Notice(p: NoticeProps) {
+export default (
+    p: React.HTMLAttributes<HTMLDivElement> & {
+        variant?: "info" | "error" | "warning";
+    },
+) => {
     const variant = p.variant ?? "info";
 
     return (
@@ -24,4 +24,4 @@ export function Notice(p: NoticeProps) {
             {p.children}
         </div>
     );
-}
+};

@@ -1,15 +1,13 @@
 // A series of preconfigured utility classes
 // which match different note themes.
 
-interface themesType {
+export const themes: {
     [key: string]: {
         note: string;
         noteOpaque: string;
         selectionButton: string;
     };
-}
-
-export const themes: themesType = {
+} = {
     blue: {
         note: "backdrop-blur-md bg-sky-200/50 dark:bg-sky-600/20 [&>div]:bg-sky-400/20 dark:[&>div]:bg-sky-600/40",
         noteOpaque:

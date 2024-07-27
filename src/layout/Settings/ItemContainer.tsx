@@ -1,12 +1,10 @@
 import { Field, Label, Description } from "@headlessui/react";
 
-interface ItemContainerProps {
+export default (p: {
     label: string;
     summary: string;
     children: React.ReactNode;
-}
-
-export function ItemContainer(p: ItemContainerProps) {
+}) => {
     return (
         <Field className="mb-4 mt-2 flex items-start justify-between gap-6">
             <div className="max-w-sm">
@@ -23,4 +21,4 @@ export function ItemContainer(p: ItemContainerProps) {
             {p.children}
         </Field>
     );
-}
+};

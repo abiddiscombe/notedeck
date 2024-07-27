@@ -1,33 +1,33 @@
 import { Fragment } from "react";
+import { useLiveQuery } from "dexie-react-hooks";
+import { notesService } from "../database/notes.service";
+import { XMarkIcon } from "@heroicons/react/16/solid";
+import Typography from "./Typography";
 import {
     CloseButton,
-    Dialog as HDialog,
+    Dialog,
     DialogPanel,
     DialogTitle,
     Transition,
     TransitionChild,
 } from "@headlessui/react";
-import { useLiveQuery } from "dexie-react-hooks";
-import { serviceNote } from "../database/serviceNote";
-import { XMarkIcon } from "@heroicons/react/16/solid";
-import { Typography } from "./Typography";
 
-interface DialogProps {
-    title: string;
-    isOpen: boolean;
-    setIsOpen: (newIsOpen: boolean) => void;
-    children: React.ReactNode;
-}
-
-export function Dialog(p: DialogProps) {
-    const highestZIndex = useLiveQuery(() => serviceNote.getTopZIndex());
+export default (
+    p: React.HTMLAttributes<HTMLElement> & {
+        title: string;
+        isOpen: boolean;
+        setIsOpen: (newIsOpen: boolean) => void;
+        children: React.ReactNode;
+    },
+) => {
+    const highestZIndex = useLiveQuery(() => notesService.getTopZIndex());
 
     return (
         <Transition
             appear
             show={p.isOpen}
         >
-            <HDialog
+            <Dialog
                 as="div"
                 style={{ zIndex: highestZIndex + 1 }}
                 className="relative"
@@ -57,9 +57,12 @@ export function Dialog(p: DialogProps) {
                             <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow-xl transition-all dark:border dark:border-primary-800 dark:bg-primary-900">
                                 <div className="flex items-center justify-between pb-4">
                                     <DialogTitle as={Fragment}>
-                                        <Typography.H2 noMargin={true}>
+                                        <Typography
+                                            variant="h2"
+                                            noMargin={true}
+                                        >
                                             {p.title}
-                                        </Typography.H2>
+                                        </Typography>
                                     </DialogTitle>
                                     <CloseButton
                                         aria-label="Close Dialog"
@@ -73,7 +76,7 @@ export function Dialog(p: DialogProps) {
                         </TransitionChild>
                     </div>
                 </div>
-            </HDialog>
+            </Dialog>
         </Transition>
     );
-}
+};

@@ -1,22 +1,23 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import { serviceNote } from "../../../database/serviceNote";
-import { serviceSettings } from "../../../database/serviceSettings";
+import { notesService } from "../../../database/notes.service";
+import { settingsService } from "../../../database/settings.service";
 import { NoteItem } from "../../../database/db";
-import { NoteMenu } from "./NoteMenu";
-import { themes } from "./themes";
-import { NotePriority } from "./NotePriority";
 import { useLiveQuery } from "dexie-react-hooks";
+import { themes } from "../../../utilities/themes";
+import NoteMenu from "./NoteMenu";
+import NotePriority from "./NotePriority";
+import { SETTINGS_KEYS } from "../../../utilities/constants";
 
-interface NoteProps {
-    noteData: NoteItem;
-}
-
-export function Note(p: NoteProps) {
+export default (
+    p: React.HTMLAttributes<HTMLElement> & {
+        noteData: NoteItem;
+    },
+) => {
     const id = useId();
     const useOpaqueNotes = useLiveQuery(() =>
-        serviceSettings.read("useOpaqueNotes"),
+        settingsService.read(SETTINGS_KEYS.UseOpaqueNotes),
     );
     const textareaId = useId();
     const nodeRef = useRef<HTMLElement>(null);
@@ -31,7 +32,7 @@ export function Note(p: NoteProps) {
     });
 
     useEffect(() => {
-        serviceNote.modify(p.noteData.id, notePosition);
+        notesService.modify(p.noteData.id, notePosition);
     }, [notePosition, p.noteData.id]);
 
     if (useOpaqueNotes === undefined || !p.noteData) {
@@ -58,7 +59,7 @@ export function Note(p: NoteProps) {
     }
 
     async function handleBringForwards() {
-        const highestId = await serviceNote.getTopZIndex();
+        const highestId = await notesService.getTopZIndex();
         if (highestId !== notePosition.posZ) {
             setNotePosition((prevState) => ({
                 ...prevState,
@@ -113,7 +114,7 @@ export function Note(p: NoteProps) {
                     id={textareaId}
                     ref={textareaRef}
                     onChange={() =>
-                        serviceNote.modify(p.noteData.id, {
+                        notesService.modify(p.noteData.id, {
                             content: textareaRef.current?.value,
                         })
                     }
@@ -134,4 +135,4 @@ export function Note(p: NoteProps) {
             </article>
         </Draggable>
     );
-}
+};

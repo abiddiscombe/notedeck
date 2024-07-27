@@ -1,12 +1,15 @@
 import { twMerge } from "tailwind-merge";
 
-interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
-    label: string;
-}
-
-export function Tooltip(p: TooltipProps) {
+export default (
+    p: React.HTMLAttributes<HTMLDivElement> & {
+        label: string;
+    },
+) => {
     return (
-        <div className="group relative flex flex-col items-center">
+        <div
+            {...p}
+            className="group relative flex flex-col items-center"
+        >
             {p.children}
             <span
                 className={twMerge(
@@ -18,4 +21,4 @@ export function Tooltip(p: TooltipProps) {
             </span>
         </div>
     );
-}
+};

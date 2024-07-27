@@ -1,11 +1,7 @@
-import { appInfo } from "./constants";
+import { APP_INFO } from "./constants";
 
-export const update = {
-    check,
-};
-
-async function check() {
-    const res = await fetch(appInfo.releasesUrl);
+const check = async () => {
+    const res = await fetch(APP_INFO.ReleasesUrl);
 
     if (!res.ok) {
         return {
@@ -17,7 +13,11 @@ async function check() {
     const resJson = await res.json();
     const latestRelease = resJson[0].tag_name;
     return {
-        updateAvailable: latestRelease !== `v${appInfo.semVer}`,
+        updateAvailable: latestRelease !== `v${APP_INFO.SemVer}`,
         updateTargetVersion: latestRelease,
     };
-}
+};
+
+export const update = {
+    check,
+};

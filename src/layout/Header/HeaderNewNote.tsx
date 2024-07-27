@@ -1,13 +1,13 @@
-import { serviceNote } from "../../database/serviceNote";
+import { notesService } from "../../database/notes.service";
 import { PlusIcon } from "@heroicons/react/16/solid";
-import { Button } from "../../components/Button";
-import { Tooltip } from "../../components/Tooltip";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
 
-export function HeaderNewNote() {
+export default () => {
     const label = "New Note";
 
     function handleCreateNote() {
-        serviceNote.create({
+        notesService.create({
             theme: "yellow",
             content: "",
             isPriority: false,
@@ -31,4 +31,4 @@ export function HeaderNewNote() {
             </Button>
         </Tooltip>
     );
-}
+};
