@@ -12,6 +12,8 @@ import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
 const SettingsRestore = () => {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();
     const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+    const [showSuccessMessage, setShowSuccessMessage] =
+        useState<boolean>(false);
     const [parsedBackupDate, setParsedBackupDate] = useState({
         date: "",
         hh: "",
@@ -37,12 +39,15 @@ const SettingsRestore = () => {
                 setShowErrorMessage(true);
             }
         }
+        setShowSuccessMessage(false);
     }, [filesContent]);
 
     async function restoreContentFromBackup() {
         if (parsedBackup) {
             await backup.restore(parsedBackup);
         }
+        setParsedBackup(undefined);
+        setShowSuccessMessage(true);
     }
 
     return (
@@ -102,6 +107,14 @@ const SettingsRestore = () => {
                             Restore Backup
                         </>
                     </Button>
+                </Notice>
+            )}
+
+            {showSuccessMessage && (
+                <Notice variant="success">
+                    <strong>Restore successful.</strong>
+                    <br />
+                    Close this dialog to view your restored notes.
                 </Notice>
             )}
         </>

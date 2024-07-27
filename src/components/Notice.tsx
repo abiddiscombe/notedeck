@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 
 const Notice = (
     p: React.HTMLAttributes<HTMLDivElement> & {
-        variant?: "info" | "error" | "warning";
+        variant?: "success" | "error" | "warning";
     },
 ) => {
     const variant = p.variant ?? "info";
@@ -12,8 +12,8 @@ const Notice = (
             role="alert"
             className={twMerge(
                 "my-4 rounded border border-l-4 p-4 text-primary-800 dark:text-primary-200",
-                variant === "info" &&
-                    "border-sky-400 bg-sky-50 dark:border-sky-600 dark:bg-sky-900/40",
+                variant === "success" &&
+                    "border-green-400 bg-green-50 dark:border-green-600 dark:bg-green-900/40",
                 variant === "error" &&
                     "border-red-400 bg-red-50 dark:border-red-600 dark:bg-red-900/40",
                 variant === "warning" &&
