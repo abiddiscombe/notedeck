@@ -20,7 +20,9 @@ To release a new version of NoteDeck:
 
     - Update - `/package.json`
 
-    - Update - `/src/utilities/constants`
+    - Update - `/src/utilities/constants.ts`
+
+    - Run `npm i` to update the `package-lock.json`
 
 5. Create a new release in GitHub, targeting the latest change in the `dev` branch. The release statement should follow the pattern used for past releases.
 
