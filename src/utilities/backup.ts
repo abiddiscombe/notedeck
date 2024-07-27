@@ -1,11 +1,5 @@
 import { NoteItem } from "../database/db";
-import { serviceNote } from "../database/serviceNote";
-
-export const backup = {
-    create: _create,
-    unpack: _unpack,
-    restore: _restore,
-};
+import { notesService } from "../database/notes.service";
 
 export type BackupObject = {
     id: "notedeck";
@@ -16,8 +10,8 @@ export type BackupObject = {
     };
 };
 
-async function _create() {
-    const notes = await serviceNote.list();
+const create = async () => {
+    const notes = await notesService.list();
 
     // Represent the user's notes.
     const backupContent: BackupObject = {
@@ -32,9 +26,9 @@ async function _create() {
     return new Blob([JSON.stringify(backupContent)], {
         type: "application/json",
     });
-}
+};
 
-function _unpack(content: string) {
+const unpack = (content: string) => {
     const parsed = JSON.parse(content);
 
     if (!parsed || !parsed.content || !parsed.timestamp) {
@@ -44,14 +38,17 @@ function _unpack(content: string) {
     }
 
     return parsed;
-}
+};
 
-async function _restore(parsedBackup: BackupObject) {
-    await serviceNote.removeAll(true);
+const restore = async (parsedBackup: BackupObject) => {
+    await notesService.removeAll(true);
+    parsedBackup.content.notes.forEach(async (note: NoteItem) => {
+        await notesService.create(note);
+    });
+};
 
-    if (parsedBackup.content.notes) {
-        parsedBackup.content.notes.forEach(async (note: NoteItem) => {
-            await serviceNote.create(note);
-        });
-    }
-}
+export const backup = {
+    create,
+    unpack,
+    restore,
+};

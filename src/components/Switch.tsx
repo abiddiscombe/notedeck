@@ -1,14 +1,15 @@
 import { twMerge } from "tailwind-merge";
-import { Switch as HSwitch } from "@headlessui/react";
+import { Switch as _Switch } from "@headlessui/react";
 
-interface SwitchProps extends React.HTMLAttributes<HTMLDivElement> {
-    state: boolean;
-    setState: (newState: boolean) => void;
-}
-
-export function Switch(p: SwitchProps) {
+const Switch = (
+    p: React.HTMLAttributes<HTMLElement> & {
+        state: boolean;
+        setState: (newState: boolean) => void;
+    },
+) => {
     return (
-        <HSwitch
+        <_Switch
+            {...p}
             checked={p.state}
             onChange={() => p.setState(!p.state)}
             className={twMerge(
@@ -17,6 +18,8 @@ export function Switch(p: SwitchProps) {
             )}
         >
             <span className="size-3 translate-x-1 rounded-full bg-white transition group-data-[checked]:translate-x-5" />
-        </HSwitch>
+        </_Switch>
     );
-}
+};
+
+export default Switch;

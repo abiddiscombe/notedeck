@@ -6,10 +6,10 @@ import {
 } from "@heroicons/react/16/solid";
 import { backup } from "../../utilities/backup";
 import { convertDate } from "../../utilities/convertDate";
-import { Button } from "../../components/Button";
-import { Tooltip } from "../../components/Tooltip";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
 
-export function HeaderBackup() {
+const HeaderBackup = () => {
     const [backupDone, setBackupDone] = useState(false);
     const label = "Download Backup";
 
@@ -35,4 +35,6 @@ export function HeaderBackup() {
             </Button>
         </Tooltip>
     );
-}
+};
+
+export default HeaderBackup;

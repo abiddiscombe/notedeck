@@ -1,17 +1,17 @@
 import { twMerge } from "tailwind-merge";
-import { Button as HButton } from "@headlessui/react";
+import { Button as _Button } from "@headlessui/react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    size?: "sm" | "md" | "lg";
-    variant?: "solid" | "ghost" | "minimal" | "destructive";
-}
-
-export function Button(p: ButtonProps) {
+const Button = (
+    p: React.ButtonHTMLAttributes<HTMLButtonElement> & {
+        size?: "sm" | "md" | "lg";
+        variant?: "solid" | "ghost" | "minimal" | "destructive";
+    },
+) => {
     const size = p.size ?? "md";
     const variant = p.variant ?? "minimal";
 
     return (
-        <HButton
+        <_Button
             {...p}
             className={twMerge(
                 `flex items-center rounded border disabled:pointer-events-none disabled:opacity-30
@@ -31,6 +31,8 @@ export function Button(p: ButtonProps) {
             )}
         >
             {p.children}
-        </HButton>
+        </_Button>
     );
-}
+};
+
+export default Button;
