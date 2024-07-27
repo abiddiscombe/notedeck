@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { convertDate } from "../../utilities/convertDate";
 import { BackupObject, backup } from "../../utilities/backup";
-import { Button } from "../../components/Button";
-import { Notice } from "../../components/Notice";
-import { Typography } from "../../components/Typography";
-import { appInfo } from "../../utilities/constants";
+import Button from "../../components/Button";
+import Notice from "../../components/Notice";
+import Typography from "../../components/Typography";
+import { APP_INFO } from "../../utilities/constants";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
 
-export function SettingsRestore() {
+const SettingsRestore = () => {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();
     const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+    const [showSuccessMessage, setShowSuccessMessage] =
+        useState<boolean>(false);
     const [parsedBackupDate, setParsedBackupDate] = useState({
         date: "",
         hh: "",
@@ -37,20 +39,23 @@ export function SettingsRestore() {
                 setShowErrorMessage(true);
             }
         }
+        setShowSuccessMessage(false);
     }, [filesContent]);
 
     async function restoreContentFromBackup() {
         if (parsedBackup) {
             await backup.restore(parsedBackup);
         }
+        setParsedBackup(undefined);
+        setShowSuccessMessage(true);
     }
 
     return (
         <>
-            <Typography.H3>Restore from Backup</Typography.H3>
-            <Typography.Body>
+            <Typography variant="h3">Restore from Backup</Typography>
+            <Typography variant="body">
                 Restore your notes and settings to a previous state.
-            </Typography.Body>
+            </Typography>
             <div className="mt-4 flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
                 <Button
                     variant="solid"
@@ -75,13 +80,13 @@ export function SettingsRestore() {
                 <Notice variant="error">
                     Something went wrong whilst reading the backup file.
                     <br />
-                    It may be corrupted or incompatible with {appInfo.name}.
+                    It may be corrupted or incompatible with {APP_INFO.Name}.
                 </Notice>
             )}
 
             {!showErrorMessage && !!filesContent.length && parsedBackup && (
                 <Notice variant="warning">
-                    <Typography.Body>
+                    <Typography variant="body">
                         This backup was created on {parsedBackupDate?.date} at{" "}
                         {parsedBackupDate?.hh}:{parsedBackupDate?.mm}.
                         <br />
@@ -92,7 +97,7 @@ export function SettingsRestore() {
                                 ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
                                 : "? This backup does not contain any notes."}
                         </strong>
-                    </Typography.Body>
+                    </Typography>
                     <Button
                         variant="destructive"
                         onClick={() => restoreContentFromBackup()}
@@ -104,6 +109,16 @@ export function SettingsRestore() {
                     </Button>
                 </Notice>
             )}
+
+            {showSuccessMessage && (
+                <Notice variant="success">
+                    <strong>Restore successful.</strong>
+                    <br />
+                    Close this dialog to view your restored notes.
+                </Notice>
+            )}
         </>
     );
-}
+};
+
+export default SettingsRestore;

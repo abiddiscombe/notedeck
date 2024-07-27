@@ -1,12 +1,12 @@
 import { PlusIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
-import { appInfo } from "../../utilities/constants";
-import { Typography } from "../../components/Typography";
-import { Button } from "../../components/Button";
-import { serviceNote } from "../../database/serviceNote";
+import { notesService } from "../../database/notes.service";
+import { APP_INFO } from "../../utilities/constants";
+import Button from "../../components/Button";
+import Typography from "../../components/Typography";
 
-export function MainOnboarding() {
+const MainOnboarding = () => {
     function handleCreateNote() {
-        serviceNote.create({
+        notesService.create({
             theme: "yellow",
             content: "This is your first note! Click here to edit.",
             isPriority: false,
@@ -19,11 +19,13 @@ export function MainOnboarding() {
             <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
                 <Illustration />
                 <div className="max-w-sm">
-                    <Typography.H2>Welcome to {appInfo.name}</Typography.H2>
-                    <Typography.Body>
+                    <Typography variant="h2">
+                        Welcome to {APP_INFO.Name}
+                    </Typography>
+                    <Typography variant="body">
                         A free and open-source alternative to paper notes that
                         respects your privacy and works offline.
-                    </Typography.Body>
+                    </Typography>
                     <div className="mt-8 flex items-center gap-4">
                         <Button
                             size="lg"
@@ -34,10 +36,10 @@ export function MainOnboarding() {
                             Get Started
                         </Button>
                         <a
-                            href={appInfo.infoUrl}
                             target="_blank"
+                            href={APP_INFO.InfoUrl}
                             rel="noopener noreferrer"
-                            aria-label={`More information about ${appInfo.name} (Opens in a New Tab)`}
+                            aria-label={`More information about ${APP_INFO.Name} (Opens in a New Tab)`}
                             className="text-md flex h-10 items-center gap-3 rounded border border-white/0 px-4 text-primary-800 hover:border-primary-100 hover:bg-primary-100 hover:active:border-primary-200 hover:active:bg-primary-200 dark:text-primary-200 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:hover:active:border-primary-600 dark:hover:active:bg-primary-600 [&>svg]:h-3.5"
                         >
                             <ArrowTopRightOnSquareIcon />
@@ -48,9 +50,11 @@ export function MainOnboarding() {
             </div>
         </main>
     );
-}
+};
 
-function Illustration() {
+export default MainOnboarding;
+
+const Illustration = () => {
     // https://undraw.co/illustrations
 
     return (
@@ -544,4 +548,4 @@ function Illustration() {
             />
         </svg>
     );
-}
+};

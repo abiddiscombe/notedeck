@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ArrowUpCircleIcon } from "@heroicons/react/16/solid";
 import { AppContext } from "../../AppRoot";
-import { Button } from "../../components/Button";
+import Button from "../../components/Button";
 
-export function HeaderUpdateNotification() {
+const HeaderUpdateNotification = () => {
     const appContext = useContext(AppContext);
 
     function handleHardReload() {
@@ -27,4 +27,6 @@ export function HeaderUpdateNotification() {
             <span>Upgrade to {appContext.updateTargetVersion}</span>
         </Button>
     );
-}
+};
+
+export default HeaderUpdateNotification;

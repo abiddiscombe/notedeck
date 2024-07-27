@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { twJoin } from "tailwind-merge";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
 import {
     ComputerDesktopIcon,
     MoonIcon,
     SunIcon,
 } from "@heroicons/react/16/solid";
-import { Button } from "../../components/Button";
-import { Tooltip } from "../../components/Tooltip";
 
 type themeList = "auto" | "dark" | "light";
 const THEME_AUTO = "auto";
 const THEME_DARK = "dark";
 const THEME_LIGHT = "light";
 
-export function HeaderThemeSwitch() {
+const HeaderThemeSwitch = () => {
     const [theme, setTheme] = useState<themeList>(
         localStorage.theme || THEME_AUTO,
     );
@@ -92,4 +92,6 @@ export function HeaderThemeSwitch() {
             </Tooltip>
         </div>
     );
-}
+};
+
+export default HeaderThemeSwitch;

@@ -1,10 +1,10 @@
 import { twMerge } from "tailwind-merge";
 
-interface ExternalLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
-    href: string;
-}
-
-export function ExternalLink(p: ExternalLinkProps) {
+const ExternalLink = (
+    p: React.HTMLAttributes<HTMLAnchorElement> & {
+        href: string;
+    },
+) => {
     const ariaLabel = `${p.children || p.href} (Opens in a New Tab)`;
 
     return (
@@ -22,4 +22,6 @@ export function ExternalLink(p: ExternalLinkProps) {
             {p.children}
         </a>
     );
-}
+};
+
+export default ExternalLink;

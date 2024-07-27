@@ -1,14 +1,15 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { serviceSettings } from "../../database/serviceSettings";
-import { Switch } from "../../components/Switch";
-import { ItemContainer } from "./ItemContainer";
+import { settingsService } from "../../database/settings.service";
+import Switch from "../../components/Switch";
+import ItemContainer from "./ItemContainer";
+import { SETTINGS_KEYS } from "../../utilities/constants";
 
-export function SettingsItems() {
+const SettingsItems = () => {
     const autoUpdateCheck = useLiveQuery(
-        async () => await serviceSettings.read("autoUpdateCheck"),
+        async () => await settingsService.read(SETTINGS_KEYS.AutoUpdateCheck),
     );
     const useOpaqueNotes = useLiveQuery(
-        async () => await serviceSettings.read("useOpaqueNotes"),
+        async () => await settingsService.read(SETTINGS_KEYS.UseOpaqueNotes),
     );
 
     return (
@@ -20,8 +21,8 @@ export function SettingsItems() {
                 <Switch
                     state={autoUpdateCheck ?? false}
                     setState={() =>
-                        serviceSettings.write(
-                            "autoUpdateCheck",
+                        settingsService.write(
+                            SETTINGS_KEYS.AutoUpdateCheck,
                             !autoUpdateCheck,
                         )
                     }
@@ -34,10 +35,15 @@ export function SettingsItems() {
                 <Switch
                     state={!useOpaqueNotes}
                     setState={() =>
-                        serviceSettings.write("useOpaqueNotes", !useOpaqueNotes)
+                        settingsService.write(
+                            SETTINGS_KEYS.UseOpaqueNotes,
+                            !useOpaqueNotes,
+                        )
                     }
                 />
             </ItemContainer>
         </>
     );
-}
+};
+
+export default SettingsItems;

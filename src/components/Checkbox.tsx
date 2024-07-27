@@ -1,15 +1,15 @@
 import { twMerge } from "tailwind-merge";
+import { Checkbox as _Checkbox } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
-import { Checkbox as HCheckbox } from "@headlessui/react";
 
-interface CheckboxProps extends React.HTMLAttributes<HTMLSpanElement> {
-    state: boolean;
-    setState: VoidFunction;
-}
-
-export function Checkbox(p: CheckboxProps) {
+const Checkbox = (
+    p: React.HTMLAttributes<HTMLSpanElement> & {
+        state: boolean;
+        setState: VoidFunction;
+    },
+) => {
     return (
-        <HCheckbox
+        <_Checkbox
             checked={p.state}
             onChange={() => p.setState()}
             className={twMerge(
@@ -18,6 +18,8 @@ export function Checkbox(p: CheckboxProps) {
             )}
         >
             <CheckIcon className="size-3.5 fill-primary-100 opacity-0 transition-opacity group-data-[checked]:opacity-100" />
-        </HCheckbox>
+        </_Checkbox>
     );
-}
+};
+
+export default Checkbox;
