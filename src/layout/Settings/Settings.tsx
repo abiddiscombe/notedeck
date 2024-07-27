@@ -5,7 +5,7 @@ import ExternalLink from "../../components/ExternalLink";
 import SettingsItems from "./SettingsItems";
 import SettingsRestore from "./SettingsRestore";
 
-export default (p: {
+const Settings = (p: {
     isOpen: boolean;
     setIsOpen: (newIsOpen: boolean) => void;
 }) => {
@@ -36,3 +36,5 @@ export default (p: {
         </Dialog>
     );
 };
+
+export default Settings;

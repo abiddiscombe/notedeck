@@ -9,7 +9,7 @@ import { convertDate } from "../../utilities/convertDate";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
 
-export default () => {
+const HeaderBackup = () => {
     const [backupDone, setBackupDone] = useState(false);
     const label = "Download Backup";
 
@@ -36,3 +36,5 @@ export default () => {
         </Tooltip>
     );
 };
+
+export default HeaderBackup;

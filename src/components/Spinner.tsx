@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export default (p: React.HTMLAttributes<SVGElement>) => {
+const Spinner = (p: React.HTMLAttributes<SVGElement>) => {
     return (
         <svg
             role="status"
@@ -23,3 +23,5 @@ export default (p: React.HTMLAttributes<SVGElement>) => {
         </svg>
     );
 };
+
+export default Spinner;

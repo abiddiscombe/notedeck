@@ -1,7 +1,7 @@
 import { APP_INFO } from "../../utilities/constants";
 import Typography from "../../components/Typography";
 
-export default () => {
+const HeaderLogo = () => {
     return (
         <div className="flex flex-grow select-none items-baseline gap-2">
             <Typography
@@ -20,3 +20,5 @@ export default () => {
         </div>
     );
 };
+
+export default HeaderLogo;

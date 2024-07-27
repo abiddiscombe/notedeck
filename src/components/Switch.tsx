@@ -1,14 +1,14 @@
 import { twMerge } from "tailwind-merge";
-import { Switch } from "@headlessui/react";
+import { Switch as _Switch } from "@headlessui/react";
 
-export default (
+const Switch = (
     p: React.HTMLAttributes<HTMLElement> & {
         state: boolean;
         setState: (newState: boolean) => void;
     },
 ) => {
     return (
-        <Switch
+        <_Switch
             {...p}
             checked={p.state}
             onChange={() => p.setState(!p.state)}
@@ -18,6 +18,8 @@ export default (
             )}
         >
             <span className="size-3 translate-x-1 rounded-full bg-white transition group-data-[checked]:translate-x-5" />
-        </Switch>
+        </_Switch>
     );
 };
+
+export default Switch;

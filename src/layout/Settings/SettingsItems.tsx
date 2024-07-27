@@ -4,7 +4,7 @@ import Switch from "../../components/Switch";
 import ItemContainer from "./ItemContainer";
 import { SETTINGS_KEYS } from "../../utilities/constants";
 
-export default () => {
+const SettingsItems = () => {
     const autoUpdateCheck = useLiveQuery(
         async () => await settingsService.read(SETTINGS_KEYS.AutoUpdateCheck),
     );
@@ -45,3 +45,5 @@ export default () => {
         </>
     );
 };
+
+export default SettingsItems;

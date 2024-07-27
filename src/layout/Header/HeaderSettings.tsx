@@ -4,7 +4,7 @@ import Settings from "../Settings/Settings";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
 
-export default () => {
+const HeaderSettings = () => {
     const [showSettings, setShowSettings] = useState(false);
     const label = "Settings";
 
@@ -31,3 +31,5 @@ export default () => {
         </>
     );
 };
+
+export default HeaderSettings;

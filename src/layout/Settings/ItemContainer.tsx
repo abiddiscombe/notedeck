@@ -1,6 +1,6 @@
 import { Field, Label, Description } from "@headlessui/react";
 
-export default (p: {
+const ItemContainer = (p: {
     label: string;
     summary: string;
     children: React.ReactNode;
@@ -22,3 +22,5 @@ export default (p: {
         </Field>
     );
 };
+
+export default ItemContainer;

@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export default (
+const Tooltip = (
     p: React.HTMLAttributes<HTMLDivElement> & {
         label: string;
     },
@@ -22,3 +22,5 @@ export default (
         </div>
     );
 };
+
+export default Tooltip;

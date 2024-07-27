@@ -4,7 +4,7 @@ import { APP_INFO } from "../../utilities/constants";
 import Button from "../../components/Button";
 import Typography from "../../components/Typography";
 
-export default () => {
+const MainOnboarding = () => {
     function handleCreateNote() {
         notesService.create({
             theme: "yellow",
@@ -52,7 +52,9 @@ export default () => {
     );
 };
 
-function Illustration() {
+export default MainOnboarding;
+
+const Illustration = () => {
     // https://undraw.co/illustrations
 
     return (
@@ -546,4 +548,4 @@ function Illustration() {
             />
         </svg>
     );
-}
+};

@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { themes } from "../../../utilities/themes";
 
-export default (p: {
+const NoteMenuTheme = (p: {
     onClick: VoidFunction;
     themeId: string;
     themeIsActive: boolean;
@@ -26,3 +26,5 @@ export default (p: {
         />
     );
 };
+
+export default NoteMenuTheme;

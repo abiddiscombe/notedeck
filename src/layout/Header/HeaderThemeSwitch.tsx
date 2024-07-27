@@ -13,7 +13,7 @@ const THEME_AUTO = "auto";
 const THEME_DARK = "dark";
 const THEME_LIGHT = "light";
 
-export default () => {
+const HeaderThemeSwitch = () => {
     const [theme, setTheme] = useState<themeList>(
         localStorage.theme || THEME_AUTO,
     );
@@ -93,3 +93,5 @@ export default () => {
         </div>
     );
 };
+
+export default HeaderThemeSwitch;

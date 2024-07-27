@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export default (
+const ExternalLink = (
     p: React.HTMLAttributes<HTMLAnchorElement> & {
         href: string;
     },
@@ -23,3 +23,5 @@ export default (
         </a>
     );
 };
+
+export default ExternalLink;

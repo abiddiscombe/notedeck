@@ -5,14 +5,14 @@ import { XMarkIcon } from "@heroicons/react/16/solid";
 import Typography from "./Typography";
 import {
     CloseButton,
-    Dialog,
+    Dialog as _Dialog,
     DialogPanel,
     DialogTitle,
     Transition,
     TransitionChild,
 } from "@headlessui/react";
 
-export default (
+const Dialog = (
     p: React.HTMLAttributes<HTMLElement> & {
         title: string;
         isOpen: boolean;
@@ -27,7 +27,7 @@ export default (
             appear
             show={p.isOpen}
         >
-            <Dialog
+            <_Dialog
                 as="div"
                 style={{ zIndex: highestZIndex + 1 }}
                 className="relative"
@@ -76,7 +76,9 @@ export default (
                         </TransitionChild>
                     </div>
                 </div>
-            </Dialog>
+            </_Dialog>
         </Transition>
     );
 };
+
+export default Dialog;

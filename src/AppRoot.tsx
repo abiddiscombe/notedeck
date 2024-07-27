@@ -14,7 +14,7 @@ interface AppContextType {
 
 export const AppContext = createContext<AppContextType | null>(null);
 
-export default () => {
+const AppRoot = () => {
     const [context, setContext] = useState<AppContextType>({
         loaded: false,
         updateAvailable: false,
@@ -62,3 +62,5 @@ export default () => {
         </AppContext.Provider>
     );
 };
+
+export default AppRoot;

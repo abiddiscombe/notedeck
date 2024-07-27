@@ -3,7 +3,7 @@ import { notesService } from "../../database/notes.service";
 import MainOnboarding from "./MainOnboarding";
 import Note from "./Note/Note";
 
-export default () => {
+const Main = () => {
     const notes = useLiveQuery(() => notesService.list());
 
     if (notes && !notes.length) {
@@ -21,3 +21,5 @@ export default () => {
         </main>
     );
 };
+
+export default Main;

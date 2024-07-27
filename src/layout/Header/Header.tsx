@@ -8,7 +8,7 @@ import HeaderThemeSwitch from "./HeaderThemeSwitch";
 import HeaderUpdateNotification from "./HeaderUpdateNotification";
 import HeaderSettings from "./HeaderSettings";
 
-export default () => {
+const Header = () => {
     const notes = useLiveQuery(() => notesService.list());
 
     return (
@@ -27,3 +27,5 @@ export default () => {
         </header>
     );
 };
+
+export default Header;

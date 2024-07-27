@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
-import { Button } from "@headlessui/react";
+import { Button as _Button } from "@headlessui/react";
 
-export default (
+const Button = (
     p: React.ButtonHTMLAttributes<HTMLButtonElement> & {
         size?: "sm" | "md" | "lg";
         variant?: "solid" | "ghost" | "minimal" | "destructive";
@@ -11,7 +11,7 @@ export default (
     const variant = p.variant ?? "minimal";
 
     return (
-        <Button
+        <_Button
             {...p}
             className={twMerge(
                 `flex items-center rounded border disabled:pointer-events-none disabled:opacity-30
@@ -31,6 +31,8 @@ export default (
             )}
         >
             {p.children}
-        </Button>
+        </_Button>
     );
 };
+
+export default Button;

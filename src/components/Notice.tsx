@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export default (
+const Notice = (
     p: React.HTMLAttributes<HTMLDivElement> & {
         variant?: "info" | "error" | "warning";
     },
@@ -25,3 +25,5 @@ export default (
         </div>
     );
 };
+
+export default Notice;

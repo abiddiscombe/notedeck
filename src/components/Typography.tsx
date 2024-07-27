@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export default (
+const Typography = (
     p: React.HTMLAttributes<HTMLHeadingElement> & {
         variant: "h1" | "h2" | "h3" | "body";
         noMargin?: boolean;
@@ -68,3 +68,5 @@ export default (
 
     return null;
 };
+
+export default Typography;

@@ -8,7 +8,7 @@ import Tooltip from "../../components/Tooltip";
 import Checkbox from "../../components/Checkbox";
 import Typography from "../../components/Typography";
 
-export default () => {
+const HeaderDeleteNotes = () => {
     const [showModal, setShowModal] = useState(false);
     const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);
     const label = "Delete All Notes";
@@ -78,3 +78,5 @@ export default () => {
         </>
     );
 };
+
+export default HeaderDeleteNotes;

@@ -3,7 +3,7 @@ import { ArrowUpCircleIcon } from "@heroicons/react/16/solid";
 import { AppContext } from "../../AppRoot";
 import Button from "../../components/Button";
 
-export default () => {
+const HeaderUpdateNotification = () => {
     const appContext = useContext(AppContext);
 
     function handleHardReload() {
@@ -28,3 +28,5 @@ export default () => {
         </Button>
     );
 };
+
+export default HeaderUpdateNotification;

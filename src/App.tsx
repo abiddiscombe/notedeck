@@ -4,7 +4,7 @@ import AppRoot from "./AppRoot";
 import Typography from "./components/Typography";
 import ExternalLink from "./components/ExternalLink";
 
-export default () => {
+const App = () => {
     // If the app is loaded on a mobile device, bypass
     // initialization and data loading to improve performance.
 
@@ -37,3 +37,5 @@ export default () => {
 
     return <AppRoot />;
 };
+
+export default App;

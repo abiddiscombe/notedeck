@@ -9,7 +9,7 @@ import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
 
-export default () => {
+const SettingsRestore = () => {
     const [parsedBackup, setParsedBackup] = useState<BackupObject>();
     const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
     const [parsedBackupDate, setParsedBackupDate] = useState({
@@ -107,3 +107,5 @@ export default () => {
         </>
     );
 };
+
+export default SettingsRestore;

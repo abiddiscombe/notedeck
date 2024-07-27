@@ -23,7 +23,7 @@ import {
 } from "@heroicons/react/16/solid";
 import Button from "../../../components/Button";
 
-export default (
+const NoteMenu = (
     p: React.HTMLAttributes<HTMLDivElement> & {
         noteData: NoteItem;
         handleBringForwards: VoidFunction;
@@ -173,3 +173,5 @@ export default (
         </Menu>
     );
 };
+
+export default NoteMenu;

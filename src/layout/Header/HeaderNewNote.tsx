@@ -3,7 +3,7 @@ import { PlusIcon } from "@heroicons/react/16/solid";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
 
-export default () => {
+const HeaderNewNote = () => {
     const label = "New Note";
 
     function handleCreateNote() {
@@ -32,3 +32,5 @@ export default () => {
         </Tooltip>
     );
 };
+
+export default HeaderNewNote;

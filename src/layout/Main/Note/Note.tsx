@@ -10,7 +10,7 @@ import NoteMenu from "./NoteMenu";
 import NotePriority from "./NotePriority";
 import { SETTINGS_KEYS } from "../../../utilities/constants";
 
-export default (
+const Note = (
     p: React.HTMLAttributes<HTMLElement> & {
         noteData: NoteItem;
     },
@@ -136,3 +136,5 @@ export default (
         </Draggable>
     );
 };
+
+export default Note;
