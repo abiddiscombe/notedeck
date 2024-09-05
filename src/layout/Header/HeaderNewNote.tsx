@@ -26,8 +26,8 @@ const HeaderNewNote = () => {
                 aria-label={label}
                 onClick={() => handleCreateNote()}
             >
-                <PlusIcon />
-                <span className="hidden sm:block">{label}</span>
+                <PlusIcon aria-hidden={true} />
+                <span className="hidden sm:block">Note</span>
             </Button>
         </Tooltip>
     );
