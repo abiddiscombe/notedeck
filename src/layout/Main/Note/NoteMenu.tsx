@@ -15,7 +15,7 @@ import { themes } from "../../../utilities/themes";
 import NoteMenuTheme from "./NoteMenuTheme";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import {
-  FlagIcon,
+  StarIcon,
   TrashIcon,
   CodeBracketIcon,
   DocumentDuplicateIcon,
@@ -73,7 +73,7 @@ const NoteMenu = (
       isDestructive: false,
     },
     {
-      icon: <FlagIcon />,
+      icon: <StarIcon />,
       label: "Priority",
       action: () =>
         handleNoteModify({
