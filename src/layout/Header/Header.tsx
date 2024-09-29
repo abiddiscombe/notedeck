@@ -7,6 +7,7 @@ import HeaderDeleteNotes from "./HeaderDeleteNotes";
 import HeaderThemeSwitch from "./HeaderThemeSwitch";
 import HeaderUpdateNotification from "./HeaderUpdateNotification";
 import HeaderSettings from "./HeaderSettings";
+import HeaderHideNonPriorityNotes from "./HeaderHideNonPriorityNotes";
 
 const Header = () => {
   const notes = useLiveQuery(() => notesService.list());
@@ -18,6 +19,7 @@ const Header = () => {
       {!!notes?.length && (
         <>
           <HeaderNewNote />
+          <HeaderHideNonPriorityNotes />
           <HeaderDeleteNotes />
         </>
       )}

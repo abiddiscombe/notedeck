@@ -17,4 +17,5 @@ export enum TABLE_NAMES {
 export enum SETTINGS_KEYS {
   UseOpaqueNotes = "useOpaqueNotes",
   AutoUpdateCheck = "autoUpdateCheck",
+  HideNonPriorityNotes = "hideNonPriorityNotes",
 }

@@ -7,8 +7,8 @@ import { NoteItem } from "../../../database/db";
 import { useLiveQuery } from "dexie-react-hooks";
 import { themes } from "../../../utilities/themes";
 import NoteMenu from "./NoteMenu";
-import NotePriority from "./NotePriority";
 import { SETTINGS_KEYS } from "../../../utilities/constants";
+import { StarIcon } from "@heroicons/react/16/solid";
 
 const Note = (
   p: React.HTMLAttributes<HTMLElement> & {
@@ -94,17 +94,22 @@ const Note = (
         style={{ zIndex: notePosition.posZ }}
       >
         <div className="flex items-stretch rounded-t">
+          {p.noteData.isPriority && (
+            <StarIcon className="my-auto ml-3 h-3.5 text-primary-900/80 dark:text-primary-100" />
+          )}
           <div
             onMouseDown={() => handleBringForwards()}
             className="handle | grow cursor-grab px-2"
           />
-          {p.noteData.isPriority && <NotePriority />}
           <NoteMenu
             handleBringForwards={handleBringForwards}
             noteData={p.noteData}
           />
         </div>
-        <label className="hidden" htmlFor={textareaId}>
+        <label
+          className="hidden"
+          htmlFor={textareaId}
+        >
           Note Content
         </label>
         <textarea
