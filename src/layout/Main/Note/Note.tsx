@@ -106,10 +106,7 @@ const Note = (
             noteData={p.noteData}
           />
         </div>
-        <label
-          className="hidden"
-          htmlFor={textareaId}
-        >
+        <label className="hidden" htmlFor={textareaId}>
           Note Content
         </label>
         <textarea

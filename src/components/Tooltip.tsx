@@ -6,10 +6,7 @@ const Tooltip = (
   },
 ) => {
   return (
-    <div
-      {...p}
-      className="group relative flex flex-col items-center"
-    >
+    <div {...p} className="group relative flex flex-col items-center">
       {p.children}
       <span
         className={twMerge(
