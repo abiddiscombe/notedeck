@@ -2,9 +2,9 @@
 // written in the `head` of `index.html`.
 
 declare global {
-    interface Window {
-        toggleTheme: () => void;
-    }
+  interface Window {
+    toggleTheme: () => void;
+  }
 }
 
 export {};

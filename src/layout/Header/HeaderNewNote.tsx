@@ -4,33 +4,30 @@ import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
 
 const HeaderNewNote = () => {
-    const label = "New Note";
+  const label = "New Note";
 
-    function handleCreateNote() {
-        notesService.create({
-            theme: "yellow",
-            content: "",
-            isPriority: false,
-            isMonospace: false,
-        });
-    }
+  function handleCreateNote() {
+    notesService.create({
+      theme: "yellow",
+      content: "",
+      isPriority: false,
+      isMonospace: false,
+    });
+  }
 
-    return (
-        <Tooltip
-            label={label}
-            className="sm:invisible"
-        >
-            <Button
-                size="sm"
-                variant="solid"
-                aria-label={label}
-                onClick={() => handleCreateNote()}
-            >
-                <PlusIcon />
-                <span className="hidden sm:block">{label}</span>
-            </Button>
-        </Tooltip>
-    );
+  return (
+    <Tooltip label={label} className="sm:invisible">
+      <Button
+        size="sm"
+        variant="solid"
+        aria-label={label}
+        onClick={() => handleCreateNote()}
+      >
+        <PlusIcon aria-hidden={true} />
+        <span className="hidden sm:block">Note</span>
+      </Button>
+    </Tooltip>
+  );
 };
 
 export default HeaderNewNote;

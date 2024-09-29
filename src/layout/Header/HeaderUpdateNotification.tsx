@@ -4,29 +4,29 @@ import { AppContext } from "../../AppRoot";
 import Button from "../../components/Button";
 
 const HeaderUpdateNotification = () => {
-    const appContext = useContext(AppContext);
+  const appContext = useContext(AppContext);
 
-    function handleHardReload() {
-        const refreshParam = new URLSearchParams(window.location.search);
-        refreshParam.set("rts", new Date().getTime().toString());
-        window.location.search = refreshParam.toString();
-    }
+  function handleHardReload() {
+    const refreshParam = new URLSearchParams(window.location.search);
+    refreshParam.set("rts", new Date().getTime().toString());
+    window.location.search = refreshParam.toString();
+  }
 
-    if (!appContext?.updateAvailable) {
-        return null;
-    }
+  if (!appContext?.updateAvailable) {
+    return null;
+  }
 
-    return (
-        <Button
-            size="sm"
-            variant="ghost"
-            className="bg-primary-50 dark:bg-primary-800"
-            onClick={() => handleHardReload()}
-        >
-            <ArrowUpCircleIcon className="text-green-600" />
-            <span>Upgrade to {appContext.updateTargetVersion}</span>
-        </Button>
-    );
+  return (
+    <Button
+      size="sm"
+      variant="ghost"
+      className="bg-primary-50 dark:bg-primary-800"
+      onClick={() => handleHardReload()}
+    >
+      <ArrowUpCircleIcon className="text-green-600" />
+      <span>Upgrade to {appContext.updateTargetVersion}</span>
+    </Button>
+  );
 };
 
 export default HeaderUpdateNotification;
