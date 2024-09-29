@@ -3,7 +3,7 @@
 
 export enum APP_INFO {
   Name = "NoteDeck",
-  SemVer = "1.7.0",
+  SemVer = "1.8.0",
   InfoUrl = "https://www.notedeck.dev",
   SourceUrl = "https://github.com/abiddiscombe/notedeck",
   ReleasesUrl = "https://api.github.com/repos/abiddiscombe/notedeck/releases",
