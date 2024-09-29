@@ -85,7 +85,7 @@ const Note = (
         id={id}
         ref={nodeRef}
         className={twMerge(
-          "absolute rounded shadow-sm hover:shadow",
+          "absolute rounded shadow-sm hover:shadow-lg",
           useOpaqueNotes ? theme.noteOpaque : theme.note,
           !p.noteData.content &&
             !p.noteData.isPriority &&
@@ -106,10 +106,7 @@ const Note = (
             noteData={p.noteData}
           />
         </div>
-        <label
-          className="hidden"
-          htmlFor={textareaId}
-        >
+        <label className="hidden" htmlFor={textareaId}>
           Note Content
         </label>
         <textarea
