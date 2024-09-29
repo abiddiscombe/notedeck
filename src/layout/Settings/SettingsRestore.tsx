@@ -50,8 +50,7 @@ const SettingsRestore = () => {
   }
 
   return (
-    <>
-      <Typography variant="h3">Restore from Backup</Typography>
+    <div className="mt-4">
       <Typography variant="body">
         Restore your notes and settings to a previous state.
       </Typography>
@@ -113,7 +112,7 @@ const SettingsRestore = () => {
           Close this dialog to view your restored notes.
         </Notice>
       )}
-    </>
+    </div>
   );
 };
 

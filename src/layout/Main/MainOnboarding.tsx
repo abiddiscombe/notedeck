@@ -21,8 +21,9 @@ const MainOnboarding = () => {
         <div className="max-w-sm">
           <Typography variant="h2">Welcome to {APP_INFO.Name}</Typography>
           <Typography variant="body">
-            A free and open-source alternative to paper notes that respects your
-            privacy and works offline.
+            {APP_INFO.Name} is a free and private sticky notes board that works
+            offline. Your notes are persisted in the browser and never leave
+            your device.
           </Typography>
           <div className="mt-8 flex items-center gap-4">
             <Button
@@ -31,7 +32,7 @@ const MainOnboarding = () => {
               onClick={() => handleCreateNote()}
             >
               <PlusIcon />
-              Get Started
+              Create Note
             </Button>
             <a
               target="_blank"
