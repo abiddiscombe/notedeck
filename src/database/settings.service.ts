@@ -45,10 +45,6 @@ const instantiate = async () => {
       value: false,
     },
     {
-      key: SETTINGS_KEYS.AutoUpdateCheck,
-      value: true,
-    },
-    {
       key: SETTINGS_KEYS.HideNonPriorityNotes,
       value: false,
     },

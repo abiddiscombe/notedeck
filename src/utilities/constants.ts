@@ -6,7 +6,6 @@ export enum APP_INFO {
   SemVer = "1.8.1",
   InfoUrl = "https://www.notedeck.dev",
   SourceUrl = "https://github.com/abiddiscombe/notedeck",
-  ReleasesUrl = "https://api.github.com/repos/abiddiscombe/notedeck/releases",
 }
 
 export enum TABLE_NAMES {
@@ -16,6 +15,5 @@ export enum TABLE_NAMES {
 
 export enum SETTINGS_KEYS {
   UseOpaqueNotes = "useOpaqueNotes",
-  AutoUpdateCheck = "autoUpdateCheck",
   HideNonPriorityNotes = "hideNonPriorityNotes",
 }
