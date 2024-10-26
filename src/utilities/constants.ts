@@ -3,7 +3,7 @@
 
 export enum APP_INFO {
   Name = "NoteDeck",
-  SemVer = "1.8.1",
+  SemVer = "1.9.0",
   AppHost = "notedeck.dev",
   AppHostOld = "app.notedeck.dev", // Deprecating Dec 2024.
   GitHubRepoUrl = "https://github.com/abiddiscombe/notedeck",
