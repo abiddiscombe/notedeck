@@ -16,7 +16,7 @@ function Mobile() {
           To explore {APP_INFO.Name}, open this page on your desktop or laptop.
         </Typography>
         <Typography variant="body" className="mt-6">
-          <ExternalLink href={APP_INFO.InfoUrl}>
+          <ExternalLink href={APP_INFO.GitHubRepoUrl}>
             Learn more about NoteDeck.
           </ExternalLink>
         </Typography>
