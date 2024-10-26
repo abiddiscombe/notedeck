@@ -9,7 +9,9 @@ const SettingsVersion = () => {
         {APP_INFO.Name} v{APP_INFO.SemVer}
       </Typography>
       <Typography variant="body">
-        <ExternalLink href={APP_INFO.SourceUrl}>View on GitHub</ExternalLink>
+        <ExternalLink href={APP_INFO.GitHubRepoUrl}>
+          View on GitHub
+        </ExternalLink>
       </Typography>
     </div>
   );

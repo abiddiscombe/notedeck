@@ -1,4 +1,4 @@
-import { PlusIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
+import { PlusIcon } from "@heroicons/react/16/solid";
 import { notesService } from "../../database/notes.service";
 import { APP_INFO } from "../../utilities/constants";
 import Button from "../../components/Button";
@@ -25,7 +25,7 @@ const MainOnboarding = () => {
             offline. Your notes are persisted in the browser and never leave
             your device.
           </Typography>
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8">
             <Button
               size="lg"
               variant="solid"
@@ -34,16 +34,6 @@ const MainOnboarding = () => {
               <PlusIcon />
               Create Note
             </Button>
-            <a
-              target="_blank"
-              href={APP_INFO.InfoUrl}
-              rel="noopener noreferrer"
-              aria-label={`More information about ${APP_INFO.Name} (Opens in a New Tab)`}
-              className="text-md flex h-10 items-center gap-3 rounded border border-white/0 px-4 text-primary-800 hover:border-primary-100 hover:bg-primary-100 hover:active:border-primary-200 hover:active:bg-primary-200 dark:text-primary-200 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:hover:active:border-primary-600 dark:hover:active:bg-primary-600 [&>svg]:h-3.5"
-            >
-              <ArrowTopRightOnSquareIcon />
-              Learn More
-            </a>
           </div>
         </div>
       </div>

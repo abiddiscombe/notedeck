@@ -4,8 +4,9 @@
 export enum APP_INFO {
   Name = "NoteDeck",
   SemVer = "1.8.1",
-  InfoUrl = "https://www.notedeck.dev",
-  SourceUrl = "https://github.com/abiddiscombe/notedeck",
+  AppHost = "notedeck.dev",
+  AppHostOld = "app.notedeck.dev", // Deprecating Dec 2024.
+  GitHubRepoUrl = "https://github.com/abiddiscombe/notedeck",
 }
 
 export enum TABLE_NAMES {
