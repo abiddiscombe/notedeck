@@ -1,10 +1,10 @@
 # NoteDeck
 
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fapp.notedeck.dev&up_message=online&label=NoteDeck%20Status)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=dev&label=Linting%20%26%20Formatting%20(dev))
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=main&label=Linting%20%26%20Formatting%20(main))
+![GitHub Actions Workflow Status](<https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=dev&label=Linting%20%26%20Formatting%20(dev)>)
+![GitHub Actions Workflow Status](<https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=main&label=Linting%20%26%20Formatting%20(main)>)
 
-![NoteDeck](./media/screenshot.png)
+![NoteDeck](./src/assets/ui-light.png)
 
 🚀 Start using NoteDeck at **[notedeck.dev](https://app.notedeck.dev)**
 
@@ -25,8 +25,8 @@ Please see [README-releases.md](/README-releases.md).
 
 ## Core Dependencies
 
--   Built with [React](https://react.dev) using [Vite](https://vitejs.dev).
--   [React-Draggable](https://www.npmjs.com/package/react-draggable).
--   [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) with [Dexie](https://dexie.org/).
--   [TailwindCSS](https://tailwindcss.com/), [Hero Icons](https://heroicons.com/), [Headless UI](https://headlessui.com/).
--   Visual assets by [Favicon Generator](https://favicon.io/) and [Undraw Illustrations](https://undraw.co/illustrations).
+- Built with [React](https://react.dev) using [Vite](https://vitejs.dev).
+- [React-Draggable](https://www.npmjs.com/package/react-draggable).
+- [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) with [Dexie](https://dexie.org/).
+- [TailwindCSS](https://tailwindcss.com/), [Hero Icons](https://heroicons.com/), [Headless UI](https://headlessui.com/).
+- Visual assets by [Favicon Generator](https://favicon.io/) and [Undraw Illustrations](https://undraw.co/illustrations).
