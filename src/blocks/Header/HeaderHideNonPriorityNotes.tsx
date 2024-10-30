@@ -2,19 +2,15 @@ import { StarIcon } from "@heroicons/react/16/solid";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
 import { useLiveQuery } from "dexie-react-hooks";
-import { settingsService } from "../../database/settings.service";
-import { SETTINGS_KEYS } from "../../utilities/constants";
+import settings, { SETTINGS_KEYS } from "../../database/settings";
 
 const HeaderHideNonPriorityNotes = () => {
-  const activeSetting = useLiveQuery(
-    async () => await settingsService.read(SETTINGS_KEYS.HideNonPriorityNotes),
+  const activeSetting = useLiveQuery(() =>
+    settings.read(SETTINGS_KEYS.HideNonPriorityNotes),
   );
 
   const toggleSetting = async () => {
-    await settingsService.write(
-      SETTINGS_KEYS.HideNonPriorityNotes,
-      !activeSetting,
-    );
+    await settings.write(SETTINGS_KEYS.HideNonPriorityNotes, !activeSetting);
   };
 
   const label = activeSetting ? "Show All Notes" : "Show Priority Notes Only";

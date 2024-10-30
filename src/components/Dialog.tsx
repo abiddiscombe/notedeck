@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import { notesService } from "../database/notes.service";
+import notes from "../database/notes";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import Typography from "./Typography";
 import {
@@ -20,7 +20,7 @@ const Dialog = (
     children: React.ReactNode;
   },
 ) => {
-  const highestZIndex = useLiveQuery(() => notesService.getTopZIndex());
+  const highestZIndex = useLiveQuery(() => notes.getTopZIndex());
 
   return (
     <Transition appear show={p.isOpen}>

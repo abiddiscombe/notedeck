@@ -1,12 +1,11 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { settingsService } from "../../database/settings.service";
+import settings, { SETTINGS_KEYS } from "../../database/settings";
 import Switch from "../../components/Switch";
 import ItemContainer from "./ItemContainer";
-import { SETTINGS_KEYS } from "../../utilities/constants";
 
 const SettingsItems = () => {
-  const useOpaqueNotes = useLiveQuery(
-    async () => await settingsService.read(SETTINGS_KEYS.UseOpaqueNotes),
+  const useOpaqueNotes = useLiveQuery(() =>
+    settings.read(SETTINGS_KEYS.UseOpaqueNotes),
   );
 
   return (
@@ -17,8 +16,8 @@ const SettingsItems = () => {
       >
         <Switch
           state={!useOpaqueNotes}
-          setState={() =>
-            settingsService.write(SETTINGS_KEYS.UseOpaqueNotes, !useOpaqueNotes)
+          setState={async () =>
+            await settings.write(SETTINGS_KEYS.UseOpaqueNotes, !useOpaqueNotes)
           }
         />
       </ItemContainer>

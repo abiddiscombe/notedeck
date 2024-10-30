@@ -1,6 +1,5 @@
-import { db } from "./db";
+import db, { TABLE_NAMES } from "./db";
 import { IndexableType } from "dexie";
-import { TABLE_NAMES } from "../utilities/constants";
 
 export type NoteModifyableFields = {
   posX?: number;
@@ -64,11 +63,4 @@ const removeAll = async (deletePriorityNotes: boolean) => {
   });
 };
 
-export const notesService = {
-  list,
-  create,
-  modify,
-  remove,
-  removeAll,
-  getTopZIndex,
-};
+export default { list, create, modify, remove, removeAll, getTopZIndex };
