@@ -8,13 +8,3 @@ export enum APP_INFO {
   AppHostOld = "app.notedeck.dev", // Deprecating Dec 2024.
   GitHubRepoUrl = "https://github.com/abiddiscombe/notedeck",
 }
-
-export enum TABLE_NAMES {
-  Notes = "notes",
-  Settings = "settings",
-}
-
-export enum SETTINGS_KEYS {
-  UseOpaqueNotes = "useOpaqueNotes",
-  HideNonPriorityNotes = "hideNonPriorityNotes",
-}

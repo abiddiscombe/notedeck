@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
-import { notesService } from "../../database/notes.service";
+import notes from "../../database/notes";
 import Dialog from "../../components/Dialog";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
@@ -20,7 +20,7 @@ const HeaderDeleteNotes = () => {
   }, [showModal]);
 
   async function handleDeleteEverything() {
-    await notesService.removeAll(!retainPriorityNotes);
+    await notes.removeAll(!retainPriorityNotes);
     setShowModal(false);
   }
 

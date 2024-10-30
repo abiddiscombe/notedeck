@@ -6,10 +6,7 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
-import {
-  notesService,
-  NoteModifyableFields,
-} from "../../../database/notes.service";
+import notes, { NoteModifyableFields } from "../../../database/notes";
 import { NoteItem } from "../../../database/db";
 import { themes } from "../../../utilities/themes";
 import NoteMenuTheme from "./NoteMenuTheme";
@@ -30,11 +27,11 @@ const NoteMenu = (
   },
 ) => {
   function handleNoteDelete() {
-    notesService.remove(p.noteData.id);
+    notes.remove(p.noteData.id);
   }
 
   function handleNoteModify(updates: NoteModifyableFields) {
-    notesService.modify(p.noteData.id, {
+    notes.modify(p.noteData.id, {
       ...p.noteData,
       ...updates,
     });
@@ -47,7 +44,7 @@ const NoteMenu = (
     const tooWide = window.innerWidth < maxX;
     const tooTall = window.innerHeight < maxY;
 
-    notesService.create({
+    notes.create({
       posX: p.noteData.posX + (tooWide ? -20 : 20),
       posY: p.noteData.posY + (tooTall ? -20 : 20),
       posW: p.noteData.posW,
