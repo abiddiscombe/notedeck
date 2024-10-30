@@ -1,5 +1,9 @@
 import Dexie, { IndexableType, Table } from "dexie";
-import { TABLE_NAMES } from "../utilities/constants";
+
+enum TABLE_NAMES {
+  Notes = "notes",
+  Settings = "settings",
+}
 
 export interface NoteItem {
   id: IndexableType;
@@ -62,4 +66,7 @@ export class MySubClassedDexie extends Dexie {
   }
 }
 
-export const db = new MySubClassedDexie();
+const db = new MySubClassedDexie();
+
+export default db;
+export { TABLE_NAMES };

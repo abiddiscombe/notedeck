@@ -1,27 +1,33 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { notesService } from "../../database/notes.service";
 import MainOnboarding from "./MainOnboarding";
 import Note from "./Note/Note";
-import { settingsService } from "../../database/settings.service";
-import { SETTINGS_KEYS } from "../../utilities/constants";
+import notes from "../../database/notes";
+import settings, { SETTINGS_KEYS } from "../../database/settings";
 
 const Main = () => {
-  const notes = useLiveQuery(() => notesService.list());
-  const hideNonPriorityNotes = useLiveQuery(() =>
-    settingsService.read(SETTINGS_KEYS.HideNonPriorityNotes),
+  const noteItems = useLiveQuery(() => notes.list());
+
+  const useOpaqueNotes = useLiveQuery(() =>
+    settings.read(SETTINGS_KEYS.UseOpaqueNotes),
   );
 
-  if (notes && !notes.length) {
+  const hideNonPriorityNotes = useLiveQuery(() =>
+    settings.read(SETTINGS_KEYS.HideNonPriorityNotes),
+  );
+
+  if (noteItems && !noteItems.length) {
     return <MainOnboarding />;
   }
 
   const filteredNotes = hideNonPriorityNotes
-    ? notes?.filter((note) => note.isPriority)
-    : notes;
+    ? noteItems?.filter((note) => note.isPriority)
+    : noteItems;
 
   return (
     <main className="relative overflow-auto p-2">
-      {filteredNotes?.map((note) => <Note key={note.id} noteData={note} />)}
+      {filteredNotes?.map((note) => (
+        <Note key={note.id} noteData={note} useOpaqueNotes={useOpaqueNotes} />
+      ))}
     </main>
   );
 };

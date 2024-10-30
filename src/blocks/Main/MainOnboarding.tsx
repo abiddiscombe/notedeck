@@ -1,12 +1,12 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
-import { notesService } from "../../database/notes.service";
+import notes from "../../database/notes";
 import { APP_INFO } from "../../utilities/constants";
 import Button from "../../components/Button";
 import Typography from "../../components/Typography";
 
 const MainOnboarding = () => {
   function handleCreateNote() {
-    notesService.create({
+    notes.create({
       theme: "yellow",
       content: "This is your first note! Click here to edit.",
       isPriority: false,

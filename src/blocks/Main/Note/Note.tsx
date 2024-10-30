@@ -1,24 +1,19 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import { notesService } from "../../../database/notes.service";
-import { settingsService } from "../../../database/settings.service";
+import notes from "../../../database/notes";
 import { NoteItem } from "../../../database/db";
-import { useLiveQuery } from "dexie-react-hooks";
 import { themes } from "../../../utilities/themes";
 import NoteMenu from "./NoteMenu";
-import { SETTINGS_KEYS } from "../../../utilities/constants";
 import { StarIcon } from "@heroicons/react/16/solid";
 
 const Note = (
   p: React.HTMLAttributes<HTMLElement> & {
     noteData: NoteItem;
+    useOpaqueNotes?: boolean;
   },
 ) => {
   const id = useId();
-  const useOpaqueNotes = useLiveQuery(() =>
-    settingsService.read(SETTINGS_KEYS.UseOpaqueNotes),
-  );
   const textareaId = useId();
   const nodeRef = useRef<HTMLElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -32,10 +27,10 @@ const Note = (
   });
 
   useEffect(() => {
-    notesService.modify(p.noteData.id, notePosition);
+    notes.modify(p.noteData.id, notePosition);
   }, [notePosition, p.noteData.id]);
 
-  if (useOpaqueNotes === undefined || !p.noteData) {
+  if (!p.noteData) {
     return null;
   }
 
@@ -59,7 +54,7 @@ const Note = (
   }
 
   async function handleBringForwards() {
-    const highestId = await notesService.getTopZIndex();
+    const highestId = await notes.getTopZIndex();
     if (highestId !== notePosition.posZ) {
       setNotePosition((prevState) => ({
         ...prevState,
@@ -86,7 +81,7 @@ const Note = (
         ref={nodeRef}
         className={twMerge(
           "absolute rounded shadow-sm hover:shadow-lg",
-          useOpaqueNotes ? theme.noteOpaque : theme.note,
+          p.useOpaqueNotes ? theme.noteOpaque : theme.note,
           !p.noteData.content &&
             !p.noteData.isPriority &&
             "[&:not(:hover)]:animate-pulse",
@@ -113,7 +108,7 @@ const Note = (
           id={textareaId}
           ref={textareaRef}
           onChange={() =>
-            notesService.modify(p.noteData.id, {
+            notes.modify(p.noteData.id, {
               content: textareaRef.current?.value,
             })
           }
