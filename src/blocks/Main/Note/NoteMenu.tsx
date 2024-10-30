@@ -18,7 +18,7 @@ import {
   DocumentDuplicateIcon,
   CheckIcon,
 } from "@heroicons/react/16/solid";
-import Button from "../../../components/Button";
+import Button from "../../../components/elements/Button";
 
 const NoteMenu = (
   p: React.HTMLAttributes<HTMLDivElement> & {

@@ -6,8 +6,8 @@ import {
 } from "@heroicons/react/16/solid";
 import { backup } from "../../utilities/backup";
 import { convertDate } from "../../utilities/convertDate";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
+import Button from "../../components/elements/Button";
+import Tooltip from "../../components/elements/Tooltip";
 
 const HeaderBackup = () => {
   const [backupDone, setBackupDone] = useState(false);

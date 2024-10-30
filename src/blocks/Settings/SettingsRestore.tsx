@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { convertDate } from "../../utilities/convertDate";
 import { BackupObject, backup } from "../../utilities/backup";
-import Button from "../../components/Button";
-import Notice from "../../components/Notice";
-import Typography from "../../components/Typography";
+import Button from "../../components/elements/Button";
+import Notice from "../../components/elements/Notice";
+import Typography from "../../components/elements/Typography";
 import { APP_INFO } from "../../utilities/constants";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";

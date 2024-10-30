@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { twMerge } from "tailwind-merge";
+import { cx } from "class-variance-authority";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import notes from "../../../database/notes";
 import { NoteItem } from "../../../database/db";
@@ -79,7 +79,7 @@ const Note = (
       <article
         id={id}
         ref={nodeRef}
-        className={twMerge(
+        className={cx(
           "absolute rounded shadow-sm hover:shadow-lg",
           p.useOpaqueNotes ? theme.noteOpaque : theme.note,
           !p.noteData.content &&
@@ -120,7 +120,7 @@ const Note = (
             width: notePosition.posW,
             height: notePosition.posH,
           }}
-          className={twMerge(
+          className={cx(
             `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800
                         dark:text-primary-100`,
             p.noteData.isMonospace && "font-mono text-sm",

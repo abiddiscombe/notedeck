@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { twJoin } from "tailwind-merge";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
+import { cx } from "class-variance-authority";
+import Button from "../../components/elements/Button";
+import Tooltip from "../../components/elements/Tooltip";
 import {
   ComputerDesktopIcon,
   MoonIcon,
@@ -39,7 +39,7 @@ const HeaderThemeSwitch = () => {
           variant="ghost"
           aria-label={labelAuto}
           onClick={() => handleThemeChange(THEME_AUTO)}
-          className={twJoin(
+          className={cx(
             "rounded-r-none",
             theme !== THEME_AUTO
               ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
@@ -55,7 +55,7 @@ const HeaderThemeSwitch = () => {
           variant="ghost"
           aria-label={labelDark}
           onClick={() => handleThemeChange(THEME_DARK)}
-          className={twJoin(
+          className={cx(
             "rounded-none",
             theme !== THEME_DARK
               ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
@@ -71,7 +71,7 @@ const HeaderThemeSwitch = () => {
           variant="ghost"
           aria-label={labelLight}
           onClick={() => handleThemeChange(THEME_LIGHT)}
-          className={twJoin(
+          className={cx(
             "rounded-l-none",
             theme !== THEME_LIGHT
               ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"

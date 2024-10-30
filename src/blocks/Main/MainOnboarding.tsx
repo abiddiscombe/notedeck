@@ -1,8 +1,8 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
 import notes from "../../database/notes";
 import { APP_INFO } from "../../utilities/constants";
-import Button from "../../components/Button";
-import Typography from "../../components/Typography";
+import Button from "../../components/elements/Button";
+import Typography from "../../components/elements/Typography";
 
 const MainOnboarding = () => {
   function handleCreateNote() {
@@ -19,7 +19,9 @@ const MainOnboarding = () => {
       <div className="flex max-w-sm flex-wrap items-center md:max-w-2xl">
         <Illustration />
         <div className="max-w-sm">
-          <Typography variant="h2">Welcome to {APP_INFO.Name}</Typography>
+          <Typography variant="h2" className="mb-2">
+            Welcome to {APP_INFO.Name}
+          </Typography>
           <Typography variant="body">
             {APP_INFO.Name} is a free and private sticky notes board that works
             offline. Your notes are persisted in the browser and never leave

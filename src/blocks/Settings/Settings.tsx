@@ -1,6 +1,6 @@
 import { APP_INFO } from "../../utilities/constants";
-import Dialog from "../../components/Dialog";
-import Typography from "../../components/Typography";
+import Dialog from "../../components/elements/Dialog";
+import Typography from "../../components/elements/Typography";
 import SettingsItems from "./SettingsItems";
 import SettingsRestore from "./SettingsRestore";
 import SettingsVersion from "./SettingsVersion";

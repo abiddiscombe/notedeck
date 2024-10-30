@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Cog6ToothIcon } from "@heroicons/react/16/solid";
 import Settings from "../Settings/Settings";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
+import Button from "../../components/elements/Button";
+import Tooltip from "../../components/elements/Tooltip";
 
 const HeaderSettings = () => {
   const [showSettings, setShowSettings] = useState(false);

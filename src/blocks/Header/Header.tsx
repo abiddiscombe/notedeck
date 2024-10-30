@@ -7,7 +7,7 @@ import HeaderDeleteNotes from "./HeaderDeleteNotes";
 import HeaderThemeSwitch from "./HeaderThemeSwitch";
 import HeaderSettings from "./HeaderSettings";
 import HeaderHideNonPriorityNotes from "./HeaderHideNonPriorityNotes";
-import Banner from "../../components/Banner";
+import Banner from "../../components/elements/Banner";
 import { APP_INFO } from "../../utilities/constants";
 
 const Header = () => {

@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
-import notes from "../database/notes";
+import notes from "../../database/notes";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import Typography from "./Typography";
 import {
@@ -54,9 +54,7 @@ const Dialog = (
               <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow-xl transition-all dark:border dark:border-primary-800 dark:bg-primary-900">
                 <div className="flex items-center justify-between pb-4">
                   <DialogTitle as={Fragment}>
-                    <Typography variant="h2" noMargin={true}>
-                      {p.title}
-                    </Typography>
+                    <Typography variant="h2">{p.title}</Typography>
                   </DialogTitle>
                   <CloseButton
                     aria-label="Close Dialog"

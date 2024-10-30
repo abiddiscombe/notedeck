@@ -1,6 +1,6 @@
 import { StarIcon } from "@heroicons/react/16/solid";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
+import Button from "../../components/elements/Button";
+import Tooltip from "../../components/elements/Tooltip";
 import { useLiveQuery } from "dexie-react-hooks";
 import settings, { SETTINGS_KEYS } from "../../database/settings";
 

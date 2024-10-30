@@ -1,13 +1,9 @@
-import { twMerge } from "tailwind-merge";
-
 const Spinner = (p: React.HTMLAttributes<SVGElement>) => {
   return (
     <svg
+      {...p}
       role="status"
-      className={twMerge(
-        "inline h-6 w-6 animate-spin fill-primary-600 text-primary-200 dark:fill-primary-200 dark:text-primary-700",
-        p.className,
-      )}
+      className="inline h-6 w-6 animate-spin fill-primary-600 text-primary-200 dark:fill-primary-200 dark:text-primary-700"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

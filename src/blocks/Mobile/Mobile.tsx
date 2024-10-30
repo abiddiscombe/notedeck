@@ -1,6 +1,6 @@
 import { APP_INFO } from "../../utilities/constants";
-import Typography from "../../components/Typography";
-import ExternalLink from "../../components/ExternalLink";
+import Typography from "../../components/elements/Typography";
+import ExternalLink from "../../components/elements/ExternalLink";
 
 function Mobile() {
   return (
@@ -9,7 +9,7 @@ function Mobile() {
         <Typography variant="h1">{APP_INFO.Name}</Typography>
       </header>
       <main className="m-auto max-w-sm p-10 pb-20">
-        <Typography variant="h2">
+        <Typography variant="h2" className="mb-6">
           Sorry, mobile devices are not supported :/
         </Typography>
         <Typography variant="body">

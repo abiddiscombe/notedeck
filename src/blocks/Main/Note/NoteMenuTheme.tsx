@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cx } from "class-variance-authority";
 import { themes } from "../../../utilities/themes";
 
 const NoteMenuTheme = (p: {
@@ -11,15 +11,15 @@ const NoteMenuTheme = (p: {
     ? `Use a ${p.themeId} theme for this note.`
     : `This note is currently using the  ${p.themeId} theme.`;
 
-  const styles = twMerge(
-    "rounded-full border border-4 p-2 active:ring-1 active:ring-primary-600 dark:active:ring-primary-500",
+  const classes = cx(
+    "rounded-full border-4 p-2 active:ring-1 active:ring-primary-600 dark:active:ring-primary-500",
     theme.selectionButton,
     p.themeIsActive && "ring-1 ring-primary-800 dark:ring-primary-100",
   );
 
   return (
     <button
-      className={styles}
+      className={classes}
       onClick={p.onClick}
       disabled={p.themeIsActive}
       aria-label={ariaLabel}
