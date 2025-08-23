@@ -11,7 +11,7 @@ const Notice = (
     <div
       role="alert"
       className={twMerge(
-        "my-4 rounded border border-l-4 p-4 text-primary-800 dark:text-primary-200",
+        "my-4 rounded border border-l-4 p-4 text-neutral-800 dark:text-neutral-200",
         variant === "success" &&
           "border-green-400 bg-green-50 dark:border-green-600 dark:bg-green-900/40",
         variant === "error" &&

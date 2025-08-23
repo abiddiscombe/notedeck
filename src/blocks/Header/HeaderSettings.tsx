@@ -17,7 +17,7 @@ const HeaderSettings = () => {
           variant="ghost"
           aria-label={label}
           onClick={() => setShowSettings(true)}
-          className="bg-primary-50 dark:bg-primary-800"
+          className="bg-neutral-50 dark:bg-neutral-800"
         >
           <Cog6ToothIcon />
         </Button>

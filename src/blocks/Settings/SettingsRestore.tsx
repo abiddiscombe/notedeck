@@ -54,7 +54,7 @@ const SettingsRestore = () => {
       <Typography variant="body">
         Restore your notes and settings to a previous state.
       </Typography>
-      <div className="mt-4 flex items-center gap-4 rounded bg-primary-100 dark:bg-primary-700">
+      <div className="mt-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
         <Button
           variant="solid"
           onClick={() => openFilePicker()}
@@ -63,7 +63,7 @@ const SettingsRestore = () => {
           <ArrowUpTrayIcon />
           Select File
         </Button>
-        <div className="overflow-hidden text-ellipsis pr-4 text-xs text-primary-700 dark:text-primary-200">
+        <div className="overflow-hidden text-ellipsis pr-4 text-xs text-neutral-700 dark:text-neutral-200">
           {filesContent.length ? (
             <span className="font-mono">{filesContent[0].name}</span>
           ) : (

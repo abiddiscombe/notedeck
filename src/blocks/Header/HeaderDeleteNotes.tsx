@@ -43,7 +43,7 @@ const HeaderDeleteNotes = () => {
             state={retainPriorityNotes}
             setState={() => setRetainPriorityNotes(!retainPriorityNotes)}
           />
-          <Label className="text-primary-800 dark:text-primary-200">
+          <Label className="text-neutral-800 dark:text-neutral-200">
             Retain notes marked as priority.
           </Label>
         </Field>
@@ -64,7 +64,7 @@ const HeaderDeleteNotes = () => {
           variant="ghost"
           aria-label={label}
           onClick={() => setShowModal(true)}
-          className="bg-primary-50 dark:bg-primary-800"
+          className="bg-neutral-50 dark:bg-neutral-800"
         >
           <TrashIcon />
         </Button>

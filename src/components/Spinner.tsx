@@ -5,7 +5,7 @@ const Spinner = (p: React.HTMLAttributes<SVGElement>) => {
     <svg
       role="status"
       className={twMerge(
-        "inline h-6 w-6 animate-spin fill-primary-600 text-primary-200 dark:fill-primary-200 dark:text-primary-700",
+        "inline h-6 w-6 animate-spin fill-neutral-600 text-neutral-200 dark:fill-neutral-200 dark:text-neutral-700",
         p.className,
       )}
       viewBox="0 0 100 101"

@@ -9,7 +9,7 @@ function App() {
   }
 
   return (
-    <div className="grid h-screen grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
+    <div className="grid h-screen grid-rows-[auto_1fr] bg-neutral-50 dark:bg-neutral-950">
       <Header />
       <Main />
     </div>

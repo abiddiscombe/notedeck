@@ -28,7 +28,7 @@ const HeaderBackup = () => {
         size="sm"
         variant="ghost"
         aria-label={label}
-        className="bg-primary-50 dark:bg-primary-800"
+        className="bg-neutral-50 dark:bg-neutral-800"
         onClick={() => handleDownloadBackup()}
       >
         {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}

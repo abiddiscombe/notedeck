@@ -51,7 +51,7 @@ const Dialog = (
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow-xl transition-all dark:border dark:border-primary-800 dark:bg-primary-900">
+              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded bg-white p-8 text-left align-middle shadow-xl transition-all dark:border dark:border-neutral-800 dark:bg-neutral-900">
                 <div className="flex items-center justify-between pb-4">
                   <DialogTitle as={Fragment}>
                     <Typography variant="h2" noMargin={true}>
@@ -60,9 +60,9 @@ const Dialog = (
                   </DialogTitle>
                   <CloseButton
                     aria-label="Close Dialog"
-                    className="rounded-full outline outline-8 outline-white/0 hover:bg-primary-50 hover:outline-primary-50 active:bg-primary-100 active:outline-primary-100 dark:hover:bg-primary-700 dark:hover:outline-primary-700 dark:active:bg-primary-600 dark:active:outline-primary-600"
+                    className="rounded-full outline outline-8 outline-white/0 hover:bg-neutral-50 hover:outline-neutral-50 active:bg-neutral-100 active:outline-neutral-100 dark:hover:bg-neutral-700 dark:hover:outline-neutral-700 dark:active:bg-neutral-600 dark:active:outline-neutral-600"
                   >
-                    <XMarkIcon className="h-6 text-primary-600 dark:text-primary-200" />
+                    <XMarkIcon className="h-6 text-neutral-600 dark:text-neutral-200" />
                   </CloseButton>
                 </div>
                 {p.children}

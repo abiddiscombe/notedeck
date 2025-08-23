@@ -11,7 +11,7 @@ const Typography = (
       <h1
         {...p}
         className={twMerge(
-          "text-sm font-semibold tracking-tight text-primary-800 dark:text-primary-100",
+          "text-sm font-semibold tracking-tight text-neutral-800 dark:text-neutral-100",
           !p.noMargin && "mb-10",
           p.className,
         )}
@@ -26,7 +26,7 @@ const Typography = (
       <h2
         {...p}
         className={twMerge(
-          "text-xl font-bold text-primary-900 dark:text-primary-100",
+          "text-xl font-bold text-neutral-900 dark:text-neutral-100",
           !p.noMargin && "mb-4",
           p.className,
         )}
@@ -41,7 +41,7 @@ const Typography = (
       <h3
         {...p}
         className={twMerge(
-          "text-lg font-semibold text-primary-900 dark:text-primary-100",
+          "text-lg font-semibold text-neutral-900 dark:text-neutral-100",
           !p.noMargin && "mt-4",
           p.className,
         )}
@@ -56,7 +56,7 @@ const Typography = (
       <p
         {...p}
         className={twMerge(
-          "leading-2 text-primary-700 dark:text-primary-200",
+          "text-neutral-700 dark:text-neutral-200",
           !p.noMargin && "mb-2",
           p.className,
         )}

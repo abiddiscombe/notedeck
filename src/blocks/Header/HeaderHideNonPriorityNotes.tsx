@@ -23,8 +23,8 @@ const HeaderHideNonPriorityNotes = () => {
         aria-label={label}
         className={
           activeSetting
-            ? "bg-primary-100 dark:bg-primary-700"
-            : "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
+            ? "bg-neutral-100 dark:bg-neutral-700"
+            : "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
         }
         onClick={() => toggleSetting()}
       >
