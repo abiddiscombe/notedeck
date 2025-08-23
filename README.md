@@ -4,7 +4,7 @@
 ![GitHub Actions Workflow Status](<https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=dev&label=Linting%20%26%20Formatting%20(dev)>)
 ![GitHub Actions Workflow Status](<https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=main&label=Linting%20%26%20Formatting%20(main)>)
 
-![NoteDeck](./src/assets/ui-light.png)
+![NoteDeck UI Screenshot](./README-banner.png)
 
 🚀 Start using NoteDeck at **[notedeck.dev](https://app.notedeck.dev)**
 
@@ -17,11 +17,7 @@ Help improve NoteDeck! Use [GitHub Issues](https://github.com/abiddiscombe/noted
 - Light and Dark Modes.
 - Backup & Restore Capability.
 - Installable as a Progressive Web App.
-- Multiple re-sizable "sticky note" themes.
-
-## Release Process
-
-Please see [README-releases.md](/README-releases.md).
+- Resizable "sticky notes" with support for multiple themes.
 
 ## Core Dependencies
 
