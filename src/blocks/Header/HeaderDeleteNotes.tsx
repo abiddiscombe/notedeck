@@ -16,7 +16,9 @@ const HeaderDeleteNotes = () => {
   // // Revert the "Retain Priority Notes" checkbox to
   // // "checked" when the modal is re-opened.
   useEffect(() => {
-    showModal && setRetainPriorityNotes(true);
+    if (showModal) {
+      setRetainPriorityNotes(true);
+    }
   }, [showModal]);
 
   async function handleDeleteEverything() {
