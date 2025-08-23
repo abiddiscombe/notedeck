@@ -1,7 +1,7 @@
+import Button from "@/components/Button";
+import Tooltip from "@/components/Tooltip";
 import { Cog6ToothIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
 import Settings from "../Settings/Settings";
 
 const HeaderSettings = () => {

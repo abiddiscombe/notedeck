@@ -1,8 +1,8 @@
+import Button from "@/components/Button";
+import Typography from "@/components/Typography";
+import notes from "@/database/notes";
+import { APP_INFO } from "@/utilities/constants";
 import { PlusIcon } from "@heroicons/react/16/solid";
-import Button from "../../components/Button";
-import Typography from "../../components/Typography";
-import notes from "../../database/notes";
-import { APP_INFO } from "../../utilities/constants";
 
 const MainOnboarding = () => {
   function handleCreateNote() {

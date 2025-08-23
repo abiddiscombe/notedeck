@@ -1,3 +1,7 @@
+import Button from "@/components/Button";
+import { NoteItem } from "@/database/db";
+import notes, { NoteModifyableFields } from "@/database/notes";
+import { themes } from "@/utilities/themes";
 import {
   Menu,
   MenuButton,
@@ -14,10 +18,6 @@ import {
 } from "@heroicons/react/16/solid";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
-import Button from "../../../components/Button";
-import { NoteItem } from "../../../database/db";
-import notes, { NoteModifyableFields } from "../../../database/notes";
-import { themes } from "../../../utilities/themes";
 import NoteMenuTheme from "./NoteMenuTheme";
 
 const NoteMenu = (

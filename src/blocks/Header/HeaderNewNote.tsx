@@ -1,7 +1,7 @@
+import Button from "@/components/Button";
+import Tooltip from "@/components/Tooltip";
+import notes from "@/database/notes";
 import { PlusIcon } from "@heroicons/react/16/solid";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
-import notes from "../../database/notes";
 
 const HeaderNewNote = () => {
   const label = "New Note";

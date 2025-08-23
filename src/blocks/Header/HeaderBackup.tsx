@@ -1,13 +1,13 @@
+import Button from "@/components/Button";
+import Tooltip from "@/components/Tooltip";
+import { backup } from "@/utilities/backup";
+import { convertDate } from "@/utilities/convertDate";
 import {
   ArchiveBoxArrowDownIcon,
   CheckCircleIcon,
 } from "@heroicons/react/16/solid";
 import saveAs from "file-saver";
 import { useState } from "react";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
-import { backup } from "../../utilities/backup";
-import { convertDate } from "../../utilities/convertDate";
 
 const HeaderBackup = () => {
   const [backupDone, setBackupDone] = useState(false);

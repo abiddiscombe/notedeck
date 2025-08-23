@@ -1,5 +1,5 @@
+import notes from "@/database/notes";
 import { useLiveQuery } from "dexie-react-hooks";
-import notes from "../../database/notes";
 import HeaderBackup from "./HeaderBackup";
 import HeaderDeleteNotes from "./HeaderDeleteNotes";
 import HeaderHideNonPriorityNotes from "./HeaderHideNonPriorityNotes";

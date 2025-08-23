@@ -1,13 +1,13 @@
+import Button from "@/components/Button";
+import Notice from "@/components/Notice";
+import Typography from "@/components/Typography";
+import { BackupObject, backup } from "@/utilities/backup";
+import { APP_INFO } from "@/utilities/constants";
+import { convertDate } from "@/utilities/convertDate";
 import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
-import Button from "../../components/Button";
-import Notice from "../../components/Notice";
-import Typography from "../../components/Typography";
-import { BackupObject, backup } from "../../utilities/backup";
-import { APP_INFO } from "../../utilities/constants";
-import { convertDate } from "../../utilities/convertDate";
 
 const SettingsRestore = () => {
   const [parsedBackup, setParsedBackup] = useState<BackupObject>();

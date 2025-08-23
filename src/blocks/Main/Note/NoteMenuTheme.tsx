@@ -1,5 +1,5 @@
+import { themes } from "@/utilities/themes";
 import { twMerge } from "tailwind-merge";
-import { themes } from "../../../utilities/themes";
 
 const NoteMenuTheme = (p: {
   onClick: VoidFunction;
