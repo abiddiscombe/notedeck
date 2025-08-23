@@ -1,5 +1,5 @@
-import { twMerge } from "tailwind-merge";
 import { Button as _Button } from "@headlessui/react";
+import { twMerge } from "tailwind-merge";
 
 const Button = (
   p: React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -20,11 +20,11 @@ const Button = (
         size === "md" && "h-8 gap-2.5 px-3 text-sm",
         size === "lg" && "text-md h-10 gap-3 px-4",
         variant === "solid" &&
-          "border-primary-900 bg-primary-900 text-white data-[hover]:border-primary-700 data-[hover]:data-[active]:border-primary-600 data-[hover]:bg-primary-700 data-[hover]:data-[active]:bg-primary-600 dark:border-primary-200 dark:bg-primary-200 dark:text-primary-800 dark:data-[hover]:border-primary-300 dark:data-[hover]:data-[active]:border-primary-400 dark:data-[hover]:bg-primary-300 dark:data-[hover]:data-[active]:bg-primary-400",
+          "border-neutral-900 bg-neutral-900 text-white data-[hover]:border-neutral-700 data-[hover]:data-[active]:border-neutral-600 data-[hover]:bg-neutral-700 data-[hover]:data-[active]:bg-neutral-600 dark:border-neutral-200 dark:bg-neutral-200 dark:text-neutral-800 dark:data-[hover]:border-neutral-300 dark:data-[hover]:data-[active]:border-neutral-400 dark:data-[hover]:bg-neutral-300 dark:data-[hover]:data-[active]:bg-neutral-400",
         variant === "ghost" &&
-          "border-white/0 text-primary-800 data-[hover]:border-primary-100 data-[hover]:data-[active]:border-primary-200 data-[hover]:bg-primary-100 data-[hover]:data-[active]:bg-primary-200 dark:text-primary-200 dark:data-[hover]:border-primary-700 dark:data-[hover]:data-[active]:border-primary-600 dark:data-[hover]:bg-primary-700 dark:data-[hover]:data-[active]:bg-primary-600",
+          "border-white/0 text-neutral-800 data-[hover]:border-neutral-100 data-[hover]:data-[active]:border-neutral-200 data-[hover]:bg-neutral-100 data-[hover]:data-[active]:bg-neutral-200 dark:text-neutral-200 dark:data-[hover]:border-neutral-700 dark:data-[hover]:data-[active]:border-neutral-600 dark:data-[hover]:bg-neutral-700 dark:data-[hover]:data-[active]:bg-neutral-600",
         variant === "minimal" &&
-          "border-primary-200 text-primary-800 data-[hover]:bg-primary-100 data-[hover]:data-[active]:bg-primary-200 data-[hover]:shadow-sm dark:border-primary-700 dark:text-primary-200 dark:data-[hover]:bg-primary-700 dark:data-[hover]:data-[active]:bg-primary-600",
+          "border-neutral-200 text-neutral-800 data-[hover]:bg-neutral-100 data-[hover]:data-[active]:bg-neutral-200 data-[hover]:shadow-sm dark:border-neutral-700 dark:text-neutral-200 dark:data-[hover]:bg-neutral-700 dark:data-[hover]:data-[active]:bg-neutral-600",
         variant === "destructive" &&
           "border-red-600 bg-red-600 text-white data-[hover]:border-red-500 data-[hover]:data-[active]:border-red-400 data-[hover]:bg-red-500 data-[hover]:data-[active]:bg-red-400 data-[hover]:shadow-sm",
         p.className,

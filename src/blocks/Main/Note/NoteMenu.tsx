@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import {
   Menu,
   MenuButton,
@@ -6,19 +5,20 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
-import notes, { NoteModifyableFields } from "../../../database/notes";
-import { NoteItem } from "../../../database/db";
-import { themes } from "../../../utilities/themes";
-import NoteMenuTheme from "./NoteMenuTheme";
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import {
-  StarIcon,
-  TrashIcon,
+  CheckIcon,
   CodeBracketIcon,
   DocumentDuplicateIcon,
-  CheckIcon,
+  StarIcon,
+  TrashIcon,
 } from "@heroicons/react/16/solid";
+import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
+import { Fragment } from "react";
 import Button from "../../../components/Button";
+import { NoteItem } from "../../../database/db";
+import notes, { NoteModifyableFields } from "../../../database/notes";
+import { themes } from "../../../utilities/themes";
+import NoteMenuTheme from "./NoteMenuTheme";
 
 const NoteMenu = (
   p: React.HTMLAttributes<HTMLDivElement> & {
@@ -100,11 +100,11 @@ const NoteMenu = (
       <MenuButton
         aria-label="Menu"
         onClick={p.handleBringForwards}
-        className="rounded-tr px-4 py-2.5 hover:bg-primary-600/20 active:bg-primary-600/40
-                    aria-expanded:bg-primary-600/20 dark:hover:bg-primary-800/40
-                    dark:active:bg-primary-900/40 dark:aria-expanded:bg-primary-800/40"
+        className="rounded-tr px-4 py-2.5 hover:bg-neutral-600/20 active:bg-neutral-600/40
+                    aria-expanded:bg-neutral-600/20 dark:hover:bg-neutral-800/40
+                    dark:active:bg-neutral-900/40 dark:aria-expanded:bg-neutral-800/40"
       >
-        <EllipsisHorizontalIcon className="h-4 text-primary-900 dark:text-primary-100" />
+        <EllipsisHorizontalIcon className="h-4 text-neutral-900 dark:text-neutral-100" />
       </MenuButton>
       <Transition
         as={Fragment}
@@ -115,7 +115,7 @@ const NoteMenu = (
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItems className="absolute right-0 mr-2 mt-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-primary-200 focus:outline-none dark:bg-primary-900 dark:ring-primary-800">
+        <MenuItems className="absolute right-0 mr-2 mt-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-neutral-200 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-800">
           <div className="flex flex-col p-1">
             <MenuItem as="div" className="flex gap-2 p-1 pb-2">
               {menuThemes.map((menuTheme) => (
@@ -127,7 +127,7 @@ const NoteMenu = (
                 />
               ))}
             </MenuItem>
-            <hr className="mb-1 border-primary-200 dark:border-primary-500" />
+            <hr className="mb-1 border-neutral-200 dark:border-neutral-500" />
             {menuItems.map((menuItem) => (
               <MenuItem key={menuItem.label}>
                 <div>

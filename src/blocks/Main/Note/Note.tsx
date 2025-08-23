@@ -1,11 +1,11 @@
+import { StarIcon } from "@heroicons/react/16/solid";
 import { useEffect, useId, useRef, useState } from "react";
-import { twMerge } from "tailwind-merge";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import notes from "../../../database/notes";
+import { twMerge } from "tailwind-merge";
 import { NoteItem } from "../../../database/db";
+import notes from "../../../database/notes";
 import { themes } from "../../../utilities/themes";
 import NoteMenu from "./NoteMenu";
-import { StarIcon } from "@heroicons/react/16/solid";
 
 const Note = (
   p: React.HTMLAttributes<HTMLElement> & {
@@ -90,7 +90,7 @@ const Note = (
       >
         <div className="flex items-stretch rounded-t">
           {p.noteData.isPriority && (
-            <StarIcon className="my-auto ml-3 h-3.5 text-primary-900/80 dark:text-primary-100" />
+            <StarIcon className="my-auto ml-3 h-3.5 text-neutral-900/80 dark:text-neutral-100" />
           )}
           <div
             onMouseDown={() => handleBringForwards()}
@@ -121,8 +121,8 @@ const Note = (
             height: notePosition.posH,
           }}
           className={twMerge(
-            `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-primary-800
-                        dark:text-primary-100`,
+            `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-neutral-800
+                        dark:text-neutral-100`,
             p.noteData.isMonospace && "font-mono text-sm",
           )}
         />

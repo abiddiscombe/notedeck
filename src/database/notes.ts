@@ -1,5 +1,5 @@
-import db, { TABLE_NAMES } from "./db";
 import { IndexableType } from "dexie";
+import db, { TABLE_NAMES } from "./db";
 
 export type NoteModifyableFields = {
   posX?: number;

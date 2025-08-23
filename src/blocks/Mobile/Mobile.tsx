@@ -1,10 +1,10 @@
-import { APP_INFO } from "../../utilities/constants";
-import Typography from "../../components/Typography";
 import ExternalLink from "../../components/ExternalLink";
+import Typography from "../../components/Typography";
+import { APP_INFO } from "../../utilities/constants";
 
 function Mobile() {
   return (
-    <div className="grid h-dvh grid-rows-[auto,_1fr] bg-primary-50 dark:bg-primary-950">
+    <div className="grid h-dvh grid-rows-[auto_1fr] bg-neutral-50 dark:bg-neutral-950">
       <header className="p-10">
         <Typography variant="h1">{APP_INFO.Name}</Typography>
       </header>

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
-import notes from "../../database/notes";
-import Dialog from "../../components/Dialog";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
 import Checkbox from "../../components/Checkbox";
+import Dialog from "../../components/Dialog";
+import Tooltip from "../../components/Tooltip";
 import Typography from "../../components/Typography";
+import notes from "../../database/notes";
 
 const HeaderDeleteNotes = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,7 +16,9 @@ const HeaderDeleteNotes = () => {
   // // Revert the "Retain Priority Notes" checkbox to
   // // "checked" when the modal is re-opened.
   useEffect(() => {
-    showModal && setRetainPriorityNotes(true);
+    if (showModal) {
+      setRetainPriorityNotes(true);
+    }
   }, [showModal]);
 
   async function handleDeleteEverything() {
@@ -43,7 +45,7 @@ const HeaderDeleteNotes = () => {
             state={retainPriorityNotes}
             setState={() => setRetainPriorityNotes(!retainPriorityNotes)}
           />
-          <Label className="text-primary-800 dark:text-primary-200">
+          <Label className="text-neutral-800 dark:text-neutral-200">
             Retain notes marked as priority.
           </Label>
         </Field>
@@ -64,7 +66,7 @@ const HeaderDeleteNotes = () => {
           variant="ghost"
           aria-label={label}
           onClick={() => setShowModal(true)}
-          className="bg-primary-50 dark:bg-primary-800"
+          className="bg-neutral-50 dark:bg-neutral-800"
         >
           <TrashIcon />
         </Button>

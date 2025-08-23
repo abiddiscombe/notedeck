@@ -1,6 +1,6 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import settings, { SETTINGS_KEYS } from "../../database/settings";
 import Switch from "../../components/Switch";
+import settings, { SETTINGS_KEYS } from "../../database/settings";
 import ItemContainer from "./ItemContainer";
 
 const SettingsItems = () => {

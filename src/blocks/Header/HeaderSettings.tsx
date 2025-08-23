@@ -1,8 +1,8 @@
-import { useState } from "react";
 import { Cog6ToothIcon } from "@heroicons/react/16/solid";
-import Settings from "../Settings/Settings";
+import { useState } from "react";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
+import Settings from "../Settings/Settings";
 
 const HeaderSettings = () => {
   const [showSettings, setShowSettings] = useState(false);
@@ -17,7 +17,7 @@ const HeaderSettings = () => {
           variant="ghost"
           aria-label={label}
           onClick={() => setShowSettings(true)}
-          className="bg-primary-50 dark:bg-primary-800"
+          className="bg-neutral-50 dark:bg-neutral-800"
         >
           <Cog6ToothIcon />
         </Button>

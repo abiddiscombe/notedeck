@@ -1,13 +1,13 @@
-import { useState } from "react";
-import saveAs from "file-saver";
 import {
   ArchiveBoxArrowDownIcon,
   CheckCircleIcon,
 } from "@heroicons/react/16/solid";
-import { backup } from "../../utilities/backup";
-import { convertDate } from "../../utilities/convertDate";
+import saveAs from "file-saver";
+import { useState } from "react";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
+import { backup } from "../../utilities/backup";
+import { convertDate } from "../../utilities/convertDate";
 
 const HeaderBackup = () => {
   const [backupDone, setBackupDone] = useState(false);
@@ -28,7 +28,7 @@ const HeaderBackup = () => {
         size="sm"
         variant="ghost"
         aria-label={label}
-        className="bg-primary-50 dark:bg-primary-800"
+        className="bg-neutral-50 dark:bg-neutral-800"
         onClick={() => handleDownloadBackup()}
       >
         {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}

@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { twJoin } from "tailwind-merge";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
 import {
   ComputerDesktopIcon,
   MoonIcon,
   SunIcon,
 } from "@heroicons/react/16/solid";
+import { useState } from "react";
+import { twJoin } from "tailwind-merge";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
 
 type themeList = "auto" | "dark" | "light";
 const THEME_AUTO = "auto";
@@ -42,8 +42,8 @@ const HeaderThemeSwitch = () => {
           className={twJoin(
             "rounded-r-none",
             theme !== THEME_AUTO
-              ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
-              : "bg-primary-100 dark:bg-primary-700",
+              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
+              : "bg-neutral-100 dark:bg-neutral-700",
           )}
         >
           <ComputerDesktopIcon aria-label={labelAuto} />
@@ -58,8 +58,8 @@ const HeaderThemeSwitch = () => {
           className={twJoin(
             "rounded-none",
             theme !== THEME_DARK
-              ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
-              : "bg-primary-100 dark:bg-primary-700",
+              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
+              : "bg-neutral-100 dark:bg-neutral-700",
           )}
         >
           <MoonIcon aria-label={labelDark} />
@@ -74,8 +74,8 @@ const HeaderThemeSwitch = () => {
           className={twJoin(
             "rounded-l-none",
             theme !== THEME_LIGHT
-              ? "bg-primary-50 text-primary-400 dark:bg-primary-800 dark:text-primary-500"
-              : "bg-primary-100 dark:bg-primary-700",
+              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
+              : "bg-neutral-100 dark:bg-neutral-700",
           )}
         >
           <SunIcon aria-label={labelLight} />

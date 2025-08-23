@@ -1,4 +1,4 @@
-import { Field, Label, Description } from "@headlessui/react";
+import { Description, Field, Label } from "@headlessui/react";
 
 const ItemContainer = (p: {
   label: string;
@@ -8,10 +8,10 @@ const ItemContainer = (p: {
   return (
     <Field className="mb-4 mt-2 flex items-start justify-between gap-6">
       <div className="max-w-sm">
-        <Label passive className="text-primary-800 dark:text-primary-200">
+        <Label passive className="text-neutral-800 dark:text-neutral-200">
           {p.label}
         </Label>
-        <Description className="text-pretty text-xs text-primary-500 dark:text-primary-400">
+        <Description className="text-pretty text-xs text-neutral-500 dark:text-neutral-400">
           {p.summary}
         </Description>
       </div>

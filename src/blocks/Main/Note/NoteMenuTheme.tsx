@@ -12,9 +12,9 @@ const NoteMenuTheme = (p: {
     : `This note is currently using the  ${p.themeId} theme.`;
 
   const styles = twMerge(
-    "rounded-full border border-4 p-2 active:ring-1 active:ring-primary-600 dark:active:ring-primary-500",
+    "rounded-full border border-4 p-2 active:ring-1 active:ring-neutral-600 dark:active:ring-neutral-500",
     theme.selectionButton,
-    p.themeIsActive && "ring-1 ring-primary-800 dark:ring-primary-100",
+    p.themeIsActive && "ring-1 ring-neutral-800 dark:ring-neutral-100",
   );
 
   return (
