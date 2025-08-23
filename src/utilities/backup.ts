@@ -1,5 +1,5 @@
-import notes from "../database/notes";
 import { NoteItem } from "../database/db";
+import notes from "../database/notes";
 
 export type BackupObject = {
   id: "notedeck";

@@ -1,11 +1,11 @@
+import { StarIcon } from "@heroicons/react/16/solid";
 import { useEffect, useId, useRef, useState } from "react";
-import { twMerge } from "tailwind-merge";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
-import notes from "../../../database/notes";
+import { twMerge } from "tailwind-merge";
 import { NoteItem } from "../../../database/db";
+import notes from "../../../database/notes";
 import { themes } from "../../../utilities/themes";
 import NoteMenu from "./NoteMenu";
-import { StarIcon } from "@heroicons/react/16/solid";
 
 const Note = (
   p: React.HTMLAttributes<HTMLElement> & {

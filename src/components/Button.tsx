@@ -1,5 +1,5 @@
-import { twMerge } from "tailwind-merge";
 import { Button as _Button } from "@headlessui/react";
+import { twMerge } from "tailwind-merge";
 
 const Button = (
   p: React.ButtonHTMLAttributes<HTMLButtonElement> & {

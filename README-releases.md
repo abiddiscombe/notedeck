@@ -1,28 +1,26 @@
 # NoteDeck - Release Process
 
-> *These steps are a WIP - let me know if you have any ideas for automation / improvement!*
+> _These steps are a WIP - let me know if you have any ideas for automation / improvement!_
 
 To release a new version of NoteDeck:
 
 1. Changes must be made in branches following a convention of `id--Issue-name-goes-here` where `id` refers to the numeric ID for the issue.
 
 2. Once changes have been made, locally:
+   - Format code - `npm run tidy`.
 
-    - Format code - `npm run tidy`.
+   - Run the linter - `npm run lint`
 
-    - Run the linter - `npm run lint`
-
-    - Run a test build - `npm run build`
+   - Run a test build - `npm run build`
 
 3. Raise a PR to merge the code into the `dev` branch.
 
 4. Once PRs / branches have been accounted for, bump NoteDeck's version by committing to the `dev` branch:
+   - Update - `/package.json`
 
-    - Update - `/package.json`
+   - Update - `/src/utilities/constants.ts`
 
-    - Update - `/src/utilities/constants.ts`
-
-    - Run `npm i` to update the `package-lock.json`
+   - Run `npm i` to update the `package-lock.json`
 
 5. Create a new release in GitHub, targeting the latest change in the `dev` branch. The release statement should follow the pattern used for past releases.
 

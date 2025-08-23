@@ -1,6 +1,6 @@
-import { APP_INFO } from "../../utilities/constants";
-import Typography from "../../components/Typography";
 import ExternalLink from "../../components/ExternalLink";
+import Typography from "../../components/Typography";
+import { APP_INFO } from "../../utilities/constants";
 
 const SettingsVersion = () => {
   return (

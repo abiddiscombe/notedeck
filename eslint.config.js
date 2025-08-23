@@ -1,12 +1,12 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import globals from "globals";
 import { fixupConfigRules } from "@eslint/compat";
+import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import reactRefresh from "eslint-plugin-react-refresh";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
-import { fileURLToPath } from "url";
+import { defineConfig, globalIgnores } from "eslint/config";
+import globals from "globals";
 import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

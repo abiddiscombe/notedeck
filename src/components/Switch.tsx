@@ -1,5 +1,5 @@
-import { twMerge } from "tailwind-merge";
 import { Switch as _Switch } from "@headlessui/react";
+import { twMerge } from "tailwind-merge";
 
 const Switch = (
   p: React.HTMLAttributes<HTMLElement> & {

@@ -1,7 +1,7 @@
 import { StarIcon } from "@heroicons/react/16/solid";
+import { useLiveQuery } from "dexie-react-hooks";
 import Button from "../../components/Button";
 import Tooltip from "../../components/Tooltip";
-import { useLiveQuery } from "dexie-react-hooks";
 import settings, { SETTINGS_KEYS } from "../../database/settings";
 
 const HeaderHideNonPriorityNotes = () => {

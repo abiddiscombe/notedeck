@@ -1,8 +1,8 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import MainOnboarding from "./MainOnboarding";
-import Note from "./Note/Note";
 import notes from "../../database/notes";
 import settings, { SETTINGS_KEYS } from "../../database/settings";
+import MainOnboarding from "./MainOnboarding";
+import Note from "./Note/Note";
 
 const Main = () => {
   const noteItems = useLiveQuery(() => notes.list());

@@ -1,5 +1,5 @@
-import { APP_INFO } from "../../utilities/constants";
 import Typography from "../../components/Typography";
+import { APP_INFO } from "../../utilities/constants";
 
 const HeaderLogo = () => {
   return (

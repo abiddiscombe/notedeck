@@ -1,16 +1,16 @@
-import { Fragment } from "react";
-import { useLiveQuery } from "dexie-react-hooks";
-import notes from "../database/notes";
-import { XMarkIcon } from "@heroicons/react/16/solid";
-import Typography from "./Typography";
 import {
-  CloseButton,
   Dialog as _Dialog,
+  CloseButton,
   DialogPanel,
   DialogTitle,
   Transition,
   TransitionChild,
 } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/16/solid";
+import { useLiveQuery } from "dexie-react-hooks";
+import { Fragment } from "react";
+import notes from "../database/notes";
+import Typography from "./Typography";
 
 const Dialog = (
   p: React.HTMLAttributes<HTMLElement> & {

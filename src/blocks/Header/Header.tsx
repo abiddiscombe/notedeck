@@ -1,12 +1,12 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import notes from "../../database/notes";
-import HeaderLogo from "./HeaderLogo";
 import HeaderBackup from "./HeaderBackup";
-import HeaderNewNote from "./HeaderNewNote";
 import HeaderDeleteNotes from "./HeaderDeleteNotes";
-import HeaderThemeSwitch from "./HeaderThemeSwitch";
-import HeaderSettings from "./HeaderSettings";
 import HeaderHideNonPriorityNotes from "./HeaderHideNonPriorityNotes";
+import HeaderLogo from "./HeaderLogo";
+import HeaderNewNote from "./HeaderNewNote";
+import HeaderSettings from "./HeaderSettings";
+import HeaderThemeSwitch from "./HeaderThemeSwitch";
 
 const Header = () => {
   const noteList = useLiveQuery(() => notes.list());

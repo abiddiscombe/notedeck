@@ -17,7 +17,8 @@
   --color-neutral-900: oklch(0.21 0.006 285.885);
   --color-neutral-950: oklch(0.141 0.005 285.823);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
     sans-serif;
 }

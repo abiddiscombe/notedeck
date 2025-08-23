@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
 import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
-import notes from "../../database/notes";
-import Dialog from "../../components/Dialog";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
 import Checkbox from "../../components/Checkbox";
+import Dialog from "../../components/Dialog";
+import Tooltip from "../../components/Tooltip";
 import Typography from "../../components/Typography";
+import notes from "../../database/notes";
 
 const HeaderDeleteNotes = () => {
   const [showModal, setShowModal] = useState(false);

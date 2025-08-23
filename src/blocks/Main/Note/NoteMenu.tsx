@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import {
   Menu,
   MenuButton,
@@ -6,19 +5,20 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
-import notes, { NoteModifyableFields } from "../../../database/notes";
-import { NoteItem } from "../../../database/db";
-import { themes } from "../../../utilities/themes";
-import NoteMenuTheme from "./NoteMenuTheme";
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import {
-  StarIcon,
-  TrashIcon,
+  CheckIcon,
   CodeBracketIcon,
   DocumentDuplicateIcon,
-  CheckIcon,
+  StarIcon,
+  TrashIcon,
 } from "@heroicons/react/16/solid";
+import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
+import { Fragment } from "react";
 import Button from "../../../components/Button";
+import { NoteItem } from "../../../database/db";
+import notes, { NoteModifyableFields } from "../../../database/notes";
+import { themes } from "../../../utilities/themes";
+import NoteMenuTheme from "./NoteMenuTheme";
 
 const NoteMenu = (
   p: React.HTMLAttributes<HTMLDivElement> & {

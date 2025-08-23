@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { twJoin } from "tailwind-merge";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
 import {
   ComputerDesktopIcon,
   MoonIcon,
   SunIcon,
 } from "@heroicons/react/16/solid";
+import { useState } from "react";
+import { twJoin } from "tailwind-merge";
+import Button from "../../components/Button";
+import Tooltip from "../../components/Tooltip";
 
 type themeList = "auto" | "dark" | "light";
 const THEME_AUTO = "auto";

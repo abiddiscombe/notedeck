@@ -1,6 +1,6 @@
-import { twMerge } from "tailwind-merge";
 import { Checkbox as _Checkbox } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
+import { twMerge } from "tailwind-merge";
 
 const Checkbox = (
   p: React.HTMLAttributes<HTMLSpanElement> & {
