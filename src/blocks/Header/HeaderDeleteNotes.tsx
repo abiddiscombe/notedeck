@@ -1,8 +1,8 @@
-import Button from "@/components/Button";
 import Checkbox from "@/components/Checkbox";
 import Dialog from "@/components/Dialog";
 import Tooltip from "@/components/Tooltip";
 import Typography from "@/components/Typography";
+import { Button } from "@/components/ui/button";
 import notes from "@/database/notes";
 import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
@@ -40,7 +40,7 @@ const HeaderDeleteNotes = () => {
           You won't be able to recover notes after they have been deleted from
           your device.
         </Typography>
-        <Field className="mb-4 mt-2 flex items-center gap-4">
+        <Field className="mt-2 mb-4 flex items-center gap-4">
           <Checkbox
             state={retainPriorityNotes}
             setState={() => setRetainPriorityNotes(!retainPriorityNotes)}
@@ -56,17 +56,15 @@ const HeaderDeleteNotes = () => {
         >
           <>
             <TrashIcon />
-            {`Delete ${!retainPriorityNotes ? "all " : ""}notes`}
+            Delete Notes
           </>
         </Button>
       </Dialog>
       <Tooltip label={label}>
         <Button
-          size="sm"
-          variant="ghost"
+          size="icon"
           aria-label={label}
           onClick={() => setShowModal(true)}
-          className="bg-neutral-50 dark:bg-neutral-800"
         >
           <TrashIcon />
         </Button>

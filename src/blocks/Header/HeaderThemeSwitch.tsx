@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
 import Tooltip from "@/components/Tooltip";
+import { Button } from "@/components/ui/button";
 import {
   ComputerDesktopIcon,
   MoonIcon,
@@ -35,15 +35,12 @@ const HeaderThemeSwitch = () => {
     <div className="box-content flex items-center rounded">
       <Tooltip aria-hidden label={labelAuto}>
         <Button
-          size="sm"
-          variant="ghost"
+          size="icon"
           aria-label={labelAuto}
           onClick={() => handleThemeChange(THEME_AUTO)}
           className={twJoin(
             "rounded-r-none",
-            theme !== THEME_AUTO
-              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-              : "bg-neutral-100 dark:bg-neutral-700",
+            theme !== THEME_AUTO ? "" : "bg-neutral-100 dark:bg-neutral-700",
           )}
         >
           <ComputerDesktopIcon aria-label={labelAuto} />
@@ -51,15 +48,12 @@ const HeaderThemeSwitch = () => {
       </Tooltip>
       <Tooltip aria-hidden label={labelDark}>
         <Button
-          size="sm"
-          variant="ghost"
+          size="icon"
           aria-label={labelDark}
           onClick={() => handleThemeChange(THEME_DARK)}
           className={twJoin(
             "rounded-none",
-            theme !== THEME_DARK
-              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-              : "bg-neutral-100 dark:bg-neutral-700",
+            theme !== THEME_DARK ? "" : "bg-neutral-100 dark:bg-neutral-700",
           )}
         >
           <MoonIcon aria-label={labelDark} />
@@ -67,15 +61,12 @@ const HeaderThemeSwitch = () => {
       </Tooltip>
       <Tooltip aria-hidden label={labelLight}>
         <Button
-          size="sm"
-          variant="ghost"
+          size="icon"
           aria-label={labelLight}
           onClick={() => handleThemeChange(THEME_LIGHT)}
           className={twJoin(
             "rounded-l-none",
-            theme !== THEME_LIGHT
-              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-              : "bg-neutral-100 dark:bg-neutral-700",
+            theme !== THEME_LIGHT ? "" : "bg-neutral-100 dark:bg-neutral-700",
           )}
         >
           <SunIcon aria-label={labelLight} />

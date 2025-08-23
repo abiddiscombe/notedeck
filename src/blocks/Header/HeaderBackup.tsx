@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
 import Tooltip from "@/components/Tooltip";
+import { Button } from "@/components/ui/button";
 import { backup } from "@/utilities/backup";
 import { convertDate } from "@/utilities/convertDate";
 import {
@@ -25,10 +25,8 @@ const HeaderBackup = () => {
   return (
     <Tooltip label={label}>
       <Button
-        size="sm"
-        variant="ghost"
+        size="icon"
         aria-label={label}
-        className="bg-neutral-50 dark:bg-neutral-800"
         onClick={() => handleDownloadBackup()}
       >
         {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}

@@ -1,8 +1,7 @@
-import Button from "@/components/Button";
 import Typography from "@/components/Typography";
+import { Button } from "@/components/ui/button";
 import notes from "@/database/notes";
 import { APP_INFO } from "@/utilities/constants";
-import { PlusIcon } from "@heroicons/react/16/solid";
 
 const MainOnboarding = () => {
   function handleCreateNote() {
@@ -25,14 +24,12 @@ const MainOnboarding = () => {
             offline. Your notes are persisted in the browser and never leave
             your device.
           </Typography>
-          <div className="mt-8">
-            <Button
-              size="lg"
-              variant="solid"
-              onClick={() => handleCreateNote()}
-            >
-              <PlusIcon />
-              Create Note
+          <div className="mt-8 flex gap-2">
+            <Button variant="primary" onClick={() => handleCreateNote()}>
+              Get Started
+            </Button>
+            <Button variant="ghost" onClick={() => handleCreateNote()}>
+              Get Started
             </Button>
           </div>
         </div>

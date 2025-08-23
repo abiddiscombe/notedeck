@@ -6,12 +6,12 @@ const ItemContainer = (p: {
   children: React.ReactNode;
 }) => {
   return (
-    <Field className="mb-4 mt-2 flex items-start justify-between gap-6">
+    <Field className="mt-2 mb-4 flex items-start justify-between gap-6">
       <div className="max-w-sm">
         <Label passive className="text-neutral-800 dark:text-neutral-200">
           {p.label}
         </Label>
-        <Description className="text-pretty text-xs text-neutral-500 dark:text-neutral-400">
+        <Description className="text-xs text-pretty text-neutral-500 dark:text-neutral-400">
           {p.summary}
         </Description>
       </div>

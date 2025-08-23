@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
 import Notice from "@/components/Notice";
 import Typography from "@/components/Typography";
+import { Button } from "@/components/ui/button";
 import { BackupObject, backup } from "@/utilities/backup";
 import { APP_INFO } from "@/utilities/constants";
 import { convertDate } from "@/utilities/convertDate";
@@ -56,14 +56,14 @@ const SettingsRestore = () => {
       </Typography>
       <div className="mt-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
         <Button
-          variant="solid"
+          variant="primary"
           onClick={() => openFilePicker()}
           className="shrink-0 rounded-r-none pr-4"
         >
           <ArrowUpTrayIcon />
           Select File
         </Button>
-        <div className="overflow-hidden text-ellipsis pr-4 text-xs text-neutral-700 dark:text-neutral-200">
+        <div className="overflow-hidden pr-4 text-xs text-ellipsis text-neutral-700 dark:text-neutral-200">
           {filesContent.length ? (
             <span className="font-mono">{filesContent[0].name}</span>
           ) : (
@@ -93,14 +93,9 @@ const SettingsRestore = () => {
                 : "? This backup does not contain any notes."}
             </strong>
           </Typography>
-          <Button
-            variant="destructive"
-            onClick={() => restoreContentFromBackup()}
-          >
-            <>
-              <DocumentCheckIcon />
-              Restore Backup
-            </>
+          <Button variant="primary" onClick={() => restoreContentFromBackup()}>
+            <DocumentCheckIcon />
+            Restore Backup
           </Button>
         </Notice>
       )}

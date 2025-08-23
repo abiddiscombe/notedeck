@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
 import Tooltip from "@/components/Tooltip";
+import { Button } from "@/components/ui/button";
 import notes from "@/database/notes";
 import { PlusIcon } from "@heroicons/react/16/solid";
 
@@ -18,8 +18,7 @@ const HeaderNewNote = () => {
   return (
     <Tooltip label={label} className="sm:invisible">
       <Button
-        size="sm"
-        variant="solid"
+        variant="primary"
         aria-label={label}
         onClick={() => handleCreateNote()}
       >

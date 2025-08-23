@@ -12,7 +12,7 @@ const Header = () => {
   const noteList = useLiveQuery(() => notes.list());
 
   return (
-    <header className="flex items-center gap-2 border-b border-b-neutral-200 bg-white px-4 py-1.5 shadow-sm dark:border-b-neutral-800 dark:bg-neutral-900">
+    <header className="flex items-center gap-3 border-b border-b-neutral-200 bg-white px-4 py-1.5 shadow-xs dark:border-b-neutral-800 dark:bg-neutral-900">
       <HeaderLogo />
       {!!noteList?.length && (
         <>

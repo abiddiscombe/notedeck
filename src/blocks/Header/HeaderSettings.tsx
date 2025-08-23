@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
 import Tooltip from "@/components/Tooltip";
+import { Button } from "@/components/ui/button";
 import { Cog6ToothIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import Settings from "../Settings/Settings";
@@ -13,11 +13,9 @@ const HeaderSettings = () => {
       <Settings isOpen={showSettings} setIsOpen={setShowSettings} />
       <Tooltip label={label} className="right-0">
         <Button
-          size="sm"
-          variant="ghost"
+          size="icon"
           aria-label={label}
           onClick={() => setShowSettings(true)}
-          className="bg-neutral-50 dark:bg-neutral-800"
         >
           <Cog6ToothIcon />
         </Button>

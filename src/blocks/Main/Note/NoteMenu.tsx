@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { NoteItem } from "@/database/db";
 import notes, { NoteModifyableFields } from "@/database/notes";
 import { themes } from "@/utilities/themes";
@@ -100,9 +100,7 @@ const NoteMenu = (
       <MenuButton
         aria-label="Menu"
         onClick={p.handleBringForwards}
-        className="rounded-tr px-4 py-2.5 hover:bg-neutral-600/20 active:bg-neutral-600/40
-                    aria-expanded:bg-neutral-600/20 dark:hover:bg-neutral-800/40
-                    dark:active:bg-neutral-900/40 dark:aria-expanded:bg-neutral-800/40"
+        className="rounded-tr px-4 py-2.5 hover:bg-neutral-600/20 active:bg-neutral-600/40 aria-expanded:bg-neutral-600/20 dark:hover:bg-neutral-800/40 dark:active:bg-neutral-900/40 dark:aria-expanded:bg-neutral-800/40"
       >
         <EllipsisHorizontalIcon className="h-4 text-neutral-900 dark:text-neutral-100" />
       </MenuButton>
@@ -115,7 +113,7 @@ const NoteMenu = (
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItems className="absolute right-0 mr-2 mt-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-neutral-200 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-800">
+        <MenuItems className="absolute right-0 mt-2 mr-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-neutral-200 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-900">
           <div className="flex flex-col p-1">
             <MenuItem as="div" className="flex gap-2 p-1 pb-2">
               {menuThemes.map((menuTheme) => (
@@ -132,7 +130,6 @@ const NoteMenu = (
               <MenuItem key={menuItem.label}>
                 <div>
                   <Button
-                    size="sm"
                     variant="ghost"
                     onClick={menuItem.action}
                     className={

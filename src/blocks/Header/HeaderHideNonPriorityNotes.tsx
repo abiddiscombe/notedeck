@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
 import Tooltip from "@/components/Tooltip";
+import { Button } from "@/components/ui/button";
 import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { StarIcon } from "@heroicons/react/16/solid";
 import { useLiveQuery } from "dexie-react-hooks";
@@ -18,14 +18,9 @@ const HeaderHideNonPriorityNotes = () => {
   return (
     <Tooltip label={label}>
       <Button
-        size="sm"
-        variant="ghost"
+        size="icon"
         aria-label={label}
-        className={
-          activeSetting
-            ? "bg-neutral-100 dark:bg-neutral-700"
-            : "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-        }
+        className={activeSetting ? "bg-neutral-100 dark:bg-neutral-700" : ""}
         onClick={() => toggleSetting()}
       >
         <StarIcon />

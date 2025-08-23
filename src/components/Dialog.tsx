@@ -11,6 +11,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { Fragment } from "react";
 import notes from "../database/notes";
 import Typography from "./Typography";
+import { Button } from "./ui/button";
 
 const Dialog = (
   p: React.HTMLAttributes<HTMLElement> & {
@@ -58,12 +59,11 @@ const Dialog = (
                       {p.title}
                     </Typography>
                   </DialogTitle>
-                  <CloseButton
-                    aria-label="Close Dialog"
-                    className="rounded-full outline outline-8 outline-white/0 hover:bg-neutral-50 hover:outline-neutral-50 active:bg-neutral-100 active:outline-neutral-100 dark:hover:bg-neutral-700 dark:hover:outline-neutral-700 dark:active:bg-neutral-600 dark:active:outline-neutral-600"
-                  >
-                    <XMarkIcon className="h-6 text-neutral-600 dark:text-neutral-200" />
-                  </CloseButton>
+                  <Button asChild={true} size="icon">
+                    <CloseButton aria-label="Close Dialog">
+                      <XMarkIcon />
+                    </CloseButton>
+                  </Button>
                 </div>
                 {p.children}
               </DialogPanel>
