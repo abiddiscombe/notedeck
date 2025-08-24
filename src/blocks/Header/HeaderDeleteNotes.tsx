@@ -1,7 +1,7 @@
-import Checkbox from "@/components/Checkbox";
 import Dialog from "@/components/Dialog";
 import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Tooltip,
   TooltipContent,
@@ -46,8 +46,8 @@ const HeaderDeleteNotes = () => {
         </Typography>
         <Field className="mt-2 mb-4 flex items-center gap-4">
           <Checkbox
-            state={retainPriorityNotes}
-            setState={() => setRetainPriorityNotes(!retainPriorityNotes)}
+            checked={retainPriorityNotes}
+            onCheckedChange={() => setRetainPriorityNotes(!retainPriorityNotes)}
           />
           <Label className="text-neutral-800 dark:text-neutral-200">
             Retain notes marked as priority.
