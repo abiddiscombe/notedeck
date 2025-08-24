@@ -1,5 +1,5 @@
-import ExternalLink from "@/components/ExternalLink";
 import Typography from "@/components/Typography";
+import { Link } from "@/components/ui/link";
 import { APP_INFO } from "@/utilities/constants";
 
 const SettingsVersion = () => {
@@ -9,9 +9,9 @@ const SettingsVersion = () => {
         {APP_INFO.Name} v{APP_INFO.SemVer}
       </Typography>
       <Typography variant="body">
-        <ExternalLink href={APP_INFO.GitHubRepoUrl}>
+        <Link href={APP_INFO.GitHubRepoUrl} target="_blank">
           View on GitHub
-        </ExternalLink>
+        </Link>
       </Typography>
     </div>
   );

@@ -1,5 +1,5 @@
-import ExternalLink from "@/components/ExternalLink";
 import Typography from "@/components/Typography";
+import { Link } from "@/components/ui/link";
 import { APP_INFO } from "@/utilities/constants";
 
 function Mobile() {
@@ -16,9 +16,9 @@ function Mobile() {
           To explore {APP_INFO.Name}, open this page on your desktop or laptop.
         </Typography>
         <Typography variant="body" className="mt-6">
-          <ExternalLink href={APP_INFO.GitHubRepoUrl}>
+          <Link href={APP_INFO.GitHubRepoUrl} target="_blank">
             Learn more about NoteDeck.
-          </ExternalLink>
+          </Link>
         </Typography>
       </main>
     </div>

@@ -1,6 +1,6 @@
-import { Slot } from "@radix-ui/react-slot";
+import * as _Slot from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import React from "react";
+import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaButton = cva(
@@ -49,7 +49,7 @@ export function Button({
   VariantProps<typeof cvaButton> & {
     asChild?: boolean;
   }) {
-  const Component = asChild ? Slot : "button";
+  const Component = asChild ? _Slot.Root : "button";
 
   return (
     <Component
