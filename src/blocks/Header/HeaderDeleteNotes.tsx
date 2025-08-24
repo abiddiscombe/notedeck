@@ -1,7 +1,14 @@
-import Dialog from "@/components/Dialog";
 import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Dialog,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Toolset } from "@/components/ui/toolset";
 import {
   Tooltip,
   TooltipContent,
@@ -32,37 +39,43 @@ const HeaderDeleteNotes = () => {
 
   return (
     <>
-      <Dialog
-        title="Confirm Notes Deletion"
-        isOpen={showModal}
-        setIsOpen={() => setShowModal(false)}
-      >
-        <Typography variant="body">
-          Are you sure you want to delete <strong>all stored notes</strong>?
-        </Typography>
-        <Typography variant="body" className="mb-6">
-          You won't be able to recover notes after they have been deleted from
-          your device.
-        </Typography>
-        <Field className="mt-2 mb-4 flex items-center gap-4">
-          <Checkbox
-            checked={retainPriorityNotes}
-            onCheckedChange={() => setRetainPriorityNotes(!retainPriorityNotes)}
-          />
-          <Label className="text-neutral-800 dark:text-neutral-200">
-            Retain notes marked as priority.
-          </Label>
-        </Field>
-        <Button
-          variant="destructive"
-          onClick={() => handleDeleteEverything()}
-          className="mt-8"
-        >
-          <>
-            <TrashIcon />
-            Delete Notes
-          </>
-        </Button>
+      <Dialog open={showModal}>
+        <DialogPortal>
+          <DialogOverlay onClick={() => setShowModal(false)} />
+          <DialogContent>
+            <DialogTitle>
+              <Typography variant="h2">Confirm Notes Deletion</Typography>
+            </DialogTitle>
+            <Typography variant="body">
+              Are you sure you want to delete <strong>all stored notes</strong>?
+            </Typography>
+            <Typography variant="body" className="mb-6">
+              You won't be able to recover notes after they have been deleted
+              from your device.
+            </Typography>
+            <Field className="mt-2 mb-4 flex items-center gap-4">
+              <Checkbox
+                checked={retainPriorityNotes}
+                onCheckedChange={() =>
+                  setRetainPriorityNotes(!retainPriorityNotes)
+                }
+              />
+              <Label className="text-neutral-800 dark:text-neutral-200">
+                Retain notes marked as priority.
+              </Label>
+            </Field>
+            <Toolset className="mt-8">
+              <Button
+                variant="destructive"
+                onClick={() => handleDeleteEverything()}
+              >
+                <TrashIcon />
+                Delete Notes
+              </Button>
+              <Button onClick={() => setShowModal(false)}>Cancel</Button>
+            </Toolset>
+          </DialogContent>
+        </DialogPortal>
       </Dialog>
       <Tooltip>
         <TooltipTrigger>
