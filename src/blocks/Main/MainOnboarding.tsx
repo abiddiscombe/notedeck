@@ -28,9 +28,6 @@ const MainOnboarding = () => {
             <Button variant="primary" onClick={() => handleCreateNote()}>
               Get Started
             </Button>
-            <Button variant="ghost" onClick={() => handleCreateNote()}>
-              Get Started
-            </Button>
           </div>
         </div>
       </div>

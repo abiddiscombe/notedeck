@@ -1,4 +1,4 @@
-import Switch from "@/components/Switch";
+import { Switch } from "@/components/ui/switch";
 import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { useLiveQuery } from "dexie-react-hooks";
 import ItemContainer from "./ItemContainer";
@@ -15,8 +15,8 @@ const SettingsItems = () => {
         summary="Translucency effects make it easier to spot overlapping notes."
       >
         <Switch
-          state={!useOpaqueNotes}
-          setState={async () =>
+          checked={useOpaqueNotes === undefined ? false : !useOpaqueNotes}
+          onCheckedChange={async () =>
             await settings.write(SETTINGS_KEYS.UseOpaqueNotes, !useOpaqueNotes)
           }
         />
