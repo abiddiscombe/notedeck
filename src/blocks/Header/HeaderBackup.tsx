@@ -1,5 +1,9 @@
-import Tooltip from "@/components/Tooltip";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { backup } from "@/utilities/backup";
 import { convertDate } from "@/utilities/convertDate";
 import {
@@ -23,14 +27,17 @@ const HeaderBackup = () => {
   }
 
   return (
-    <Tooltip label={label}>
-      <Button
-        size="icon"
-        aria-label={label}
-        onClick={() => handleDownloadBackup()}
-      >
-        {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}
-      </Button>
+    <Tooltip>
+      <TooltipTrigger>
+        <Button
+          size="icon"
+          aria-label={label}
+          onClick={() => handleDownloadBackup()}
+        >
+          {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>{label}</TooltipContent>
     </Tooltip>
   );
 };

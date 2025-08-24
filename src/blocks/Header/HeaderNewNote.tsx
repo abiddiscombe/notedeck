@@ -1,4 +1,3 @@
-import Tooltip from "@/components/Tooltip";
 import { Button } from "@/components/ui/button";
 import notes from "@/database/notes";
 import { PlusIcon } from "@heroicons/react/16/solid";
@@ -16,16 +15,14 @@ const HeaderNewNote = () => {
   }
 
   return (
-    <Tooltip label={label} className="sm:invisible">
-      <Button
-        variant="primary"
-        aria-label={label}
-        onClick={() => handleCreateNote()}
-      >
-        <PlusIcon aria-hidden={true} />
-        <span className="hidden sm:block">Note</span>
-      </Button>
-    </Tooltip>
+    <Button
+      variant="primary"
+      aria-label={label}
+      onClick={() => handleCreateNote()}
+    >
+      <PlusIcon aria-hidden={true} />
+      <span className="hidden sm:block">Note</span>
+    </Button>
   );
 };
 

@@ -1,8 +1,12 @@
 import Checkbox from "@/components/Checkbox";
 import Dialog from "@/components/Dialog";
-import Tooltip from "@/components/Tooltip";
 import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import notes from "@/database/notes";
 import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
@@ -60,14 +64,17 @@ const HeaderDeleteNotes = () => {
           </>
         </Button>
       </Dialog>
-      <Tooltip label={label}>
-        <Button
-          size="icon"
-          aria-label={label}
-          onClick={() => setShowModal(true)}
-        >
-          <TrashIcon />
-        </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            size="icon"
+            aria-label={label}
+            onClick={() => setShowModal(true)}
+          >
+            <TrashIcon />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>{label}</TooltipContent>
       </Tooltip>
     </>
   );
