@@ -15,7 +15,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import notes from "@/database/notes";
-import { Field, Label } from "@headlessui/react";
 import { TrashIcon } from "@heroicons/react/16/solid";
 import { useEffect, useState } from "react";
 
@@ -53,17 +52,22 @@ const HeaderDeleteNotes = () => {
               You won't be able to recover notes after they have been deleted
               from your device.
             </Typography>
-            <Field className="mt-2 mb-4 flex items-center gap-4">
+
+            <form className="mt-2 mb-4 flex items-center gap-4">
               <Checkbox
+                id="checkbox-delete-all-notes"
                 checked={retainPriorityNotes}
                 onCheckedChange={() =>
                   setRetainPriorityNotes(!retainPriorityNotes)
                 }
               />
-              <Label className="text-neutral-800 dark:text-neutral-200">
+              <label
+                htmlFor="checkbox-delete-all-notes"
+                className="text-neutral-800 dark:text-neutral-200"
+              >
                 Retain notes marked as priority.
-              </Label>
-            </Field>
+              </label>
+            </form>
             <Toolset className="mt-8">
               <Button
                 variant="destructive"

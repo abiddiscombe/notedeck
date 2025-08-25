@@ -1,14 +1,12 @@
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { NoteItem } from "@/database/db";
 import notes, { NoteModifyableFields } from "@/database/notes";
 import { themes } from "@/utilities/themes";
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  Transition,
-} from "@headlessui/react";
 import {
   CheckIcon,
   CodeBracketIcon,
@@ -17,7 +15,6 @@ import {
   TrashIcon,
 } from "@heroicons/react/16/solid";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
-import { Fragment } from "react";
 import NoteMenuTheme from "./NoteMenuTheme";
 
 const NoteMenu = (
@@ -96,63 +93,55 @@ const NoteMenu = (
   ];
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
-      <MenuButton
-        aria-label="Menu"
-        onClick={p.handleBringForwards}
-        className="rounded-tr px-4 py-2.5 hover:bg-neutral-600/20 active:bg-neutral-600/40 aria-expanded:bg-neutral-600/20 dark:hover:bg-neutral-800/40 dark:active:bg-neutral-900/40 dark:aria-expanded:bg-neutral-800/40"
+    <Popover>
+      <PopoverTrigger>
+        <Button
+          variant="ghost"
+          aria-label="Menu"
+          onClick={p.handleBringForwards}
+          className="rounded border-none enabled:hover:bg-neutral-600/20 enabled:hover:active:bg-neutral-600/40 aria-expanded:bg-neutral-600/20"
+        >
+          <EllipsisHorizontalIcon className="text-neutral-900 dark:text-neutral-100" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent
+        align="end"
+        alignOffset={6}
+        sideOffset={6}
+        className="flex flex-col p-1"
       >
-        <EllipsisHorizontalIcon className="h-4 text-neutral-900 dark:text-neutral-100" />
-      </MenuButton>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-75"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <MenuItems className="absolute right-0 mt-2 mr-2 origin-top-right divide-y rounded bg-white shadow ring-1 ring-neutral-200 focus:outline-none dark:bg-neutral-900 dark:ring-neutral-900">
-          <div className="flex flex-col p-1">
-            <MenuItem as="div" className="flex gap-2 p-1 pb-2">
-              {menuThemes.map((menuTheme) => (
-                <NoteMenuTheme
-                  key={menuTheme}
-                  onClick={() => handleNoteModify({ theme: menuTheme })}
-                  themeId={menuTheme}
-                  themeIsActive={menuTheme === p.noteData.theme}
-                />
-              ))}
-            </MenuItem>
-            <hr className="mb-1 border-neutral-200 dark:border-neutral-500" />
-            {menuItems.map((menuItem) => (
-              <MenuItem key={menuItem.label}>
-                <div>
-                  <Button
-                    variant="ghost"
-                    onClick={menuItem.action}
-                    className={
-                      menuItem.isDestructive
-                        ? "w-full text-red-600 dark:text-red-500"
-                        : "w-full"
-                    }
-                  >
-                    <>
-                      {menuItem.icon}
-                      <span className="mr-auto">{menuItem.label}</span>
-                      {menuItem.isActive && (
-                        <CheckIcon className="fill-green-600 dark:fill-green-500" />
-                      )}
-                    </>
-                  </Button>
-                </div>
-              </MenuItem>
-            ))}
-          </div>
-        </MenuItems>
-      </Transition>
-    </Menu>
+        <div className="flex gap-2 p-1 pb-2">
+          {menuThemes.map((menuTheme) => (
+            <NoteMenuTheme
+              key={menuTheme}
+              onClick={() => handleNoteModify({ theme: menuTheme })}
+              themeId={menuTheme}
+              themeIsActive={menuTheme === p.noteData.theme}
+            />
+          ))}
+        </div>
+        <hr className="mb-1 border-neutral-200 dark:border-neutral-500" />
+        {menuItems.map((menuItem) => (
+          <Button
+            variant="ghost"
+            onClick={menuItem.action}
+            className={
+              menuItem.isDestructive
+                ? "w-full text-red-600 dark:text-red-500"
+                : "w-full"
+            }
+          >
+            <>
+              {menuItem.icon}
+              <span className="mr-auto">{menuItem.label}</span>
+              {menuItem.isActive && (
+                <CheckIcon className="fill-green-600 dark:fill-green-500" />
+              )}
+            </>
+          </Button>
+        ))}
+      </PopoverContent>
+    </Popover>
   );
 };
 
