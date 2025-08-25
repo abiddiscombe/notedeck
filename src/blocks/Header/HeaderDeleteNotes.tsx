@@ -1,6 +1,7 @@
 import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Icon } from "@/components/ui/core/icon";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +16,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import notes from "@/database/notes";
-import { TrashIcon } from "@heroicons/react/16/solid";
+import { TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const HeaderDeleteNotes = () => {
@@ -70,10 +71,13 @@ const HeaderDeleteNotes = () => {
             </form>
             <Toolset className="mt-8">
               <Button
-                variant="destructive"
+                color="destructive"
+                variant="primary"
                 onClick={() => handleDeleteEverything()}
               >
-                <TrashIcon />
+                <Icon>
+                  <TrashIcon />
+                </Icon>
                 Delete Notes
               </Button>
               <Button onClick={() => setShowModal(false)}>Cancel</Button>
@@ -88,7 +92,9 @@ const HeaderDeleteNotes = () => {
             aria-label={label}
             onClick={() => setShowModal(true)}
           >
-            <TrashIcon />
+            <Icon>
+              <TrashIcon />
+            </Icon>
           </Button>
         </TooltipTrigger>
         <TooltipContent>{label}</TooltipContent>

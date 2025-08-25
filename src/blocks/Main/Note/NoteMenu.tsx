@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/core/icon";
 import {
   Popover,
   PopoverContent,
@@ -9,12 +10,12 @@ import notes, { NoteModifyableFields } from "@/database/notes";
 import { themes } from "@/utilities/themes";
 import {
   CheckIcon,
-  CodeBracketIcon,
-  DocumentDuplicateIcon,
+  CodeIcon,
+  CopyIcon,
+  EllipsisIcon,
   StarIcon,
   TrashIcon,
-} from "@heroicons/react/16/solid";
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
+} from "lucide-react";
 import NoteMenuTheme from "./NoteMenuTheme";
 
 const NoteMenu = (
@@ -57,7 +58,7 @@ const NoteMenu = (
 
   const menuItems = [
     {
-      icon: <CodeBracketIcon />,
+      icon: <CodeIcon />,
       label: "Monospace",
       action: () =>
         handleNoteModify({
@@ -77,7 +78,7 @@ const NoteMenu = (
       isDestructive: false,
     },
     {
-      icon: <DocumentDuplicateIcon />,
+      icon: <CopyIcon />,
       label: "Duplicate",
       action: () => handleNoteDuplicate(),
       isActive: false,
@@ -99,9 +100,11 @@ const NoteMenu = (
           variant="ghost"
           aria-label="Menu"
           onClick={p.handleBringForwards}
-          className="rounded border-none enabled:hover:bg-neutral-600/20 enabled:hover:active:bg-neutral-600/40 aria-expanded:bg-neutral-600/20"
+          className="rounded-none rounded-tr border-none enabled:hover:bg-neutral-600/20 enabled:hover:active:bg-neutral-600/40 aria-expanded:bg-neutral-600/20"
         >
-          <EllipsisHorizontalIcon className="text-neutral-900 dark:text-neutral-100" />
+          <Icon>
+            <EllipsisIcon className="text-neutral-900 dark:text-neutral-100" />
+          </Icon>
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -123,19 +126,17 @@ const NoteMenu = (
         <hr className="mb-1 border-neutral-200 dark:border-neutral-500" />
         {menuItems.map((menuItem) => (
           <Button
-            variant="ghost"
+            color={menuItem.isDestructive ? "destructive" : "destructive"}
+            variant={menuItem.isDestructive ? "ghost" : "secondary"}
             onClick={menuItem.action}
-            className={
-              menuItem.isDestructive
-                ? "w-full text-red-600 dark:text-red-500"
-                : "w-full"
-            }
           >
             <>
-              {menuItem.icon}
+              <Icon>{menuItem.icon}</Icon>
               <span className="mr-auto">{menuItem.label}</span>
               {menuItem.isActive && (
-                <CheckIcon className="fill-green-600 dark:fill-green-500" />
+                <Icon>
+                  <CheckIcon className="stroke-green-600 dark:stroke-green-500" />
+                </Icon>
               )}
             </>
           </Button>

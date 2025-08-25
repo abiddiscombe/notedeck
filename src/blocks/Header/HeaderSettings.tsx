@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/core/icon";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Cog6ToothIcon } from "@heroicons/react/16/solid";
+import { SettingsIcon } from "lucide-react";
 import { useState } from "react";
 import Settings from "../Settings/Settings";
 
@@ -22,7 +23,9 @@ const HeaderSettings = () => {
             aria-label={label}
             onClick={() => setShowSettings(true)}
           >
-            <Cog6ToothIcon />
+            <Icon>
+              <SettingsIcon />
+            </Icon>
           </Button>
         </TooltipTrigger>
         <TooltipContent align="end">{label}</TooltipContent>

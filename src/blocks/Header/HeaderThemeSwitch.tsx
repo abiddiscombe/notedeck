@@ -1,14 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/core/icon";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import {
-  ComputerDesktopIcon,
-  MoonIcon,
-  SunIcon,
-} from "@heroicons/react/16/solid";
+import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import { twJoin } from "tailwind-merge";
 
@@ -48,7 +45,9 @@ const HeaderThemeSwitch = () => {
               theme !== THEME_AUTO ? "" : "bg-neutral-100 dark:bg-neutral-700",
             )}
           >
-            <ComputerDesktopIcon aria-label={labelAuto} />
+            <Icon>
+              <MonitorIcon aria-label={labelAuto} />
+            </Icon>
           </Button>
         </TooltipTrigger>
         <TooltipContent>{labelAuto}</TooltipContent>
@@ -64,7 +63,9 @@ const HeaderThemeSwitch = () => {
               theme !== THEME_DARK ? "" : "bg-neutral-100 dark:bg-neutral-700",
             )}
           >
-            <MoonIcon aria-label={labelDark} />
+            <Icon>
+              <MoonIcon aria-label={labelDark} />
+            </Icon>
           </Button>
         </TooltipTrigger>
         <TooltipContent>{labelDark}</TooltipContent>
@@ -80,7 +81,9 @@ const HeaderThemeSwitch = () => {
               theme !== THEME_LIGHT ? "" : "bg-neutral-100 dark:bg-neutral-700",
             )}
           >
-            <SunIcon aria-label={labelLight} />
+            <Icon>
+              <SunIcon aria-label={labelLight} />
+            </Icon>
           </Button>
         </TooltipTrigger>
         <TooltipContent>{labelLight}</TooltipContent>

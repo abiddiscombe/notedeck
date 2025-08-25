@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/core/icon";
 import {
   Tooltip,
   TooltipContent,
@@ -6,11 +7,8 @@ import {
 } from "@/components/ui/tooltip";
 import { backup } from "@/utilities/backup";
 import { convertDate } from "@/utilities/convertDate";
-import {
-  ArchiveBoxArrowDownIcon,
-  CheckCircleIcon,
-} from "@heroicons/react/16/solid";
 import saveAs from "file-saver";
+import { CheckIcon, DownloadIcon } from "lucide-react";
 import { useState } from "react";
 
 const HeaderBackup = () => {
@@ -34,7 +32,7 @@ const HeaderBackup = () => {
           aria-label={label}
           onClick={() => handleDownloadBackup()}
         >
-          {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}
+          <Icon>{backupDone ? <CheckIcon /> : <DownloadIcon />}</Icon>
         </Button>
       </TooltipTrigger>
       <TooltipContent>{label}</TooltipContent>

@@ -21,8 +21,7 @@ Help improve NoteDeck! Use [GitHub Issues](https://github.com/abiddiscombe/noted
 
 ## Core Dependencies
 
-- Built with [React](https://react.dev) using [Vite](https://vitejs.dev).
+- Built with [React](https://react.dev) using [Vite](https://vitejs.dev) and [TailwindCSS](https://tailwindcss.com/).
 - [React-Draggable](https://www.npmjs.com/package/react-draggable).
 - [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) with [Dexie](https://dexie.org/).
-- [TailwindCSS](https://tailwindcss.com/), [Hero Icons](https://heroicons.com/), [Headless UI](https://headlessui.com/).
 - Visual assets by [Favicon Generator](https://favicon.io/) and [Undraw Illustrations](https://undraw.co/illustrations).

@@ -1,10 +1,11 @@
 import Notice from "@/components/Notice";
 import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/core/icon";
 import { BackupObject, backup } from "@/utilities/backup";
 import { APP_INFO } from "@/utilities/constants";
 import { convertDate } from "@/utilities/convertDate";
-import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
+import { CheckIcon, UploadIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
@@ -60,7 +61,9 @@ const SettingsRestore = () => {
           onClick={() => openFilePicker()}
           className="shrink-0 rounded-r-none pr-4"
         >
-          <ArrowUpTrayIcon />
+          <Icon>
+            <UploadIcon />
+          </Icon>
           Select File
         </Button>
         <div className="overflow-hidden pr-4 text-xs text-ellipsis text-neutral-700 dark:text-neutral-200">
@@ -94,7 +97,9 @@ const SettingsRestore = () => {
             </strong>
           </Typography>
           <Button variant="primary" onClick={() => restoreContentFromBackup()}>
-            <DocumentCheckIcon />
+            <Icon>
+              <CheckIcon />
+            </Icon>
             Restore Backup
           </Button>
         </Notice>

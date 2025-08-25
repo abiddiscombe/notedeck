@@ -1,7 +1,8 @@
+import { Icon } from "@/components/ui/core/icon";
 import { NoteItem } from "@/database/db";
 import notes from "@/database/notes";
 import { themes } from "@/utilities/themes";
-import { StarIcon } from "@heroicons/react/16/solid";
+import { StarIcon } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { twMerge } from "tailwind-merge";
@@ -90,7 +91,9 @@ const Note = (
       >
         <div className="flex items-stretch rounded-t">
           {p.noteData.isPriority && (
-            <StarIcon className="my-auto ml-3 h-3.5 text-neutral-900/80 dark:text-neutral-100" />
+            <Icon>
+              <StarIcon className="my-auto ml-3 text-neutral-900/80 dark:text-neutral-100" />
+            </Icon>
           )}
           <div
             onMouseDown={() => handleBringForwards()}

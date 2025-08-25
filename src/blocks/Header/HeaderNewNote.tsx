@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Icon } from "@/components/ui/core/icon";
 import notes from "@/database/notes";
-import { PlusIcon } from "@heroicons/react/16/solid";
+import { PlusIcon } from "lucide-react";
 
 const HeaderNewNote = () => {
   const label = "New Note";
@@ -20,8 +21,10 @@ const HeaderNewNote = () => {
       aria-label={label}
       onClick={() => handleCreateNote()}
     >
-      <PlusIcon aria-hidden={true} />
-      <span className="hidden sm:block">Note</span>
+      <Icon>
+        <PlusIcon />
+      </Icon>
+      <span>Note</span>
     </Button>
   );
 };
