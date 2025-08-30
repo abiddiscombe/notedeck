@@ -1,12 +1,14 @@
-import Typography from "@/components/Typography";
 import { Link } from "@/components/ui/link";
+import { Typography } from "@/components/ui/typography";
 import { APP_INFO } from "@/utilities/constants";
 
 function Mobile() {
   return (
     <div className="grid h-dvh grid-rows-[auto_1fr] bg-neutral-50 dark:bg-neutral-950">
       <header className="p-10">
-        <Typography variant="h1">{APP_INFO.Name}</Typography>
+        <span className="text-sm font-semibold tracking-tight text-neutral-950 dark:text-neutral-100">
+          {APP_INFO.Name}
+        </span>
       </header>
       <main className="m-auto max-w-sm p-10 pb-20">
         <Typography variant="h2">

@@ -126,8 +126,8 @@ const NoteMenu = (
         <hr className="mb-1 border-neutral-200 dark:border-neutral-500" />
         {menuItems.map((menuItem) => (
           <Button
-            color={menuItem.isDestructive ? "destructive" : "destructive"}
-            variant={menuItem.isDestructive ? "ghost" : "secondary"}
+            color={menuItem.isDestructive ? "destructive" : "neutral"}
+            variant="ghost"
             onClick={menuItem.action}
           >
             <>

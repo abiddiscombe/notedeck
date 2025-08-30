@@ -1,4 +1,3 @@
-import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -9,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Link } from "@/components/ui/link";
 import { Toolset, ToolsetSpacer } from "@/components/ui/toolset";
+import { Typography } from "@/components/ui/typography";
 import { APP_INFO } from "@/utilities/constants";
 import SettingsItems from "./SettingsItems";
 import SettingsRestore from "./SettingsRestore";
@@ -23,7 +23,7 @@ const Settings = (p: {
         <DialogOverlay onClick={() => p.setIsOpen(false)} />
         <DialogContent>
           <DialogTitle>
-            <Typography variant="h2">Settings</Typography>
+            <Typography variant="h1">Settings</Typography>
           </DialogTitle>
           <Typography variant="body">
             {APP_INFO.Name} is a free and private sticky notes board that works

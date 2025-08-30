@@ -1,4 +1,3 @@
-import Typography from "@/components/Typography";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Icon } from "@/components/ui/core/icon";
@@ -15,6 +14,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Typography } from "@/components/ui/typography";
 import notes from "@/database/notes";
 import { TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -44,7 +44,7 @@ const HeaderDeleteNotes = () => {
           <DialogOverlay onClick={() => setShowModal(false)} />
           <DialogContent>
             <DialogTitle>
-              <Typography variant="h2">Confirm Notes Deletion</Typography>
+              <Typography variant="h1">Confirm Notes Deletion</Typography>
             </DialogTitle>
             <Typography variant="body">
               Are you sure you want to delete <strong>all stored notes</strong>?

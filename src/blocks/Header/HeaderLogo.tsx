@@ -1,12 +1,11 @@
-import Typography from "@/components/Typography";
 import { APP_INFO } from "@/utilities/constants";
 
 const HeaderLogo = () => {
   return (
     <div className="flex-grow select-none">
-      <Typography variant="h1" noMargin={true}>
+      <span className="text-sm font-semibold tracking-tight text-neutral-950 dark:text-neutral-100">
         {APP_INFO.Name}
-      </Typography>
+      </span>
     </div>
   );
 };
