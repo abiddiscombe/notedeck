@@ -1,6 +1,6 @@
-import Notice from "@/components/Notice";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/components/ui/core/icon";
+import { Notice } from "@/components/ui/notice";
 import { Typography } from "@/components/ui/typography";
 import { BackupObject, backup } from "@/utilities/backup";
 import { APP_INFO } from "@/utilities/constants";
@@ -55,7 +55,7 @@ const SettingsRestore = () => {
       <Typography variant="body">
         Restore your notes and settings to a previous state.
       </Typography>
-      <div className="mt-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
+      <div className="my-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
         <Button
           variant="primary"
           onClick={() => openFilePicker()}
@@ -77,9 +77,8 @@ const SettingsRestore = () => {
 
       {showErrorMessage && (
         <Notice variant="error">
-          Something went wrong whilst reading the backup file.
-          <br />
-          It may be corrupted or incompatible with {APP_INFO.Name}.
+          Something went wrong whilst reading the backup file. It may be
+          corrupted or incompatible with {APP_INFO.Name}.
         </Notice>
       )}
 
@@ -88,13 +87,12 @@ const SettingsRestore = () => {
           <Typography variant="body">
             This backup was created on {parsedBackupDate?.date} at{" "}
             {parsedBackupDate?.hh}:{parsedBackupDate?.mm}.
-            <br />
-            <strong className="block py-2 font-medium">
-              Are you sure you wish to erase all existing notes and settings
-              {parsedBackup?.content.notes.length
-                ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
-                : "? This backup does not contain any notes."}
-            </strong>
+          </Typography>
+          <Typography variant="body">
+            Are you sure you wish to erase all existing notes and settings
+            {parsedBackup?.content.notes.length
+              ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
+              : "? This backup does not contain any notes."}
           </Typography>
           <Button variant="primary" onClick={() => restoreContentFromBackup()}>
             <Icon>
@@ -107,9 +105,7 @@ const SettingsRestore = () => {
 
       {showSuccessMessage && (
         <Notice variant="success">
-          <strong>Restore successful.</strong>
-          <br />
-          Close this dialog to view your restored notes.
+          Restore successful. Close this dialog to view your restored notes.
         </Notice>
       )}
     </div>

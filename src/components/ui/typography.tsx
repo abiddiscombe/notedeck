@@ -1,5 +1,6 @@
 import * as _Slot from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
+import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaTypography = cva("", {
