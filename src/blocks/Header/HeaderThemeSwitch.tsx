@@ -60,7 +60,9 @@ const HeaderThemeSwitch = () => {
             onClick={() => handleThemeChange(THEME_DARK)}
             className={twJoin(
               "rounded-none",
-              theme !== THEME_DARK ? "" : "bg-neutral-100 dark:bg-neutral-700",
+              theme !== THEME_DARK
+                ? ""
+                : "border-neutral-100 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-700",
             )}
           >
             <Icon>

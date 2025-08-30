@@ -38,7 +38,7 @@ const Settings = (p: {
           <Toolset className="mt-6">
             <Button onClick={() => p.setIsOpen(false)}>Close</Button>
             <ToolsetSpacer />
-            <Typography variant="body" className="text-sm">
+            <Typography variant="body" className="text-sm last-of-type:mb-0">
               <Link href={APP_INFO.GitHubRepoUrl} target="_blank">
                 {APP_INFO.Name} v{APP_INFO.SemVer}
               </Link>
