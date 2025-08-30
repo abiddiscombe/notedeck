@@ -32,24 +32,24 @@ const cvaButton = cva(
         variant: "ghost",
         className: [
           "border-transparent bg-transparent",
-          "text-neutral-700 enabled:hover:border-neutral-200 enabled:hover:bg-neutral-200 enabled:hover:active:border-neutral-300 enabled:hover:active:bg-neutral-300",
-          "dark:text-neutral-200 dark:enabled:hover:border-neutral-700 dark:enabled:hover:bg-neutral-700 dark:enabled:hover:active:border-neutral-600 dark:enabled:hover:active:bg-neutral-600",
+          "text-neutral-700 not-disabled:hover:border-neutral-200 not-disabled:hover:bg-neutral-200 not-disabled:hover:active:border-neutral-300 not-disabled:hover:active:bg-neutral-300",
+          "dark:text-neutral-200 dark:not-disabled:hover:border-neutral-700 dark:not-disabled:hover:bg-neutral-700 dark:not-disabled:hover:active:border-neutral-600 dark:not-disabled:hover:active:bg-neutral-600",
         ],
       },
       {
         color: "neutral",
         variant: "primary",
         className: [
-          "border-neutral-950 bg-neutral-950 text-neutral-100 enabled:hover:border-neutral-800 enabled:hover:bg-neutral-800 enabled:hover:active:border-neutral-700 enabled:hover:active:bg-neutral-400 enabled:hover:active:bg-neutral-700",
-          "dark:border-neutral-200 dark:bg-neutral-200 dark:text-neutral-900 dark:enabled:hover:border-neutral-300 dark:enabled:hover:bg-neutral-300 dark:enabled:hover:active:border-neutral-400 dark:enabled:hover:active:bg-neutral-400",
+          "border-neutral-950 bg-neutral-950 text-neutral-100 not-disabled:hover:border-neutral-800 not-disabled:hover:bg-neutral-800 not-disabled:hover:active:border-neutral-700 not-disabled:hover:active:bg-neutral-400 not-disabled:hover:active:bg-neutral-700",
+          "dark:border-neutral-200 dark:bg-neutral-200 dark:text-neutral-900 dark:not-disabled:hover:border-neutral-300 dark:not-disabled:hover:bg-neutral-300 dark:not-disabled:hover:active:border-neutral-400 dark:not-disabled:hover:active:bg-neutral-400",
         ],
       },
       {
         color: "neutral",
         variant: "secondary",
         className: [
-          "border-neutral-100 bg-neutral-100 text-neutral-700 enabled:hover:border-neutral-200 enabled:hover:bg-neutral-200 enabled:hover:active:border-neutral-300 enabled:hover:active:bg-neutral-300",
-          "dark:border-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 dark:enabled:hover:border-neutral-700 dark:enabled:hover:bg-neutral-700 dark:enabled:hover:active:border-neutral-600 dark:enabled:hover:active:bg-neutral-600",
+          "border-neutral-100 bg-neutral-100 text-neutral-700 not-disabled:hover:border-neutral-200 not-disabled:hover:bg-neutral-200 not-disabled:hover:active:border-neutral-300 not-disabled:hover:active:bg-neutral-300",
+          "dark:border-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 dark:not-disabled:hover:border-neutral-700 dark:not-disabled:hover:bg-neutral-700 dark:not-disabled:hover:active:border-neutral-600 dark:not-disabled:hover:active:bg-neutral-600",
         ],
       },
       {
@@ -57,24 +57,24 @@ const cvaButton = cva(
         variant: "ghost",
         className: [
           "border-transparent bg-transparent",
-          "text-red-700 enabled:hover:border-red-200 enabled:hover:bg-red-200 enabled:hover:active:border-red-300 enabled:hover:active:bg-red-300",
-          "dark:text-red-500 dark:enabled:hover:border-red-900 dark:enabled:hover:bg-red-900 dark:enabled:hover:active:border-red-800 dark:enabled:hover:active:bg-red-800",
+          "text-red-700 not-disabled:hover:border-red-200 not-disabled:hover:bg-red-200 not-disabled:hover:active:border-red-300 not-disabled:hover:active:bg-red-300",
+          "dark:text-red-500 dark:not-disabled:hover:border-red-900 dark:not-disabled:hover:bg-red-900 dark:not-disabled:hover:active:border-red-800 dark:not-disabled:hover:active:bg-red-800",
         ],
       },
       {
         color: "destructive",
         variant: "primary",
         className: [
-          "border-red-600 bg-red-600 text-neutral-100 enabled:hover:border-red-700 enabled:hover:bg-red-700 enabled:hover:active:border-red-800 enabled:hover:active:bg-red-800",
-          "dark:border-red-700 dark:bg-red-700 dark:text-neutral-100 dark:enabled:hover:border-red-600 dark:enabled:hover:bg-red-600 dark:enabled:hover:active:border-red-500 dark:enabled:hover:active:bg-red-500",
+          "border-red-600 bg-red-600 text-neutral-100 not-disabled:hover:border-red-700 not-disabled:hover:bg-red-700 not-disabled:hover:active:border-red-800 not-disabled:hover:active:bg-red-800",
+          "dark:border-red-700 dark:bg-red-700 dark:text-neutral-100 dark:not-disabled:hover:border-red-600 dark:not-disabled:hover:bg-red-600 dark:not-disabled:hover:active:border-red-500 dark:not-disabled:hover:active:bg-red-500",
         ],
       },
       {
         color: "destructive",
         variant: "secondary",
         className: [
-          "border-red-100 bg-red-100 text-red-700 enabled:hover:border-red-200 enabled:hover:bg-red-200 enabled:hover:active:border-red-300 enabled:hover:active:bg-red-300",
-          "dark:border-red-950 dark:bg-red-950 dark:text-red-500 dark:enabled:hover:border-red-900 dark:enabled:hover:bg-red-900 dark:enabled:hover:active:border-red-800 dark:enabled:hover:active:bg-red-800",
+          "border-red-100 bg-red-100 text-red-700 not-disabled:hover:border-red-200 not-disabled:hover:bg-red-200 not-disabled:hover:active:border-red-300 not-disabled:hover:active:bg-red-300",
+          "dark:border-red-950 dark:bg-red-950 dark:text-red-500 dark:not-disabled:hover:border-red-900 dark:not-disabled:hover:bg-red-900 dark:not-disabled:hover:active:border-red-800 dark:not-disabled:hover:active:bg-red-800",
         ],
       },
     ],
