@@ -1,9 +1,9 @@
-import { PlusIcon } from "@heroicons/react/16/solid";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
-import notes from "../../database/notes";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import notes from "@/database/notes";
+import { PlusIcon } from "lucide-react";
 
-const HeaderNewNote = () => {
+export function HeaderNewNote() {
   const label = "New Note";
 
   function handleCreateNote() {
@@ -16,18 +16,15 @@ const HeaderNewNote = () => {
   }
 
   return (
-    <Tooltip label={label} className="sm:invisible">
-      <Button
-        size="sm"
-        variant="solid"
-        aria-label={label}
-        onClick={() => handleCreateNote()}
-      >
-        <PlusIcon aria-hidden={true} />
-        <span className="hidden sm:block">Note</span>
-      </Button>
-    </Tooltip>
+    <Button
+      variant="primary"
+      aria-label={label}
+      onClick={() => handleCreateNote()}
+    >
+      <Icon>
+        <PlusIcon />
+      </Icon>
+      <span>Note</span>
+    </Button>
   );
-};
-
-export default HeaderNewNote;
+}

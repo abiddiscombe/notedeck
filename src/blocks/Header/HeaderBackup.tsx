@@ -1,15 +1,17 @@
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import {
-  ArchiveBoxArrowDownIcon,
-  CheckCircleIcon,
-} from "@heroicons/react/16/solid";
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
+import { backup } from "@/utilities/backup";
+import { convertDate } from "@/utilities/convertDate";
 import saveAs from "file-saver";
+import { CheckIcon, DownloadIcon } from "lucide-react";
 import { useState } from "react";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
-import { backup } from "../../utilities/backup";
-import { convertDate } from "../../utilities/convertDate";
 
-const HeaderBackup = () => {
+export function HeaderBackup() {
   const [backupDone, setBackupDone] = useState(false);
   const label = "Download Backup";
 
@@ -23,18 +25,17 @@ const HeaderBackup = () => {
   }
 
   return (
-    <Tooltip label={label}>
-      <Button
-        size="sm"
-        variant="ghost"
-        aria-label={label}
-        className="bg-neutral-50 dark:bg-neutral-800"
-        onClick={() => handleDownloadBackup()}
-      >
-        {backupDone ? <CheckCircleIcon /> : <ArchiveBoxArrowDownIcon />}
-      </Button>
+    <Tooltip>
+      <TooltipTrigger>
+        <Button
+          size="icon"
+          aria-label={label}
+          onClick={() => handleDownloadBackup()}
+        >
+          <Icon>{backupDone ? <CheckIcon /> : <DownloadIcon />}</Icon>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>{label}</TooltipContent>
     </Tooltip>
   );
-};
-
-export default HeaderBackup;
+}

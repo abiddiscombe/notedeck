@@ -1,14 +1,25 @@
-import { Field, Label } from "@headlessui/react";
-import { TrashIcon } from "@heroicons/react/16/solid";
+import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
+import {
+  Dialog,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from "@/components/ui/Dialog";
+import { Icon } from "@/components/ui/Icon";
+import { Toolset } from "@/components/ui/Toolset";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
+import { Typography } from "@/components/ui/Typography";
+import notes from "@/database/notes";
+import { TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import Button from "../../components/Button";
-import Checkbox from "../../components/Checkbox";
-import Dialog from "../../components/Dialog";
-import Tooltip from "../../components/Tooltip";
-import Typography from "../../components/Typography";
-import notes from "../../database/notes";
 
-const HeaderDeleteNotes = () => {
+export function HeaderDeleteNotes() {
   const [showModal, setShowModal] = useState(false);
   const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);
   const label = "Delete All Notes";
@@ -28,51 +39,66 @@ const HeaderDeleteNotes = () => {
 
   return (
     <>
-      <Dialog
-        title="Confirm Notes Deletion"
-        isOpen={showModal}
-        setIsOpen={() => setShowModal(false)}
-      >
-        <Typography variant="body">
-          Are you sure you want to delete <strong>all stored notes</strong>?
-        </Typography>
-        <Typography variant="body" className="mb-6">
-          You won't be able to recover notes after they have been deleted from
-          your device.
-        </Typography>
-        <Field className="mb-4 mt-2 flex items-center gap-4">
-          <Checkbox
-            state={retainPriorityNotes}
-            setState={() => setRetainPriorityNotes(!retainPriorityNotes)}
-          />
-          <Label className="text-neutral-800 dark:text-neutral-200">
-            Retain notes marked as priority.
-          </Label>
-        </Field>
-        <Button
-          variant="destructive"
-          onClick={() => handleDeleteEverything()}
-          className="mt-8"
-        >
-          <>
-            <TrashIcon />
-            {`Delete ${!retainPriorityNotes ? "all " : ""}notes`}
-          </>
-        </Button>
+      <Dialog open={showModal}>
+        <DialogPortal>
+          <DialogOverlay onClick={() => setShowModal(false)} />
+          <DialogContent>
+            <DialogTitle>
+              <Typography variant="h1">Confirm Notes Deletion</Typography>
+            </DialogTitle>
+            <Typography variant="body">
+              Are you sure you want to delete <strong>all stored notes</strong>?
+            </Typography>
+            <Typography variant="body" className="mb-6">
+              You won't be able to recover notes after they have been deleted
+              from your device.
+            </Typography>
+
+            <form className="mt-2 mb-4 flex items-center gap-4">
+              <Checkbox
+                id="checkbox-delete-all-notes"
+                checked={retainPriorityNotes}
+                onCheckedChange={() =>
+                  setRetainPriorityNotes(!retainPriorityNotes)
+                }
+              />
+              <label
+                htmlFor="checkbox-delete-all-notes"
+                className="text-neutral-800 dark:text-neutral-200"
+              >
+                Retain notes marked as priority.
+              </label>
+            </form>
+            <Toolset className="mt-8">
+              <Button
+                color="destructive"
+                variant="primary"
+                onClick={() => handleDeleteEverything()}
+              >
+                <Icon>
+                  <TrashIcon />
+                </Icon>
+                Delete Notes
+              </Button>
+              <Button onClick={() => setShowModal(false)}>Cancel</Button>
+            </Toolset>
+          </DialogContent>
+        </DialogPortal>
       </Dialog>
-      <Tooltip label={label}>
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-label={label}
-          onClick={() => setShowModal(true)}
-          className="bg-neutral-50 dark:bg-neutral-800"
-        >
-          <TrashIcon />
-        </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            size="icon"
+            aria-label={label}
+            onClick={() => setShowModal(true)}
+          >
+            <Icon>
+              <TrashIcon />
+            </Icon>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>{label}</TooltipContent>
       </Tooltip>
     </>
   );
-};
-
-export default HeaderDeleteNotes;
+}

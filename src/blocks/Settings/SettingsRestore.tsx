@@ -1,15 +1,16 @@
-import { ArrowUpTrayIcon, DocumentCheckIcon } from "@heroicons/react/16/solid";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import { Notice } from "@/components/ui/Notice";
+import { Typography } from "@/components/ui/Typography";
+import { BackupObject, backup } from "@/utilities/backup";
+import { APP_INFO } from "@/utilities/constants";
+import { convertDate } from "@/utilities/convertDate";
+import { CheckIcon, UploadIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
-import Button from "../../components/Button";
-import Notice from "../../components/Notice";
-import Typography from "../../components/Typography";
-import { BackupObject, backup } from "../../utilities/backup";
-import { APP_INFO } from "../../utilities/constants";
-import { convertDate } from "../../utilities/convertDate";
 
-const SettingsRestore = () => {
+export function SettingsRestore() {
   const [parsedBackup, setParsedBackup] = useState<BackupObject>();
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
@@ -54,16 +55,18 @@ const SettingsRestore = () => {
       <Typography variant="body">
         Restore your notes and settings to a previous state.
       </Typography>
-      <div className="mt-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
+      <div className="my-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
         <Button
-          variant="solid"
+          variant="primary"
           onClick={() => openFilePicker()}
           className="shrink-0 rounded-r-none pr-4"
         >
-          <ArrowUpTrayIcon />
+          <Icon>
+            <UploadIcon />
+          </Icon>
           Select File
         </Button>
-        <div className="overflow-hidden text-ellipsis pr-4 text-xs text-neutral-700 dark:text-neutral-200">
+        <div className="overflow-hidden pr-4 text-xs text-ellipsis text-neutral-700 dark:text-neutral-200">
           {filesContent.length ? (
             <span className="font-mono">{filesContent[0].name}</span>
           ) : (
@@ -74,9 +77,8 @@ const SettingsRestore = () => {
 
       {showErrorMessage && (
         <Notice variant="error">
-          Something went wrong whilst reading the backup file.
-          <br />
-          It may be corrupted or incompatible with {APP_INFO.Name}.
+          Something went wrong whilst reading the backup file. It may be
+          corrupted or incompatible with {APP_INFO.Name}.
         </Notice>
       )}
 
@@ -85,35 +87,27 @@ const SettingsRestore = () => {
           <Typography variant="body">
             This backup was created on {parsedBackupDate?.date} at{" "}
             {parsedBackupDate?.hh}:{parsedBackupDate?.mm}.
-            <br />
-            <strong className="block py-2 font-medium">
-              Are you sure you wish to erase all existing notes and settings
-              {parsedBackup?.content.notes.length
-                ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
-                : "? This backup does not contain any notes."}
-            </strong>
           </Typography>
-          <Button
-            variant="destructive"
-            onClick={() => restoreContentFromBackup()}
-          >
-            <>
-              <DocumentCheckIcon />
-              Restore Backup
-            </>
+          <Typography variant="body">
+            Are you sure you wish to erase all existing notes and settings
+            {parsedBackup?.content.notes.length
+              ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
+              : "? This backup does not contain any notes."}
+          </Typography>
+          <Button variant="primary" onClick={() => restoreContentFromBackup()}>
+            <Icon>
+              <CheckIcon />
+            </Icon>
+            Restore Backup
           </Button>
         </Notice>
       )}
 
       {showSuccessMessage && (
         <Notice variant="success">
-          <strong>Restore successful.</strong>
-          <br />
-          Close this dialog to view your restored notes.
+          Restore successful. Close this dialog to view your restored notes.
         </Notice>
       )}
     </div>
   );
-};
-
-export default SettingsRestore;
+}

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin '@headlessui/tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 

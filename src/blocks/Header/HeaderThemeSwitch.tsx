@@ -1,19 +1,20 @@
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import {
-  ComputerDesktopIcon,
-  MoonIcon,
-  SunIcon,
-} from "@heroicons/react/16/solid";
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
+import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import { twJoin } from "tailwind-merge";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
 
 type themeList = "auto" | "dark" | "light";
 const THEME_AUTO = "auto";
 const THEME_DARK = "dark";
 const THEME_LIGHT = "light";
 
-const HeaderThemeSwitch = () => {
+export function HeaderThemeSwitch() {
   const [theme, setTheme] = useState<themeList>(
     localStorage.theme || THEME_AUTO,
   );
@@ -33,56 +34,62 @@ const HeaderThemeSwitch = () => {
 
   return (
     <div className="box-content flex items-center rounded">
-      <Tooltip aria-hidden label={labelAuto}>
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-label={labelAuto}
-          onClick={() => handleThemeChange(THEME_AUTO)}
-          className={twJoin(
-            "rounded-r-none",
-            theme !== THEME_AUTO
-              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-              : "bg-neutral-100 dark:bg-neutral-700",
-          )}
-        >
-          <ComputerDesktopIcon aria-label={labelAuto} />
-        </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            size="icon"
+            aria-label={labelAuto}
+            onClick={() => handleThemeChange(THEME_AUTO)}
+            className={twJoin(
+              "rounded-r-none",
+              theme !== THEME_AUTO ? "" : "bg-neutral-100 dark:bg-neutral-700",
+            )}
+          >
+            <Icon>
+              <MonitorIcon aria-label={labelAuto} />
+            </Icon>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>{labelAuto}</TooltipContent>
       </Tooltip>
-      <Tooltip aria-hidden label={labelDark}>
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-label={labelDark}
-          onClick={() => handleThemeChange(THEME_DARK)}
-          className={twJoin(
-            "rounded-none",
-            theme !== THEME_DARK
-              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-              : "bg-neutral-100 dark:bg-neutral-700",
-          )}
-        >
-          <MoonIcon aria-label={labelDark} />
-        </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            size="icon"
+            aria-label={labelDark}
+            onClick={() => handleThemeChange(THEME_DARK)}
+            className={twJoin(
+              "rounded-none",
+              theme !== THEME_DARK
+                ? ""
+                : "border-neutral-100 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-700",
+            )}
+          >
+            <Icon>
+              <MoonIcon aria-label={labelDark} />
+            </Icon>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>{labelDark}</TooltipContent>
       </Tooltip>
-      <Tooltip aria-hidden label={labelLight}>
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-label={labelLight}
-          onClick={() => handleThemeChange(THEME_LIGHT)}
-          className={twJoin(
-            "rounded-l-none",
-            theme !== THEME_LIGHT
-              ? "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-              : "bg-neutral-100 dark:bg-neutral-700",
-          )}
-        >
-          <SunIcon aria-label={labelLight} />
-        </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            size="icon"
+            aria-label={labelLight}
+            onClick={() => handleThemeChange(THEME_LIGHT)}
+            className={twJoin(
+              "rounded-l-none",
+              theme !== THEME_LIGHT ? "" : "bg-neutral-100 dark:bg-neutral-700",
+            )}
+          >
+            <Icon>
+              <SunIcon aria-label={labelLight} />
+            </Icon>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>{labelLight}</TooltipContent>
       </Tooltip>
     </div>
   );
-};
-
-export default HeaderThemeSwitch;
+}

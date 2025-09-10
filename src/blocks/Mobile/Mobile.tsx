@@ -1,12 +1,14 @@
-import ExternalLink from "../../components/ExternalLink";
-import Typography from "../../components/Typography";
-import { APP_INFO } from "../../utilities/constants";
+import { Link } from "@/components/ui/Link";
+import { Typography } from "@/components/ui/Typography";
+import { APP_INFO } from "@/utilities/constants";
 
-function Mobile() {
+export function Mobile() {
   return (
     <div className="grid h-dvh grid-rows-[auto_1fr] bg-neutral-50 dark:bg-neutral-950">
       <header className="p-10">
-        <Typography variant="h1">{APP_INFO.Name}</Typography>
+        <span className="text-sm font-semibold tracking-tight text-neutral-950 dark:text-neutral-100">
+          {APP_INFO.Name}
+        </span>
       </header>
       <main className="m-auto max-w-sm p-10 pb-20">
         <Typography variant="h2">
@@ -16,13 +18,11 @@ function Mobile() {
           To explore {APP_INFO.Name}, open this page on your desktop or laptop.
         </Typography>
         <Typography variant="body" className="mt-6">
-          <ExternalLink href={APP_INFO.GitHubRepoUrl}>
+          <Link href={APP_INFO.GitHubRepoUrl} target="_blank">
             Learn more about NoteDeck.
-          </ExternalLink>
+          </Link>
         </Typography>
       </main>
     </div>
   );
 }
-
-export default Mobile;

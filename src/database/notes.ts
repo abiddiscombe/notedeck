@@ -13,16 +13,16 @@ export type NoteModifyableFields = {
   isMonospace?: boolean;
 };
 
-const list = async () => {
+async function list() {
   return await db.table(TABLE_NAMES.Notes).toArray();
-};
+}
 
-const getTopZIndex = async () => {
+async function getTopZIndex() {
   const result = await db.table(TABLE_NAMES.Notes).orderBy("posZ").last();
   return result?.posZ || 0;
-};
+}
 
-const create = async (args: {
+async function create(args: {
   theme?: string;
   content?: string;
   posX?: number;
@@ -32,7 +32,7 @@ const create = async (args: {
   posW?: number;
   isPriority?: boolean;
   isMonospace?: boolean;
-}) => {
+}) {
   const lastIndex = await getTopZIndex();
   await db.table(TABLE_NAMES.Notes).add({
     ...args,
@@ -42,17 +42,17 @@ const create = async (args: {
     posW: args.posW || 400,
     posZ: args.posZ || lastIndex + 1,
   });
-};
+}
 
-const modify = async (noteId: IndexableType, content: NoteModifyableFields) => {
+async function modify(noteId: IndexableType, content: NoteModifyableFields) {
   await db.table(TABLE_NAMES.Notes).update(noteId, content);
-};
+}
 
-const remove = async (noteId: IndexableType) => {
+async function remove(noteId: IndexableType) {
   await db.table(TABLE_NAMES.Notes).where("id").equals(noteId).delete();
-};
+}
 
-const removeAll = async (deletePriorityNotes: boolean) => {
+async function removeAll(deletePriorityNotes: boolean) {
   const notes = await db.table(TABLE_NAMES.Notes).toArray();
   notes.forEach(async (note) => {
     if (!deletePriorityNotes && note.isPriority) {
@@ -61,6 +61,6 @@ const removeAll = async (deletePriorityNotes: boolean) => {
 
     await db.table(TABLE_NAMES.Notes).where("id").equals(note.id).delete();
   });
-};
+}
 
 export default { list, create, modify, remove, removeAll, getTopZIndex };

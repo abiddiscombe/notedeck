@@ -1,10 +1,15 @@
-import { StarIcon } from "@heroicons/react/16/solid";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
+import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { useLiveQuery } from "dexie-react-hooks";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
-import settings, { SETTINGS_KEYS } from "../../database/settings";
+import { StarIcon } from "lucide-react";
 
-const HeaderHideNonPriorityNotes = () => {
+export function HeaderHideNonPriorityNotes() {
   const activeSetting = useLiveQuery(() =>
     settings.read(SETTINGS_KEYS.HideNonPriorityNotes),
   );
@@ -16,22 +21,20 @@ const HeaderHideNonPriorityNotes = () => {
   const label = activeSetting ? "Show All Notes" : "Show Priority Notes Only";
 
   return (
-    <Tooltip label={label}>
-      <Button
-        size="sm"
-        variant="ghost"
-        aria-label={label}
-        className={
-          activeSetting
-            ? "bg-neutral-100 dark:bg-neutral-700"
-            : "bg-neutral-50 text-neutral-400 dark:bg-neutral-800 dark:text-neutral-500"
-        }
-        onClick={() => toggleSetting()}
-      >
-        <StarIcon />
-      </Button>
+    <Tooltip>
+      <TooltipTrigger>
+        <Button
+          size="icon"
+          aria-label={label}
+          className={activeSetting ? "bg-neutral-100 dark:bg-neutral-700" : ""}
+          onClick={() => toggleSetting()}
+        >
+          <Icon>
+            <StarIcon />
+          </Icon>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>{label}</TooltipContent>
     </Tooltip>
   );
-};
-
-export default HeaderHideNonPriorityNotes;
+}

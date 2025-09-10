@@ -1,29 +1,35 @@
-import { Cog6ToothIcon } from "@heroicons/react/16/solid";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
+import { SettingsIcon } from "lucide-react";
 import { useState } from "react";
-import Button from "../../components/Button";
-import Tooltip from "../../components/Tooltip";
-import Settings from "../Settings/Settings";
+import { Settings } from "../Settings/Settings";
 
-const HeaderSettings = () => {
+export function HeaderSettings() {
   const [showSettings, setShowSettings] = useState(false);
   const label = "Settings";
 
   return (
     <>
       <Settings isOpen={showSettings} setIsOpen={setShowSettings} />
-      <Tooltip label={label} className="right-0">
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-label={label}
-          onClick={() => setShowSettings(true)}
-          className="bg-neutral-50 dark:bg-neutral-800"
-        >
-          <Cog6ToothIcon />
-        </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            size="icon"
+            aria-label={label}
+            onClick={() => setShowSettings(true)}
+          >
+            <Icon>
+              <SettingsIcon />
+            </Icon>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent align="end">{label}</TooltipContent>
       </Tooltip>
     </>
   );
-};
-
-export default HeaderSettings;
+}
