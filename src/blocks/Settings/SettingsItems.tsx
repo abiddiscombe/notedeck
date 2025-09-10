@@ -1,4 +1,4 @@
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@/components/ui/Switch";
 import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { useLiveQuery } from "dexie-react-hooks";
 

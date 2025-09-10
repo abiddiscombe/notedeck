@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/core/icon";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/Tooltip";
 import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import { twJoin } from "tailwind-merge";

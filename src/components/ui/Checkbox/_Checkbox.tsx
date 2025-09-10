@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { CheckIcon } from "lucide-react";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import { Icon } from "./core/icon";
+import { Icon } from "../Icon";
 
 const cvaCheckbox = cva([
   "flex size-5 items-center justify-center rounded-sm border disabled:cursor-not-allowed disabled:opacity-30",

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/core/icon";
-import { Notice } from "@/components/ui/notice";
-import { Typography } from "@/components/ui/typography";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import { Notice } from "@/components/ui/Notice";
+import { Typography } from "@/components/ui/Typography";
 import { BackupObject, backup } from "@/utilities/backup";
 import { APP_INFO } from "@/utilities/constants";
 import { convertDate } from "@/utilities/convertDate";

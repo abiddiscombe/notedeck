@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import {
   Dialog,
   DialogContent,
   DialogOverlay,
   DialogPortal,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Link } from "@/components/ui/link";
-import { Toolset, ToolsetSpacer } from "@/components/ui/toolset";
-import { Typography } from "@/components/ui/typography";
+} from "@/components/ui/Dialog";
+import { Link } from "@/components/ui/Link";
+import { Toolset, ToolsetSpacer } from "@/components/ui/Toolset";
+import { Typography } from "@/components/ui/Typography";
 import { APP_INFO } from "@/utilities/constants";
 import { SettingsItems } from "./SettingsItems";
 import { SettingsRestore } from "./SettingsRestore";

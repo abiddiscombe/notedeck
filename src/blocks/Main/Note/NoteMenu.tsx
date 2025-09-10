@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/core/icon";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/ui/Popover";
 import { NoteItem } from "@/database/db";
 import notes, { NoteModifyableFields } from "@/database/notes";
 import { themes } from "@/utilities/themes";

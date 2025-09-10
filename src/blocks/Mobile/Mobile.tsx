@@ -1,5 +1,5 @@
-import { Link } from "@/components/ui/link";
-import { Typography } from "@/components/ui/typography";
+import { Link } from "@/components/ui/Link";
+import { Typography } from "@/components/ui/Typography";
 import { APP_INFO } from "@/utilities/constants";
 
 export function Mobile() {

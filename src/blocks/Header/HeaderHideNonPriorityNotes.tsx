@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/core/icon";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/Tooltip";
 import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { useLiveQuery } from "dexie-react-hooks";
 import { StarIcon } from "lucide-react";

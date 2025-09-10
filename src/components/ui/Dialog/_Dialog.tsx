@@ -2,7 +2,7 @@ import * as _Dialog from "@radix-ui/react-dialog";
 import { cva, VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import { Surface } from "./core/surface";
+import { Surface } from "../Surface";
 
 export function Dialog({
   ...passthrough

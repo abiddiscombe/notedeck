@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/ui/core/icon";
-import { Typography } from "@/components/ui/typography";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import { Typography } from "@/components/ui/Typography";
 import notes from "@/database/notes";
 import { APP_INFO } from "@/utilities/constants";
 import { InfoIcon, PlusIcon } from "lucide-react";

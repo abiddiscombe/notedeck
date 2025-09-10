@@ -1,20 +1,20 @@
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Icon } from "@/components/ui/core/icon";
+import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
 import {
   Dialog,
   DialogContent,
   DialogOverlay,
   DialogPortal,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Toolset } from "@/components/ui/toolset";
+} from "@/components/ui/Dialog";
+import { Icon } from "@/components/ui/Icon";
+import { Toolset } from "@/components/ui/Toolset";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Typography } from "@/components/ui/typography";
+} from "@/components/ui/Tooltip";
+import { Typography } from "@/components/ui/Typography";
 import notes from "@/database/notes";
 import { TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";

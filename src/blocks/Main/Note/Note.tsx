@@ -1,4 +1,4 @@
-import { Icon } from "@/components/ui/core/icon";
+import { Icon } from "@/components/ui/Icon";
 import { NoteItem } from "@/database/db";
 import notes from "@/database/notes";
 import { themes } from "@/utilities/themes";
