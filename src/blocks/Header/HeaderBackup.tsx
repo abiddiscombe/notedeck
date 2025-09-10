@@ -11,7 +11,7 @@ import saveAs from "file-saver";
 import { CheckIcon, DownloadIcon } from "lucide-react";
 import { useState } from "react";
 
-const HeaderBackup = () => {
+export function HeaderBackup() {
   const [backupDone, setBackupDone] = useState(false);
   const label = "Download Backup";
 
@@ -38,6 +38,4 @@ const HeaderBackup = () => {
       <TooltipContent>{label}</TooltipContent>
     </Tooltip>
   );
-};
-
-export default HeaderBackup;
+}

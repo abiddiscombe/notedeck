@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 
-const SettingsRestore = () => {
+export function SettingsRestore() {
   const [parsedBackup, setParsedBackup] = useState<BackupObject>();
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
@@ -110,6 +110,4 @@ const SettingsRestore = () => {
       )}
     </div>
   );
-};
-
-export default SettingsRestore;
+}

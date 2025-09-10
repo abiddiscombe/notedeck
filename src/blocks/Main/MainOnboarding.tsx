@@ -3,9 +3,9 @@ import { Icon } from "@/components/ui/core/icon";
 import { Typography } from "@/components/ui/typography";
 import notes from "@/database/notes";
 import { APP_INFO } from "@/utilities/constants";
-import { ExternalLinkIcon, PlusIcon } from "lucide-react";
+import { InfoIcon, PlusIcon } from "lucide-react";
 
-const MainOnboarding = () => {
+export function MainOnboarding() {
   function handleCreateNote() {
     notes.create({
       theme: "yellow",
@@ -34,7 +34,7 @@ const MainOnboarding = () => {
           <Button variant="secondary" asChild>
             <a href={APP_INFO.GitHubRepoUrl} target="_blank">
               <Icon>
-                <ExternalLinkIcon />
+                <InfoIcon />
               </Icon>
               Learn More
             </a>
@@ -43,6 +43,4 @@ const MainOnboarding = () => {
       </div>
     </main>
   );
-};
-
-export default MainOnboarding;
+}

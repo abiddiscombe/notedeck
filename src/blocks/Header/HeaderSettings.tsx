@@ -7,9 +7,9 @@ import {
 } from "@/components/ui/tooltip";
 import { SettingsIcon } from "lucide-react";
 import { useState } from "react";
-import Settings from "../Settings/Settings";
+import { Settings } from "../Settings/Settings";
 
-const HeaderSettings = () => {
+export function HeaderSettings() {
   const [showSettings, setShowSettings] = useState(false);
   const label = "Settings";
 
@@ -32,6 +32,4 @@ const HeaderSettings = () => {
       </Tooltip>
     </>
   );
-};
-
-export default HeaderSettings;
+}

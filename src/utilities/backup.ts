@@ -10,7 +10,7 @@ export type BackupObject = {
   };
 };
 
-const create = async () => {
+async function create() {
   const noteList = await notes.list();
 
   // Represent the user's notes.
@@ -26,9 +26,9 @@ const create = async () => {
   return new Blob([JSON.stringify(backupContent)], {
     type: "application/json",
   });
-};
+}
 
-const unpack = (content: string) => {
+function unpack(content: string) {
   const parsed = JSON.parse(content);
 
   if (!parsed || !parsed.content || !parsed.timestamp) {
@@ -38,14 +38,14 @@ const unpack = (content: string) => {
   }
 
   return parsed;
-};
+}
 
-const restore = async (parsedBackup: BackupObject) => {
+async function restore(parsedBackup: BackupObject) {
   await notes.removeAll(true);
   parsedBackup.content.notes.forEach(async (note: NoteItem) => {
     await notes.create(note);
   });
-};
+}
 
 export const backup = {
   create,

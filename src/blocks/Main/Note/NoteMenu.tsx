@@ -16,14 +16,14 @@ import {
   StarIcon,
   TrashIcon,
 } from "lucide-react";
-import NoteMenuTheme from "./NoteMenuTheme";
+import { NoteMenuTheme } from "./NoteMenuTheme";
 
-const NoteMenu = (
+export function NoteMenu(
   p: React.HTMLAttributes<HTMLDivElement> & {
     noteData: NoteItem;
     handleBringForwards: VoidFunction;
   },
-) => {
+) {
   function handleNoteDelete() {
     notes.remove(p.noteData.id);
   }
@@ -126,6 +126,7 @@ const NoteMenu = (
         <hr className="mb-1 border-neutral-200 dark:border-neutral-500" />
         {menuItems.map((menuItem) => (
           <Button
+            key={menuItem.label}
             color={menuItem.isDestructive ? "destructive" : "neutral"}
             variant="ghost"
             onClick={menuItem.action}
@@ -144,6 +145,4 @@ const NoteMenu = (
       </PopoverContent>
     </Popover>
   );
-};
-
-export default NoteMenu;
+}

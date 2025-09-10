@@ -2,7 +2,7 @@ import { Switch } from "@/components/ui/switch";
 import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { useLiveQuery } from "dexie-react-hooks";
 
-const SettingsItems = () => {
+export function SettingsItems() {
   const useOpaqueNotes = useLiveQuery(() =>
     settings.read(SETTINGS_KEYS.UseOpaqueNotes),
   );
@@ -29,6 +29,4 @@ const SettingsItems = () => {
       />
     </form>
   );
-};
-
-export default SettingsItems;
+}

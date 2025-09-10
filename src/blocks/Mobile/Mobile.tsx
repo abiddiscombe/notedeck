@@ -2,7 +2,7 @@ import { Link } from "@/components/ui/link";
 import { Typography } from "@/components/ui/typography";
 import { APP_INFO } from "@/utilities/constants";
 
-function Mobile() {
+export function Mobile() {
   return (
     <div className="grid h-dvh grid-rows-[auto_1fr] bg-neutral-50 dark:bg-neutral-950">
       <header className="p-10">
@@ -26,5 +26,3 @@ function Mobile() {
     </div>
   );
 }
-
-export default Mobile;

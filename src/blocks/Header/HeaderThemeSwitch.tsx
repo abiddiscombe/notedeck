@@ -14,7 +14,7 @@ const THEME_AUTO = "auto";
 const THEME_DARK = "dark";
 const THEME_LIGHT = "light";
 
-const HeaderThemeSwitch = () => {
+export function HeaderThemeSwitch() {
   const [theme, setTheme] = useState<themeList>(
     localStorage.theme || THEME_AUTO,
   );
@@ -92,6 +92,4 @@ const HeaderThemeSwitch = () => {
       </Tooltip>
     </div>
   );
-};
-
-export default HeaderThemeSwitch;
+}

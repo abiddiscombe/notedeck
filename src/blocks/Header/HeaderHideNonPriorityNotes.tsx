@@ -9,7 +9,7 @@ import settings, { SETTINGS_KEYS } from "@/database/settings";
 import { useLiveQuery } from "dexie-react-hooks";
 import { StarIcon } from "lucide-react";
 
-const HeaderHideNonPriorityNotes = () => {
+export function HeaderHideNonPriorityNotes() {
   const activeSetting = useLiveQuery(() =>
     settings.read(SETTINGS_KEYS.HideNonPriorityNotes),
   );
@@ -37,6 +37,4 @@ const HeaderHideNonPriorityNotes = () => {
       <TooltipContent>{label}</TooltipContent>
     </Tooltip>
   );
-};
-
-export default HeaderHideNonPriorityNotes;
+}

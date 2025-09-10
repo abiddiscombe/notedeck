@@ -6,14 +6,14 @@ import { StarIcon } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { twMerge } from "tailwind-merge";
-import NoteMenu from "./NoteMenu";
+import { NoteMenu } from "./NoteMenu";
 
-const Note = (
+export function Note(
   p: React.HTMLAttributes<HTMLElement> & {
     noteData: NoteItem;
     useOpaqueNotes?: boolean;
   },
-) => {
+) {
   const id = useId();
   const textareaId = useId();
   const nodeRef = useRef<HTMLElement>(null);
@@ -131,6 +131,4 @@ const Note = (
       </article>
     </Draggable>
   );
-};
-
-export default Note;
+}

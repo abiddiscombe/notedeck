@@ -1,14 +1,14 @@
 import notes from "@/database/notes";
 import { APP_INFO } from "@/utilities/constants";
 import { useLiveQuery } from "dexie-react-hooks";
-import HeaderBackup from "./HeaderBackup";
-import HeaderDeleteNotes from "./HeaderDeleteNotes";
-import HeaderHideNonPriorityNotes from "./HeaderHideNonPriorityNotes";
-import HeaderNewNote from "./HeaderNewNote";
-import HeaderSettings from "./HeaderSettings";
-import HeaderThemeSwitch from "./HeaderThemeSwitch";
+import { HeaderBackup } from "./HeaderBackup";
+import { HeaderDeleteNotes } from "./HeaderDeleteNotes";
+import { HeaderHideNonPriorityNotes } from "./HeaderHideNonPriorityNotes";
+import { HeaderNewNote } from "./HeaderNewNote";
+import { HeaderSettings } from "./HeaderSettings";
+import { HeaderThemeSwitch } from "./HeaderThemeSwitch";
 
-const Header = () => {
+export function Header() {
   const noteList = useLiveQuery(() => notes.list());
 
   const userHasNotes = !!noteList?.length;
@@ -35,6 +35,4 @@ const Header = () => {
       </nav>
     </header>
   );
-};
-
-export default Header;
+}

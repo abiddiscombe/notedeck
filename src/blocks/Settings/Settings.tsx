@@ -10,13 +10,13 @@ import { Link } from "@/components/ui/link";
 import { Toolset, ToolsetSpacer } from "@/components/ui/toolset";
 import { Typography } from "@/components/ui/typography";
 import { APP_INFO } from "@/utilities/constants";
-import SettingsItems from "./SettingsItems";
-import SettingsRestore from "./SettingsRestore";
+import { SettingsItems } from "./SettingsItems";
+import { SettingsRestore } from "./SettingsRestore";
 
-const Settings = (p: {
+export function Settings(p: {
   isOpen: boolean;
   setIsOpen: (newIsOpen: boolean) => void;
-}) => {
+}) {
   return (
     <Dialog open={p.isOpen}>
       <DialogPortal>
@@ -48,6 +48,4 @@ const Settings = (p: {
       </DialogPortal>
     </Dialog>
   );
-};
-
-export default Settings;
+}

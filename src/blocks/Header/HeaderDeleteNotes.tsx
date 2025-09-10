@@ -19,7 +19,7 @@ import notes from "@/database/notes";
 import { TrashIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const HeaderDeleteNotes = () => {
+export function HeaderDeleteNotes() {
   const [showModal, setShowModal] = useState(false);
   const [retainPriorityNotes, setRetainPriorityNotes] = useState(true);
   const label = "Delete All Notes";
@@ -101,6 +101,4 @@ const HeaderDeleteNotes = () => {
       </Tooltip>
     </>
   );
-};
-
-export default HeaderDeleteNotes;
+}

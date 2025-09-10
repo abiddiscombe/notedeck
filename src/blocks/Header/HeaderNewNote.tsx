@@ -3,7 +3,7 @@ import { Icon } from "@/components/ui/core/icon";
 import notes from "@/database/notes";
 import { PlusIcon } from "lucide-react";
 
-const HeaderNewNote = () => {
+export function HeaderNewNote() {
   const label = "New Note";
 
   function handleCreateNote() {
@@ -27,6 +27,4 @@ const HeaderNewNote = () => {
       <span>Note</span>
     </Button>
   );
-};
-
-export default HeaderNewNote;
+}
