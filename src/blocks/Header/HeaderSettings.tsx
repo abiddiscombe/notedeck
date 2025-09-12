@@ -19,7 +19,7 @@ export function HeaderSettings() {
       <Tooltip>
         <TooltipTrigger>
           <Button
-            size="icon"
+            ratio="square"
             aria-label={label}
             onClick={() => setShowSettings(true)}
           >

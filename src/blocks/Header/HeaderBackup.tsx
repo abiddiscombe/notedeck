@@ -28,7 +28,7 @@ export function HeaderBackup() {
     <Tooltip>
       <TooltipTrigger>
         <Button
-          size="icon"
+          ratio="square"
           aria-label={label}
           onClick={() => handleDownloadBackup()}
         >

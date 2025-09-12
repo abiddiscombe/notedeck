@@ -88,7 +88,7 @@ export function HeaderDeleteNotes() {
       <Tooltip>
         <TooltipTrigger>
           <Button
-            size="icon"
+            ratio="square"
             aria-label={label}
             onClick={() => setShowModal(true)}
           >

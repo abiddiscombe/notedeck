@@ -24,7 +24,7 @@ export function HeaderHideNonPriorityNotes() {
     <Tooltip>
       <TooltipTrigger>
         <Button
-          size="icon"
+          ratio="square"
           aria-label={label}
           className={activeSetting ? "bg-neutral-100 dark:bg-neutral-700" : ""}
           onClick={() => toggleSetting()}
