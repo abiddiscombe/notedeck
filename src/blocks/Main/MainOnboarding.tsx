@@ -15,15 +15,20 @@ export function MainOnboarding() {
   }
 
   return (
-    <main className="grid place-items-center p-6">
-      <div className="max-w-sm">
-        <Typography variant="h1">Welcome to {APP_INFO.Name}</Typography>
-        <Typography variant="body">
-          {APP_INFO.Name} is a free and private sticky notes board with offline
-          support. Your notes are stored locally in your browser and never leave
-          your device.
+    <main className="grid place-items-center p-6 transition">
+      <div className="flex max-w-2xl flex-col items-center">
+        <Typography
+          variant="h1"
+          className="mb-8 text-center text-5xl font-semibold"
+        >
+          Your Thoughts. Your Space.
         </Typography>
-        <div className="mt-8 flex gap-4">
+        <Typography variant="body" className="max-w-md text-center">
+          {APP_INFO.Name} is a free sticky notes board that works offline. Your
+          notes are saved in your browser and <strong>never</strong> leave your
+          device.
+        </Typography>
+        <div className="mt-4 flex gap-4">
           <Button variant="primary" onClick={() => handleCreateNote()}>
             <Icon>
               <PlusIcon />
