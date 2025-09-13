@@ -63,6 +63,21 @@ export class MySubClassedDexie extends Dexie {
         "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
       settings: "++id, &key, value",
     });
+
+    this.version(4)
+      .stores({
+        notes:
+          "++id, posX, posY, posZ, posH, posW, theme, content, isMonospace",
+        settings: "++id, &key, value",
+      })
+      .upgrade((transaction) => {
+        return transaction
+          .table(TABLE_NAMES.Notes)
+          .toCollection()
+          .modify((note) => {
+            delete note.isPriority;
+          });
+      });
   }
 }
 

@@ -9,7 +9,6 @@ export type NoteModifyableFields = {
   posW?: number;
   theme?: string;
   content?: string;
-  isPriority?: boolean;
   isMonospace?: boolean;
 };
 
@@ -30,7 +29,6 @@ async function create(args: {
   posZ?: number;
   posH?: number;
   posW?: number;
-  isPriority?: boolean;
   isMonospace?: boolean;
 }) {
   const lastIndex = await getTopZIndex();
@@ -52,15 +50,13 @@ async function remove(noteId: IndexableType) {
   await db.table(TABLE_NAMES.Notes).where("id").equals(noteId).delete();
 }
 
-async function removeAll(deletePriorityNotes: boolean) {
-  const notes = await db.table(TABLE_NAMES.Notes).toArray();
-  notes.forEach(async (note) => {
-    if (!deletePriorityNotes && note.isPriority) {
-      return;
-    }
+async function removeAll() {
+  /**
+   * DESTRUCTIVE!
+   * This function will delete all existing notes.
+   */
 
-    await db.table(TABLE_NAMES.Notes).where("id").equals(note.id).delete();
-  });
+  await db.table(TABLE_NAMES.Notes).clear();
 }
 
 export default { list, create, modify, remove, removeAll, getTopZIndex };

@@ -7,9 +7,10 @@ const cvaButton = cva(
   "flex h-8 max-h-8 shrink-0 cursor-pointer items-center justify-center rounded-sm border text-sm disabled:cursor-not-allowed disabled:opacity-30",
   {
     variants: {
-      size: {
-        text: "gap-3 px-3",
-        icon: "w-8.5 max-w-8.5",
+      ratio: {
+        auto: "gap-3 px-3",
+        full: "w-full gap-3 px-3",
+        square: "w-8.5 max-w-8.5",
       },
       color: {
         neutral: null,
@@ -22,7 +23,7 @@ const cvaButton = cva(
       },
     },
     defaultVariants: {
-      size: "text",
+      ratio: "auto",
       color: "neutral",
       variant: "secondary",
     },
@@ -82,7 +83,7 @@ const cvaButton = cva(
 );
 
 export function Button({
-  size,
+  ratio,
   color,
   variant,
   asChild,
@@ -99,7 +100,7 @@ export function Button({
       {...passthrough}
       className={twMerge(
         cvaButton({
-          size,
+          ratio,
           color,
           variant,
           className,

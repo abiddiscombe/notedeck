@@ -41,7 +41,7 @@ function unpack(content: string) {
 }
 
 async function restore(parsedBackup: BackupObject) {
-  await notes.removeAll(true);
+  await notes.removeAll();
   parsedBackup.content.notes.forEach(async (note: NoteItem) => {
     await notes.create(note);
   });

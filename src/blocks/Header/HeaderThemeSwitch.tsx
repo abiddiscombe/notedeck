@@ -37,7 +37,7 @@ export function HeaderThemeSwitch() {
       <Tooltip>
         <TooltipTrigger>
           <Button
-            size="icon"
+            ratio="square"
             aria-label={labelAuto}
             onClick={() => handleThemeChange(THEME_AUTO)}
             className={twJoin(
@@ -55,7 +55,7 @@ export function HeaderThemeSwitch() {
       <Tooltip>
         <TooltipTrigger>
           <Button
-            size="icon"
+            ratio="square"
             aria-label={labelDark}
             onClick={() => handleThemeChange(THEME_DARK)}
             className={twJoin(
@@ -75,7 +75,7 @@ export function HeaderThemeSwitch() {
       <Tooltip>
         <TooltipTrigger>
           <Button
-            size="icon"
+            ratio="square"
             aria-label={labelLight}
             onClick={() => handleThemeChange(THEME_LIGHT)}
             className={twJoin(

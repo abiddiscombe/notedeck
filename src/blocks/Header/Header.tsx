@@ -3,7 +3,6 @@ import { APP_INFO } from "@/utilities/constants";
 import { useLiveQuery } from "dexie-react-hooks";
 import { HeaderBackup } from "./HeaderBackup";
 import { HeaderDeleteNotes } from "./HeaderDeleteNotes";
-import { HeaderHideNonPriorityNotes } from "./HeaderHideNonPriorityNotes";
 import { HeaderNewNote } from "./HeaderNewNote";
 import { HeaderSettings } from "./HeaderSettings";
 import { HeaderThemeSwitch } from "./HeaderThemeSwitch";
@@ -25,7 +24,6 @@ export function Header() {
         {userHasNotes && (
           <>
             <HeaderNewNote />
-            <HeaderHideNonPriorityNotes />
             <HeaderDeleteNotes />
           </>
         )}
