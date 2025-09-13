@@ -13,7 +13,6 @@ import {
   CodeIcon,
   CopyIcon,
   EllipsisIcon,
-  StarIcon,
   TrashIcon,
 } from "lucide-react";
 import { NoteMenuTheme } from "./NoteMenuTheme";
@@ -49,7 +48,6 @@ export function NoteMenu(
       posH: p.noteData.posH,
       theme: p.noteData.theme,
       content: p.noteData.content,
-      isPriority: p.noteData.isPriority,
       isMonospace: p.noteData.isMonospace,
     });
   }
@@ -65,16 +63,6 @@ export function NoteMenu(
           isMonospace: !p.noteData.isMonospace,
         }),
       isActive: p.noteData.isMonospace,
-      isDestructive: false,
-    },
-    {
-      icon: <StarIcon />,
-      label: "Priority",
-      action: () =>
-        handleNoteModify({
-          isPriority: !p.noteData.isPriority,
-        }),
-      isActive: p.noteData.isPriority,
       isDestructive: false,
     },
     {

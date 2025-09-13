@@ -10,7 +10,6 @@ export function HeaderNewNote() {
     notes.create({
       theme: "yellow",
       content: "",
-      isPriority: false,
       isMonospace: false,
     });
   }

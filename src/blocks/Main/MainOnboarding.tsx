@@ -10,7 +10,6 @@ export function MainOnboarding() {
     notes.create({
       theme: "yellow",
       content: "This is your first note! Click here to edit.",
-      isPriority: false,
       isMonospace: false,
     });
   }
