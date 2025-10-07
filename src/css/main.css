@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./resets.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -20,4 +21,42 @@
     -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
     sans-serif;
+}
+
+/**
+ * Set background color at body-level.
+ */
+
+body {
+  @apply bg-neutral-50 dark:bg-neutral-950;
+}
+
+/**
+ * Prevent the "rubber band" overscroll effect.
+ */
+
+html {
+  overflow: hidden;
+
+  body {
+    overflow: auto;
+    height: 100vh;
+    overscroll-behavior: contain;
+  }
+}
+
+/**
+ * Configure default Typography styles.
+ */
+
+h1 {
+  @apply mb-8 text-5xl font-semibold text-neutral-950 dark:text-neutral-100;
+}
+
+h2 {
+  @apply mb-4 text-xl font-semibold text-neutral-950 dark:text-neutral-100;
+}
+
+p {
+  @apply mb-2 text-base text-neutral-700 last-of-type:mb-6 dark:text-neutral-200;
 }
