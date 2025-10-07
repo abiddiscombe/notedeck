@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Notice } from "@/components/ui/Notice";
-import { Typography } from "@/components/ui/Typography";
 import { BackupObject, backup } from "@/utilities/backup";
 import { APP_INFO } from "@/utilities/constants";
 import { convertDate } from "@/utilities/convertDate";
@@ -52,9 +51,7 @@ export function SettingsRestore() {
 
   return (
     <div className="mt-4">
-      <Typography variant="body">
-        Restore your notes and settings to a previous state.
-      </Typography>
+      <p>Restore your notes and settings to a previous state.</p>
       <div className="my-4 flex items-center gap-4 rounded bg-neutral-100 dark:bg-neutral-700">
         <Button
           variant="primary"
@@ -84,16 +81,16 @@ export function SettingsRestore() {
 
       {!showErrorMessage && !!filesContent.length && parsedBackup && (
         <Notice variant="warning">
-          <Typography variant="body">
+          <p>
             This backup was created on {parsedBackupDate?.date} at{" "}
             {parsedBackupDate?.hh}:{parsedBackupDate?.mm}.
-          </Typography>
-          <Typography variant="body">
+          </p>
+          <p>
             Are you sure you wish to erase all existing notes and settings
             {parsedBackup?.content.notes.length
               ? `, and restore ${parsedBackup?.content.notes.length} notes from the backup file?`
               : "? This backup does not contain any notes."}
-          </Typography>
+          </p>
           <Button variant="primary" onClick={() => restoreContentFromBackup()}>
             <Icon>
               <CheckIcon />

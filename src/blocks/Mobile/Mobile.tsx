@@ -1,5 +1,4 @@
 import { Link } from "@/components/ui/Link";
-import { Typography } from "@/components/ui/Typography";
 import { APP_INFO } from "@/utilities/constants";
 
 export function Mobile() {
@@ -11,17 +10,15 @@ export function Mobile() {
         </span>
       </header>
       <main className="m-auto max-w-sm p-10 pb-20">
-        <Typography variant="h2">
-          Sorry, mobile devices are not supported :/
-        </Typography>
-        <Typography variant="body">
+        <h2>Sorry, mobile devices are not supported :/</h2>
+        <p>
           To explore {APP_INFO.Name}, open this page on your desktop or laptop.
-        </Typography>
-        <Typography variant="body" className="mt-6">
+        </p>
+        <p>
           <Link href={APP_INFO.GitHubRepoUrl} target="_blank">
             Learn more about NoteDeck.
           </Link>
-        </Typography>
+        </p>
       </main>
     </div>
   );

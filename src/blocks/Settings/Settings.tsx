@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/Dialog";
 import { Link } from "@/components/ui/Link";
 import { Toolset, ToolsetSpacer } from "@/components/ui/Toolset";
-import { Typography } from "@/components/ui/Typography";
 import { APP_INFO } from "@/utilities/constants";
 import { SettingsItems } from "./SettingsItems";
 import { SettingsRestore } from "./SettingsRestore";
@@ -23,13 +22,13 @@ export function Settings(p: {
         <DialogOverlay onClick={() => p.setIsOpen(false)} />
         <DialogContent>
           <DialogTitle>
-            <Typography variant="h1">Settings</Typography>
+            <h2>Settings</h2>
           </DialogTitle>
-          <Typography variant="body">
+          <p>
             {APP_INFO.Name} is a free and private sticky notes board that works
             offline. Your notes are persisted in the browser and never leave
             your device.
-          </Typography>
+          </p>
           <hr className="my-6 border-neutral-200 dark:border-neutral-600" />
           <SettingsItems />
           <hr className="mt-6 border-neutral-200 dark:border-neutral-600" />
@@ -38,11 +37,11 @@ export function Settings(p: {
           <Toolset className="mt-6">
             <Button onClick={() => p.setIsOpen(false)}>Close</Button>
             <ToolsetSpacer />
-            <Typography variant="body" className="text-sm last-of-type:mb-0">
+            <p className="text-sm last-of-type:mb-0">
               <Link href={APP_INFO.GitHubRepoUrl} target="_blank">
                 {APP_INFO.Name} v{APP_INFO.SemVer}
               </Link>
-            </Typography>
+            </p>
           </Toolset>
         </DialogContent>
       </DialogPortal>

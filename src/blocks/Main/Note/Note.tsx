@@ -118,7 +118,7 @@ export function Note(
           }}
           className={twMerge(
             `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 text-neutral-800 dark:text-neutral-100`,
-            p.noteData.isMonospace && "font-mono text-sm",
+            p.noteData.isMonospace && "font-mono! text-sm!",
           )}
         />
       </article>
