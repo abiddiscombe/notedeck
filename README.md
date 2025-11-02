@@ -6,7 +6,7 @@
 
 ![NoteDeck UI Screenshot](./README-banner.png)
 
-🗒️ Start using NoteDeck at **[notedeck.dev](https://app.notedeck.dev)**
+🗒️ Start using NoteDeck at **[notedeck.dev](https://notedeck.dev)**
 
 **NoteDeck is a free and open-source "sticky notes" board that respects your privacy and works offline as a Progressive Web App (PWA).** Your notes are stored locally in your browser using [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 

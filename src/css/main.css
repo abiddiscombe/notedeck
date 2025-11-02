@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "./resets.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+
+  --color-base-50: var(--color-neutral-50);
+  --color-base-100: var(--color-neutral-100);
+  --color-base-200: var(--color-neutral-200);
+  --color-base-300: var(--color-neutral-300);
+  --color-base-400: var(--color-neutral-400);
+  --color-base-500: var(--color-neutral-500);
+  --color-base-600: var(--color-neutral-600);
+  --color-base-700: var(--color-neutral-700);
+  --color-base-800: var(--color-neutral-800);
+  --color-base-900: var(--color-neutral-900);
+  --color-base-950: var(--color-neutral-950);
+
+  --color-accent-50: var(--color-indigo-50);
+  --color-accent-100: var(--color-indigo-100);
+  --color-accent-200: var(--color-indigo-200);
+  --color-accent-300: var(--color-indigo-300);
+  --color-accent-400: var(--color-indigo-400);
+  --color-accent-500: var(--color-indigo-500);
+  --color-accent-600: var(--color-indigo-600);
+  --color-accent-700: var(--color-indigo-700);
+  --color-accent-800: var(--color-indigo-800);
+  --color-accent-900: var(--color-indigo-900);
+  --color-accent-950: var(--color-indigo-950);
+}
+
+/**
+ * Set background color at body-level.
+ */
+
+body {
+  @apply bg-base-50 dark:bg-base-950;
+}
+
+/**
+ * Prevent the "rubber band" overscroll effect.
+ */
+
+html {
+  overflow: hidden;
+
+  body {
+    overflow: auto;
+    height: 100vh;
+    overscroll-behavior: contain;
+  }
+}
+
+/* *
+ * Custom Tailwind Selectors
+ */
+
+@custom-variant ihover {
+  &:not(:disabled):hover {
+    @slot;
+  }
+}
+
+@custom-variant iactive {
+  &:not(:disabled):hover:active {
+    @slot;
+  }
+}
+
+/**
+ * Configure default Typography styles.
+ */
+
+h1 {
+  @apply text-base-950 dark:text-base-100 mb-8 text-5xl font-semibold;
+}
+
+h2 {
+  @apply text-base-950 dark:text-base-100 mb-4 text-xl font-semibold;
+}
+
+p {
+  @apply text-base-800 dark:text-base-200 mb-2 last-of-type:mb-6;
+}
