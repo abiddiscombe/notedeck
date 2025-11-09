@@ -5,8 +5,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/elements/popover";
-import { NoteItem } from "@/database/db";
-import notes, { NoteModifyableFields } from "@/database/notes";
+import { type ModifiableNoteItem, type NoteItem } from "@/database/models";
+import * as services from "@/database/services";
 import { themes } from "@/utilities/themes";
 import {
   CheckIcon,
@@ -17,31 +17,31 @@ import {
 } from "lucide-react";
 import { NoteMenuTheme } from "./note-menu-theme";
 
-export function NoteMenu(
+export const NoteMenu = (
   p: React.HTMLAttributes<HTMLDivElement> & {
     noteData: NoteItem;
     handleBringForwards: VoidFunction;
   },
-) {
-  function handleNoteDelete() {
-    notes.remove(p.noteData.id);
-  }
+) => {
+  const handleNoteDelete = () => {
+    services.notes.deleteOne(p.noteData.id);
+  };
 
-  function handleNoteModify(updates: NoteModifyableFields) {
-    notes.modify(p.noteData.id, {
+  const handleNoteModify = (updates: ModifiableNoteItem) => {
+    services.notes.updateOne(p.noteData.id, {
       ...p.noteData,
       ...updates,
     });
-  }
+  };
 
-  function handleNoteDuplicate() {
+  const handleNoteDuplicate = () => {
     // (Magic) Add X-20 and Y-120 pixels.
     const maxX = p.noteData.posX + p.noteData.posW + 20;
     const maxY = p.noteData.posY + p.noteData.posH + 120;
     const tooWide = window.innerWidth < maxX;
     const tooTall = window.innerHeight < maxY;
 
-    notes.create({
+    services.notes.createOne({
       posX: p.noteData.posX + (tooWide ? -20 : 20),
       posY: p.noteData.posY + (tooTall ? -20 : 20),
       posW: p.noteData.posW,
@@ -50,7 +50,7 @@ export function NoteMenu(
       content: p.noteData.content,
       isMonospace: p.noteData.isMonospace,
     });
-  }
+  };
 
   const menuThemes = Object.keys(themes);
 
@@ -133,4 +133,4 @@ export function NoteMenu(
       </PopoverContent>
     </Popover>
   );
-}
+};

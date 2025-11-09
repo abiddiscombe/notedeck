@@ -1,27 +1,17 @@
 import { IndexableType } from "dexie";
 import db, { TABLE_NAMES } from "./db";
+import { type ModifiableNoteItem } from "./models";
 
-export type NoteModifyableFields = {
-  posX?: number;
-  posY?: number;
-  posZ?: number;
-  posH?: number;
-  posW?: number;
-  theme?: string;
-  content?: string;
-  isMonospace?: boolean;
+const _getAll = async () => {
+  return await db.table(TABLE_NAMES.Notes).toArray();
 };
 
-async function list() {
-  return await db.table(TABLE_NAMES.Notes).toArray();
-}
-
-async function getTopZIndex() {
+const _getTopZIndex = async () => {
   const result = await db.table(TABLE_NAMES.Notes).orderBy("posZ").last();
   return result?.posZ || 0;
-}
+};
 
-async function create(args: {
+const _createOne = async (args: {
   theme?: string;
   content?: string;
   posX?: number;
@@ -30,8 +20,8 @@ async function create(args: {
   posH?: number;
   posW?: number;
   isMonospace?: boolean;
-}) {
-  const lastIndex = await getTopZIndex();
+}) => {
+  const lastIndex = await _getTopZIndex();
   await db.table(TABLE_NAMES.Notes).add({
     ...args,
     posX: args.posX || 10,
@@ -40,23 +30,28 @@ async function create(args: {
     posW: args.posW || 400,
     posZ: args.posZ || lastIndex + 1,
   });
-}
+};
 
-async function modify(noteId: IndexableType, content: NoteModifyableFields) {
+const _updateOne = async (
+  noteId: IndexableType,
+  content: ModifiableNoteItem,
+) => {
   await db.table(TABLE_NAMES.Notes).update(noteId, content);
-}
+};
 
-async function remove(noteId: IndexableType) {
+const _deleteOne = async (noteId: IndexableType) => {
   await db.table(TABLE_NAMES.Notes).where("id").equals(noteId).delete();
-}
+};
 
-async function removeAll() {
-  /**
-   * DESTRUCTIVE!
-   * This function will delete all existing notes.
-   */
-
+const _deleteAll = async () => {
   await db.table(TABLE_NAMES.Notes).clear();
-}
+};
 
-export default { list, create, modify, remove, removeAll, getTopZIndex };
+export const notes = {
+  getAll: _getAll,
+  createOne: _createOne,
+  updateOne: _updateOne,
+  deleteOne: _deleteOne,
+  deleteAll: _deleteAll,
+  getTopZIndex: _getTopZIndex,
+};

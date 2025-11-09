@@ -1,0 +1,72 @@
+[data-state="open"] {
+  animation: overlayKf 50ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+div[role="dialog"][data-state="open"].place-items-center {
+  animation: contentKf 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+div[role="dialog"][data-state="open"].justify-start {
+  animation: contentKf_L 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+div[role="dialog"][data-state="open"].justify-end {
+  animation: contentKf_R 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+div[role="dialog"][data-state="open"].justify-stretch {
+  animation: contentKf_B 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayKf {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes contentKf {
+  0% {
+    opacity: 0;
+    transform: scale(94%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+
+@keyframes contentKf_L {
+  0% {
+    opacity: 0;
+    transform: translate(-16em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes contentKf_R {
+  0% {
+    opacity: 0;
+    transform: translate(16em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes contentKf_B {
+  0% {
+    opacity: 0;
+    transform: translate(0, 16em);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

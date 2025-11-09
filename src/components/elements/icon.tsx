@@ -14,15 +14,15 @@ const cvaIcon = cva("stroke-[2.5]", {
   },
 });
 
-export function Icon({
+export const Icon = ({
   size,
   className,
   ...passthrough
-}: React.ComponentProps<typeof _Slot.Root> & VariantProps<typeof cvaIcon>) {
+}: React.ComponentProps<typeof _Slot.Root> & VariantProps<typeof cvaIcon>) => {
   return (
     <_Slot.Root
       className={twMerge(cvaIcon({ size, className }))}
       {...passthrough}
     />
   );
-}
+};

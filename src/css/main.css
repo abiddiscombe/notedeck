@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./resets.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -76,14 +75,13 @@ html {
  * Configure default Typography styles.
  */
 
-h1 {
-  @apply text-base-950 dark:text-base-100 mb-8 text-5xl font-semibold;
+h1,
+h2,
+h3 {
+  @apply text-base-900 dark:text-base-100 font-semibold;
 }
 
-h2 {
-  @apply text-base-950 dark:text-base-100 mb-4 text-xl font-semibold;
-}
-
-p {
-  @apply text-base-800 dark:text-base-200 mb-2 last-of-type:mb-6;
+p,
+small {
+  @apply text-base-800 dark:text-base-200;
 }

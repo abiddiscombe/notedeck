@@ -1,17 +1,17 @@
-import { NoteItem } from "@/database/db";
-import notes from "@/database/notes";
+import { type NoteItem } from "@/database/models";
+import * as services from "@/database/services";
 import { themes } from "@/utilities/themes";
 import { useEffect, useId, useRef, useState } from "react";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { twMerge } from "tailwind-merge";
 import { NoteMenu } from "./note-menu";
 
-export function Note(
+export const Note = (
   p: React.HTMLAttributes<HTMLElement> & {
     noteData: NoteItem;
     useOpaqueNotes?: boolean;
   },
-) {
+) => {
   const id = useId();
   const textareaId = useId();
   const nodeRef = useRef<HTMLElement>(null);
@@ -26,22 +26,22 @@ export function Note(
   });
 
   useEffect(() => {
-    notes.modify(p.noteData.id, notePosition);
+    services.notes.updateOne(p.noteData.id, notePosition);
   }, [notePosition, p.noteData.id]);
 
   if (!p.noteData) {
     return null;
   }
 
-  function handleDragEvent(_: DraggableEvent, data: DraggableData) {
+  const handleDragEvent = (_: DraggableEvent, data: DraggableData) => {
     setNotePosition((prevState) => ({
       ...prevState,
       posX: prevState.posX + data.deltaX,
       posY: prevState.posY + data.deltaY,
     }));
-  }
+  };
 
-  function handleResizeEvent() {
+  const handleResizeEvent = () => {
     const textareaSize = textareaRef.current?.getBoundingClientRect();
     if (textareaSize?.width && textareaSize?.height) {
       setNotePosition((prevState) => ({
@@ -50,17 +50,17 @@ export function Note(
         posH: textareaSize.height,
       }));
     }
-  }
+  };
 
-  async function handleBringForwards() {
-    const highestId = await notes.getTopZIndex();
+  const handleBringForwards = async () => {
+    const highestId = await services.notes.getTopZIndex();
     if (highestId !== notePosition.posZ) {
       setNotePosition((prevState) => ({
         ...prevState,
         posZ: highestId + 1,
       }));
     }
-  }
+  };
 
   const theme = themes[p.noteData.theme || "yellow"];
 
@@ -81,9 +81,7 @@ export function Note(
         className={twMerge(
           "absolute rounded shadow-sm",
           p.useOpaqueNotes ? theme.noteOpaque : theme.note,
-          !p.noteData.content &&
-            !p.noteData.isPriority &&
-            "[&:not(:hover)]:animate-pulse",
+          !p.noteData.content && "[&:not(:hover)]:animate-pulse",
         )}
         style={{ zIndex: notePosition.posZ }}
       >
@@ -104,7 +102,7 @@ export function Note(
           id={textareaId}
           ref={textareaRef}
           onChange={() =>
-            notes.modify(p.noteData.id, {
+            services.notes.updateOne(p.noteData.id, {
               content: textareaRef.current?.value,
             })
           }
@@ -124,4 +122,4 @@ export function Note(
       </article>
     </Draggable>
   );
-}
+};

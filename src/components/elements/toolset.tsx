@@ -15,7 +15,7 @@ const cvaToolset = cva("flex gap-3", {
   },
 });
 
-export function Toolset({
+export const Toolset = ({
   asChild,
   direction,
   className,
@@ -23,7 +23,7 @@ export function Toolset({
 }: React.ComponentProps<"div"> &
   VariantProps<typeof cvaToolset> & {
     asChild?: boolean;
-  }) {
+  }) => {
   const Component = asChild ? _Slot.Root : "div";
 
   return (
@@ -32,19 +32,4 @@ export function Toolset({
       {...passthrough}
     />
   );
-}
-
-const cvaToolsetSpacer = cva("grow border-none");
-
-export function ToolsetSpacer({
-  className,
-  ...passthrough
-}: React.ComponentProps<"hr"> & VariantProps<typeof cvaToolsetSpacer>) {
-  return (
-    <hr
-      aria-hidden={true}
-      className={twMerge(cvaToolsetSpacer({ className }))}
-      {...passthrough}
-    />
-  );
-}
+};

@@ -12,7 +12,7 @@ const cvaSurface = cva(
   {
     variants: {
       shadow: {
-        true: "shadow",
+        true: "shadow-md",
         false: null,
       },
     },
@@ -22,7 +22,7 @@ const cvaSurface = cva(
   },
 );
 
-export function Surface({
+export const Surface = ({
   shadow,
   asChild,
   className,
@@ -30,7 +30,7 @@ export function Surface({
 }: React.ComponentProps<"div"> &
   VariantProps<typeof cvaSurface> & {
     asChild?: boolean;
-  }) {
+  }) => {
   const Component = asChild ? _Slot.Root : "div";
 
   return (
@@ -39,4 +39,4 @@ export function Surface({
       {...passthrough}
     />
   );
-}
+};
