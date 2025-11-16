@@ -83,7 +83,7 @@ export const NoteMenu = (
 
   return (
     <Popover>
-      <PopoverTrigger>
+      <PopoverTrigger asChild>
         <Button
           icon={
             <Icon>
@@ -119,7 +119,7 @@ export const NoteMenu = (
             icon={<Icon>{menuItem.icon}</Icon>}
             variant="ghost"
             onClick={menuItem.action}
-            className={`h-8 min-h-8 ${menuItem.isDestructive && "text-red-600 dark:text-red-500"}`}
+            className={`h-8 min-h-8 ${menuItem.isDestructive && "text-red-600 dark:text-red-500 [&>svg]:text-red-600 [&>svg]:dark:text-red-500"}`}
           >
             <>
               <span className="mr-auto">{menuItem.label}</span>

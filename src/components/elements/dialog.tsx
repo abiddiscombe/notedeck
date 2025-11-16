@@ -46,16 +46,16 @@ export const DialogOverlay = ({
 };
 
 const cvaDialogContent = cva(
-  "pointer-events-none! absolute top-0 z-50 grid h-dvh w-full *:pointer-events-auto!",
+  "animate-in *:animate-in fade-in *:fade-in pointer-events-none! absolute top-0 z-50 grid h-dvh w-full *:pointer-events-auto!",
   {
     variants: {
       align: {
-        left: "justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg",
+        left: "*:slide-in-from-left-8 justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg",
         right:
-          "justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg",
+          "*:slide-in-from-right-8 justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg",
         bottom:
-          "items-end justify-stretch *:rounded-b-none *:border-x-0 *:border-b-0 *:shadow-lg",
-        center: "place-items-center *:max-w-lg",
+          "*:slide-in-bottom-8 items-end justify-stretch *:rounded-b-none *:border-x-0 *:border-b-0 *:shadow-lg",
+        center: "*:zoom-in-[96%] place-items-center *:max-w-lg",
       },
     },
     defaultVariants: {
@@ -67,7 +67,6 @@ const cvaDialogContent = cva(
 export const DialogContent = ({
   title,
   align,
-  children,
   className,
   ...passthrough
 }: React.ComponentProps<typeof _Dialog.Content> &
@@ -80,7 +79,7 @@ export const DialogContent = ({
       <_VisuallyHidden.Root asChild={true}>
         <_Dialog.Title>{title}</_Dialog.Title>
       </_VisuallyHidden.Root>
-      <Surface {...passthrough}>{children}</Surface>
+      <Surface {...passthrough} />
     </_Dialog.Content>
   );
 };

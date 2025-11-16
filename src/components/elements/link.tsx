@@ -4,7 +4,7 @@ import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaLink = cva(
-  "underline underline-offset-2 visited:text-inherit hover:decoration-2 hover:active:decoration-3",
+  "text-accent-600 ihover:underline ihover:underline-offset-2 iactive:decoration-2",
 );
 
 export const Link = ({

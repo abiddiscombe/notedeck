@@ -6,12 +6,14 @@ import {
 } from "@/components/elements/dialog";
 import { Icon } from "@/components/elements/icon";
 import { Toolset } from "@/components/elements/toolset";
+import * as services from "@/database/services";
 import {
   BackupObject,
   createBackup,
   restoreBackup,
   unpackBackup,
 } from "@/utilities/backup";
+import { useLiveQuery } from "dexie-react-hooks";
 import saveAs from "file-saver";
 import { DownloadIcon, PackageCheckIcon, UploadIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -23,6 +25,7 @@ export const Settings_DataManagement = ({
 }: {
   closeHostDialog: () => void;
 }) => {
+  const notes = useLiveQuery(() => services.notes.getAll());
   const [backupData, setBackupData] = useState<BackupObject>();
   const [errorEmptyFile, setErrorEmptyFile] = useState<boolean>(false);
   const [errorCorruptedFile, setErrorCorruptedFile] = useState<boolean>(false);
@@ -110,7 +113,7 @@ export const Settings_DataManagement = ({
               <DownloadIcon />
             </Icon>
           }
-          disabled
+          disabled={!notes?.length}
           onClick={handleDownloadBackup}
         >
           Download Backup

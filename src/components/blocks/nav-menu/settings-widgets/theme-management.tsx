@@ -34,8 +34,7 @@ export const Settings_ThemeManagement = () => {
           onClick={() => handleThemeChange(theme.id)}
           className={twMerge(
             "h-fit max-h-fit flex-col items-center gap-1.5 px-2 py-3",
-            theme.id === activeTheme &&
-              "border-accent-600 dark:border-accent-700",
+            theme.id === activeTheme && "border-accent-600!",
           )}
         >
           <Icon size="md">{theme.icon}</Icon>
