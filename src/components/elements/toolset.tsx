@@ -5,19 +5,19 @@ import { twMerge } from "tailwind-merge";
 
 const cvaToolset = cva("flex gap-3", {
   variants: {
-    direction: {
+    axis: {
       x: "flex-row items-center",
       y: "flex-col items-stretch",
     },
   },
   defaultVariants: {
-    direction: "x",
+    axis: "x",
   },
 });
 
 export const Toolset = ({
+  axis,
   asChild,
-  direction,
   className,
   ...passthrough
 }: React.ComponentProps<"div"> &
@@ -28,7 +28,7 @@ export const Toolset = ({
 
   return (
     <Component
-      className={twMerge(cvaToolset({ direction, className }))}
+      className={twMerge(cvaToolset({ axis, className }))}
       {...passthrough}
     />
   );

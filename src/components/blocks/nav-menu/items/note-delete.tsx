@@ -3,7 +3,7 @@ import {
   Dialog,
   DialogContent,
   DialogOverlay,
-} from "@/components/elements/dialog/dialog";
+} from "@/components/elements/dialog";
 import { Icon } from "@/components/elements/icon";
 import { Toolset } from "@/components/elements/toolset";
 import {

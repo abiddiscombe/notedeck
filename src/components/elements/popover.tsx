@@ -1,6 +1,6 @@
 import * as _Popover from "@radix-ui/react-popover";
 import * as React from "react";
-import { Surface } from "./surface";
+import { Surface } from "./core/surface";
 
 export const Popover = ({
   ...passthrough

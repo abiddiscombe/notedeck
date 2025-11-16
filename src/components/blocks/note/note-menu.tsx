@@ -100,7 +100,7 @@ export const NoteMenu = (
         align="end"
         alignOffset={6}
         sideOffset={6}
-        className="flex flex-col gap-1 p-1"
+        className="flex flex-col p-1"
       >
         <div className="flex gap-2 p-1">
           {menuThemes.map((menuTheme) => (
@@ -112,13 +112,14 @@ export const NoteMenu = (
             />
           ))}
         </div>
-        <hr className="border-base-200 dark:border-base-500" />
+        <hr className="border-base-200 dark:border-base-500 my-1" />
         {menuItems.map((menuItem) => (
           <Button
             key={menuItem.label}
             icon={<Icon>{menuItem.icon}</Icon>}
             variant="ghost"
             onClick={menuItem.action}
+            className={`h-8 min-h-8 ${menuItem.isDestructive && "text-red-600 dark:text-red-500"}`}
           >
             <>
               <span className="mr-auto">{menuItem.label}</span>

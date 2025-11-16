@@ -4,11 +4,7 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaSurface = cva(
-  [
-    "rounded-sm p-6",
-    "dark:bg-base-900 bg-white",
-    "dark:border-base-700 border-base-200 border",
-  ],
+  "dark:bg-base-900 dark:border-base-700 border-base-300 rounded border bg-white p-6",
   {
     variants: {
       shadow: {

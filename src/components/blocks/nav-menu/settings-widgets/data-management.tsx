@@ -3,7 +3,7 @@ import {
   Dialog,
   DialogContent,
   DialogOverlay,
-} from "@/components/elements/dialog/dialog";
+} from "@/components/elements/dialog";
 import { Icon } from "@/components/elements/icon";
 import { Toolset } from "@/components/elements/toolset";
 import {
@@ -103,7 +103,7 @@ export const Settings_DataManagement = ({
         Create a backup of your notes to restore them from later, or to transfer
         to a new device.
       </p>
-      <Toolset direction="y">
+      <Toolset axis="y">
         <Button
           icon={
             <Icon>
@@ -171,7 +171,7 @@ export const Settings_DataManagement = ({
                   <PackageCheckIcon />
                 </Icon>
               }
-              variant="primary"
+              variant="solid"
               onClick={handleRestoreBackupFile}
             >
               Restore Notes

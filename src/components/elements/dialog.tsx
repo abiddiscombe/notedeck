@@ -3,8 +3,7 @@ import * as _VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { cva, VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import { Surface } from "../surface";
-import "./dialog.css";
+import { Surface } from "./core/surface";
 
 export const Dialog = ({
   children,
@@ -46,21 +45,24 @@ export const DialogOverlay = ({
   );
 };
 
-const cvaDialogContent = cva("absolute top-0 z-50 grid h-dvh w-full", {
-  variants: {
-    align: {
-      left: "justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg",
-      right:
-        "justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg",
-      bottom:
-        "items-end justify-stretch *:rounded-b-none *:border-x-0 *:border-b-0 *:shadow-lg",
-      center: "place-items-center *:max-w-lg",
+const cvaDialogContent = cva(
+  "pointer-events-none! absolute top-0 z-50 grid h-dvh w-full *:pointer-events-auto!",
+  {
+    variants: {
+      align: {
+        left: "justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg",
+        right:
+          "justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg",
+        bottom:
+          "items-end justify-stretch *:rounded-b-none *:border-x-0 *:border-b-0 *:shadow-lg",
+        center: "place-items-center *:max-w-lg",
+      },
+    },
+    defaultVariants: {
+      align: "center",
     },
   },
-  defaultVariants: {
-    align: "center",
-  },
-});
+);
 
 export const DialogContent = ({
   title,

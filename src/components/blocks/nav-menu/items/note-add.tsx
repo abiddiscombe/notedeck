@@ -19,7 +19,7 @@ export const NoteAdd = () => {
           <PlusIcon />
         </Icon>
       }
-      variant="primary"
+      variant="solid"
       aria-label="Create Note"
       className="mr-1.5 rounded-full"
       onClick={() => createNewNote()}

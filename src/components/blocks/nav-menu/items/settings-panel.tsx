@@ -3,7 +3,7 @@ import {
   Dialog,
   DialogContent,
   DialogOverlay,
-} from "@/components/elements/dialog/dialog";
+} from "@/components/elements/dialog";
 import { Icon } from "@/components/elements/icon";
 import { Link } from "@/components/elements/link";
 import {
@@ -21,7 +21,7 @@ const SettingsGroup = ({
   children,
   ...passthrough
 }: React.ComponentProps<"div"> & { title?: string }) => (
-  <div className="mt-4 mb-6" {...passthrough}>
+  <div className="mt-4 mb-8" {...passthrough}>
     {title && <h3 className="mb-2">{title}</h3>}
     {children}
   </div>
@@ -62,7 +62,7 @@ export const SettingsPanel = () => {
           align="right"
           className="*:px-5 *:py-4.5"
         >
-          <div className="dark:border-base-700 border-base-200 mb-6 flex items-center gap-3 border-b pb-2">
+          <div className="mb-6 flex items-center gap-3">
             <h2 className="text-lg">Settings</h2>
             <Button
               variant="ghost"

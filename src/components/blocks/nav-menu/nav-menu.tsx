@@ -1,4 +1,4 @@
-import { Surface } from "@/components/elements/surface";
+import { Surface } from "@/components/elements/core/surface";
 import * as services from "@/database/services";
 import { useLiveQuery } from "dexie-react-hooks";
 import { NoteAdd } from "./items/note-add";

@@ -23,6 +23,119 @@ export const Base = () => {
     });
   };
 
+  // return (
+  //   <div className="dark:bg-base-900 space-y-2 bg-white p-8">
+  //     <div className="flex gap-2">
+  //       <Button
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="base"
+  //         variant="ghost"
+  //       >
+  //         Button
+  //       </Button>
+  //       <Button
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="base"
+  //         variant="solid"
+  //       >
+  //         Button
+  //       </Button>
+  //       <Button
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="base"
+  //         variant="outlined"
+  //       >
+  //         Button
+  //       </Button>
+  //     </div>
+  //     <div className="flex gap-2">
+  //       <Button
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="destructive"
+  //         variant="ghost"
+  //       >
+  //         Button
+  //       </Button>
+  //       <Button
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="destructive"
+  //         variant="solid"
+  //       >
+  //         Button
+  //       </Button>
+  //       <Button
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="destructive"
+  //         variant="outlined"
+  //       >
+  //         Button
+  //       </Button>
+  //     </div>
+  //     <div className="flex gap-2">
+  //       <Button
+  //         disabled={true}
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="destructive"
+  //         variant="ghost"
+  //       >
+  //         Button
+  //       </Button>
+  //       <Button
+  //         disabled={true}
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="destructive"
+  //         variant="solid"
+  //       >
+  //         Button
+  //       </Button>
+  //       <Button
+  //         disabled={true}
+  //         icon={
+  //           <Icon>
+  //             <SaveIcon />
+  //           </Icon>
+  //         }
+  //         color="destructive"
+  //         variant="outlined"
+  //       >
+  //         Button
+  //       </Button>
+  //     </div>
+  //   </div>
+  // );
+
   return (
     <main
       className={twMerge(
@@ -51,7 +164,7 @@ export const Base = () => {
         notes?.map((note) => <Note key={note.id} noteData={note} />)
       ) : (
         <div className="grid place-items-center">
-          <div className="flex max-w-2xl flex-col items-center">
+          <div className="flex max-w-2xl flex-col items-center pb-20">
             <h2 className="mb-6 text-5xl">Your Thoughts. Your Space.</h2>
             <p className="mb-6 max-w-md text-center">
               NoteDeck is a free sticky notes board that works offline. Your
@@ -64,7 +177,7 @@ export const Base = () => {
                   <PlusIcon />
                 </Icon>
               }
-              variant="primary"
+              variant="solid"
               onClick={() => createFirstNote()}
             >
               Create Note
