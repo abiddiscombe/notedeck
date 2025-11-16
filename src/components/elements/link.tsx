@@ -4,18 +4,18 @@ import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaLink = cva(
-  "underline underline-offset-2 visited:text-inherit hover:decoration-2 hover:active:decoration-3",
+  "text-accent-600 ihover:underline ihover:underline-offset-2 iactive:decoration-2",
 );
 
-export function Link({
+export const Link = ({
   asChild,
   className,
   ...passthrough
 }: React.ComponentProps<"a"> &
-  VariantProps<typeof cvaLink> & { asChild?: boolean }) {
+  VariantProps<typeof cvaLink> & { asChild?: boolean }) => {
   const Component = asChild ? _Slot.Root : "a";
 
   return (
     <Component className={twMerge(cvaLink({ className }))} {...passthrough} />
   );
-}
+};

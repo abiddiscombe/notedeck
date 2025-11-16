@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./resets.css";
+@import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -21,17 +21,29 @@
   --color-base-900: var(--color-neutral-900);
   --color-base-950: var(--color-neutral-950);
 
-  --color-accent-50: var(--color-indigo-50);
-  --color-accent-100: var(--color-indigo-100);
-  --color-accent-200: var(--color-indigo-200);
-  --color-accent-300: var(--color-indigo-300);
-  --color-accent-400: var(--color-indigo-400);
-  --color-accent-500: var(--color-indigo-500);
-  --color-accent-600: var(--color-indigo-600);
-  --color-accent-700: var(--color-indigo-700);
-  --color-accent-800: var(--color-indigo-800);
-  --color-accent-900: var(--color-indigo-900);
-  --color-accent-950: var(--color-indigo-950);
+  --color-accent-50: #edf9ff;
+  --color-accent-100: #d7f1ff;
+  --color-accent-200: #b9e7ff;
+  --color-accent-300: #88dbff;
+  --color-accent-400: #50c5ff;
+  --color-accent-500: #28a6ff;
+  --color-accent-600: #0483ff; /* Base */
+  --color-accent-700: #0a70eb;
+  --color-accent-800: #0f5abe;
+  --color-accent-900: #134e95;
+  --color-accent-950: #11305a;
+
+  --color-destructive-50: var(--color-red-50);
+  --color-destructive-100: var(--color-red-100);
+  --color-destructive-200: var(--color-red-200);
+  --color-destructive-300: var(--color-red-300);
+  --color-destructive-400: var(--color-red-400);
+  --color-destructive-500: var(--color-red-500);
+  --color-destructive-600: var(--color-red-600); /** Base */
+  --color-destructive-700: var(--color-red-700);
+  --color-destructive-800: var(--color-red-800);
+  --color-destructive-900: var(--color-red-900);
+  --color-destructive-950: var(--color-red-950);
 }
 
 /**
@@ -73,17 +85,16 @@ html {
 }
 
 /**
- * Configure default Typography styles.
+ * Configure typography colors.
  */
 
-h1 {
-  @apply text-base-950 dark:text-base-100 mb-8 text-5xl font-semibold;
+h1,
+h2,
+h3 {
+  @apply text-base-950 font-semibold dark:text-white;
 }
 
-h2 {
-  @apply text-base-950 dark:text-base-100 mb-4 text-xl font-semibold;
-}
-
-p {
-  @apply text-base-800 dark:text-base-200 mb-2 last-of-type:mb-6;
+p,
+small {
+  @apply text-base-900 dark:text-base-100;
 }

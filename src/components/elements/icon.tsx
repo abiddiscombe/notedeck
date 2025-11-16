@@ -2,7 +2,7 @@ import * as _Slot from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
-const cvaIcon = cva("stroke-[2.5]", {
+const cvaIcon = cva("text-base-900 dark:text-base-100 stroke-[2.5]", {
   variants: {
     size: {
       sm: "h-3.5 w-3.5",
@@ -14,15 +14,15 @@ const cvaIcon = cva("stroke-[2.5]", {
   },
 });
 
-export function Icon({
+export const Icon = ({
   size,
   className,
   ...passthrough
-}: React.ComponentProps<typeof _Slot.Root> & VariantProps<typeof cvaIcon>) {
+}: React.ComponentProps<typeof _Slot.Root> & VariantProps<typeof cvaIcon>) => {
   return (
     <_Slot.Root
       className={twMerge(cvaIcon({ size, className }))}
       {...passthrough}
     />
   );
-}
+};

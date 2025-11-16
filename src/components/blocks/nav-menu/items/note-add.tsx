@@ -1,18 +1,16 @@
 import { Button } from "@/components/elements/button";
 import { Icon } from "@/components/elements/icon";
-import notes from "@/database/notes";
+import * as services from "@/database/services";
 import { PlusIcon } from "lucide-react";
 
-export function HeaderNewNote() {
-  const label = "New Note";
-
-  function handleCreateNote() {
-    notes.create({
+export const NoteAdd = () => {
+  const createNewNote = () => {
+    services.notes.createOne({
       theme: "yellow",
       content: "",
       isMonospace: false,
     });
-  }
+  };
 
   return (
     <Button
@@ -21,11 +19,12 @@ export function HeaderNewNote() {
           <PlusIcon />
         </Icon>
       }
-      variant="primary"
-      aria-label={label}
-      onClick={() => handleCreateNote()}
+      variant="solid"
+      aria-label="Create Note"
+      className="mr-1.5 rounded-full"
+      onClick={() => createNewNote()}
     >
       Note
     </Button>
   );
-}
+};

@@ -1,72 +1,85 @@
 import * as _Dialog from "@radix-ui/react-dialog";
+import * as _VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { cva, VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
-import { Surface } from "./surface";
+import { Surface } from "./core/surface";
 
-export function Dialog({
+export const Dialog = ({
+  children,
   ...passthrough
-}: React.ComponentProps<typeof _Dialog.Root>) {
-  return <_Dialog.Root {...passthrough} />;
-}
+}: React.ComponentProps<typeof _Dialog.Root>) => {
+  return (
+    <_Dialog.Root {...passthrough}>
+      <_Dialog.Portal>{children}</_Dialog.Portal>
+    </_Dialog.Root>
+  );
+};
 
-// export function DialogTrigger({
-//   ...passthrough
-// }: Omit<React.ComponentProps<typeof _Dialog.Trigger>, "asChild">) {
-//   return <_Dialog.Trigger asChild={true} {...passthrough} />;
-// }
+const cvaDialogOverlay = cva(
+  "absolute top-0 z-50 grid h-dvh w-full bg-neutral-950/20",
+  {
+    variants: {
+      blur: {
+        true: "backdrop-blur-xs",
+        false: null,
+      },
+    },
+    defaultVariants: {
+      blur: false,
+    },
+  },
+);
 
-export function DialogPortal({
-  ...passthrough
-}: React.ComponentProps<typeof _Dialog.Portal>) {
-  return <_Dialog.Portal {...passthrough} />;
-}
-
-// export function DialogClose({
-//   ...passthrough
-// }: Omit<React.ComponentProps<typeof _Dialog.Close>, "asChild">) {
-//   return <_Dialog.Close asChild={true} {...passthrough} />;
-// }
-
-export function DialogTitle({
-  ...passthrough
-}: Omit<React.ComponentProps<typeof _Dialog.Title>, "asChild">) {
-  return <_Dialog.Title asChild={true} {...passthrough} />;
-}
-
-const cvaDialogOverlay = cva("bg-base-950/60 fixed inset-0 z-50");
-
-export function DialogOverlay({
+export const DialogOverlay = ({
+  blur,
   className,
   ...passthrough
 }: React.ComponentProps<typeof _Dialog.Overlay> &
-  VariantProps<typeof cvaDialogOverlay>) {
+  VariantProps<typeof cvaDialogOverlay>) => {
   return (
     <_Dialog.Overlay
-      className={twMerge(cvaDialogOverlay({ className }))}
+      className={twMerge(cvaDialogOverlay({ blur, className }))}
       {...passthrough}
     />
   );
-}
+};
 
 const cvaDialogContent = cva(
-  "fixed top-[50%] left-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%]",
+  "animate-in *:animate-in fade-in *:fade-in pointer-events-none! absolute top-0 z-50 grid h-dvh w-full *:pointer-events-auto!",
+  {
+    variants: {
+      align: {
+        left: "*:slide-in-from-left-8 justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg",
+        right:
+          "*:slide-in-from-right-8 justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg",
+        bottom:
+          "*:slide-in-bottom-8 items-end justify-stretch *:rounded-b-none *:border-x-0 *:border-b-0 *:shadow-lg",
+        center: "*:zoom-in-[96%] place-items-center *:max-w-lg",
+      },
+    },
+    defaultVariants: {
+      align: "center",
+    },
+  },
 );
 
-export function DialogContent({
-  children,
+export const DialogContent = ({
+  title,
+  align,
   className,
   ...passthrough
-}: React.ComponentProps<typeof _Dialog.Content>) {
+}: React.ComponentProps<typeof _Dialog.Content> &
+  VariantProps<typeof cvaDialogContent>) => {
   return (
     <_Dialog.Content
-      asChild={true}
+      className={twMerge(cvaDialogContent({ align, className }))}
       aria-describedby={undefined}
-      {...passthrough}
     >
-      <Surface className={twMerge(cvaDialogContent({ className }))}>
-        {children}
-      </Surface>
+      <_VisuallyHidden.Root asChild={true}>
+        <_Dialog.Title>{title}</_Dialog.Title>
+      </_VisuallyHidden.Root>
+      <Surface {...passthrough} />
     </_Dialog.Content>
   );
-}
+};

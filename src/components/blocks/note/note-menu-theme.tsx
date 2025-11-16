@@ -1,11 +1,11 @@
 import { themes } from "@/utilities/themes";
 import { twMerge } from "tailwind-merge";
 
-export function NoteMenuTheme(p: {
+export const NoteMenuTheme = (p: {
   onClick: VoidFunction;
   themeId: string;
   themeIsActive: boolean;
-}) {
+}) => {
   const theme = themes[p.themeId];
   const ariaLabel = p.themeIsActive
     ? `Use a ${p.themeId} theme for this note.`
@@ -25,4 +25,4 @@ export function NoteMenuTheme(p: {
       aria-label={ariaLabel}
     />
   );
-}
+};

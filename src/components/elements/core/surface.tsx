@@ -4,15 +4,11 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaSurface = cva(
-  [
-    "rounded-sm p-6",
-    "dark:bg-base-900 bg-white",
-    "dark:border-base-700 border-base-200 border",
-  ],
+  "dark:bg-base-900 dark:border-base-700 border-base-300 rounded-md border bg-white p-6",
   {
     variants: {
       shadow: {
-        true: "shadow",
+        true: "shadow-md",
         false: null,
       },
     },
@@ -22,7 +18,7 @@ const cvaSurface = cva(
   },
 );
 
-export function Surface({
+export const Surface = ({
   shadow,
   asChild,
   className,
@@ -30,7 +26,7 @@ export function Surface({
 }: React.ComponentProps<"div"> &
   VariantProps<typeof cvaSurface> & {
     asChild?: boolean;
-  }) {
+  }) => {
   const Component = asChild ? _Slot.Root : "div";
 
   return (
@@ -39,4 +35,4 @@ export function Surface({
       {...passthrough}
     />
   );
-}
+};

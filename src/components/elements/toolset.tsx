@@ -5,46 +5,31 @@ import { twMerge } from "tailwind-merge";
 
 const cvaToolset = cva("flex gap-3", {
   variants: {
-    direction: {
+    axis: {
       x: "flex-row items-center",
       y: "flex-col items-stretch",
     },
   },
   defaultVariants: {
-    direction: "x",
+    axis: "x",
   },
 });
 
-export function Toolset({
+export const Toolset = ({
+  axis,
   asChild,
-  direction,
   className,
   ...passthrough
 }: React.ComponentProps<"div"> &
   VariantProps<typeof cvaToolset> & {
     asChild?: boolean;
-  }) {
+  }) => {
   const Component = asChild ? _Slot.Root : "div";
 
   return (
     <Component
-      className={twMerge(cvaToolset({ direction, className }))}
+      className={twMerge(cvaToolset({ axis, className }))}
       {...passthrough}
     />
   );
-}
-
-const cvaToolsetSpacer = cva("grow border-none");
-
-export function ToolsetSpacer({
-  className,
-  ...passthrough
-}: React.ComponentProps<"hr"> & VariantProps<typeof cvaToolsetSpacer>) {
-  return (
-    <hr
-      aria-hidden={true}
-      className={twMerge(cvaToolsetSpacer({ className }))}
-      {...passthrough}
-    />
-  );
-}
+};
