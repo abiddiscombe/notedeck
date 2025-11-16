@@ -94,7 +94,6 @@ const cvaButton = cva(
 
 export const Button = ({
   icon,
-  color,
   variant,
   asChild,
   children,

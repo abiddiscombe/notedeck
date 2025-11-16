@@ -15,7 +15,7 @@ export const NavMenu = () => {
       asChild={true}
       className={twMerge(
         "*:animate-in *:slide-in-from-end-2 *:fade-in absolute top-3 right-3 z-1000 flex items-center rounded-full",
-        !!notes?.length ? "top-3 right-3 p-1.5" : "top-4.5 right-4.5 p-0",
+        notes?.length ? "top-3 right-3 p-1.5" : "top-4.5 right-4.5 p-0",
       )}
     >
       <nav>
