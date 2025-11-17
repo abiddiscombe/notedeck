@@ -1,4 +1,4 @@
-name: Az Static Web Apps CI/CD (abws-notedeck-prd1)
+name: Deploy to Az Static Web Apps (abws-notedeck-prd1)
 
 on:
   release:
