@@ -17,13 +17,13 @@ export const CheckViewportProvider = ({
         </header>
         <main className="m-auto max-w-sm p-10 pb-20">
           <h2>Sorry, mobile devices are not supported :/</h2>
-          <p>To explore NoteDeck, open this page on your desktop or laptop.</p>
+          <p>To use NoteDeck, open this page on your desktop or laptop.</p>
           <p>
             <Link
               href="https://github.com/abiddiscombe/notedeck"
               target="_blank"
             >
-              Learn more about NoteDeck.
+              Learn more
             </Link>
           </p>
         </main>
