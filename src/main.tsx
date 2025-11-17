@@ -1,4 +1,4 @@
-import { App } from "@/app.tsx";
+import { App } from "@/App.tsx";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { CheckViewportProvider } from "./providers/check-viewport.tsx";
