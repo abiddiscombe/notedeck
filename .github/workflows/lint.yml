@@ -4,7 +4,6 @@ name: Lint
   push:
     branches:
       - dev
-      - main
   pull_request:
     branches:
       - dev
@@ -12,7 +11,7 @@ name: Lint
 
 jobs:
   run-linters:
-    name: Run Linter and Formatter
+    name: Run Linter & Formatter
     runs-on: ubuntu-latest
     steps:
 
@@ -22,7 +21,7 @@ jobs:
       - name: Configure Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 20
+          node-version: 22
         
       - name: Install Dependencies
         run: npm ci

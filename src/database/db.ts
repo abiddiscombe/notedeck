@@ -1,32 +1,12 @@
-import Dexie, { IndexableType, Table } from "dexie";
+import { Dexie, Table } from "dexie";
+import { type NoteItem } from "./models";
 
 enum TABLE_NAMES {
   Notes = "notes",
-  Settings = "settings",
-}
-
-export interface NoteItem {
-  id: IndexableType;
-  posX: number;
-  posY: number;
-  posZ: number;
-  posH: number;
-  posW: number;
-  theme: string;
-  content: string;
-  isPriority: boolean;
-  isMonospace: boolean;
-}
-
-export interface SettingItem {
-  id?: IndexableType;
-  key: string;
-  value: boolean;
 }
 
 export class MySubClassedDexie extends Dexie {
   notes!: Table<NoteItem>;
-  settings!: Table<SettingItem>;
 
   constructor() {
     super("notedeck-db");
@@ -63,6 +43,20 @@ export class MySubClassedDexie extends Dexie {
         "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
       settings: "++id, &key, value",
     });
+
+    this.version(4)
+      .stores({
+        notes:
+          "++id, posX, posY, posZ, posH, posW, theme, content, isMonospace",
+      })
+      .upgrade((transaction) => {
+        return transaction
+          .table(TABLE_NAMES.Notes)
+          .toCollection()
+          .modify((note) => {
+            delete note.isPriority;
+          });
+      });
   }
 }
 

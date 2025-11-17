@@ -4,11 +4,11 @@
 ![GitHub Actions Workflow Status](<https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=dev&label=Linting%20%26%20Formatting%20(dev)>)
 ![GitHub Actions Workflow Status](<https://img.shields.io/github/actions/workflow/status/abiddiscombe/notedeck/lint.yml?branch=main&label=Linting%20%26%20Formatting%20(main)>)
 
-![NoteDeck](./src/assets/ui-light.png)
+![NoteDeck UI Screenshot](./README-banner.png)
 
-🚀 Start using NoteDeck at **[notedeck.dev](https://app.notedeck.dev)**
+🗒️ Start using NoteDeck at **[notedeck.dev](https://notedeck.dev)**
 
-**NoteDeck is a free and open-source alternative to paper notes that respects your privacy and works offline.** Built with Vite and React, your notes are persisted locally to your device as part of your browser's site storage using the [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+**NoteDeck is a free and open-source "sticky notes" board that respects your privacy and works offline as a Progressive Web App (PWA).** Your notes are stored locally in your browser using [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
 Help improve NoteDeck! Use [GitHub Issues](https://github.com/abiddiscombe/notedeck/issues) to record bugs or suggest new features.
 
@@ -17,16 +17,4 @@ Help improve NoteDeck! Use [GitHub Issues](https://github.com/abiddiscombe/noted
 - Light and Dark Modes.
 - Backup & Restore Capability.
 - Installable as a Progressive Web App.
-- Multiple re-sizable "sticky note" themes.
-
-## Release Process
-
-Please see [README-releases.md](/README-releases.md).
-
-## Core Dependencies
-
-- Built with [React](https://react.dev) using [Vite](https://vitejs.dev).
-- [React-Draggable](https://www.npmjs.com/package/react-draggable).
-- [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) with [Dexie](https://dexie.org/).
-- [TailwindCSS](https://tailwindcss.com/), [Hero Icons](https://heroicons.com/), [Headless UI](https://headlessui.com/).
-- Visual assets by [Favicon Generator](https://favicon.io/) and [Undraw Illustrations](https://undraw.co/illustrations).
+- Resizable "sticky notes" with support for multiple themes.

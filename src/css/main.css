@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+
+  --color-base-50: var(--color-neutral-50);
+  --color-base-100: var(--color-neutral-100);
+  --color-base-200: var(--color-neutral-200);
+  --color-base-300: var(--color-neutral-300);
+  --color-base-400: var(--color-neutral-400);
+  --color-base-500: var(--color-neutral-500);
+  --color-base-600: var(--color-neutral-600);
+  --color-base-700: var(--color-neutral-700);
+  --color-base-800: var(--color-neutral-800);
+  --color-base-900: var(--color-neutral-900);
+  --color-base-950: var(--color-neutral-950);
+
+  --color-accent-50: #edf9ff;
+  --color-accent-100: #d7f1ff;
+  --color-accent-200: #b9e7ff;
+  --color-accent-300: #88dbff;
+  --color-accent-400: #50c5ff;
+  --color-accent-500: #28a6ff;
+  --color-accent-600: #0483ff; /* Base */
+  --color-accent-700: #0a70eb;
+  --color-accent-800: #0f5abe;
+  --color-accent-900: #134e95;
+  --color-accent-950: #11305a;
+
+  --color-destructive-50: var(--color-red-50);
+  --color-destructive-100: var(--color-red-100);
+  --color-destructive-200: var(--color-red-200);
+  --color-destructive-300: var(--color-red-300);
+  --color-destructive-400: var(--color-red-400);
+  --color-destructive-500: var(--color-red-500);
+  --color-destructive-600: var(--color-red-600); /** Base */
+  --color-destructive-700: var(--color-red-700);
+  --color-destructive-800: var(--color-red-800);
+  --color-destructive-900: var(--color-red-900);
+  --color-destructive-950: var(--color-red-950);
+}
+
+/**
+ * Set background color at body-level.
+ */
+
+body {
+  @apply bg-base-50 dark:bg-base-950;
+}
+
+/**
+ * Prevent the "rubber band" overscroll effect.
+ */
+
+html {
+  overflow: hidden;
+
+  body {
+    overflow: auto;
+    height: 100vh;
+    overscroll-behavior: contain;
+  }
+}
+
+/* *
+ * Custom Tailwind Selectors
+ */
+
+@custom-variant ihover {
+  &:not(:disabled):hover {
+    @slot;
+  }
+}
+
+@custom-variant iactive {
+  &:not(:disabled):hover:active {
+    @slot;
+  }
+}
+
+/**
+ * Configure typography colors.
+ */
+
+h1,
+h2,
+h3 {
+  @apply text-base-950 font-semibold dark:text-white;
+}
+
+p,
+small {
+  @apply text-base-900 dark:text-base-100;
+}
