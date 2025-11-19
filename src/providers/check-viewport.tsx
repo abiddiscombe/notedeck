@@ -20,7 +20,8 @@ export const CheckViewportProvider = ({
             Sorry, mobile devices are not supported <span aria-hidden>:/</span>
           </h2>
           <p className="mb-8">
-            To explore NoteDeck, open this page on your desktop or laptop.{" "}
+            To explore NoteDeck, open this page on your desktop or laptop.
+            {" "}
             <Link
               href="https://github.com/abiddiscombe/notedeck"
               target="_blank"
