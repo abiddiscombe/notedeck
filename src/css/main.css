@@ -47,14 +47,6 @@
 }
 
 /**
- * Set background color at body-level.
- */
-
-body {
-  @apply bg-base-50 dark:bg-base-950;
-}
-
-/**
  * Prevent the "rubber band" overscroll effect.
  */
 

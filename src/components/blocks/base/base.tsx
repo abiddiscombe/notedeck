@@ -26,7 +26,7 @@ export const Base = () => {
   return (
     <main
       className={twMerge(
-        "h-dvh p-2",
+        "bg-base-50 dark:bg-base-950 h-dvh p-2",
         notesPresent
           ? "relative overflow-auto p-2"
           : "grid grid-rows-[auto_1fr]",
