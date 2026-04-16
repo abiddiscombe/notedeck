@@ -45,3 +45,4 @@ jobs:
           action: "upload"
           app_location: "/"
           output_location: "dist"
+          app_build_command: "pnpm build"
