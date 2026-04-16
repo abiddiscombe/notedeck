@@ -15,7 +15,7 @@ export const Settings_ThemeManagement = () => {
     if (newTheme === "auto") {
       localStorage.removeItem("theme");
     } else {
-      localStorage.theme = newTheme;
+      localStorage.setItem("theme", newTheme);
     }
     window.toggleTheme();
   };

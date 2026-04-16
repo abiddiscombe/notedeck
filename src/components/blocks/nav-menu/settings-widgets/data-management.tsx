@@ -47,13 +47,13 @@ export const Settings_DataManagement = ({
         const _backupData = unpackBackup(filesContent[0].content);
 
         if (_backupData.content.notes.length === 0) {
-          setErrorEmptyFile(true);
+          Promise.resolve().then(() => setErrorEmptyFile(true));
           return;
         }
 
-        setBackupData(_backupData);
+        Promise.resolve().then(() => setBackupData(_backupData));
       } catch {
-        setErrorCorruptedFile(true);
+        Promise.resolve().then(() => setErrorCorruptedFile(true));
       }
     }
   }, [filesContent]);
@@ -144,8 +144,8 @@ export const Settings_DataManagement = ({
       <Dialog
         open={Boolean(
           !errorEmptyFile &&
-            !errorCorruptedFile &&
-            Boolean(backupData?.content.notes.length),
+          !errorCorruptedFile &&
+          Boolean(backupData?.content.notes.length),
         )}
       >
         <DialogOverlay onClick={handleTeardown} />
