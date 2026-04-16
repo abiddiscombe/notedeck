@@ -144,8 +144,8 @@ export const Settings_DataManagement = ({
       <Dialog
         open={Boolean(
           !errorEmptyFile &&
-            !errorCorruptedFile &&
-            Boolean(backupData?.content.notes.length),
+          !errorCorruptedFile &&
+          Boolean(backupData?.content.notes.length),
         )}
       >
         <DialogOverlay onClick={handleTeardown} />

@@ -1,0 +1,47 @@
+name: Release & Deploy NoteDeck (abws-notedeck-prd1)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job_primary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "[ 1 ] Checkout"
+        uses: actions/checkout@v3
+
+      - name: "[ 2 ] Setup Node"
+        uses: actions/setup-node@v1
+        with:
+          node-version: 22
+
+      - name: "[ 3 ] Install PNPM"
+        uses: pnpm/action-setup@v6
+        with:
+          version: latest
+    
+      - name: "[ 4 ] Install Deps"
+        run: pnpm install
+    
+      - name: "[ 5 ] Process Release"
+        run: |
+          git config user.name "notedeck[bot]"
+          git config user.email "76795128+notedeck[bot]@users.noreply.github.com"
+
+          pnpm changeset:version
+
+          git add -A
+          git commit -m "ci: Process release"
+
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "[ 6 ] Deploy to Azure Static Web Apps"
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_STONE_029252903 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          output_location: "dist"

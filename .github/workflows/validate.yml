@@ -20,7 +20,7 @@ jobs:
           node-version: 22
         
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
         
       - name: Run Linter and Formatter
         uses: wearerequired/lint-action@v2
