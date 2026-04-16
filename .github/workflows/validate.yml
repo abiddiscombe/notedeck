@@ -6,23 +6,26 @@ on:
       - main
 
 jobs:
-  run-linters:
-    name: Run Linter & Formatter
+  job_validation:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout Repository
+      - name: "[ 1 ] Checkout"
         uses: actions/checkout@v3
 
-      - name: Configure Node.js
+      - name: "[ 2 ] Setup Node"
         uses: actions/setup-node@v1
         with:
           node-version: 22
-        
-      - name: Install Dependencies
+
+      - name: "[ 3 ] Install PNPM"
+        uses: pnpm/action-setup@v6
+        with:
+          version: latest
+    
+      - name: "[ 4 ] Install Deps"
         run: pnpm install
         
-      - name: Run Linter and Formatter
+      - name: "[ 5 ] Run Code Quality Checks"
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
