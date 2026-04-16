@@ -31,8 +31,13 @@ jobs:
           pnpm changeset:version
 
           git add -A
-          git commit -m "ci: Process release"
 
+          if git diff --cached --quiet && git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "ci: Process release"
           git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
