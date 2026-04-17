@@ -4,7 +4,7 @@ import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaButton = cva(
-  "flex h-9 max-h-9 shrink-0 items-center rounded border text-sm font-medium duration-150",
+  "flex h-9 max-h-9 shrink-0 items-center rounded border text-sm font-medium",
   {
     variants: {
       variant: {
