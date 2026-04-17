@@ -1,4 +1,4 @@
-name: Validate Pull Requests
+name: PR Validation
 
 on:
   pull_request:
@@ -24,9 +24,13 @@ jobs:
     
       - name: "[ 4 ] Install Deps"
         run: pnpm install
+
+      - name: "[ 5A ] Validate: ESLint"
+        run: pnpm lint:ci
+
+      - name: "[ 5B ] Validate: TS Types"
+        run: pnpm types:ci
+      
+      - name: "[ 5C ] Validate: Prettier"
+        run: pnpm format:ci
         
-      - name: "[ 5 ] Run Code Quality Checks"
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
