@@ -17,8 +17,8 @@
     "format": "npx prettier --write ./src",
     "format:ci": "prettier ./src --check",
     "preview": "vite preview",
-    "changeset": "pnpx @changesets/cli",
-    "changeset:version": "pnpx @changesets/cli version"
+    "changeset": "pnpm dlx @changesets/cli",
+    "changeset:version": "pnpm dlx @changesets/cli version"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.3",
