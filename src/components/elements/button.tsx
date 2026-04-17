@@ -4,7 +4,7 @@ import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
 const cvaButton = cva(
-  "flex h-9 max-h-9 shrink-0 items-center rounded border text-sm font-medium duration-150",
+  "flex h-9 max-h-9 shrink-0 items-center rounded border text-sm font-medium",
   {
     variants: {
       variant: {
@@ -56,8 +56,8 @@ const cvaButton = cva(
         disabled: false,
         className: [
           "text-base-800 dark:text-base-200 [&>svg]:text-base-800 [&>svg]:dark:text-base-200",
-          "ihover:bg-base-100 dark:ihover:bg-base-800 iactive:bg-base-200 dark:iactive:bg-base-700",
-          "ihover:border-base-100 dark:ihover:border-base-800 iactive:border-base-200 dark:iactive:border-base-700 border-transparent",
+          "hover:bg-base-100 dark:hover:bg-base-800 active:bg-base-200 dark:active:bg-base-700",
+          "hover:border-base-100 dark:hover:border-base-800 active:border-base-200 dark:active:border-base-700 border-transparent",
         ],
       },
 
@@ -66,8 +66,8 @@ const cvaButton = cva(
         disabled: false,
         className: [
           "text-white [&>svg]:text-white",
-          "ihover:bg-accent-700 dark:ihover:bg-accent-800 iactive:bg-accent-800 dark:iactive:bg-accent-900 bg-accent-600 dark:bg-accent-700",
-          "ihover:border-accent-700 dark:ihover:border-accent-800 iactive:border-accent-800 dark:iactive:border-accent-900 border-accent-600 dark:border-accent-700",
+          "hover:bg-accent-700 dark:hover:bg-accent-800 active:bg-accent-800 dark:active:bg-accent-900 bg-accent-600 dark:bg-accent-700",
+          "hover:border-accent-700 dark:hover:border-accent-800 active:border-accent-800 dark:active:border-accent-900 border-accent-600 dark:border-accent-700",
         ],
       },
       {
@@ -75,7 +75,7 @@ const cvaButton = cva(
         disabled: false,
         className: [
           "text-base-800 dark:text-base-200 [&>svg]:text-base-800 [&>svg]:dark:text-base-200",
-          "dark:bg-base-900 ihover:bg-base-100 dark:ihover:bg-base-800 iactive:bg-base-200 dark:iactive:bg-base-700 bg-white",
+          "dark:bg-base-900 hover:bg-base-100 dark:hover:bg-base-800 active:bg-base-200 dark:active:bg-base-700 bg-white",
           "border-base-300 dark:border-base-700",
         ],
       },
@@ -84,8 +84,8 @@ const cvaButton = cva(
         disabled: false,
         className: [
           "text-white [&>svg]:text-white",
-          "ihover:bg-destructive-700 iactive:bg-destructive-800 dark:ihover:bg-destructive-800 dark:iactive:bg-destructive-900 bg-destructive-600 dark:bg-destructive-700",
-          "ihover:border-destructive-700 iactive:border-destructive-800 dark:ihover:border-destructive-800 dark:iactive:border-destructive-900 border-destructive-600 dark:border-destructive-700",
+          "hover:bg-destructive-700 active:bg-destructive-800 dark:hover:bg-destructive-800 dark:active:bg-destructive-900 bg-destructive-600 dark:bg-destructive-700",
+          "hover:border-destructive-700 active:border-destructive-800 dark:hover:border-destructive-800 dark:active:border-destructive-900 border-destructive-600 dark:border-destructive-700",
         ],
       },
     ],
