@@ -1,5 +1,11 @@
 # notedeck
 
+## 2.1.2
+
+### Patch Changes
+
+- e2d91b7: Updates project dependencies
+
 ## 2.1.1
 
 ### Patch Changes
