@@ -57,11 +57,12 @@ jobs:
       - name: "Build Vite App"
         run: pnpm build
 
-        # == FOR REGISTRY1 DEPLOYMENT ONLY ==
+        # == FOR REGISTRY DEPLOYMENT ONLY ==
       - name: Docker Build & Push
         uses: docker/build-push-action@v7
         with:
           platforms: linux/amd64
+          context: .
           push: true
           tags: |
             ${{ vars.AB_INT_REGISTRY_HOST }}/web:latest
