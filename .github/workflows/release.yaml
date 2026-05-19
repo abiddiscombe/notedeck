@@ -64,8 +64,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            registry1.abiddiscombe.dev/web:latest
-            registry1.abiddiscombe.dev/web:${{ steps.release.outputs.semver }}
+            ${{ vars.AB_INT_REGISTRY_HOST }}/web:latest
+            ${{ vars.AB_INT_REGISTRY_HOST }}/web:${{ steps.release.outputs.semver }}
 
         # == FOR NOTEDECK.DEV DEPLOYMENT ONLY ==
       - name: "[ 7 ] Deploy to Azure Static Web Apps"
