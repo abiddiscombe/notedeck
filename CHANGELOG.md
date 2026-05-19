@@ -1,5 +1,11 @@
 # notedeck
 
+## 2.1.4
+
+### Patch Changes
+
+- 7e08aef: Internal-only changes to support containerised deployments
+
 ## 2.1.3
 
 ### Patch Changes
