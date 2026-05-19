@@ -1,5 +1,12 @@
 # notedeck
 
+## 2.1.3
+
+### Patch Changes
+
+- b52771a: Internal-only changes to support containerised deployments
+- 50f9007: Updates project dependencies
+
 ## 2.1.2
 
 ### Patch Changes
