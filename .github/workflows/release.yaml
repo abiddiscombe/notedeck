@@ -6,24 +6,33 @@ on:
 jobs:
   job_release:
     runs-on: ubuntu-latest
+    environment: prd1
     steps:
-      - name: "[ 1 ] Checkout"
+      - name: "Checkout"
         uses: actions/checkout@v3
 
-      - name: "[ 2 ] Setup Node"
+      - name: "Setup Node"
         uses: actions/setup-node@v1
         with:
           node-version: 22
 
-      - name: "[ 3 ] Install PNPM"
+      - name: Login to AB Internal Registry
+        uses: docker/login-action@v4
+        with:
+          registry: https://${{ vars.AB_INT_REGISTRY_HOST }}
+          username: ${{ vars.AB_INT_REGISTRY_USER }}
+          password: ${{ secrets.AB_INT_REGISTRY_PASS }}
+
+      - name: "Install PNPM"
         uses: pnpm/action-setup@v6
         with:
           version: latest
     
-      - name: "[ 4 ] Install Deps"
+      - name: "Install Dependencies"
         run: pnpm install
     
-      - name: "[ 5 ] Process Release"
+      - name: "Process Release"
+        id: release
         run: |
           git config user.name "notedeck[bot]"
           git config user.email "76795128+notedeck[bot]@users.noreply.github.com"
@@ -39,12 +48,26 @@ jobs:
 
           git commit -m "ci: Process release"
           git push origin HEAD:main
+
+          VERSION=$(node -p "require('./package.json').version")
+          echo "semver=${VERSION}" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "[ 6 ] Build Vite App"
+      - name: "Build Vite App"
         run: pnpm build
 
+        # == FOR REGISTRY1 DEPLOYMENT ONLY ==
+      - name: Docker Build & Push
+        uses: docker/build-push-action@v7
+        with:
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ vars.AB_INT_REGISTRY_HOST }}/web:latest
+            ${{ vars.AB_INT_REGISTRY_HOST }}/web:${{ steps.release.outputs.semver }}
+
+        # == FOR NOTEDECK.DEV DEPLOYMENT ONLY ==
       - name: "[ 7 ] Deploy to Azure Static Web Apps"
         uses: Azure/static-web-apps-deploy@v1
         with:
