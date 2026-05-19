@@ -6,7 +6,7 @@ on:
 jobs:
   job_release:
     runs-on: ubuntu-latest
-    environment: prd1
+    environment: prod1
     steps:
       - name: "Checkout"
         uses: actions/checkout@v3
