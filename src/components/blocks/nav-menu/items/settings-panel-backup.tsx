@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 
-export const Settings_DataManagement = ({
+export const SettingsPanelBackup = ({
   closeHostDialog,
 }: {
   closeHostDialog: () => void;
