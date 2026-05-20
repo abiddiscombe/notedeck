@@ -1,5 +1,16 @@
 # notedeck
 
+## 2.2.0
+
+### Minor Changes
+
+- d24c30d: Removes the theme heading from the settings panel and improves internal code structure
+
+### Patch Changes
+
+- d24c30d: Resolves an issue where note theme selection did not use a pointer-style cursor
+- d24c30d: Resolves an issue where the note menu did not respect a minimum width
+
 ## 2.1.4
 
 ### Patch Changes
