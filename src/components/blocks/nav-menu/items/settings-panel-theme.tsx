@@ -5,7 +5,7 @@ import { LaptopIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const Settings_ThemeManagement = () => {
+export const SettingsPanelTheme = () => {
   const [activeTheme, setActiveTheme] = useState<string>(
     localStorage.theme || "auto",
   );
@@ -27,7 +27,7 @@ export const Settings_ThemeManagement = () => {
   ];
 
   return (
-    <Toolset className="grid grid-cols-[1fr_1fr_1fr]">
+    <Toolset className="mb-8 grid grid-cols-[1fr_1fr_1fr]">
       {themes.map((theme) => (
         <Button
           key={theme.id}

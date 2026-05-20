@@ -13,19 +13,8 @@ import {
 } from "@/components/elements/tooltip";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
-import { Settings_DataManagement } from "../settings-widgets/data-management";
-import { Settings_ThemeManagement } from "../settings-widgets/theme-management";
-
-const SettingsGroup = ({
-  title,
-  children,
-  ...passthrough
-}: React.ComponentProps<"div"> & { title?: string }) => (
-  <div className="mt-4 mb-8" {...passthrough}>
-    {title && <h3 className="mb-2">{title}</h3>}
-    {children}
-  </div>
-);
+import { SettingsPanelBackup } from "./settings-panel-backup";
+import { SettingsPanelTheme } from "./settings-panel-theme";
 
 export const SettingsPanel = () => {
   const [showDialog, setShowDialog] = useState(false);
@@ -76,24 +65,20 @@ export const SettingsPanel = () => {
               }
             />
           </div>
-          <SettingsGroup>
-            <p>
-              <Link
-                href="https://github.com/abiddiscombe/notedeck"
-                target="_blank"
-              >
-                NoteDeck
-              </Link>{" "}
-              is a free sticky notes board that works offline. Your notes are
-              saved in your browser and never leave your device.
-            </p>
-          </SettingsGroup>
-          <SettingsGroup title="Theme">
-            <Settings_ThemeManagement />
-          </SettingsGroup>
-          <SettingsGroup title="Backup & Restore">
-            <Settings_DataManagement closeHostDialog={handleCloseDialog} />
-          </SettingsGroup>
+          <p className="mb-8">
+            <Link
+              href="https://github.com/abiddiscombe/notedeck"
+              target="_blank"
+            >
+              NoteDeck
+            </Link>{" "}
+            is a free sticky notes board that works offline. Your notes are
+            saved in your browser and never leave your device.
+          </p>
+
+          <SettingsPanelTheme />
+          <h3 className="mb-2">Backup & Restore</h3>
+          <SettingsPanelBackup closeHostDialog={handleCloseDialog} />
         </DialogContent>
       </Dialog>
     </>
