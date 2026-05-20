@@ -65,8 +65,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ vars.AB_INT_REGISTRY_HOST }}/web:latest
-            ${{ vars.AB_INT_REGISTRY_HOST }}/web:${{ steps.release.outputs.semver }}
+            ${{ vars.AB_INT_REGISTRY_HOST }}/notes:latest
+            ${{ vars.AB_INT_REGISTRY_HOST }}/notes:${{ steps.release.outputs.semver }}
 
         # == FOR NOTEDECK.DEV DEPLOYMENT ONLY ==
       - name: "[ 7 ] Deploy to Azure Static Web Apps"
