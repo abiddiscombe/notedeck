@@ -102,7 +102,7 @@ export const NoteMenu = (
         sideOffset={6}
         className="flex flex-col p-1"
       >
-        <div className="flex gap-2 p-1">
+        <div className="flex gap-2.5 p-1">
           {menuThemes.map((menuTheme) => (
             <NoteMenuTheme
               key={menuTheme}
