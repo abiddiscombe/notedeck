@@ -1,7 +1,7 @@
 import React from "react";
 import { isMobile } from "react-device-detect";
 
-import { Link } from "@/components/elements/link";
+import { Link } from "#components/elements/link";
 
 export const CheckViewportProvider = ({ children }: React.ComponentProps<"div">) => {
   const showMobileScreen = isMobile;

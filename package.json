@@ -3,6 +3,9 @@
   "version": "2.2.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#*": "./src/*"
+  },
   "scripts": {
     "dev": "vite",
     "lint": "oxlint",

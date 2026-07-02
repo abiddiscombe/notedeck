@@ -2,9 +2,9 @@ import { LaptopIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { Button } from "@/components/elements/button";
-import { Icon } from "@/components/elements/icon";
-import { Toolset } from "@/components/elements/toolset";
+import { Button } from "#components/elements/button";
+import { Icon } from "#components/elements/icon";
+import { Toolset } from "#components/elements/toolset";
 
 export const SettingsPanelTheme = () => {
   const [activeTheme, setActiveTheme] = useState<string>(localStorage.theme || "auto");

@@ -1,11 +1,11 @@
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@/components/elements/button";
-import { Dialog, DialogContent, DialogOverlay } from "@/components/elements/dialog";
-import { Icon } from "@/components/elements/icon";
-import { Link } from "@/components/elements/link";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/elements/tooltip";
+import { Button } from "#components/elements/button";
+import { Dialog, DialogContent, DialogOverlay } from "#components/elements/dialog";
+import { Icon } from "#components/elements/icon";
+import { Link } from "#components/elements/link";
+import { Tooltip, TooltipContent, TooltipTrigger } from "#components/elements/tooltip";
 
 import { SettingsPanelBackup } from "./settings-panel-backup";
 import { SettingsPanelTheme } from "./settings-panel-theme";

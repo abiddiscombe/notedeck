@@ -1,11 +1,11 @@
 import { CheckIcon, CodeIcon, CopyIcon, EllipsisIcon, TrashIcon } from "lucide-react";
 
-import { Button } from "@/components/elements/button";
-import { Icon } from "@/components/elements/icon";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/elements/popover";
-import { type ModifiableNoteItem, type NoteItem } from "@/database/models";
-import * as services from "@/database/services";
-import { themes } from "@/utilities/themes";
+import { Button } from "#components/elements/button";
+import { Icon } from "#components/elements/icon";
+import { Popover, PopoverContent, PopoverTrigger } from "#components/elements/popover";
+import { type ModifiableNoteItem, type NoteItem } from "#database/models";
+import * as services from "#database/services";
+import { themes } from "#utilities/themes";
 
 import { NoteMenuTheme } from "./note-menu-theme";
 

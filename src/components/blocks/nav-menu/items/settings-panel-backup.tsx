@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 
-import { Button } from "@/components/elements/button";
-import { Dialog, DialogContent, DialogOverlay } from "@/components/elements/dialog";
-import { Icon } from "@/components/elements/icon";
-import { Toolset } from "@/components/elements/toolset";
-import * as services from "@/database/services";
-import { BackupObject, createBackup, restoreBackup, unpackBackup } from "@/utilities/backup";
+import { Button } from "#components/elements/button";
+import { Dialog, DialogContent, DialogOverlay } from "#components/elements/dialog";
+import { Icon } from "#components/elements/icon";
+import { Toolset } from "#components/elements/toolset";
+import * as services from "#database/services";
+import { BackupObject, createBackup, restoreBackup, unpackBackup } from "#utilities/backup";
 
 export const SettingsPanelBackup = ({ closeHostDialog }: { closeHostDialog: () => void }) => {
   const notes = useLiveQuery(() => services.notes.getAll());
