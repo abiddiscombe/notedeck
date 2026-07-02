@@ -26,7 +26,7 @@ export const Note = (
   });
 
   useEffect(() => {
-    services.notes.updateOne(p.noteData.id, notePosition);
+    void services.notes.updateOne(p.noteData.id, notePosition);
   }, [notePosition, p.noteData.id]);
 
   if (!p.noteData) {
@@ -81,14 +81,15 @@ export const Note = (
         className={twMerge(
           "absolute rounded shadow-sm",
           p.useOpaqueNotes ? theme.noteOpaque : theme.note,
-          !p.noteData.content && "[&:not(:hover)]:animate-pulse",
+          !p.noteData.content && "not-[&:hover]:animate-pulse",
         )}
         style={{ zIndex: notePosition.posZ }}
       >
         <div className="flex items-stretch rounded-t">
-          <div
+          <button
+            aria-label="Reposition Note"
             onMouseDown={() => handleBringForwards()}
-            className="handle | grow cursor-grab px-2"
+            className="handle grow cursor-grab px-2"
           />
           <NoteMenu
             handleBringForwards={handleBringForwards}

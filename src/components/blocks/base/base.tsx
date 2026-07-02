@@ -16,7 +16,7 @@ export const Base = () => {
   const notesPresent = Boolean(notes?.length);
 
   const createFirstNote = () => {
-    services.notes.createOne({
+    void services.notes.createOne({
       theme: "yellow",
       content: "This is your first note! Click here to edit.",
       isMonospace: false,

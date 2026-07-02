@@ -24,11 +24,11 @@ export const NoteMenu = (
   },
 ) => {
   const handleNoteDelete = () => {
-    services.notes.deleteOne(p.noteData.id);
+    void services.notes.deleteOne(p.noteData.id);
   };
 
   const handleNoteModify = (updates: ModifiableNoteItem) => {
-    services.notes.updateOne(p.noteData.id, {
+    void services.notes.updateOne(p.noteData.id, {
       ...p.noteData,
       ...updates,
     });
@@ -41,7 +41,7 @@ export const NoteMenu = (
     const tooWide = window.innerWidth < maxX;
     const tooTall = window.innerHeight < maxY;
 
-    services.notes.createOne({
+    void services.notes.createOne({
       posX: p.noteData.posX + (tooWide ? -20 : 20),
       posY: p.noteData.posY + (tooTall ? -20 : 20),
       posW: p.noteData.posW,

@@ -47,13 +47,13 @@ export const SettingsPanelBackup = ({
         const _backupData = unpackBackup(filesContent[0].content);
 
         if (_backupData.content.notes.length === 0) {
-          Promise.resolve().then(() => setErrorEmptyFile(true));
+          setErrorEmptyFile(true);
           return;
         }
 
-        Promise.resolve().then(() => setBackupData(_backupData));
+        setBackupData(_backupData);
       } catch {
-        Promise.resolve().then(() => setErrorCorruptedFile(true));
+        setErrorCorruptedFile(true);
       }
     }
   }, [filesContent]);

@@ -5,7 +5,7 @@ import { PlusIcon } from "lucide-react";
 
 export const NoteAdd = () => {
   const createNewNote = () => {
-    services.notes.createOne({
+    void services.notes.createOne({
       theme: "yellow",
       content: "",
       isMonospace: false,
