@@ -1,8 +1,8 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { twMerge } from "tailwind-merge";
 
-import { Surface } from "@/components/elements/core/surface";
-import * as services from "@/database/services";
+import { Surface } from "#components/elements/core/surface";
+import * as services from "#database/services";
 
 import { NoteAdd } from "./items/note-add";
 import { NoteDelete } from "./items/note-delete";

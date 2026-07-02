@@ -2,4 +2,4 @@
 "notedeck": patch
 ---
 
-Upgrades application dependencies
+Upgrades application dependencies.

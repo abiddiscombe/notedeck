@@ -1,12 +1,12 @@
 import { TrashIcon } from "lucide-react";
 import { useState } from "react";
 
-import { Button } from "@/components/elements/button";
-import { Dialog, DialogContent, DialogOverlay } from "@/components/elements/dialog";
-import { Icon } from "@/components/elements/icon";
-import { Toolset } from "@/components/elements/toolset";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/elements/tooltip";
-import * as services from "@/database/services";
+import { Button } from "#components/elements/button";
+import { Dialog, DialogContent, DialogOverlay } from "#components/elements/dialog";
+import { Icon } from "#components/elements/icon";
+import { Toolset } from "#components/elements/toolset";
+import { Tooltip, TooltipContent, TooltipTrigger } from "#components/elements/tooltip";
+import * as services from "#database/services";
 
 export const NoteDelete = () => {
   const [showModal, setShowModal] = useState(false);

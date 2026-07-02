@@ -1,4 +1,4 @@
-import { type NoteItem } from "@/database/models";
+import { type NoteItem } from "#database/models";
 
 import * as services from "../database/services";
 

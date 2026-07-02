@@ -2,9 +2,9 @@ import { useEffect, useId, useRef, useState } from "react";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { twMerge } from "tailwind-merge";
 
-import { type NoteItem } from "@/database/models";
-import * as services from "@/database/services";
-import { themes } from "@/utilities/themes";
+import { type NoteItem } from "#database/models";
+import * as services from "#database/services";
+import { themes } from "#utilities/themes";
 
 import { NoteMenu } from "./note-menu";
 

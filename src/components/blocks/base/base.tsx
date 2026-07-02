@@ -2,10 +2,10 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { PlusIcon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-import { Button } from "@/components/elements/button";
-import { Icon } from "@/components/elements/icon";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/elements/tooltip";
-import * as services from "@/database/services";
+import { Button } from "#components/elements/button";
+import { Icon } from "#components/elements/icon";
+import { Tooltip, TooltipContent, TooltipTrigger } from "#components/elements/tooltip";
+import * as services from "#database/services";
 
 import { Note } from "../note/note";
 

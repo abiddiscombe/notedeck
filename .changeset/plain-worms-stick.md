@@ -2,4 +2,4 @@
 "notedeck": patch
 ---
 
-Migrates formatting from Prettier to Oxfmt
+Migrates formatting from Prettier to [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html).
