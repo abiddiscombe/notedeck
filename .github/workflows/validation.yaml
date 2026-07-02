@@ -19,8 +19,6 @@ jobs:
 
       - name: "Install PNPM"
         uses: pnpm/action-setup@v6
-        with:
-          version: latest
 
       - name: "Install Deps"
         run: pnpm install
