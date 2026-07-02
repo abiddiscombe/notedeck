@@ -1,4 +1,5 @@
 import { Dexie, Table } from "dexie";
+
 import { type NoteItem } from "./models";
 
 enum TABLE_NAMES {
@@ -12,14 +13,12 @@ export class MySubClassedDexie extends Dexie {
     super("notedeck-db");
 
     this.version(1).stores({
-      notes:
-        "++id, theme, content, positionX, positionY, positionZ, isPriority, isMonospace",
+      notes: "++id, theme, content, positionX, positionY, positionZ, isPriority, isMonospace",
     });
 
     this.version(2)
       .stores({
-        notes:
-          "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
+        notes: "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
         settings: "++id, content",
       })
       .upgrade((transaction) => {
@@ -39,15 +38,13 @@ export class MySubClassedDexie extends Dexie {
       });
 
     this.version(3).stores({
-      notes:
-        "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
+      notes: "++id, posX, posY, posZ, posH, posW, theme, content, isPriority, isMonospace",
       settings: "++id, &key, value",
     });
 
     this.version(4)
       .stores({
-        notes:
-          "++id, posX, posY, posZ, posH, posW, theme, content, isMonospace",
+        notes: "++id, posX, posY, posZ, posH, posW, theme, content, isMonospace",
       })
       .upgrade((transaction) => {
         return transaction

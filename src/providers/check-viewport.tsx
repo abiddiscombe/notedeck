@@ -1,17 +1,16 @@
-import { Link } from "@/components/elements/link";
 import React from "react";
 import { isMobile } from "react-device-detect";
 
-export const CheckViewportProvider = ({
-  children,
-}: React.ComponentProps<"div">) => {
+import { Link } from "@/components/elements/link";
+
+export const CheckViewportProvider = ({ children }: React.ComponentProps<"div">) => {
   const showMobileScreen = isMobile;
 
   if (showMobileScreen) {
     return (
-      <div className="bg-base-50 dark:bg-base-950 grid h-dvh grid-rows-[auto_1fr]">
+      <div className="grid h-dvh grid-rows-[auto_1fr] bg-base-50 dark:bg-base-950">
         <header className="p-10">
-          <h1 className="text-base-950 dark:text-base-100 text-lg font-semibold tracking-tight">
+          <h1 className="text-lg font-semibold tracking-tight text-base-950 dark:text-base-100">
             NoteDeck
           </h1>
         </header>
@@ -21,10 +20,7 @@ export const CheckViewportProvider = ({
           </h2>
           <p className="mb-8">
             To explore NoteDeck, open this page on your desktop or laptop.{" "}
-            <Link
-              href="https://github.com/abiddiscombe/notedeck"
-              target="_blank"
-            >
+            <Link href="https://github.com/abiddiscombe/notedeck" target="_blank">
               Learn more.
             </Link>
           </p>

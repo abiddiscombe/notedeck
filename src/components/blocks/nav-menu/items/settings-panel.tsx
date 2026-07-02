@@ -1,18 +1,12 @@
-import { Button } from "@/components/elements/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-} from "@/components/elements/dialog";
-import { Icon } from "@/components/elements/icon";
-import { Link } from "@/components/elements/link";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/elements/tooltip";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
+
+import { Button } from "@/components/elements/button";
+import { Dialog, DialogContent, DialogOverlay } from "@/components/elements/dialog";
+import { Icon } from "@/components/elements/icon";
+import { Link } from "@/components/elements/link";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/elements/tooltip";
+
 import { SettingsPanelBackup } from "./settings-panel-backup";
 import { SettingsPanelTheme } from "./settings-panel-theme";
 
@@ -41,16 +35,9 @@ export const SettingsPanel = () => {
         </TooltipTrigger>
         <TooltipContent align="end">Settings</TooltipContent>
       </Tooltip>
-      <Dialog
-        open={showDialog}
-        onOpenChange={() => setShowDialog((old) => !old)}
-      >
+      <Dialog open={showDialog} onOpenChange={() => setShowDialog((old) => !old)}>
         <DialogOverlay />
-        <DialogContent
-          title="Settings"
-          align="right"
-          className="*:px-5 *:py-4.5"
-        >
+        <DialogContent title="Settings" align="right" className="*:px-5 *:py-4.5">
           <div className="mb-6 flex items-center gap-3">
             <h2 className="text-lg">Settings</h2>
             <Button
@@ -66,14 +53,11 @@ export const SettingsPanel = () => {
             />
           </div>
           <p className="mb-8">
-            <Link
-              href="https://github.com/abiddiscombe/notedeck"
-              target="_blank"
-            >
+            <Link href="https://github.com/abiddiscombe/notedeck" target="_blank">
               NoteDeck
             </Link>{" "}
-            is a free sticky notes board that works offline. Your notes are
-            saved in your browser and never leave your device.
+            is a free sticky notes board that works offline. Your notes are saved in your browser
+            and never leave your device.
           </p>
 
           <SettingsPanelTheme />

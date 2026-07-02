@@ -1,9 +1,11 @@
-import { type NoteItem } from "@/database/models";
-import * as services from "@/database/services";
-import { themes } from "@/utilities/themes";
 import { useEffect, useId, useRef, useState } from "react";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { twMerge } from "tailwind-merge";
+
+import { type NoteItem } from "@/database/models";
+import * as services from "@/database/services";
+import { themes } from "@/utilities/themes";
+
 import { NoteMenu } from "./note-menu";
 
 export const Note = (
@@ -91,10 +93,7 @@ export const Note = (
             onMouseDown={() => handleBringForwards()}
             className="handle grow cursor-grab px-2"
           />
-          <NoteMenu
-            handleBringForwards={handleBringForwards}
-            noteData={p.noteData}
-          />
+          <NoteMenu handleBringForwards={handleBringForwards} noteData={p.noteData} />
         </div>
         <label className="hidden" htmlFor={textareaId}>
           Note Content
@@ -116,7 +115,7 @@ export const Note = (
             height: notePosition.posH,
           }}
           className={twMerge(
-            `text-base-950 dark:text-base-100 min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 font-medium!`,
+            `min-h-[2.6em] min-w-[16em] resize rounded-b bg-white/0 p-2 font-medium! text-base-950 dark:text-base-100`,
             p.noteData.isMonospace && "font-mono! text-sm!",
           )}
         />

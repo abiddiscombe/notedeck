@@ -1,5 +1,6 @@
-import { themes } from "@/utilities/themes";
 import { twMerge } from "tailwind-merge";
+
+import { themes } from "@/utilities/themes";
 
 export const NoteMenuTheme = (p: {
   onClick: VoidFunction;
@@ -18,9 +19,9 @@ export const NoteMenuTheme = (p: {
       disabled={p.themeIsActive}
       aria-label={ariaLabel}
       className={twMerge(
-        "active:ring-base-600 dark:active:ring-base-500 cursor-pointer rounded-full border-4 p-2 active:ring-1",
+        "cursor-pointer rounded-full border-4 p-2 active:ring-1 active:ring-base-600 dark:active:ring-base-500",
         theme.selectionButton,
-        p.themeIsActive && "ring-base-800 dark:ring-base-100 ring-1",
+        p.themeIsActive && "ring-1 ring-base-800 dark:ring-base-100",
       )}
     />
   );

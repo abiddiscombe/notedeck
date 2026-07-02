@@ -1,7 +1,8 @@
+import { PlusIcon } from "lucide-react";
+
 import { Button } from "@/components/elements/button";
 import { Icon } from "@/components/elements/icon";
 import * as services from "@/database/services";
-import { PlusIcon } from "lucide-react";
 
 export const NoteAdd = () => {
   const createNewNote = () => {

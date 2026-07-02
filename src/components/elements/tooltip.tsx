@@ -3,9 +3,7 @@ import { cva } from "class-variance-authority";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
 
-export const Tooltip = ({
-  ...passthrough
-}: React.ComponentProps<typeof _Tooltip.Root>) => {
+export const Tooltip = ({ ...passthrough }: React.ComponentProps<typeof _Tooltip.Root>) => {
   return (
     <_Tooltip.Provider>
       <_Tooltip.Root {...passthrough} />
@@ -20,8 +18,8 @@ export const TooltipTrigger = ({
 };
 
 const cvaTooltipContent = cva([
-  "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 w-max rounded-sm border px-2 py-1 text-center text-xs shadow",
-  "border-base-200 text-base-700 bg-white",
+  "w-max animate-in rounded-sm border px-2 py-1 text-center text-xs shadow fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+  "border-base-200 bg-white text-base-700",
   "dark:border-base-700 dark:bg-base-800 dark:text-base-200",
 ]);
 
