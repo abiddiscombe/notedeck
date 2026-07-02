@@ -1,4 +1,5 @@
 import { type NoteItem } from "@/database/models";
+
 import * as services from "../database/services";
 
 export type BackupObject = {
@@ -32,9 +33,7 @@ export const unpackBackup = (content: string) => {
   const parsed = JSON.parse(content);
 
   if (!parsed || !parsed.content || !parsed.timestamp) {
-    throw new Error(
-      "Failed to restore backup. One or more fields were missing.",
-    );
+    throw new Error("Failed to restore backup. One or more fields were missing.");
   }
 
   return parsed;

@@ -1,18 +1,3 @@
-import { Button } from "@/components/elements/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-} from "@/components/elements/dialog";
-import { Icon } from "@/components/elements/icon";
-import { Toolset } from "@/components/elements/toolset";
-import * as services from "@/database/services";
-import {
-  BackupObject,
-  createBackup,
-  restoreBackup,
-  unpackBackup,
-} from "@/utilities/backup";
 import { useLiveQuery } from "dexie-react-hooks";
 import saveAs from "file-saver";
 import { DownloadIcon, PackageCheckIcon, UploadIcon } from "lucide-react";
@@ -20,11 +5,14 @@ import { useEffect, useState } from "react";
 import { useFilePicker } from "use-file-picker";
 import { FileSizeValidator } from "use-file-picker/validators";
 
-export const SettingsPanelBackup = ({
-  closeHostDialog,
-}: {
-  closeHostDialog: () => void;
-}) => {
+import { Button } from "@/components/elements/button";
+import { Dialog, DialogContent, DialogOverlay } from "@/components/elements/dialog";
+import { Icon } from "@/components/elements/icon";
+import { Toolset } from "@/components/elements/toolset";
+import * as services from "@/database/services";
+import { BackupObject, createBackup, restoreBackup, unpackBackup } from "@/utilities/backup";
+
+export const SettingsPanelBackup = ({ closeHostDialog }: { closeHostDialog: () => void }) => {
   const notes = useLiveQuery(() => services.notes.getAll());
   const [backupData, setBackupData] = useState<BackupObject>();
   const [errorEmptyFile, setErrorEmptyFile] = useState<boolean>(false);
@@ -47,13 +35,13 @@ export const SettingsPanelBackup = ({
         const _backupData = unpackBackup(filesContent[0].content);
 
         if (_backupData.content.notes.length === 0) {
-          Promise.resolve().then(() => setErrorEmptyFile(true));
+          setErrorEmptyFile(true);
           return;
         }
 
-        Promise.resolve().then(() => setBackupData(_backupData));
+        setBackupData(_backupData);
       } catch {
-        Promise.resolve().then(() => setErrorCorruptedFile(true));
+        setErrorCorruptedFile(true);
       }
     }
   }, [filesContent]);
@@ -103,8 +91,7 @@ export const SettingsPanelBackup = ({
   return (
     <>
       <p className="mb-4">
-        Create a backup of your notes to restore them from later, or to transfer
-        to a new device.
+        Create a backup of your notes to restore them from later, or to transfer to a new device.
       </p>
       <Toolset axis="y">
         <Button
@@ -136,27 +123,24 @@ export const SettingsPanelBackup = ({
       )}
       {errorCorruptedFile && (
         <p className="mt-4 text-sm text-red-500!">
-          Sorry, something went wrong whilst reading the backup file. It may be
-          corrupted.
+          Sorry, something went wrong whilst reading the backup file. It may be corrupted.
         </p>
       )}
 
       <Dialog
         open={Boolean(
-          !errorEmptyFile &&
-          !errorCorruptedFile &&
-          Boolean(backupData?.content.notes.length),
+          !errorEmptyFile && !errorCorruptedFile && Boolean(backupData?.content.notes.length),
         )}
       >
         <DialogOverlay onClick={handleTeardown} />
         <DialogContent align="center" title="Restore Backup File">
           <h2 className="mb-4 text-lg">Restore Notes from Backup</h2>
-          <div className="bg-base-100 dark:bg-base-700 text-base-700 dark:text-base-200 mb-4 overflow-hidden rounded px-2 py-1 font-mono text-xs text-ellipsis">
+          <div className="mb-4 overflow-hidden rounded bg-base-100 px-2 py-1 font-mono text-xs text-ellipsis text-base-700 dark:bg-base-700 dark:text-base-200">
             <code>{filesContent[0]?.name}</code>
           </div>
           <p className="mb-2">
-            The selected backup file contains{" "}
-            {backupData?.content.notes?.length} notes and was created on the{" "}
+            The selected backup file contains {backupData?.content.notes?.length} notes and was
+            created on the{" "}
             {new Date(backupData?.timestamp ?? 0).toLocaleDateString("en-gb", {
               year: "numeric",
               month: "long",
@@ -164,9 +148,7 @@ export const SettingsPanelBackup = ({
             })}
             .
           </p>
-          <p className="mb-4">
-            Restoring this backup will erase all existing notes.
-          </p>
+          <p className="mb-4">Restoring this backup will erase all existing notes.</p>
           <Toolset className="mt-8">
             <Button
               icon={

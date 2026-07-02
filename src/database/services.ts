@@ -1,4 +1,5 @@
 import { IndexableType } from "dexie";
+
 import db, { TABLE_NAMES } from "./db";
 import { type ModifiableNoteItem } from "./models";
 
@@ -32,10 +33,7 @@ const _createOne = async (args: {
   });
 };
 
-const _updateOne = async (
-  noteId: IndexableType,
-  content: ModifiableNoteItem,
-) => {
+const _updateOne = async (noteId: IndexableType, content: ModifiableNoteItem) => {
   await db.table(TABLE_NAMES.Notes).update(noteId, content);
 };
 

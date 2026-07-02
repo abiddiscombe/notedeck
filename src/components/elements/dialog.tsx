@@ -3,12 +3,10 @@ import * as _VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { cva, VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { twMerge } from "tailwind-merge";
+
 import { Surface } from "./core/surface";
 
-export const Dialog = ({
-  children,
-  ...passthrough
-}: React.ComponentProps<typeof _Dialog.Root>) => {
+export const Dialog = ({ children, ...passthrough }: React.ComponentProps<typeof _Dialog.Root>) => {
   return (
     <_Dialog.Root {...passthrough}>
       <_Dialog.Portal>{children}</_Dialog.Portal>
@@ -16,46 +14,39 @@ export const Dialog = ({
   );
 };
 
-const cvaDialogOverlay = cva(
-  "absolute top-0 z-50 grid h-dvh w-full bg-neutral-950/20",
-  {
-    variants: {
-      blur: {
-        true: "backdrop-blur-xs",
-        false: null,
-      },
-    },
-    defaultVariants: {
-      blur: false,
+const cvaDialogOverlay = cva("absolute top-0 z-50 grid h-dvh w-full bg-neutral-950/20", {
+  variants: {
+    blur: {
+      true: "backdrop-blur-xs",
+      false: null,
     },
   },
-);
+  defaultVariants: {
+    blur: false,
+  },
+});
 
 export const DialogOverlay = ({
   blur,
   className,
   ...passthrough
-}: React.ComponentProps<typeof _Dialog.Overlay> &
-  VariantProps<typeof cvaDialogOverlay>) => {
+}: React.ComponentProps<typeof _Dialog.Overlay> & VariantProps<typeof cvaDialogOverlay>) => {
   return (
-    <_Dialog.Overlay
-      className={twMerge(cvaDialogOverlay({ blur, className }))}
-      {...passthrough}
-    />
+    <_Dialog.Overlay className={twMerge(cvaDialogOverlay({ blur, className }))} {...passthrough} />
   );
 };
 
 const cvaDialogContent = cva(
-  "animate-in *:animate-in fade-in *:fade-in pointer-events-none! absolute top-0 z-50 grid h-dvh w-full *:pointer-events-auto!",
+  "pointer-events-none! absolute top-0 z-50 grid h-dvh w-full animate-in fade-in *:pointer-events-auto! *:animate-in *:fade-in",
   {
     variants: {
       align: {
-        left: "*:slide-in-from-left-8 justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg",
+        left: "justify-start *:max-w-sm *:min-w-sm *:rounded-l-none *:border-y-0 *:border-l-0 *:shadow-lg *:slide-in-from-left-8",
         right:
-          "*:slide-in-from-right-8 justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg",
+          "justify-end *:max-w-sm *:min-w-sm *:rounded-r-none *:border-y-0 *:border-r-0 *:shadow-lg *:slide-in-from-right-8",
         bottom:
           "*:slide-in-bottom-8 items-end justify-stretch *:rounded-b-none *:border-x-0 *:border-b-0 *:shadow-lg",
-        center: "*:zoom-in-[96%] place-items-center *:max-w-lg",
+        center: "place-items-center *:max-w-lg *:zoom-in-[96%]",
       },
     },
     defaultVariants: {
@@ -69,8 +60,7 @@ export const DialogContent = ({
   align,
   className,
   ...passthrough
-}: React.ComponentProps<typeof _Dialog.Content> &
-  VariantProps<typeof cvaDialogContent>) => {
+}: React.ComponentProps<typeof _Dialog.Content> & VariantProps<typeof cvaDialogContent>) => {
   return (
     <_Dialog.Content
       className={twMerge(cvaDialogContent({ align, className }))}

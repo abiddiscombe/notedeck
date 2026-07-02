@@ -19,18 +19,15 @@ jobs:
 
       - name: "Install PNPM"
         uses: pnpm/action-setup@v6
-        with:
-          version: latest
-    
+
       - name: "Install Deps"
         run: pnpm install
 
-      - name: "Validate: ESLint"
+      - name: "Validate: Linting"
         run: pnpm lint:ci
 
-      - name: "Validate: TS Types"
+      - name: "Validate: TS Checks"
         run: pnpm types:ci
-      
-      - name: "Validate: Prettier"
+
+      - name: "Validate: Code Formatting"
         run: pnpm format:ci
-        

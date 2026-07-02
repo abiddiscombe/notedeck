@@ -26,10 +26,5 @@ export const Toolset = ({
   }) => {
   const Component = asChild ? _Slot.Root : "div";
 
-  return (
-    <Component
-      className={twMerge(cvaToolset({ axis, className }))}
-      {...passthrough}
-    />
-  );
+  return <Component className={twMerge(cvaToolset({ axis, className }))} {...passthrough} />;
 };

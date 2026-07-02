@@ -1,14 +1,12 @@
-import { Button } from "@/components/elements/button";
-import { Icon } from "@/components/elements/icon";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/elements/tooltip";
-import * as services from "@/database/services";
 import { useLiveQuery } from "dexie-react-hooks";
 import { PlusIcon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
+
+import { Button } from "@/components/elements/button";
+import { Icon } from "@/components/elements/icon";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/elements/tooltip";
+import * as services from "@/database/services";
+
 import { Note } from "../note/note";
 
 export const Base = () => {
@@ -16,7 +14,7 @@ export const Base = () => {
   const notesPresent = Boolean(notes?.length);
 
   const createFirstNote = () => {
-    services.notes.createOne({
+    void services.notes.createOne({
       theme: "yellow",
       content: "This is your first note! Click here to edit.",
       isMonospace: false,
@@ -26,19 +24,14 @@ export const Base = () => {
   return (
     <main
       className={twMerge(
-        "bg-base-50 dark:bg-base-950 h-dvh p-2",
-        notesPresent
-          ? "relative overflow-auto p-2"
-          : "grid grid-rows-[auto_1fr]",
+        "h-dvh bg-base-50 p-2 dark:bg-base-950",
+        notesPresent ? "relative overflow-auto p-2" : "grid grid-rows-[auto_1fr]",
       )}
     >
       <div className="px-4 py-3">
         <Tooltip>
           <TooltipTrigger>
-            <h1
-              id="logo"
-              className="inline-block cursor-auto text-lg tracking-tight select-none"
-            >
+            <h1 id="logo" className="inline-block cursor-auto text-lg tracking-tight select-none">
               NoteDeck
             </h1>
           </TooltipTrigger>
@@ -54,9 +47,8 @@ export const Base = () => {
           <div className="flex max-w-2xl flex-col items-center pb-20">
             <h2 className="mb-6 text-5xl">Your Thoughts. Your Space.</h2>
             <p className="mb-6 max-w-md text-center">
-              NoteDeck is a free sticky notes board that works offline. Your
-              notes are saved in your browser and <strong>never</strong> leave
-              your device.
+              NoteDeck is a free sticky notes board that works offline. Your notes are saved in your
+              browser and <strong>never</strong> leave your device.
             </p>
             <Button
               icon={

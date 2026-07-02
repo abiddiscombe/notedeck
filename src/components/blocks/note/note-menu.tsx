@@ -1,20 +1,12 @@
+import { CheckIcon, CodeIcon, CopyIcon, EllipsisIcon, TrashIcon } from "lucide-react";
+
 import { Button } from "@/components/elements/button";
 import { Icon } from "@/components/elements/icon";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/elements/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/elements/popover";
 import { type ModifiableNoteItem, type NoteItem } from "@/database/models";
 import * as services from "@/database/services";
 import { themes } from "@/utilities/themes";
-import {
-  CheckIcon,
-  CodeIcon,
-  CopyIcon,
-  EllipsisIcon,
-  TrashIcon,
-} from "lucide-react";
+
 import { NoteMenuTheme } from "./note-menu-theme";
 
 export const NoteMenu = (
@@ -24,11 +16,11 @@ export const NoteMenu = (
   },
 ) => {
   const handleNoteDelete = () => {
-    services.notes.deleteOne(p.noteData.id);
+    void services.notes.deleteOne(p.noteData.id);
   };
 
   const handleNoteModify = (updates: ModifiableNoteItem) => {
-    services.notes.updateOne(p.noteData.id, {
+    void services.notes.updateOne(p.noteData.id, {
       ...p.noteData,
       ...updates,
     });
@@ -41,7 +33,7 @@ export const NoteMenu = (
     const tooWide = window.innerWidth < maxX;
     const tooTall = window.innerHeight < maxY;
 
-    services.notes.createOne({
+    void services.notes.createOne({
       posX: p.noteData.posX + (tooWide ? -20 : 20),
       posY: p.noteData.posY + (tooTall ? -20 : 20),
       posW: p.noteData.posW,
@@ -93,15 +85,10 @@ export const NoteMenu = (
           variant="ghost"
           aria-label="Menu"
           onClick={p.handleBringForwards}
-          className="hover:bg-base-600/20! active:bg-base-600/40! aria-expanded:bg-base-600/20! rounded-none rounded-tr border-none"
+          className="rounded-none rounded-tr border-none hover:bg-base-600/20! active:bg-base-600/40! aria-expanded:bg-base-600/20!"
         />
       </PopoverTrigger>
-      <PopoverContent
-        align="end"
-        alignOffset={6}
-        sideOffset={6}
-        className="flex flex-col p-1"
-      >
+      <PopoverContent align="end" alignOffset={6} sideOffset={6} className="flex flex-col p-1">
         <div className="flex gap-2.5 p-1">
           {menuThemes.map((menuTheme) => (
             <NoteMenuTheme
@@ -112,7 +99,7 @@ export const NoteMenu = (
             />
           ))}
         </div>
-        <hr className="border-base-200 dark:border-base-500 my-1" />
+        <hr className="my-1 border-base-200 dark:border-base-500" />
         {menuItems.map((menuItem) => (
           <Button
             key={menuItem.label}

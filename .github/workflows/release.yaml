@@ -25,12 +25,10 @@ jobs:
 
       - name: "Install PNPM"
         uses: pnpm/action-setup@v6
-        with:
-          version: latest
-    
+
       - name: "Install Dependencies"
         run: pnpm install
-    
+
       - name: "Process Release"
         id: release
         run: |
