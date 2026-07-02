@@ -10,8 +10,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
+      manifest: false,
       registerType: "autoUpdate",
-      manifest: false, // To avoid confusion use the JSON manifest.
     }),
   ],
   resolve: {
@@ -21,5 +21,11 @@ export default defineConfig({
   },
   define: {
     APP_VERSION: JSON.stringify(process.env.npm_package_version),
+
+    /**
+     * Workaround
+     * https://github.com/react-grid-layout/react-draggable/issues/806
+     */
+    "process.env.DRAGGABLE_DEBUG": JSON.stringify(false),
   },
 });
